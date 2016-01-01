@@ -3,11 +3,11 @@
 # ----------------------- #
 
 url: http://tac0x2a.github.io
-title: TACの雑記
+title: "TACの雑記"
 subtitle:
-author: TAC
+author: "TAC"
 simple_search: https://www.google.com/search
-description: tac0x2aによる雑記です．たまに書きます．
+description: "tac0x2aによる雑記です．たまに書きます．"
 
 # Default date format is "ordinal" (resulting in "July 22nd 2007")
 # You can customize the format as defined in
@@ -27,7 +27,7 @@ email:
 
 # If publishing to a subdirectory as in http://site.com/project set 'root: /project'
 root: /
-permalink: /blog/:year/:month/:day/:title/
+permalink: /:categories/:year/:month/:day/:title/
 source: source
 destination: public
 plugins: plugins
