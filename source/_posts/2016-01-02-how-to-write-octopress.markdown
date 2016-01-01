@@ -17,6 +17,7 @@ $ git clone git@github.com:tac0x2a/tac0x2a.github.io.git
 $ cd tac0x2a.github.io
 $ git checkout source
 $ rbenv exec bundle install
+$ git clone git@github.com:tac0x2a/tac0x2a.github.io.git _deploy
 ```
 
 ## 記事を書く
@@ -37,7 +38,6 @@ $ git add source/_posts/<yyyy-mm-dd->'EntryTitle'.markdown
 $ git commit -m "Add new post."
 $ git push origin source:source
 ```
-
 
 ## 記事を公開する
 ```
