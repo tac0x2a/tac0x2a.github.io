@@ -1,4 +1,4 @@
 User-agent: *
-Disallow: 
+Disallow:
 
-Sitemap: http://tac0x2a.github.io/sitemap.xml 
+Sitemap: http://tac0x2a.github.io/sitemap.xml
