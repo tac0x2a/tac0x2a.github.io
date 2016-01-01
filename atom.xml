@@ -4,7 +4,7 @@
   <title><![CDATA[TACの雑記]]></title>
   <link href="http://tac0x2a.github.io/atom.xml" rel="self"/>
   <link href="http://tac0x2a.github.io/"/>
-  <updated>2016-01-02T02:06:13+09:00</updated>
+  <updated>2016-01-02T02:47:22+09:00</updated>
   <id>http://tac0x2a.github.io/</id>
   <author>
     <name><![CDATA[TAC]]></name>
@@ -12,6 +12,65 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Octopressで記事を書くには]]></title>
+    <link href="http://tac0x2a.github.io/other/2016/01/02/how-to-write-octopress/"/>
+    <updated>2016-01-02T02:27:30+09:00</updated>
+    <id>http://tac0x2a.github.io/other/2016/01/02/how-to-write-octopress</id>
+    <content type="html"><![CDATA[<p>備忘録です．Octopressに乗り換えたものの，環境構築忘れるとあれなので．</p>
+
+<h1>TACの雑記</h1>
+
+<p><a href="https://tac0x2a.github.io/">https://tac0x2a.github.io/</a></p>
+
+<h2>セットアップ</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ git clone git@github.com:tac0x2a/tac0x2a.github.io.git
+</span><span class='line'>$ cd tac0x2a.github.io
+</span><span class='line'>$ git checkout source
+</span><span class='line'>$ rbenv exec bundle install</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>記事を書く</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ rbenv exec rake new_post\['Entry Title'\] # source/_posts 以下にファイルが出来る
+</span><span class='line'>$ emacs source/_posts/&lt;yyyy-mm-dd-&gt;'EntryTitle'.markdown</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>記事を確認する</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ rbenv exec rake preview
+</span><span class='line'>$ open http://localhost:4000</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Sourceにコミット</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ git add source/_posts/&lt;yyyy-mm-dd-&gt;'EntryTitle'.markdown
+</span><span class='line'>$ git commit -m "Add new post."
+</span><span class='line'>$ git push origin source:source</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>記事を公開する</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ rbenv exec rake gen_deploy #masterブランチに_deploy以下がpushされる</span></code></pre></td></tr></table></div></figure>
+
+
+<p>たぶんあってる．</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[2015年のまとめ]]></title>
