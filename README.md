@@ -18,7 +18,7 @@ $ emacs source/_posts/<yyyy-mm-dd->'EntryTitle'.markdown
 ## 記事を確認する
 ```
 $ rbenv exec rake preview
-$ opne http://localhost:4000
+$ open http://localhost:4000
 ```
 
 ## 記事を公開する
