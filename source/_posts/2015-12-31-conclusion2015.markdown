@@ -1,0 +1,68 @@
+---
+layout: post
+title: "conclusion2015"
+date: 2016-01-02 00:59:25 +0900
+comments: true
+categories: other
+---
+
+GooglePhotoを見ながら2015年を振り返り．ごった煮です．
+
+
+## 1Q(1月から3月)
+
++ 石川へ行く(1回目)
++ beatmania IIDX 関連のOSSを3つリリース．全部Ruby．
+  + プレーデータ取得用のライブラリ - [tac0x2a/iidx\_lib](https://github.com/tac0x2a/iidx_lib)
+  + プレー結果通知ツール - [tac0x2a/iidx\_play\_notifier](https://github.com/tac0x2a/iidx_play_notifier)
+  + プレー結果確認サービス - [tac0x2a/iidx\_play\_viewer](https://github.com/tac0x2a/iidx_play_viewer)
+
+  ちなみに，2015/12/31現在，[KONAMI eAMUSEMENT](http://p.eagate.573.jp/) へのログインには画像認証が必須となったため，上記は動作しなくなりました．．．残念．
+
++ こつこつプレーしていた[世界樹の迷宮4](http://sq4.atlusnet.jp/)を遂にクリアする．(2012年7月発売なので，約2.5年)
+
+
+## 2Q(4月から6月)
++ ちょっといいことが起こる．
++ 京都植物園へ行く．ラフレシアがすごい．
++ [某イベント](http://nku.chu.jp/bettyrotation/) に参加するため石川へ行く(2回目).
++ IPAのES試験になんとか合格！(が，後述の配置転換で組込み開発から離れることに．．．)
++ Ruby製のWebスクレイピングライブラリ Yasuri をリリース - [tac0x2a/yasuri](https://github.com/tac0x2a/yasuri)
+
+  それなりに反響をいただき，[Qiitaのエントリ](http://qiita.com/tac0x2a/items/69ac8a33b0a8a3d46edd)はストック数，はてブ数とも過去最高となりました．皆さんありがとうございます．
+
++ 京都水族館へ行く．イルカショーでなかなか笛が鳴らなかった思い出．
++ 自転車で琵琶湖を一周．例年通り後輩と2人で．
+  ![びわいち]({{ site.url }}/assets/2015-12-31-conclusion2015/bike.jpg)
+
+
+## 3Q(7月から9月)
++ [Kansai Rubykaigi 06](http://regional.rubykaigi.org/kansai06/) に参加． Matzと2ショット撮ってもらってめっちゃ嬉しい．
++ ついに28歳になってしまう．
++ 某イベントのため品川へ．ステージに呼び出されて脱ぎたてTシャツをもらう．
++ 郡上八幡へ行く．水が綺麗．
++ 鳥羽水族館へ行く．ペンギンが近すぎて楽しい．
+  ![近い]({{ site.url }}/assets/2015-12-31-conclusion2015/penguin.jpg)
+
+## 4Q(10月から12月)
++ 配置転換で遂に職業プログラマではなくなってしまう．
++ ETロボコン地区大会にスタッフ参加．なぜか司会に．
++ [某イベント#2](http://nku.chu.jp/bettyrotation/) に参加するため石川へ行く(3回目).
++ 勢いでIPAのNWを受けるも轟沈．やはり勉強しないと合格出来ない．
++ 勢いで浜松へ．うなぎとゆるきゃらグランプリを堪能．
++ 海遊館へ行く．マンボウが大きい．
++ 忘年会のため，石川へ行く(4回目) ぶりしゃぶ．
++ 奥能登を堪能するため，石川へ行く(5回目) 波の花がふわふわ．
+  ![波の花]({{ site.url }}/assets/2015-12-31-conclusion2015/wave_flower.jpg)
++ Jekyll + Github Pages で慌ててこのまとめを書く←今ここ
+
+## まとめ
++ Rubyのライブラリを何本かリリースできた．良かった．
++ 石川へ行き過ぎ．
++ 水族館へ行き過ぎ．
+
+
+## 2016年はどうするの？
+
++ 仕事の内容が大きく変わったのでうまく活かしたい．
++ Ruby以外の言語でOSSをリリースしたい．
