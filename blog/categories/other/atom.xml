@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[TACの雑記]]></title>
-  <link href="http://tac0x2a.github.io/atom.xml" rel="self"/>
+  <title><![CDATA[Category: Other | TACの雑記]]></title>
+  <link href="http://tac0x2a.github.io/blog/categories/other/atom.xml" rel="self"/>
   <link href="http://tac0x2a.github.io/"/>
   <updated>2016-01-02T01:13:11+09:00</updated>
   <id>http://tac0x2a.github.io/</id>
@@ -50,7 +50,7 @@
 <p>それなりに反響をいただき，<a href="http://qiita.com/tac0x2a/items/69ac8a33b0a8a3d46edd">Qiitaのエントリ</a>はストック数，はてブ数とも過去最高となりました．皆さんありがとうございます．</p></li>
 <li><p>京都水族館へ行く．イルカショーでなかなか笛が鳴らなかった思い出．</p></li>
 <li>自転車で琵琶湖を一周．例年通り後輩と2人で．
-<img src="http://tac0x2a.github.io/assets/2015-12-31-conclusion2015/bike.jpg" alt="びわいち" /></li>
+<img src="/assets/2015-12-31-conclusion2015/bike.jpg" alt="びわいち" /></li>
 </ul>
 
 
@@ -62,7 +62,7 @@
 <li>某イベントのため品川へ．ステージに呼び出されて脱ぎたてTシャツをもらう．</li>
 <li>郡上八幡へ行く．水が綺麗．</li>
 <li>鳥羽水族館へ行く．ペンギンが近すぎて楽しい．
-<img src="http://tac0x2a.github.io/assets/2015-12-31-conclusion2015/penguin.jpg" alt="近い" /></li>
+<img src="/assets/2015-12-31-conclusion2015/penguin.jpg" alt="近い" /></li>
 </ul>
 
 
@@ -77,7 +77,7 @@
 <li>海遊館へ行く．マンボウが大きい．</li>
 <li>忘年会のため，石川へ行く(4回目) ぶりしゃぶ．</li>
 <li>奥能登を堪能するため，石川へ行く(5回目) 波の花がふわふわ．
-<img src="http://tac0x2a.github.io/assets/2015-12-31-conclusion2015/wave_flower.jpg" alt="波の花" /></li>
+<img src="/assets/2015-12-31-conclusion2015/wave_flower.jpg" alt="波の花" /></li>
 <li>Jekyll + Github Pages で慌ててこのまとめを書く←今ここ</li>
 </ul>
 
