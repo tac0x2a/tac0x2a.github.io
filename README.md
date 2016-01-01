@@ -5,7 +5,7 @@ https://tac0x2a.github.io/
 ```
 $ git clone git@github.com:tac0x2a/tac0x2a.github.io.git
 $ cd tac0x2a.github.io
-$ git checkout -b source
+$ git checkout source
 $ rbenv exec bundle install
 ```
 
