@@ -6,9 +6,10 @@ comments: true
 categories: other
 ---
 
+![](https://cdn.tutsplus.com/webdesign/authors/ian-yates/octopress-header.png)
+
 備忘録です．Octopressに乗り換えたものの，環境構築忘れるとあれなので．
 
-# TACの雑記
 https://tac0x2a.github.io/
 
 ## セットアップ
