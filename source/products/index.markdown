@@ -7,7 +7,10 @@ sharing: true
 footer: true
 ---
 
-## [Yasuri](https://github.com/tac0x2a/yasuri)
+作ったものとか．
+
+---
+# [Yasuri](https://github.com/tac0x2a/yasuri)
 Webスクレイピング処理を宣言的に記述するためのRubyライブラリです．
 
 ```ruby
@@ -39,8 +42,8 @@ result = root.inject(agent, root_page)
 
 -> [github.com/tac0x2a/yasuri](https://github.com/tac0x2a/yasuri)
 
-
-## [IIDX Access Library](https://github.com/tac0x2a/iidx_lib)
+---
+# [IIDX Access Library](https://github.com/tac0x2a/iidx_lib)
 beatmaniaIIDX のプレーデータを取得するためのRubyライブラリです．<br>
 e-amusementのログインに画像認証が導入されたことにより、現在動作しません．
 
@@ -61,14 +64,15 @@ end
 
 -> [github.com/tac0x2a/iidx_lib](https://github.com/tac0x2a/iidx_lib)
 
-##  [AutoSettings](https://play.google.com/store/apps/details?id=net.tac42.auto_settings)
+---
+# [AutoSettings](https://play.google.com/store/apps/details?id=net.tac42.auto_settings)
 起動しているアプリやシステムの状態に応じて設定を自動で切り替えるAndroidアプリです．
 
 ![]({{ root_url }}/assets/products/autosettings_01.png)
 ![]({{ root_url }}/assets/products/autosettings_02.png)
 
-
-## [Droid Jammer](https://play.google.com/store/apps/details?id=jp.dip.wt.lmm)
+---
+# [Droid Jammer](https://play.google.com/store/apps/details?id=jp.dip.wt.lmm)
 顔認識ライブラリを利用して，画像中の顔を隠すAndroidアプリです．
 
 ![]({{ root_url }}/assets/products/droidjammer_01.png)
