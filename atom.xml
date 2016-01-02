@@ -4,7 +4,7 @@
   <title><![CDATA[TACの雑記]]></title>
   <link href="http://tac0x2a.github.io/atom.xml" rel="self"/>
   <link href="http://tac0x2a.github.io/"/>
-  <updated>2016-01-03T02:30:00+09:00</updated>
+  <updated>2016-01-03T02:41:49+09:00</updated>
   <id>http://tac0x2a.github.io/</id>
   <author>
     <name><![CDATA[TAC]]></name>
@@ -18,9 +18,9 @@
     <link href="http://tac0x2a.github.io/other/2016/01/02/how-to-write-octopress/"/>
     <updated>2016-01-02T02:27:30+09:00</updated>
     <id>http://tac0x2a.github.io/other/2016/01/02/how-to-write-octopress</id>
-    <content type="html"><![CDATA[<p>備忘録です．Octopressに乗り換えたものの，環境構築忘れるとあれなので．</p>
+    <content type="html"><![CDATA[<p><img src="https://cdn.tutsplus.com/webdesign/authors/ian-yates/octopress-header.png" alt="" /></p>
 
-<h1>TACの雑記</h1>
+<p>備忘録です．Octopressに乗り換えたものの，環境構築忘れるとあれなので．</p>
 
 <p><a href="https://tac0x2a.github.io/">https://tac0x2a.github.io/</a></p>
 
