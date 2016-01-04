@@ -7,5 +7,5 @@ $sans: "メイリオ", Meiryo, "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ P
 $serif: "メイリオ", Meiryo, "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "PT Serif", Georgia, Times, "Times New Roman", serif !default;
 $mono: Menlo, Monaco, "Andale Mono", "lucida console", "Courier New", monospace !default;
 $heading-font-family: "メイリオ", Meiryo, "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "Georgia", "Helvetica Neue", Arial, sans-serif !default;
-$header-title-font-family: Menlo, $heading-font-family !default;
+$header-title-font-family: "メイリオ", Meiryo, "Hiragino Kaku Gothic Pro", Menlo, $heading-font-family !default;
 $header-subtitle-font-family: $serif !default;
