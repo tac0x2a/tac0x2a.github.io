@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://tac0x2a.github.io/other/2016/01/02/how-to-write-octopress/</loc>
+    <loc>https://www.tac42.net/other/2016/01/02/how-to-write-octopress/</loc>
     <lastmod>2016-01-02T02:27:30+09:00</lastmod>
   </url>
   <url>
-    <loc>http://tac0x2a.github.io/other/2015/12/31/conclusion2015/</loc>
+    <loc>https://www.tac42.net/other/2015/12/31/conclusion2015/</loc>
     <lastmod>2015-12-31T23:59:25+09:00</lastmod>
   </url>
   <url>
-    <loc>http://tac0x2a.github.io/blog/archives/</loc>
+    <loc>https://www.tac42.net/blog/archives/</loc>
   </url>
   <url>
-    <loc>http://tac0x2a.github.io/</loc>
+    <loc>https://www.tac42.net/</loc>
   </url>
   <url>
-    <loc>http://tac0x2a.github.io/products/</loc>
+    <loc>https://www.tac42.net/products/</loc>
   </url>
   <url>
-    <loc>http://tac0x2a.github.io/blog/categories/other/</loc>
+    <loc>https://www.tac42.net/blog/categories/other/</loc>
   </url>
 </urlset>

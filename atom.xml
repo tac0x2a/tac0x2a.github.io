@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[TACの雑記]]></title>
-  <link href="http://tac0x2a.github.io/atom.xml" rel="self"/>
-  <link href="http://tac0x2a.github.io/"/>
-  <updated>2016-01-03T02:41:49+09:00</updated>
-  <id>http://tac0x2a.github.io/</id>
+  <link href="https://www.tac42.net/atom.xml" rel="self"/>
+  <link href="https://www.tac42.net/"/>
+  <updated>2016-01-04T13:29:41+09:00</updated>
+  <id>https://www.tac42.net/</id>
   <author>
     <name><![CDATA[TAC]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Octopressで記事を書くには]]></title>
-    <link href="http://tac0x2a.github.io/other/2016/01/02/how-to-write-octopress/"/>
+    <link href="https://www.tac42.net/other/2016/01/02/how-to-write-octopress/"/>
     <updated>2016-01-02T02:27:30+09:00</updated>
-    <id>http://tac0x2a.github.io/other/2016/01/02/how-to-write-octopress</id>
+    <id>https://www.tac42.net/other/2016/01/02/how-to-write-octopress</id>
     <content type="html"><![CDATA[<p><img src="https://cdn.tutsplus.com/webdesign/authors/ian-yates/octopress-header.png" alt="" /></p>
 
 <p>備忘録です．Octopressに乗り換えたものの，環境構築忘れるとあれなので．</p>
@@ -76,9 +76,9 @@
   
   <entry>
     <title type="html"><![CDATA[2015年のまとめ]]></title>
-    <link href="http://tac0x2a.github.io/other/2015/12/31/conclusion2015/"/>
+    <link href="https://www.tac42.net/other/2015/12/31/conclusion2015/"/>
     <updated>2015-12-31T23:59:25+09:00</updated>
-    <id>http://tac0x2a.github.io/other/2015/12/31/conclusion2015</id>
+    <id>https://www.tac42.net/other/2015/12/31/conclusion2015</id>
     <content type="html"><![CDATA[<p>GooglePhotoを見ながら2015年を振り返り．ごった煮です．</p>
 
 <h2>1Q(1月から3月)</h2>
@@ -112,7 +112,7 @@
 <li>京都水族館へ行く．イルカショーでなかなか笛が鳴らなかった思い出．</li>
 <li><p>自転車で琵琶湖を一周．例年通り後輩と2人で．</p>
 
-<p><img src="http://tac0x2a.github.io/assets/2015-12-31-conclusion2015/bike.jpg" alt="びわいち" /></p></li>
+<p><img src="https://www.tac42.net/assets/2015-12-31-conclusion2015/bike.jpg" alt="びわいち" /></p></li>
 </ul>
 
 
@@ -125,7 +125,7 @@
 <li>郡上八幡へ行く．水が綺麗．</li>
 <li><p>鳥羽水族館へ行く．ペンギンが近すぎて楽しい．</p>
 
-<p><img src="http://tac0x2a.github.io/assets/2015-12-31-conclusion2015/penguin.jpg" alt="近い" /></p></li>
+<p><img src="https://www.tac42.net/assets/2015-12-31-conclusion2015/penguin.jpg" alt="近い" /></p></li>
 </ul>
 
 
@@ -141,7 +141,7 @@
 <li>忘年会のため，石川へ行く(4回目) ぶりしゃぶ．</li>
 <li><p>奥能登を堪能するため，石川へ行く(5回目) 波の花がふわふわ．</p>
 
-<p><img src="http://tac0x2a.github.io/assets/2015-12-31-conclusion2015/wave_flower.jpg" alt="波の花" /></p></li>
+<p><img src="https://www.tac42.net/assets/2015-12-31-conclusion2015/wave_flower.jpg" alt="波の花" /></p></li>
 <li><p>Jekyll + Github Pages で慌ててこのまとめを書く←今ここ</p></li>
 </ul>
 
