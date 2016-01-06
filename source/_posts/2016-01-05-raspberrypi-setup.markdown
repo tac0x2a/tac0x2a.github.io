@@ -130,7 +130,7 @@ pi@raspberrypi:~$ sudo raspi-config
 
 
 # ネットワーク設定
-無線LAN接続じゃないとやってられんので、[ELECOMのWD-150SU2MWH](http://www.amazon.co.jp/gp/product/B00JTSF8WO/ref=as_li_ss_tl?ie=UTF8&camp=247&creative=7399&creativeASIN=B00JTSF8WO&linkCode=as2&tag=tac42-22) をつないでみた．
+無線LAN接続じゃないとやってられんので、[ELECOMのWDC-150SU2MWH](http://www.amazon.co.jp/gp/product/B00JTSF8WO/ref=as_li_ss_tl?ie=UTF8&camp=247&creative=7399&creativeASIN=B00JTSF8WO&linkCode=as2&tag=tac42-22) をつないでみた．
 [BuffaloのWLI-UC-GNME](http://www.amazon.co.jp/gp/product/B010EGTPVY/ref=as_li_ss_tl?ie=UTF8&camp=247&creative=7399&creativeASIN=B010EGTPVY&linkCode=as2&tag=tac42-22) も試したが、後述のプチ切れ対策を行っても、しばらくすると通信できなくなってしまった．
 
 ## ドングルの設定
