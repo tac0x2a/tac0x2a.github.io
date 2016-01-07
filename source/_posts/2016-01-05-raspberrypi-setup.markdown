@@ -229,6 +229,5 @@ pi@raspberrypi:~$ sudo reboot
 ```
 
 # 参考
-
-http://cat-s-tail.blogspot.jp/2013/10/Mac-OS-X-Mountain-Lion-RaspberryPi-serial.html
+http://sig9.hatenablog.com/entry/2015/08/22/233646
 http://denshikousaku.net/fix-sluggish-response-of-raspberry-pi-wifi-adaptor
