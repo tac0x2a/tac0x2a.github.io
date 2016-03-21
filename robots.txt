@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://www.tac42.net/sitemap.xml
+Sitemap: http://tac0x2a.github.io/sitemap.xml

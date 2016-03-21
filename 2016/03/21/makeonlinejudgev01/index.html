@@ -5,13 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>2015年のまとめ - tac42.net</title>
+  <title>オンラインジャッジを作ろう vol.1 - TACの雑記</title>
   <meta name="author" content="TAC">
 
   
-  <meta name="description" content="GooglePhotoを見ながら2015年を振り返り．ごった煮です． 1Q(1月から3月) 石川へ行く(1回目)
-beatmania IIDX 関連のOSSを3つリリース．全部Ruby． プレーデータ取得用のライブラリ - tac0x2a/iidx_lib
-プレー結果通知ツール - tac0x2a &hellip;">
+  <meta name="description" content="作ろう！ オンラインジャッジって？ PaizaやCodeIQ、TopCoderなどのプログラミングコンテストで、提出されたコードを実行して採点するシステムのこと。 構想 特に難しいことを考えなければこんなかんじ？ Webアプリケーション - 問題の管理やコード受付をするよ
+ジャッジサーバ - &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -20,10 +19,10 @@ beatmania IIDX 関連のOSSを3つリリース．全部Ruby． プレーデー�
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="https://www.tac42.net/blog/other/2015/12/31/conclusion2015">
+  <link rel="canonical" href="http://tac0x2a.github.io/2016/03/21/makeonlinejudgev01">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <link href="/atom.xml" rel="alternate" title="tac42.net" type="application/atom+xml">
+  <link href="/atom.xml" rel="alternate" title="TACの雑記" type="application/atom+xml">
   <script src="/javascripts/modernizr-2.0.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script>!window.jQuery && document.write(unescape('%3Cscript src="/javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
@@ -52,7 +51,7 @@ beatmania IIDX 関連のOSSを3つリリース．全部Ruby． プレーデー�
 
 <body   class="collapse-sidebar sidebar-footer" >
   <header role="banner"><hgroup>
-  <h1><a href="/">tac42.net</a></h1>
+  <h1><a href="/">TACの雑記</a></h1>
   
 </hgroup>
 
@@ -95,7 +94,7 @@ beatmania IIDX 関連のOSSを3つリリース．全部Ruby． プレーデー�
     
       <form action="https://www.google.com/search" method="get">
         <fieldset role="search">
-          <input type="hidden" name="sitesearch" value="www.tac42.net" />
+          <input type="hidden" name="sitesearch" value="tac0x2a.github.io" />
     
           <input class="search" type="text" name="q" results="0" placeholder="Search"/>
         </fieldset>
@@ -116,7 +115,7 @@ beatmania IIDX 関連のOSSを3つリリース．全部Ruby． プレーデー�
   <header>
     
       
-        <h1 class="entry-title">2015年のまとめ</h1>
+        <h1 class="entry-title">オンラインジャッジを作ろう vol.1</h1>
       
     
     
@@ -126,7 +125,7 @@ beatmania IIDX 関連のOSSを3つリリース．全部Ruby． プレーデー�
 
 
 
-<time class='entry-date' datetime='2015-12-31T23:59:25+09:00'><span class='date'><span class='date-month'>Dec</span> <span class='date-day'>31</span><span class='date-suffix'>st</span>, <span class='date-year'>2015</span></span> <span class='time'>11:59 pm</span></time>
+<time class='entry-date' datetime='2016-03-21T23:32:05+09:00'><span class='date'><span class='date-month'>Mar</span> <span class='date-day'>21</span><span class='date-suffix'>st</span>, <span class='date-year'>2016</span></span> <span class='time'>11:32 pm</span></time>
         
         
       </p>
@@ -134,89 +133,79 @@ beatmania IIDX 関連のOSSを3つリリース．全部Ruby． プレーデー�
   </header>
 
 
-<div class="entry-content"><p>GooglePhotoを見ながら2015年を振り返り．ごった煮です．</p>
+<div class="entry-content"><p>作ろう！</p>
 
-<h2>1Q(1月から3月)</h2>
+<h1>オンラインジャッジって？</h1>
+
+<p><a href="https://paiza.jp/">Paiza</a>や<a href="https://codeiq.jp/">CodeIQ</a>、<a href="http://jp.topcoder.com/">TopCoder</a>などのプログラミングコンテストで、提出されたコードを実行して採点するシステムのこと。</p>
+
+<h1>構想</h1>
+
+<p>特に難しいことを考えなければこんなかんじ？</p>
 
 <ul>
-<li>石川へ行く(1回目)</li>
-<li><p>beatmania IIDX 関連のOSSを3つリリース．全部Ruby．</p>
-
-<ul>
-<li>プレーデータ取得用のライブラリ - <a href="https://github.com/tac0x2a/iidx_lib">tac0x2a/iidx_lib</a></li>
-<li>プレー結果通知ツール - <a href="https://github.com/tac0x2a/iidx_play_notifier">tac0x2a/iidx_play_notifier</a></li>
-<li>プレー結果確認サービス - <a href="https://github.com/tac0x2a/iidx_play_viewer">tac0x2a/iidx_play_viewer</a></li>
+<li><strong>Webアプリケーション</strong> - 問題の管理やコード受付をするよ</li>
+<li><strong>ジャッジサーバ</strong> - コードのビルドと実行をするよ</li>
+<li><strong>データベース</strong> - プレイヤーの情報、問題、実行結果など、いろんなデータを格納するよ</li>
 </ul>
 
 
-<p>ちなみに，2015/12/31現在，<a href="http://p.eagate.573.jp/">KONAMI eAMUSEMENT</a> へのログインには画像認証が必須となったため，上記は動作しなくなりました．．．残念．</p></li>
-<li><p>こつこつプレーしていた<a href="http://sq4.atlusnet.jp/">世界樹の迷宮4</a>を遂にクリアする．(2012年7月発売なので，約2.5年)</p></li>
-</ul>
+<p>せっかくなので全部Dockerコンテナで作るよ！</p>
+
+<h1>やりたいこと</h1>
+
+<h2>アプリケーションとして配布したい！</h2>
+
+<p>会社や学校でプロコンの大会を開催したいけど、外部サービスは利用できない・・・ありますよね！</p>
+
+<p>そこで、Webアプリケーションとして配布して、誰でもプライベートなマシンにセットアップ出来るようにしたい。
+<code>docker run</code> するだけでセットアップ＆実行できるようなイメージ。</p>
+
+<h2>Dockerを使いたい！</h2>
+
+<p>イメージで配布して簡単に導入できるようにしたい！
+あと、とにかく使ってみたい！細けぇことはいいんだよ！</p>
+
+<h2>Ruby以外の言語で作りたい！</h2>
+
+<p>そろそろ別の言語もまともに使えるようになりたい・・・！
+候補としては、Node.js, Go, Scala, Pythonの順かな。</p>
+
+<h2>エディタ乗り換えたい</h2>
+
+<p>大学で悪い先輩に捕まって以来、Emacsを使い続けてきましたが、別のエディタに乗り換えようと思っています。
+候補はAtomです。</p>
+
+<h2>毎日、早く帰って続きを作りたい！と思えること</h2>
+
+<p>これめちゃ重要。去年ライブラリ作ってるときはこの状態でした。</p>
+
+<blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr">快楽を得る方法をドラッグから瞑想から娯楽から貪欲に調べまくったら、最高に人間の快楽を刺激し続けれるのは毎日規則正しく生活しながら一つの目に見える物をコツコツ作り続けて気の合う人と馬鹿なことやるっていうライフスタイルだという結論が出たことを快楽主義者各位は重く受け止めて下さい。</p>&mdash; ぐっちょむ (@gutchom) <a href="https://twitter.com/gutchom/status/375886913804058626">2013年9月6日</a></blockquote>
 
 
-<h2>2Q(4月から6月)</h2>
-
-<ul>
-<li>ちょっといいことが起こる．</li>
-<li>京都植物園へ行く．ラフレシアがすごい．</li>
-<li><a href="http://nku.chu.jp/bettyrotation/">某イベント</a> に参加するため石川へ行く(2回目).</li>
-<li>IPAのES試験になんとか合格！(が，後述の配置転換で組込み開発から離れることに．．．)</li>
-<li><p>Ruby製のWebスクレイピングライブラリ Yasuri をリリース - <a href="https://github.com/tac0x2a/yasuri">tac0x2a/yasuri</a></p>
-
-<p>それなりに反響をいただき，<a href="http://qiita.com/tac0x2a/items/69ac8a33b0a8a3d46edd">Qiitaのエントリ</a>はストック数，はてブ数とも過去最高となりました．皆さんありがとうございます．</p></li>
-<li>京都水族館へ行く．イルカショーでなかなか笛が鳴らなかった思い出．</li>
-<li><p>自転車で琵琶湖を一周．例年通り後輩と2人で．</p>
-
-<p><img src="/assets/blog/2015-12-31-conclusion2015/bike.jpg" alt="びわいち" /></p></li>
-</ul>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 
-<h2>3Q(7月から9月)</h2>
+<p><a href="https://twitter.com/gutchom/status/375886913804058626">https://twitter.com/gutchom/status/375886913804058626</a></p>
 
-<ul>
-<li><a href="http://regional.rubykaigi.org/kansai06/">Kansai Rubykaigi 06</a> に参加． Matzと2ショット撮ってもらってめっちゃ嬉しい．</li>
-<li>ついに28歳になってしまう．</li>
-<li>某イベントのため品川へ．ステージに呼び出されて脱ぎたてTシャツをもらう．</li>
-<li>郡上八幡へ行く．水が綺麗．</li>
-<li><p>鳥羽水族館へ行く．ペンギンが近すぎて楽しい．</p>
+<p>この状態が継続するよう、コツコツ続けたい。毎日が本当に楽しくなる！</p>
 
-<p><img src="/assets/blog/2015-12-31-conclusion2015/penguin.jpg" alt="近い" /></p></li>
-</ul>
+<h1>進め方</h1>
 
+<p>インタフェースなど考えながらボトムアップに進めたい。
+秋頃にリリースできるといいなー。</p>
 
-<h2>4Q(10月から12月)</h2>
-
-<ul>
-<li>配置転換で遂に職業プログラマではなくなってしまう．</li>
-<li>ETロボコン地区大会にスタッフ参加．なぜか司会に．</li>
-<li><a href="http://nku.chu.jp/bettyrotation/">某イベント#2</a> に参加するため石川へ行く(3回目).</li>
-<li>勢いでIPAのNWを受けるも轟沈．やはり勉強しないと合格出来ない．</li>
-<li>勢いで浜松へ．うなぎとゆるきゃらグランプリを堪能．</li>
-<li>海遊館へ行く．マンボウが大きい．</li>
-<li>忘年会のため，石川へ行く(4回目) ぶりしゃぶ．</li>
-<li><p>奥能登を堪能するため，石川へ行く(5回目) 波の花がふわふわ．</p>
-
-<p><img src="/assets/blog/2015-12-31-conclusion2015/wave_flower.jpg" alt="波の花" /></p></li>
-<li><p>Jekyll + Github Pages で慌ててこのまとめを書く←今ここ</p></li>
-</ul>
+<ol>
+<li>ジャッジサーバの構築</li>
+<li>Webアプリケーション + データベースの構築</li>
+</ol>
 
 
-<h2>まとめ</h2>
+<h1>最後に</h1>
 
-<ul>
-<li>Rubyのライブラリを何本かリリースできた．良かった．</li>
-<li>石川へ行き過ぎ．</li>
-<li>水族館へ行き過ぎ．</li>
-</ul>
-
-
-<h2>2016年はどうするの？</h2>
-
-<ul>
-<li>仕事の内容が大きく変わったのでうまく活かしたい．</li>
-<li>Ruby以外の言語でOSSをリリースしたい．</li>
-</ul>
-
+<p>こんなかんじでコツコツやっていきます。
+とりあえず、第一回は構想だけですね。
+おしまい〜。</p>
 </div>
 
 
@@ -239,22 +228,16 @@ beatmania IIDX 関連のOSSを3つリリース．全部Ruby． プレーデー�
 
 
 
-<time class='entry-date' datetime='2015-12-31T23:59:25+09:00'><span class='date'><span class='date-month'>Dec</span> <span class='date-day'>31</span><span class='date-suffix'>st</span>, <span class='date-year'>2015</span></span> <span class='time'>11:59 pm</span></time>
+<time class='entry-date' datetime='2016-03-21T23:32:05+09:00'><span class='date'><span class='date-month'>Mar</span> <span class='date-day'>21</span><span class='date-suffix'>st</span>, <span class='date-year'>2016</span></span> <span class='time'>11:32 pm</span></time>
       
       
-
-<span class="categories">
-  
-    <a class='category' href='/blog/categories/other/'>other</a>
-  
-</span>
 
 
     </p>
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="https://www.tac42.net/blog/other/2015/12/31/conclusion2015/" data-via="tac0x2a" data-counturl="https://www.tac42.net/blog/other/2015/12/31/conclusion2015/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://tac0x2a.github.io/2016/03/21/makeonlinejudgev01/" data-via="tac0x2a" data-counturl="http://tac0x2a.github.io/2016/03/21/makeonlinejudgev01/" >Tweet</a>
   
   
   
@@ -265,8 +248,8 @@ beatmania IIDX 関連のOSSを3つリリース．全部Ruby． プレーデー�
     
     <p class="meta">
       
+        <a class="basic-alignment left" href="/tech/2016/01/05/raspberrypi-setup/" title="Previous Post: RaspberryPi2をセットアップする">&laquo; RaspberryPi2をセットアップする</a>
       
-        <a class="basic-alignment right" href="/blog/other/2016/01/02/how-to-write-octopress/" title="Next Post: Octopressで記事を書くには">Octopressで記事を書くには &raquo;</a>
       
     </p>
   </footer>

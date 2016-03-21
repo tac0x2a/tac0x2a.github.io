@@ -5,17 +5,13 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Octopressで記事を書くには - tac42.net</title>
+  <title>2015年のまとめ - TACの雑記</title>
   <meta name="author" content="TAC">
 
   
-  <meta name="description" content="備忘録です．Octopressに乗り換えたものの，環境構築忘れるとあれなので． https://tac0x2a.github.io/ セットアップ 1
-2
-3
-4
-5
-$ git clone git@github.com:tac0x2a/tac0x2a.github.io.git
-$ cd &hellip;">
+  <meta name="description" content="GooglePhotoを見ながら2015年を振り返り．ごった煮です． 1Q(1月から3月) 石川へ行く(1回目)
+beatmania IIDX 関連のOSSを3つリリース．全部Ruby． プレーデータ取得用のライブラリ - tac0x2a/iidx_lib
+プレー結果通知ツール - tac0x2a &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -24,10 +20,10 @@ $ cd &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="https://www.tac42.net/blog/other/2016/01/02/how-to-write-octopress">
+  <link rel="canonical" href="http://tac0x2a.github.io/other/2015/12/31/conclusion2015">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <link href="/atom.xml" rel="alternate" title="tac42.net" type="application/atom+xml">
+  <link href="/atom.xml" rel="alternate" title="TACの雑記" type="application/atom+xml">
   <script src="/javascripts/modernizr-2.0.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script>!window.jQuery && document.write(unescape('%3Cscript src="/javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
@@ -56,7 +52,7 @@ $ cd &hellip;">
 
 <body   class="collapse-sidebar sidebar-footer" >
   <header role="banner"><hgroup>
-  <h1><a href="/">tac42.net</a></h1>
+  <h1><a href="/">TACの雑記</a></h1>
   
 </hgroup>
 
@@ -99,7 +95,7 @@ $ cd &hellip;">
     
       <form action="https://www.google.com/search" method="get">
         <fieldset role="search">
-          <input type="hidden" name="sitesearch" value="www.tac42.net" />
+          <input type="hidden" name="sitesearch" value="tac0x2a.github.io" />
     
           <input class="search" type="text" name="q" results="0" placeholder="Search"/>
         </fieldset>
@@ -120,7 +116,7 @@ $ cd &hellip;">
   <header>
     
       
-        <h1 class="entry-title">Octopressで記事を書くには</h1>
+        <h1 class="entry-title">2015年のまとめ</h1>
       
     
     
@@ -130,7 +126,7 @@ $ cd &hellip;">
 
 
 
-<time class='entry-date' datetime='2016-01-02T02:27:30+09:00'><span class='date'><span class='date-month'>Jan</span> <span class='date-day'>2</span><span class='date-suffix'>nd</span>, <span class='date-year'>2016</span></span> <span class='time'>2:27 am</span></time>
+<time class='entry-date' datetime='2015-12-31T23:59:25+09:00'><span class='date'><span class='date-month'>Dec</span> <span class='date-day'>31</span><span class='date-suffix'>st</span>, <span class='date-year'>2015</span></span> <span class='time'>11:59 pm</span></time>
         
         
       </p>
@@ -138,59 +134,89 @@ $ cd &hellip;">
   </header>
 
 
-<div class="entry-content"><p><img src="https://cdn.tutsplus.com/webdesign/authors/ian-yates/octopress-header.png" alt="" /></p>
+<div class="entry-content"><p>GooglePhotoを見ながら2015年を振り返り．ごった煮です．</p>
 
-<p>備忘録です．Octopressに乗り換えたものの，環境構築忘れるとあれなので．</p>
+<h2>1Q(1月から3月)</h2>
 
-<p><a href="https://tac0x2a.github.io/">https://tac0x2a.github.io/</a></p>
+<ul>
+<li>石川へ行く(1回目)</li>
+<li><p>beatmania IIDX 関連のOSSを3つリリース．全部Ruby．</p>
 
-<h2>セットアップ</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ git clone git@github.com:tac0x2a/tac0x2a.github.io.git
-</span><span class='line'>$ cd tac0x2a.github.io
-</span><span class='line'>$ git checkout source
-</span><span class='line'>$ rbenv exec bundle install
-</span><span class='line'>$ git clone git@github.com:tac0x2a/tac0x2a.github.io.git _deploy</span></code></pre></td></tr></table></div></figure>
+<ul>
+<li>プレーデータ取得用のライブラリ - <a href="https://github.com/tac0x2a/iidx_lib">tac0x2a/iidx_lib</a></li>
+<li>プレー結果通知ツール - <a href="https://github.com/tac0x2a/iidx_play_notifier">tac0x2a/iidx_play_notifier</a></li>
+<li>プレー結果確認サービス - <a href="https://github.com/tac0x2a/iidx_play_viewer">tac0x2a/iidx_play_viewer</a></li>
+</ul>
 
 
-<h2>記事を書く</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ rbenv exec rake new_post\['Entry Title'\] # source/_posts 以下にファイルが出来る
-</span><span class='line'>$ emacs source/_posts/&lt;yyyy-mm-dd-&gt;'EntryTitle'.markdown</span></code></pre></td></tr></table></div></figure>
+<p>ちなみに，2015/12/31現在，<a href="http://p.eagate.573.jp/">KONAMI eAMUSEMENT</a> へのログインには画像認証が必須となったため，上記は動作しなくなりました．．．残念．</p></li>
+<li><p>こつこつプレーしていた<a href="http://sq4.atlusnet.jp/">世界樹の迷宮4</a>を遂にクリアする．(2012年7月発売なので，約2.5年)</p></li>
+</ul>
 
 
-<h2>記事を確認する</h2>
+<h2>2Q(4月から6月)</h2>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ rbenv exec rake preview
-</span><span class='line'>$ open http://localhost:4000</span></code></pre></td></tr></table></div></figure>
+<ul>
+<li>ちょっといいことが起こる．</li>
+<li>京都植物園へ行く．ラフレシアがすごい．</li>
+<li><a href="http://nku.chu.jp/bettyrotation/">某イベント</a> に参加するため石川へ行く(2回目).</li>
+<li>IPAのES試験になんとか合格！(が，後述の配置転換で組込み開発から離れることに．．．)</li>
+<li><p>Ruby製のWebスクレイピングライブラリ Yasuri をリリース - <a href="https://github.com/tac0x2a/yasuri">tac0x2a/yasuri</a></p>
 
+<p>それなりに反響をいただき，<a href="http://qiita.com/tac0x2a/items/69ac8a33b0a8a3d46edd">Qiitaのエントリ</a>はストック数，はてブ数とも過去最高となりました．皆さんありがとうございます．</p></li>
+<li>京都水族館へ行く．イルカショーでなかなか笛が鳴らなかった思い出．</li>
+<li><p>自転車で琵琶湖を一周．例年通り後輩と2人で．</p>
 
-<h2>Sourceにコミット</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ git add source/_posts/&lt;yyyy-mm-dd-&gt;'EntryTitle'.markdown
-</span><span class='line'>$ git commit -m "Add new post."
-</span><span class='line'>$ git push origin source:source</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>記事を公開する</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ rbenv exec rake gen_deploy #masterブランチに_deploy以下がpushされる</span></code></pre></td></tr></table></div></figure>
+<p><img src="/assets/blog/2015-12-31-conclusion2015/bike.jpg" alt="びわいち" /></p></li>
+</ul>
 
 
-<p>たぶんあってる．</p>
+<h2>3Q(7月から9月)</h2>
+
+<ul>
+<li><a href="http://regional.rubykaigi.org/kansai06/">Kansai Rubykaigi 06</a> に参加． Matzと2ショット撮ってもらってめっちゃ嬉しい．</li>
+<li>ついに28歳になってしまう．</li>
+<li>某イベントのため品川へ．ステージに呼び出されて脱ぎたてTシャツをもらう．</li>
+<li>郡上八幡へ行く．水が綺麗．</li>
+<li><p>鳥羽水族館へ行く．ペンギンが近すぎて楽しい．</p>
+
+<p><img src="/assets/blog/2015-12-31-conclusion2015/penguin.jpg" alt="近い" /></p></li>
+</ul>
+
+
+<h2>4Q(10月から12月)</h2>
+
+<ul>
+<li>配置転換で遂に職業プログラマではなくなってしまう．</li>
+<li>ETロボコン地区大会にスタッフ参加．なぜか司会に．</li>
+<li><a href="http://nku.chu.jp/bettyrotation/">某イベント#2</a> に参加するため石川へ行く(3回目).</li>
+<li>勢いでIPAのNWを受けるも轟沈．やはり勉強しないと合格出来ない．</li>
+<li>勢いで浜松へ．うなぎとゆるきゃらグランプリを堪能．</li>
+<li>海遊館へ行く．マンボウが大きい．</li>
+<li>忘年会のため，石川へ行く(4回目) ぶりしゃぶ．</li>
+<li><p>奥能登を堪能するため，石川へ行く(5回目) 波の花がふわふわ．</p>
+
+<p><img src="/assets/blog/2015-12-31-conclusion2015/wave_flower.jpg" alt="波の花" /></p></li>
+<li><p>Jekyll + Github Pages で慌ててこのまとめを書く←今ここ</p></li>
+</ul>
+
+
+<h2>まとめ</h2>
+
+<ul>
+<li>Rubyのライブラリを何本かリリースできた．良かった．</li>
+<li>石川へ行き過ぎ．</li>
+<li>水族館へ行き過ぎ．</li>
+</ul>
+
+
+<h2>2016年はどうするの？</h2>
+
+<ul>
+<li>仕事の内容が大きく変わったのでうまく活かしたい．</li>
+<li>Ruby以外の言語でOSSをリリースしたい．</li>
+</ul>
+
 </div>
 
 
@@ -213,7 +239,7 @@ $ cd &hellip;">
 
 
 
-<time class='entry-date' datetime='2016-01-02T02:27:30+09:00'><span class='date'><span class='date-month'>Jan</span> <span class='date-day'>2</span><span class='date-suffix'>nd</span>, <span class='date-year'>2016</span></span> <span class='time'>2:27 am</span></time>
+<time class='entry-date' datetime='2015-12-31T23:59:25+09:00'><span class='date'><span class='date-month'>Dec</span> <span class='date-day'>31</span><span class='date-suffix'>st</span>, <span class='date-year'>2015</span></span> <span class='time'>11:59 pm</span></time>
       
       
 
@@ -228,7 +254,7 @@ $ cd &hellip;">
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="https://www.tac42.net/blog/other/2016/01/02/how-to-write-octopress/" data-via="tac0x2a" data-counturl="https://www.tac42.net/blog/other/2016/01/02/how-to-write-octopress/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://tac0x2a.github.io/other/2015/12/31/conclusion2015/" data-via="tac0x2a" data-counturl="http://tac0x2a.github.io/other/2015/12/31/conclusion2015/" >Tweet</a>
   
   
   
@@ -239,10 +265,8 @@ $ cd &hellip;">
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/other/2015/12/31/conclusion2015/" title="Previous Post: 2015年のまとめ">&laquo; 2015年のまとめ</a>
       
-      
-        <a class="basic-alignment right" href="/blog/tech/2016/01/05/raspberrypi-setup/" title="Next Post: RaspberryPi2をセットアップする">RaspberryPi2をセットアップする &raquo;</a>
+        <a class="basic-alignment right" href="/other/2016/01/02/how-to-write-octopress/" title="Next Post: Octopressで記事を書くには">Octopressで記事を書くには &raquo;</a>
       
     </p>
   </footer>

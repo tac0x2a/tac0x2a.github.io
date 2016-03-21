@@ -1,30 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.tac42.net/blog/tech/2016/01/05/raspberrypi-setup/</loc>
+    <loc>http://tac0x2a.github.io/2016/03/21/makeonlinejudgev01/</loc>
+    <lastmod>2016-03-21T23:32:05+09:00</lastmod>
+  </url>
+  <url>
+    <loc>http://tac0x2a.github.io/tech/2016/01/05/raspberrypi-setup/</loc>
     <lastmod>2016-01-05T01:42:19+09:00</lastmod>
   </url>
   <url>
-    <loc>https://www.tac42.net/blog/other/2016/01/02/how-to-write-octopress/</loc>
+    <loc>http://tac0x2a.github.io/other/2016/01/02/how-to-write-octopress/</loc>
     <lastmod>2016-01-02T02:27:30+09:00</lastmod>
   </url>
   <url>
-    <loc>https://www.tac42.net/blog/other/2015/12/31/conclusion2015/</loc>
+    <loc>http://tac0x2a.github.io/other/2015/12/31/conclusion2015/</loc>
     <lastmod>2015-12-31T23:59:25+09:00</lastmod>
   </url>
   <url>
-    <loc>https://www.tac42.net/blog/archives/</loc>
+    <loc>http://tac0x2a.github.io/blog/archives/</loc>
   </url>
   <url>
-    <loc>https://www.tac42.net/</loc>
+    <loc>http://tac0x2a.github.io/</loc>
   </url>
   <url>
-    <loc>https://www.tac42.net/products/</loc>
+    <loc>http://tac0x2a.github.io/products/</loc>
   </url>
   <url>
-    <loc>https://www.tac42.net/blog/categories/other/</loc>
+    <loc>http://tac0x2a.github.io/blog/categories/other/</loc>
   </url>
   <url>
-    <loc>https://www.tac42.net/blog/categories/tech/</loc>
+    <loc>http://tac0x2a.github.io/blog/categories/tech/</loc>
   </url>
 </urlset>

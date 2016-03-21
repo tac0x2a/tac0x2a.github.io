@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Tech | tac42.net]]></title>
-  <link href="https://www.tac42.net/blog/categories/tech/atom.xml" rel="self"/>
-  <link href="https://www.tac42.net/"/>
-  <updated>2016-01-07T23:33:04+09:00</updated>
-  <id>https://www.tac42.net/</id>
+  <title><![CDATA[Category: Tech | TACの雑記]]></title>
+  <link href="http://tac0x2a.github.io/blog/categories/tech/atom.xml" rel="self"/>
+  <link href="http://tac0x2a.github.io/"/>
+  <updated>2016-03-22T01:24:21+09:00</updated>
+  <id>http://tac0x2a.github.io/</id>
   <author>
     <name><![CDATA[TAC]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[RaspberryPi2をセットアップする]]></title>
-    <link href="https://www.tac42.net/blog/tech/2016/01/05/raspberrypi-setup/"/>
+    <link href="http://tac0x2a.github.io/tech/2016/01/05/raspberrypi-setup/"/>
     <updated>2016-01-05T01:42:19+09:00</updated>
-    <id>https://www.tac42.net/blog/tech/2016/01/05/raspberrypi-setup</id>
+    <id>http://tac0x2a.github.io/tech/2016/01/05/raspberrypi-setup</id>
     <content type="html"><![CDATA[<p><img src="/assets/blog/2016-01-05-raspberrypi-setup/raspi.jpg" alt="RaspberryPi" /></p>
 
 <p>すごい今更感ありますが、Raspberry Pi2 Model B を買ってしまったのでセットアップしたメモ．
