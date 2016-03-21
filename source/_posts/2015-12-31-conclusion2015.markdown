@@ -33,7 +33,7 @@ GooglePhotoを見ながら2015年を振り返り．ごった煮です．
 + 京都水族館へ行く．イルカショーでなかなか笛が鳴らなかった思い出．
 + 自転車で琵琶湖を一周．例年通り後輩と2人で．
 
-  ![びわいち]({{ site.url }}/assets/2015-12-31-conclusion2015/bike.jpg)
+  ![びわいち]({{ root_url }}/assets/blog/2015-12-31-conclusion2015/bike.jpg)
 
 ## 3Q(7月から9月)
 + [Kansai Rubykaigi 06](http://regional.rubykaigi.org/kansai06/) に参加． Matzと2ショット撮ってもらってめっちゃ嬉しい．
@@ -42,7 +42,7 @@ GooglePhotoを見ながら2015年を振り返り．ごった煮です．
 + 郡上八幡へ行く．水が綺麗．
 + 鳥羽水族館へ行く．ペンギンが近すぎて楽しい．
 
-  ![近い]({{ site.url }}/assets/2015-12-31-conclusion2015/penguin.jpg)
+  ![近い]({{ root_url }}/assets/blog/2015-12-31-conclusion2015/penguin.jpg)
 
 ## 4Q(10月から12月)
 + 配置転換で遂に職業プログラマではなくなってしまう．
@@ -54,7 +54,7 @@ GooglePhotoを見ながら2015年を振り返り．ごった煮です．
 + 忘年会のため，石川へ行く(4回目) ぶりしゃぶ．
 + 奥能登を堪能するため，石川へ行く(5回目) 波の花がふわふわ．
 
-  ![波の花]({{ site.url }}/assets/2015-12-31-conclusion2015/wave_flower.jpg)
+  ![波の花]({{ root_url }}/assets/blog/2015-12-31-conclusion2015/wave_flower.jpg)
 
 + Jekyll + Github Pages で慌ててこのまとめを書く←今ここ
 
