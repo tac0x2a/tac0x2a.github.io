@@ -4,7 +4,7 @@
   <title><![CDATA[tac42.net]]></title>
   <link href="https://www.tac42.net/atom.xml" rel="self"/>
   <link href="https://www.tac42.net/"/>
-  <updated>2016-03-22T23:15:57+09:00</updated>
+  <updated>2016-03-22T23:42:20+09:00</updated>
   <id>https://www.tac42.net/</id>
   <author>
     <name><![CDATA[TAC]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[オンラインジャッジを作ろうvol.2]]></title>
+    <title type="html"><![CDATA[オンラインジャッジを作ろう vol.2]]></title>
     <link href="https://www.tac42.net/blog/2016/03/22/makeonlinejudgev02/"/>
     <updated>2016-03-22T19:43:37+09:00</updated>
     <id>https://www.tac42.net/blog/2016/03/22/makeonlinejudgev02</id>
@@ -29,7 +29,9 @@
 </ul>
 
 
-<h3>AngularJS</h3>
+<h3><a href="https://angularjs.org/">AngularJS</a></h3>
+
+<p><img src="http://staffblog.yumemi.jp/wp-content/uploads/2014/03/AngularJS-large.png" alt="AngularJS" /></p>
 
 <ul>
 <li><a href="http://www.tohoho-web.com/ex/angularjs.html">AngularJS入門</a></li>
@@ -65,7 +67,9 @@ Grunt(make的なビルドツール), Bower(パッケージマネージャ), Yo(�
 
 <p><a href="https://html5experts.jp/technohippy/18040/">Firebase</a> というBaaS(Backend as a Service)もあるみたいですが、今回は一式配布したいのでBaaSは使えませんね。</p>
 
-<h3>Angular2</h3>
+<h3><a href="https://angular.io">Angular2</a></h3>
+
+<p><img src="http://blog.ninja-squad.com/assets/images/ng2-ebook/ng2-logo.png" alt="Angular2" /></p>
 
 <ul>
 <li><a href="https://developers.eure.jp/tech/angular2_evaluation/">Angular2は「使える」フレームワークか？</a></li>
