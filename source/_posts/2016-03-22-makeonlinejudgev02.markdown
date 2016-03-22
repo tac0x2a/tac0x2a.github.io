@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "オンラインジャッジを作ろうvol.2"
+title: "オンラインジャッジを作ろう vol.2"
 date: 2016-03-22 19:43:37 +0900
 comments: true
 categories:
@@ -13,7 +13,8 @@ Webアプリを書くためのフレームワーク(言語)を選ぶ。
 
 + [人気上昇中のJavaScriptライブラリを調べてみた【2016年版】](http://www.buildinsider.net/web/popularjslib/2016)
 
-### AngularJS
+### [AngularJS](https://angularjs.org/)
+![AngularJS](http://staffblog.yumemi.jp/wp-content/uploads/2014/03/AngularJS-large.png)
 
 + [AngularJS入門](http://www.tohoho-web.com/ex/angularjs.html)
 
@@ -41,7 +42,9 @@ npmで `generator-angular-fullstack` とか叩くと、Expressやらhttp://blog.
 [Firebase](https://html5experts.jp/technohippy/18040/) というBaaS(Backend as a Service)もあるみたいですが、今回は一式配布したいのでBaaSは使えませんね。
 
 
-### Angular2
+### [Angular2](https://angular.io)
+
+![Angular2](http://blog.ninja-squad.com/assets/images/ng2-ebook/ng2-logo.png)
 
 + [Angular2は「使える」フレームワークか？](https://developers.eure.jp/tech/angular2_evaluation/)
 
