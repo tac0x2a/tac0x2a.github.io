@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Other | TACの雑記]]></title>
-  <link href="http://tac0x2a.github.io/blog/categories/other/atom.xml" rel="self"/>
-  <link href="http://tac0x2a.github.io/"/>
-  <updated>2016-03-22T01:24:21+09:00</updated>
-  <id>http://tac0x2a.github.io/</id>
+  <title><![CDATA[Category: Other | tac42.net]]></title>
+  <link href="https://www.tac42.net/blog/categories/other/atom.xml" rel="self"/>
+  <link href="https://www.tac42.net/"/>
+  <updated>2016-03-22T23:15:57+09:00</updated>
+  <id>https://www.tac42.net/</id>
   <author>
     <name><![CDATA[TAC]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Octopressで記事を書くには]]></title>
-    <link href="http://tac0x2a.github.io/other/2016/01/02/how-to-write-octopress/"/>
+    <link href="https://www.tac42.net/blog/other/2016/01/02/how-to-write-octopress/"/>
     <updated>2016-01-02T02:27:30+09:00</updated>
-    <id>http://tac0x2a.github.io/other/2016/01/02/how-to-write-octopress</id>
+    <id>https://www.tac42.net/blog/other/2016/01/02/how-to-write-octopress</id>
     <content type="html"><![CDATA[<p><img src="https://cdn.tutsplus.com/webdesign/authors/ian-yates/octopress-header.png" alt="" /></p>
 
 <p>備忘録です．Octopressに乗り換えたものの，環境構築忘れるとあれなので．</p>
@@ -63,9 +63,9 @@ $ git push origin source:source
   
   <entry>
     <title type="html"><![CDATA[2015年のまとめ]]></title>
-    <link href="http://tac0x2a.github.io/other/2015/12/31/conclusion2015/"/>
+    <link href="https://www.tac42.net/blog/other/2015/12/31/conclusion2015/"/>
     <updated>2015-12-31T23:59:25+09:00</updated>
-    <id>http://tac0x2a.github.io/other/2015/12/31/conclusion2015</id>
+    <id>https://www.tac42.net/blog/other/2015/12/31/conclusion2015</id>
     <content type="html"><![CDATA[<p>GooglePhotoを見ながら2015年を振り返り．ごった煮です．</p>
 
 <h2>1Q(1月から3月)</h2>
