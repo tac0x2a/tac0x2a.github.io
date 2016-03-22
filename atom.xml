@@ -4,7 +4,7 @@
   <title><![CDATA[tac42.net]]></title>
   <link href="https://www.tac42.net/atom.xml" rel="self"/>
   <link href="https://www.tac42.net/"/>
-  <updated>2016-03-23T00:12:21+09:00</updated>
+  <updated>2016-03-23T01:16:41+09:00</updated>
   <id>https://www.tac42.net/</id>
   <author>
     <name><![CDATA[TAC]]></name>
@@ -12,6 +12,35 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[オンラインジャッジを作ろう vol.3]]></title>
+    <link href="https://www.tac42.net/blog/2016/03/23/makeonlinejudgev03/"/>
+    <updated>2016-03-23T00:19:24+09:00</updated>
+    <id>https://www.tac42.net/blog/2016/03/23/makeonlinejudgev03</id>
+    <content type="html"><![CDATA[<h1>フレームワークを選ぶ(Golang編)</h1>
+
+<p>GoでWebアプリを書くためのフレームワークを調べました。</p>
+
+<ul>
+<li><a href="https://revel.github.io/">Revel</a></li>
+<li><a href="http://beego.me/">Beego</a></li>
+<li><a href="https://github.com/go-martini/martini/blob/master/translations/README_ja_JP.md">Martini</a></li>
+<li><a href="https://github.com/zenazn/goji">goji</a></li>
+</ul>
+
+
+<script type="text/javascript" src="//www.google.co.jp/trends/embed.js?hl=ja&q=Revel+golang,+Beego+Golang,+Martini+Golang,+goji+Golang&date=1/2015+12m&cmpt=q&tz=Etc/GMT-9&tz=Etc/GMT-9&content=1&cid=TIMESERIES_GRAPH_0&export=5&w=800&h=330"></script>
+
+
+<p>戦国時代ですね。</p>
+
+<h2>まとめ</h2>
+
+<p>調べてみたけど、これというフレームワークはあまあり無いみたいですね。。。気が向いたら追記します。
+フレームワークは<a href="http://www.tac42.net/blog/2016/03/22/makeonlinejudgev02/">前回</a>調べたMEAN(MongoDB+Express+Angular2+Node.js)にしよう。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[オンラインジャッジを作ろう vol.2]]></title>
