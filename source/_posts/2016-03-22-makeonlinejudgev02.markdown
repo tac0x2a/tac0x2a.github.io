@@ -6,14 +6,13 @@ comments: true
 categories:
 ---
 
-# フレームワークを選ぶ
-Webアプリを書くためのフレームワーク(言語)を選ぶ。
+# フレームワークを選ぶ(Javascript編)
+JavascriptでWebアプリを書くためのフレームワークを調べました。
 
-## Javascript
 
 + [人気上昇中のJavaScriptライブラリを調べてみた【2016年版】](http://www.buildinsider.net/web/popularjslib/2016)
 
-### [AngularJS](https://angularjs.org/)
+## [AngularJS](https://angularjs.org/)
 ![AngularJS](http://staffblog.yumemi.jp/wp-content/uploads/2014/03/AngularJS-large.png)
 
 + [AngularJS入門](http://www.tohoho-web.com/ex/angularjs.html)
@@ -37,12 +36,14 @@ Grunt(make的なビルドツール), Bower(パッケージマネージャ), Yo(�
 
 + [Node.jsのMVCフレームワーク「Express」の基礎知識とインストール](http://www.atmarkit.co.jp/ait/articles/1503/04/news047.html)
 
-npmで `generator-angular-fullstack` とか叩くと、Expressやらhttp://blog.mah-lab.com/2014/02/01/angular-fullstack/
+npmで `generator-angular-fullstack` を入れるだけで、ExpressやらKarma(実ブラウザでJavaScriptコードを実行できる実行環境,テストランナー)やらPassport(node.jsの認証ミドルウェア)が使えるようになるみたいです。
 
-[Firebase](https://html5experts.jp/technohippy/18040/) というBaaS(Backend as a Service)もあるみたいですが、今回は一式配布したいのでBaaSは使えませんね。
++ [AngularJSでWebアプリケーションを作ろうと思った時に構成に悩んだら、generator-angular-fullstackからはじめるのが良いのでは](http://blog.mah-lab.com/2014/02/01/angular-fullstack/)
+
+[Firebase](https://html5experts.jp/technohippy/18040/) というBaaS(Backend as a Service)もあるみたいです。
 
 
-### [Angular2](https://angular.io)
+## [Angular2](https://angular.io)
 
 ![Angular2](http://blog.ninja-squad.com/assets/images/ng2-ebook/ng2-logo.png)
 
@@ -54,7 +55,8 @@ AngularJSと比較して、劇的にスピードアップし、実装がJavascri
 + [[初心者向け] Angular2からみるJSフレームワーク入門](http://rdlabo.jp/angular2-373.php)
 
 
-### React
+## React
+![React](http://res.cloudinary.com/hashnode/image/upload/v1455637506/static_imgs/mern/imgs/react.png)
 
 + [5分で理解する React.js](http://qiita.com/tomzoh/items/7fabe7cb57dd96425867)
 
@@ -65,7 +67,7 @@ AngularJSと比較されることの多いフレームワーク。こちらもMV
 というかんじらしい。
 
 
-# まとめ
+## まとめ
 
 MEAN(MongoDB, Express, Angular2, Node.js)が良さそう。
 
