@@ -75,3 +75,13 @@ v5.9.0
 ```
 % npm install
 ```
+
+`app/app.component.ts`, `app/main.ts`, `index.html`, `style.css`, を追加して
+
+```
+% npm start
+```
+
+上記で、"My First Angular 2 App" が表示されることを確認。動いてるっぽい。
+
+今回はとりあえずここまで。
