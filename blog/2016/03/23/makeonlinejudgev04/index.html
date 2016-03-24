@@ -5,14 +5,13 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>オンラインジャッジを作ろう vol.3 - tac42.net</title>
+  <title>オンラインジャッジを作ろう vol.4 - tac42.net</title>
   <meta name="author" content="TAC">
 
   
-  <meta name="description" content="フレームワークを選ぶ(Golang編) GoでWebアプリを書くためのフレームワークを調べました。 Revel
-Beego
-Martini
-goji 戦国時代ですね。 まとめ 調べてみたけど、これというフレームワークはあまあり無いみたいですね。。。気が向いたら追記します。 &hellip;">
+  <meta name="description" content="Angular2 入門 とりあえずAngular2を触ってみよう。合わなければやめる方向で。 TUTORIAL: TOUR OF HEROES 環境構築 そもそも nodeとnpmが入ってないので入れる。
+nvm(NodeVersionManager) 1
+% brew install nvm 1 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -21,7 +20,7 @@ goji 戦国時代ですね。 まとめ 調べてみたけど、これという�
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="https://www.tac42.net/blog/2016/03/23/makeonlinejudgev03">
+  <link rel="canonical" href="https://www.tac42.net/blog/2016/03/23/makeonlinejudgev04">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="tac42.net" type="application/atom+xml">
@@ -117,7 +116,7 @@ goji 戦国時代ですね。 まとめ 調べてみたけど、これという�
   <header>
     
       
-        <h1 class="entry-title">オンラインジャッジを作ろう vol.3</h1>
+        <h1 class="entry-title">オンラインジャッジを作ろう vol.4</h1>
       
     
     
@@ -127,7 +126,7 @@ goji 戦国時代ですね。 まとめ 調べてみたけど、これという�
 
 
 
-<time class='entry-date' datetime='2016-03-23T00:19:24+09:00'><span class='date'><span class='date-month'>Mar</span> <span class='date-day'>23</span><span class='date-suffix'>rd</span>, <span class='date-year'>2016</span></span> <span class='time'>12:19 am</span></time>
+<time class='entry-date' datetime='2016-03-23T23:57:43+09:00'><span class='date'><span class='date-month'>Mar</span> <span class='date-day'>23</span><span class='date-suffix'>rd</span>, <span class='date-year'>2016</span></span> <span class='time'>11:57 pm</span></time>
         
         
       </p>
@@ -135,27 +134,113 @@ goji 戦国時代ですね。 まとめ 調べてみたけど、これという�
   </header>
 
 
-<div class="entry-content"><h1>フレームワークを選ぶ(Golang編)</h1>
+<div class="entry-content"><h1>Angular2 入門</h1>
 
-<p>GoでWebアプリを書くためのフレームワークを調べました。</p>
+<p>とりあえずAngular2を触ってみよう。合わなければやめる方向で。</p>
 
-<ul>
-<li><a href="https://revel.github.io/">Revel</a></li>
-<li><a href="http://beego.me/">Beego</a></li>
-<li><a href="https://github.com/go-martini/martini/blob/master/translations/README_ja_JP.md">Martini</a></li>
-<li><a href="https://github.com/zenazn/goji">goji</a></li>
-</ul>
+<p><a href="https://angular.io/docs/ts/latest/tutorial/">TUTORIAL: TOUR OF HEROES</a></p>
+
+<h2>環境構築</h2>
+
+<p>そもそも nodeとnpmが入ってないので入れる。
+nvm(NodeVersionManager)</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>% brew install nvm</span></code></pre></td></tr></table></div></figure>
 
 
-<script type="text/javascript" src="//www.google.co.jp/trends/embed.js?hl=ja&q=Revel+golang,+Beego+Golang,+Martini+Golang,+goji+Golang&date=1/2015+12m&cmpt=q&tz=Etc/GMT-9&tz=Etc/GMT-9&content=1&cid=TIMESERIES_GRAPH_0&export=5&w=800&h=330"></script>
 
 
-<p>戦国時代ですね。</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Add NVM's working directory to your $HOME path (if it doesn't exist):
+</span><span class='line'>
+</span><span class='line'>  mkdir ~/.nvm
+</span><span class='line'>
+</span><span class='line'>Copy nvm-exec to NVM's working directory
+</span><span class='line'>
+</span><span class='line'>  cp $(brew --prefix nvm)/nvm-exec ~/.nvm/
+</span><span class='line'>
+</span><span class='line'>Add the following to $HOME/.bashrc, $HOME/.zshrc, or your shell's
+</span><span class='line'>equivalent configuration file:
+</span><span class='line'>
+</span><span class='line'>  export NVM_DIR=~/.nvm
+</span><span class='line'>  source $(brew --prefix nvm)/nvm.sh
+</span><span class='line'>
+</span><span class='line'>Type `nvm help` for further information.</span></code></pre></td></tr></table></div></figure>
 
-<h2>まとめ</h2>
 
-<p>調べてみたけど、これというフレームワークはあまあり無いみたいですね。。。気が向いたら追記します。
-フレームワークは<a href="http://www.tac42.net/blog/2016/03/22/makeonlinejudgev02/">前回</a>調べたMEAN(MongoDB+Express+Angular2+Node.js)にしよう。</p>
+<p>と言われたので、</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>% mkdir ~/.nvm
+</span><span class='line'>% cp $(brew --prefix nvm)/nvm-exec ~/.nvm/
+</span><span class='line'>% echo 'export NVM_DIR=~/.nvm' &gt;&gt; .zshrc.mine
+</span><span class='line'>% echo 'source $(brew --prefix nvm)/nvm.sh'  &gt;&gt; .zshrc.mine
+</span><span class='line'>% soruce ~/.zshrc</span></code></pre></td></tr></table></div></figure>
+
+
+<p>これで nvm が使えるようになった。nodeをインストールする。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>% nvm --version
+</span><span class='line'>% nvm ls-remote #利用可能なnodeのバージョン
+</span><span class='line'>% nvm install v5.9.0  #一番新しそうなver</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>% node -v
+</span><span class='line'>v5.9.0
+</span><span class='line'>
+</span><span class='line'>% npm -v
+</span><span class='line'>3.7.3</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>いよいよチュートリアル</h2>
+
+<p><a href="https://angular.io/docs/ts/latest/quickstart.html">5 MIN QUICKSTART</a>
+全然5分ぢゃない・・・</p>
+
+<p>まずは環境構築。<code>tsconfig.json</code>, <code>typings.json</code>, <code>package.json</code> を用意して・・・</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>% npm install</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>app/app.component.ts</code>, <code>app/main.ts</code>, <code>index.html</code>, <code>style.css</code>, を追加して</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>% npm start</span></code></pre></td></tr></table></div></figure>
+
+
+<p>上記で、"My First Angular 2 App" が表示されることを確認。動いてるっぽい。</p>
+
+<p>今回はとりあえずここまで。</p>
 </div>
 
 
@@ -178,7 +263,7 @@ goji 戦国時代ですね。 まとめ 調べてみたけど、これという�
 
 
 
-<time class='entry-date' datetime='2016-03-23T00:19:24+09:00'><span class='date'><span class='date-month'>Mar</span> <span class='date-day'>23</span><span class='date-suffix'>rd</span>, <span class='date-year'>2016</span></span> <span class='time'>12:19 am</span></time>
+<time class='entry-date' datetime='2016-03-23T23:57:43+09:00'><span class='date'><span class='date-month'>Mar</span> <span class='date-day'>23</span><span class='date-suffix'>rd</span>, <span class='date-year'>2016</span></span> <span class='time'>11:57 pm</span></time>
       
       
 
@@ -187,7 +272,7 @@ goji 戦国時代ですね。 まとめ 調べてみたけど、これという�
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="https://www.tac42.net/blog/2016/03/23/makeonlinejudgev03/" data-via="tac0x2a" data-counturl="https://www.tac42.net/blog/2016/03/23/makeonlinejudgev03/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="https://www.tac42.net/blog/2016/03/23/makeonlinejudgev04/" data-via="tac0x2a" data-counturl="https://www.tac42.net/blog/2016/03/23/makeonlinejudgev04/" >Tweet</a>
   
   
   
@@ -198,10 +283,8 @@ goji 戦国時代ですね。 まとめ 調べてみたけど、これという�
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2016/03/22/makeonlinejudgev02/" title="Previous Post: オンラインジャッジを作ろう vol.2">&laquo; オンラインジャッジを作ろう vol.2</a>
+        <a class="basic-alignment left" href="/blog/2016/03/23/makeonlinejudgev03/" title="Previous Post: オンラインジャッジを作ろう vol.3">&laquo; オンラインジャッジを作ろう vol.3</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2016/03/23/makeonlinejudgev04/" title="Next Post: オンラインジャッジを作ろう vol.4">オンラインジャッジを作ろう vol.4 &raquo;</a>
       
     </p>
   </footer>
