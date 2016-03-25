@@ -4,7 +4,7 @@
   <title><![CDATA[tac42.net]]></title>
   <link href="https://www.tac42.net/atom.xml" rel="self"/>
   <link href="https://www.tac42.net/"/>
-  <updated>2016-03-26T02:00:06+09:00</updated>
+  <updated>2016-03-26T02:08:35+09:00</updated>
   <id>https://www.tac42.net/</id>
   <author>
     <name><![CDATA[TAC]]></name>
@@ -65,6 +65,13 @@
 <li>Prefix Keys に <code>ctrl-k</code> を設定する。</li>
 </ul>
 
+
+<h1>テーマ</h1>
+
+<h2><code>robin-hood-syntax</code></h2>
+
+<p><img src="https://i.github-camo.com/ab5bd775f86c75113818f712d96c55ba934e1cf8/68747470733a2f2f6769746875622e636f6d2f617a61742d696f2f61746f6d2d726f62696e2d686f6f642d73796e7461782f626c6f622f6d61737465722f696d616765732f68746d6c2e706e673f7261773d74727565" alt="" />
+<img src="https://i.github-camo.com/e16edf8a04d83900fd3cb9d6907fe8b677e051e7/68747470733a2f2f6769746875622e636f6d2f617a61742d696f2f61746f6d2d726f62696e2d686f6f642d73796e7461782f626c6f622f6d61737465722f696d616765732f6373732e706e673f7261773d74727565" alt="" /></p>
 
 <p>ここまで。気が向いたら追記する。</p>
 ]]></content>
