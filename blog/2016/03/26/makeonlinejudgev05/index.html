@@ -5,13 +5,15 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>オンラインジャッジを作ろう vol.4 - tac42.net</title>
+  <title>オンラインジャッジを作ろう vol.5 (Atom設定) - tac42.net</title>
   <meta name="author" content="TAC">
 
   
-  <meta name="description" content="Angular2 入門 とりあえずAngular2を触ってみよう。合わなければやめる方向で。 TUTORIAL: TOUR OF HEROES 環境構築 そもそも nodeとnpmが入ってないので入れる。
-nvm(NodeVersionManager) 1
-% brew install nvm 1 &hellip;">
+  <meta name="description" content="パッケージ sync-settings - Atomの設定を同期する。
+atomic-emacs - Emacsのキーバインド
+emacs-plus - Emacsのキーバインド
+disable-keybindings - Emacsのキーバインドとぶつかっているキーを無効にする。
+ruby- &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -20,7 +22,7 @@ nvm(NodeVersionManager) 1
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="https://www.tac42.net/blog/2016/03/23/makeonlinejudgev04">
+  <link rel="canonical" href="https://www.tac42.net/blog/2016/03/26/makeonlinejudgev05">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="tac42.net" type="application/atom+xml">
@@ -116,7 +118,7 @@ nvm(NodeVersionManager) 1
   <header>
     
       
-        <h1 class="entry-title">オンラインジャッジを作ろう vol.4</h1>
+        <h1 class="entry-title">オンラインジャッジを作ろう vol.5 (Atom設定)</h1>
       
     
     
@@ -126,7 +128,7 @@ nvm(NodeVersionManager) 1
 
 
 
-<time class='entry-date' datetime='2016-03-23T23:57:43+09:00'><span class='date'><span class='date-month'>Mar</span> <span class='date-day'>23</span><span class='date-suffix'>rd</span>, <span class='date-year'>2016</span></span> <span class='time'>11:57 pm</span></time>
+<time class='entry-date' datetime='2016-03-26T01:19:06+09:00'><span class='date'><span class='date-month'>Mar</span> <span class='date-day'>26</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>1:19 am</span></time>
         
         
       </p>
@@ -134,22 +136,20 @@ nvm(NodeVersionManager) 1
   </header>
 
 
-<div class="entry-content"><h1>Angular2 入門</h1>
+<div class="entry-content"><h1>パッケージ</h1>
 
-<p>とりあえずAngular2を触ってみよう。合わなければやめる方向で。</p>
-
-<p><a href="https://angular.io/docs/ts/latest/tutorial/">TUTORIAL: TOUR OF HEROES</a></p>
-
-<h2>環境構築</h2>
-
-<p>そもそも nodeとnpmが入ってないので入れる。
-nvm(NodeVersionManager)</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>% brew install nvm</span></code></pre></td></tr></table></div></figure>
+<ul>
+<li>sync-settings - <a href="http://qiita.com/T_M/items/0fb0804eb1fd256aac4e">Atomの設定を同期する</a>。</li>
+<li>atomic-emacs - Emacsのキーバインド</li>
+<li>emacs-plus   - Emacsのキーバインド</li>
+<li>disable-keybindings - Emacsのキーバインドとぶつかっているキーを無効にする。</li>
+<li>ruby-block - Rubyのblockをハイライトしてくれる</li>
+<li>file-icons - ファイルツリーのアイコンを見やすく</li>
+<li>project-manager - 複数プロジェクトを記憶して切り替える</li>
+</ul>
 
 
-
+<p>コマンドでインストールするには</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -158,89 +158,33 @@ nvm(NodeVersionManager)</p>
 <span class='line-number'>5</span>
 <span class='line-number'>6</span>
 <span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>Add NVM's working directory to your $HOME path (if it doesn't exist):
-</span><span class='line'>
-</span><span class='line'>  mkdir ~/.nvm
-</span><span class='line'>
-</span><span class='line'>Copy nvm-exec to NVM's working directory
-</span><span class='line'>
-</span><span class='line'>  cp $(brew --prefix nvm)/nvm-exec ~/.nvm/
-</span><span class='line'>
-</span><span class='line'>Add the following to $HOME/.bashrc, $HOME/.zshrc, or your shell's
-</span><span class='line'>equivalent configuration file:
-</span><span class='line'>
-</span><span class='line'>  export NVM_DIR=~/.nvm
-</span><span class='line'>  source $(brew --prefix nvm)/nvm.sh
-</span><span class='line'>
-</span><span class='line'>Type `nvm help` for further information.</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>apm install sync-settings
+</span><span class='line'>apm install atomic-emacs
+</span><span class='line'>apm install emacs-plus
+</span><span class='line'>apm install disable-keybindings
+</span><span class='line'>apm install ruby-block
+</span><span class='line'>apm install file-icons
+</span><span class='line'>apm install project-manager</span></code></pre></td></tr></table></div></figure>
 
 
-<p>と言われたので、</p>
+<h2>sync-settings</h2>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>% mkdir ~/.nvm
-</span><span class='line'>% cp $(brew --prefix nvm)/nvm-exec ~/.nvm/
-</span><span class='line'>% echo 'export NVM_DIR=~/.nvm' &gt;&gt; .zshrc.mine
-</span><span class='line'>% echo 'source $(brew --prefix nvm)/nvm.sh'  &gt;&gt; .zshrc.mine
-</span><span class='line'>% soruce ~/.zshrc</span></code></pre></td></tr></table></div></figure>
+<ul>
+<li>GistのIDとGitHubのAccessTokenをそれぞれ設定する。</li>
+<li>コマンドパレットを開いて(<code>Cmd+Shift+p</code>) <code>Sync Settings:Restore</code> でgistから設定をリストアする。</li>
+</ul>
 
 
-<p>これで nvm が使えるようになった。nodeをインストールする。</p>
+<h2>disable-keybindings</h2>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>% nvm --version
-</span><span class='line'>% nvm ls-remote #利用可能なnodeのバージョン
-</span><span class='line'>% nvm install v5.9.0  #一番新しそうなver</span></code></pre></td></tr></table></div></figure>
-
+<ul>
+<li>All Community Packages にチェック入れる。</li>
+<li>Except Community Packages に <code>atomic-emacs, emacs-plus</code> を設定する。</li>
+<li>Prefix Keys に <code>ctrl-k</code> を設定する。</li>
+</ul>
 
 
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>% node -v
-</span><span class='line'>v5.9.0
-</span><span class='line'>
-</span><span class='line'>% npm -v
-</span><span class='line'>3.7.3</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>いよいよチュートリアル</h2>
-
-<p><a href="https://angular.io/docs/ts/latest/quickstart.html">5 MIN QUICKSTART</a>
-全然5分ぢゃない・・・</p>
-
-<p>まずは環境構築。<code>tsconfig.json</code>, <code>typings.json</code>, <code>package.json</code> を用意して・・・</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>% npm install</span></code></pre></td></tr></table></div></figure>
-
-
-<p><code>app/app.component.ts</code>, <code>app/main.ts</code>, <code>index.html</code>, <code>style.css</code>, を追加して</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>% npm start</span></code></pre></td></tr></table></div></figure>
-
-
-<p>上記で、"My First Angular 2 App" が表示されることを確認。動いてるっぽい。</p>
-
-<p>今回はとりあえずここまで。</p>
+<p>ここまで。気が向いたら追記する。</p>
 </div>
 
 
@@ -263,7 +207,7 @@ nvm(NodeVersionManager)</p>
 
 
 
-<time class='entry-date' datetime='2016-03-23T23:57:43+09:00'><span class='date'><span class='date-month'>Mar</span> <span class='date-day'>23</span><span class='date-suffix'>rd</span>, <span class='date-year'>2016</span></span> <span class='time'>11:57 pm</span></time>
+<time class='entry-date' datetime='2016-03-26T01:19:06+09:00'><span class='date'><span class='date-month'>Mar</span> <span class='date-day'>26</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>1:19 am</span></time>
       
       
 
@@ -272,7 +216,7 @@ nvm(NodeVersionManager)</p>
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="https://www.tac42.net/blog/2016/03/23/makeonlinejudgev04/" data-via="tac0x2a" data-counturl="https://www.tac42.net/blog/2016/03/23/makeonlinejudgev04/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="https://www.tac42.net/blog/2016/03/26/makeonlinejudgev05/" data-via="tac0x2a" data-counturl="https://www.tac42.net/blog/2016/03/26/makeonlinejudgev05/" >Tweet</a>
   
   
   
@@ -283,10 +227,8 @@ nvm(NodeVersionManager)</p>
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2016/03/23/makeonlinejudgev03/" title="Previous Post: オンラインジャッジを作ろう vol.3">&laquo; オンラインジャッジを作ろう vol.3</a>
+        <a class="basic-alignment left" href="/blog/2016/03/23/makeonlinejudgev04/" title="Previous Post: オンラインジャッジを作ろう vol.4">&laquo; オンラインジャッジを作ろう vol.4</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2016/03/26/makeonlinejudgev05/" title="Next Post: オンラインジャッジを作ろう vol.5 (Atom設定)">オンラインジャッジを作ろう vol.5 (Atom設定) &raquo;</a>
       
     </p>
   </footer>

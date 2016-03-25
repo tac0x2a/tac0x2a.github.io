@@ -4,7 +4,7 @@
   <title><![CDATA[tac42.net]]></title>
   <link href="https://www.tac42.net/atom.xml" rel="self"/>
   <link href="https://www.tac42.net/"/>
-  <updated>2016-03-25T08:11:45+09:00</updated>
+  <updated>2016-03-26T02:00:06+09:00</updated>
   <id>https://www.tac42.net/</id>
   <author>
     <name><![CDATA[TAC]]></name>
@@ -12,6 +12,63 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[オンラインジャッジを作ろう vol.5 (Atom設定)]]></title>
+    <link href="https://www.tac42.net/blog/2016/03/26/makeonlinejudgev05/"/>
+    <updated>2016-03-26T01:19:06+09:00</updated>
+    <id>https://www.tac42.net/blog/2016/03/26/makeonlinejudgev05</id>
+    <content type="html"><![CDATA[<h1>パッケージ</h1>
+
+<ul>
+<li>sync-settings - <a href="http://qiita.com/T_M/items/0fb0804eb1fd256aac4e">Atomの設定を同期する</a>。</li>
+<li>atomic-emacs - Emacsのキーバインド</li>
+<li>emacs-plus   - Emacsのキーバインド</li>
+<li>disable-keybindings - Emacsのキーバインドとぶつかっているキーを無効にする。</li>
+<li>ruby-block - Rubyのblockをハイライトしてくれる</li>
+<li>file-icons - ファイルツリーのアイコンを見やすく</li>
+<li>project-manager - 複数プロジェクトを記憶して切り替える</li>
+</ul>
+
+
+<p>コマンドでインストールするには</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>apm install sync-settings
+</span><span class='line'>apm install atomic-emacs
+</span><span class='line'>apm install emacs-plus
+</span><span class='line'>apm install disable-keybindings
+</span><span class='line'>apm install ruby-block
+</span><span class='line'>apm install file-icons
+</span><span class='line'>apm install project-manager</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>sync-settings</h2>
+
+<ul>
+<li>GistのIDとGitHubのAccessTokenをそれぞれ設定する。</li>
+<li>コマンドパレットを開いて(<code>Cmd+Shift+p</code>) <code>Sync Settings:Restore</code> でgistから設定をリストアする。</li>
+</ul>
+
+
+<h2>disable-keybindings</h2>
+
+<ul>
+<li>All Community Packages にチェック入れる。</li>
+<li>Except Community Packages に <code>atomic-emacs, emacs-plus</code> を設定する。</li>
+<li>Prefix Keys に <code>ctrl-k</code> を設定する。</li>
+</ul>
+
+
+<p>ここまで。気が向いたら追記する。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[オンラインジャッジを作ろう vol.4]]></title>
