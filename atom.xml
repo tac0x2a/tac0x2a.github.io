@@ -4,7 +4,7 @@
   <title><![CDATA[tac42.net]]></title>
   <link href="https://www.tac42.net/atom.xml" rel="self"/>
   <link href="https://www.tac42.net/"/>
-  <updated>2016-03-26T02:08:35+09:00</updated>
+  <updated>2016-03-26T07:29:57+09:00</updated>
   <id>https://www.tac42.net/</id>
   <author>
     <name><![CDATA[TAC]]></name>
@@ -28,6 +28,8 @@
 <li>ruby-block - Rubyのblockをハイライトしてくれる</li>
 <li>file-icons - ファイルツリーのアイコンを見やすく</li>
 <li>project-manager - 複数プロジェクトを記憶して切り替える</li>
+<li><a href="https://atom.io/packages/minimap">minimap</a> - スクロールバーの位置にソースコードの全体像を表示する</li>
+<li>atom-typescript - TypeScript用のplugin. 機能多すぎてよくわからんけど凄い</li>
 </ul>
 
 
