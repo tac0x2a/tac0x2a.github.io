@@ -14,6 +14,10 @@ categories:
 + ruby-block - Rubyのblockをハイライトしてくれる
 + file-icons - ファイルツリーのアイコンを見やすく
 + project-manager - 複数プロジェクトを記憶して切り替える
++ [minimap](https://atom.io/packages/minimap) - スクロールバーの位置にソースコードの全体像を表示する
++ atom-typescript - TypeScript用のplugin. 機能多すぎてよくわからんけど凄い
+
+
 
 コマンドでインストールするには
 
