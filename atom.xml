@@ -4,7 +4,7 @@
   <title><![CDATA[tac42.net]]></title>
   <link href="https://www.tac42.net/atom.xml" rel="self"/>
   <link href="https://www.tac42.net/"/>
-  <updated>2016-03-26T07:29:57+09:00</updated>
+  <updated>2016-03-27T18:27:35+09:00</updated>
   <id>https://www.tac42.net/</id>
   <author>
     <name><![CDATA[TAC]]></name>
@@ -12,6 +12,76 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[オンラインジャッジを作ろう vol.6(Node.jsとExpress)]]></title>
+    <link href="https://www.tac42.net/blog/2016/03/26/makeonlinejudgev06/"/>
+    <updated>2016-03-26T15:49:39+09:00</updated>
+    <id>https://www.tac42.net/blog/2016/03/26/makeonlinejudgev06</id>
+    <content type="html"><![CDATA[<p>前回はフロントエンドとしてAngular2のチュートリアルを軽く触ってみました。
+今回はNode.js + Expressでバックエンドの環境を触ってみようと思います！</p>
+
+<h1>Node.js</h1>
+
+<p>どちらもちょっと古め。WebアプリのフレームワークとしてExpressを紹介している。
++ <a href="http://gihyo.jp/dev/serial/01/nodejs/0001">基礎から学ぶNode.js</a>
++ <a href="http://libro.tuyano.com/index2?id=1115003">ビギナーのための Node.jsプログラミング入門</a></p>
+
+<h1>Express</h1>
+
+<ul>
+<li><a href="https://gist.github.com/mitsuruog/fc48397a8e80f051a145">express実践入門</a> - めちゃわかりやすい！</li>
+</ul>
+
+
+<blockquote><p>expressを理解する上での最小構成要素。
++ routing -
+  外部からのHTTP(S)リクエストに対して、内部のロジックをマッピングすること。</p>
+
+<ul>
+<li>middleware -
+routingの過程で何らかの処理を差し込む仕組み。
+共通処理(認証、エラーハンドリング、リクエストデータの加工、etc)を本来のロジッ> クから分離して、コードベースを健全に保つ。</li>
+</ul>
+</blockquote>
+
+<h2>Expressのキーワード</h2>
+
+<ul>
+<li>Jade - デファクトなテンプレートエンジン</li>
+<li>Mongoose - MongoDBなORM</li>
+<li>Sequelize - PostgreSQL, MySQL, SQLite, MSSQL なORM</li>
+<li>Passport - node.jsの認証モジュールでデファクト</li>
+</ul>
+
+
+<h1>まとめ</h1>
+
+<p>なんか作れそうな気がしてきた！
+当面の方針として、Expressで作ってみて、フロントエンドをリッチにしたくなってきたらAngular2なりReactなりでViewを強化するようにしてみよう。
+まずは、Node.js(Express)とDockerで</p>
+
+<ul>
+<li>ユーザ登録/認証</li>
+<li>問題の登録
+
+<ul>
+<li>テストの登録</li>
+</ul>
+</li>
+<li>回答の登録
+
+<ul>
+<li>ユーザごとの回答の履歴</li>
+</ul>
+</li>
+<li>送信された回答とテストの実行</li>
+</ul>
+
+
+<p>このあたりを作りたいと思います。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[オンラインジャッジを作ろう vol.5 (Atom設定)]]></title>
@@ -74,6 +144,11 @@
 
 <p><img src="https://i.github-camo.com/ab5bd775f86c75113818f712d96c55ba934e1cf8/68747470733a2f2f6769746875622e636f6d2f617a61742d696f2f61746f6d2d726f62696e2d686f6f642d73796e7461782f626c6f622f6d61737465722f696d616765732f68746d6c2e706e673f7261773d74727565" alt="" />
 <img src="https://i.github-camo.com/e16edf8a04d83900fd3cb9d6907fe8b677e051e7/68747470733a2f2f6769746875622e636f6d2f617a61742d696f2f61746f6d2d726f62696e2d686f6f642d73796e7461782f626c6f622f6d61737465722f696d616765732f6373732e706e673f7261773d74727565" alt="" /></p>
+
+<h1>その他</h1>
+
+<p>Markdownプレビューのフォントを変更する。
++ AP<a href="http://tanksuzuki.com/post/atom-markdown-style/">AtomでカッコよくMarkdown PreviewするためのCSS</a></p>
 
 <p>ここまで。気が向いたら追記する。</p>
 ]]></content>
