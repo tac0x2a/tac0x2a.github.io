@@ -18,7 +18,6 @@ categories:
 + atom-typescript - TypeScript用のplugin. 機能多すぎてよくわからんけど凄い
 
 
-
 コマンドでインストールするには
 
 ```
@@ -44,6 +43,10 @@ apm install project-manager
 ## `robin-hood-syntax`
 ![](https://i.github-camo.com/ab5bd775f86c75113818f712d96c55ba934e1cf8/68747470733a2f2f6769746875622e636f6d2f617a61742d696f2f61746f6d2d726f62696e2d686f6f642d73796e7461782f626c6f622f6d61737465722f696d616765732f68746d6c2e706e673f7261773d74727565)
 ![](https://i.github-camo.com/e16edf8a04d83900fd3cb9d6907fe8b677e051e7/68747470733a2f2f6769746875622e636f6d2f617a61742d696f2f61746f6d2d726f62696e2d686f6f642d73796e7461782f626c6f622f6d61737465722f696d616765732f6373732e706e673f7261773d74727565)
+
+# その他
+Markdownプレビューのフォントを変更する。
++ AP[AtomでカッコよくMarkdown PreviewするためのCSS](http://tanksuzuki.com/post/atom-markdown-style/)
 
 
 ここまで。気が向いたら追記する。
