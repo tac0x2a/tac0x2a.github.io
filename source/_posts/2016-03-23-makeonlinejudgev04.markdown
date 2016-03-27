@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "オンラインジャッジを作ろう vol.4"
+title: "オンラインジャッジを作ろう vol.4(Angular2入門)"
 date: 2016-03-23 23:57:43 +0900
 comments: true
 categories:

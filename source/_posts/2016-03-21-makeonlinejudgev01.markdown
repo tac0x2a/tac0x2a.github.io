@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "オンラインジャッジを作ろう vol.1"
+title: "オンラインジャッジを作ろう vol.1(構想)"
 date: 2016-03-21 23:32:05 +0900
 comments: true
 categories:

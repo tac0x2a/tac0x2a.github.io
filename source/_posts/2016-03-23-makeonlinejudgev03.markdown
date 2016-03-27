@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "オンラインジャッジを作ろう vol.3"
+title: "オンラインジャッジを作ろう vol.3(Golangのフレームワーク)"
 date: 2016-03-23 00:19:24 +0900
 comments: true
 categories:

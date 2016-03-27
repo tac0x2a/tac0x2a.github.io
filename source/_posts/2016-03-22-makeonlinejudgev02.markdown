@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "オンラインジャッジを作ろう vol.2"
+title: "オンラインジャッジを作ろう vol.2(Javascriptのフレームワーク)"
 date: 2016-03-22 19:43:37 +0900
 comments: true
 categories:

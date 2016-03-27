@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "オンラインジャッジを作ろう vol.5 (Atom設定)"
+title: "オンラインジャッジを作ろう vol.5(Atom設定)"
 date: 2016-03-26 01:19:06 +0900
 comments: true
 categories:
