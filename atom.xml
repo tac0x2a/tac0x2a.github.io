@@ -4,7 +4,7 @@
   <title><![CDATA[tac42.net]]></title>
   <link href="https://www.tac42.net/atom.xml" rel="self"/>
   <link href="https://www.tac42.net/"/>
-  <updated>2016-03-27T18:27:35+09:00</updated>
+  <updated>2016-03-27T19:00:56+09:00</updated>
   <id>https://www.tac42.net/</id>
   <author>
     <name><![CDATA[TAC]]></name>
@@ -84,7 +84,7 @@ routingの過程で何らかの処理を差し込む仕組み。
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[オンラインジャッジを作ろう vol.5 (Atom設定)]]></title>
+    <title type="html"><![CDATA[オンラインジャッジを作ろう vol.5(Atom設定)]]></title>
     <link href="https://www.tac42.net/blog/2016/03/26/makeonlinejudgev05/"/>
     <updated>2016-03-26T01:19:06+09:00</updated>
     <id>https://www.tac42.net/blog/2016/03/26/makeonlinejudgev05</id>
@@ -155,7 +155,7 @@ routingの過程で何らかの処理を差し込む仕組み。
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[オンラインジャッジを作ろう vol.4]]></title>
+    <title type="html"><![CDATA[オンラインジャッジを作ろう vol.4(Angular2入門)]]></title>
     <link href="https://www.tac42.net/blog/2016/03/23/makeonlinejudgev04/"/>
     <updated>2016-03-23T23:57:43+09:00</updated>
     <id>https://www.tac42.net/blog/2016/03/23/makeonlinejudgev04</id>
@@ -270,7 +270,7 @@ nvm(NodeVersionManager)</p>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[オンラインジャッジを作ろう vol.3]]></title>
+    <title type="html"><![CDATA[オンラインジャッジを作ろう vol.3(Golangのフレームワーク)]]></title>
     <link href="https://www.tac42.net/blog/2016/03/23/makeonlinejudgev03/"/>
     <updated>2016-03-23T00:19:24+09:00</updated>
     <id>https://www.tac42.net/blog/2016/03/23/makeonlinejudgev03</id>
@@ -299,7 +299,7 @@ nvm(NodeVersionManager)</p>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[オンラインジャッジを作ろう vol.2]]></title>
+    <title type="html"><![CDATA[オンラインジャッジを作ろう vol.2(Javascriptのフレームワーク)]]></title>
     <link href="https://www.tac42.net/blog/2016/03/22/makeonlinejudgev02/"/>
     <updated>2016-03-22T19:43:37+09:00</updated>
     <id>https://www.tac42.net/blog/2016/03/22/makeonlinejudgev02</id>
@@ -396,7 +396,7 @@ Grunt(make的なビルドツール), Bower(パッケージマネージャ), Yo(�
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[オンラインジャッジを作ろう vol.1]]></title>
+    <title type="html"><![CDATA[オンラインジャッジを作ろう vol.1(構想)]]></title>
     <link href="https://www.tac42.net/blog/2016/03/21/makeonlinejudgev01/"/>
     <updated>2016-03-21T23:32:05+09:00</updated>
     <id>https://www.tac42.net/blog/2016/03/21/makeonlinejudgev01</id>
