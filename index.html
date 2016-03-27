@@ -9,9 +9,9 @@
   <meta name="author" content="TAC">
 
   
-  <meta name="description" content="前回はフロントエンドとしてAngular2のチュートリアルを軽く触ってみました。
-今回はNode.js + Expressでバックエンドの環境を触ってみようと思います！ Node.js どちらもちょっと古め。WebアプリのフレームワークとしてExpressを紹介している。
-+ 基礎から学ぶNode &hellip;">
+  <meta name="description" content="開発環境を作る とりあえず、Node.js, Express, MongoDBが動作する環境を作る。
+他環境へ持って行ったり、どこかで自動テストできるように、
+以下を参考にしながら開発/実行環境をDockerで作る。 docker-composeを使って最高の開発環境を手に入れた &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -112,6 +112,75 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2016/03/27/makeonlinejudgev07/">オンラインジャッジを作ろう vol.7(Dockerによる開発環境)</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2016-03-27T23:23:06+09:00'><span class='date'><span class='date-month'>Mar</span> <span class='date-day'>27</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>11:23 pm</span></time>
+        
+         | <a href="/blog/2016/03/27/makeonlinejudgev07/#disqus_thread">Comments</a>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h1>開発環境を作る</h1>
+
+<p>とりあえず、Node.js, Express, MongoDBが動作する環境を作る。
+他環境へ持って行ったり、どこかで自動テストできるように、
+以下を参考にしながら開発/実行環境をDockerで作る。</p>
+
+<ul>
+<li><a href="http://blog.muuny-blue.info/7d128c1d4a33165a8676d1650d8ff828.html">docker-composeを使って最高の開発環境を手に入れた</a></li>
+</ul>
+
+
+<p>上記を参考に作ったらこんなかんじになった。</p>
+
+<ul>
+<li><a href="https://github.com/tac0x2a/judgesv_devenv">tac0x2a/judgesv_devenv</a></li>
+</ul>
+
+
+<h1>ところが・・・</h1>
+
+<p>MongoDBのVolumeマウントでハマった。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>2016-03-27T16:58:37.013+0000 I CONTROL  [initandlisten] options: {}
+</span><span class='line'>2016-03-27T16:58:37.069+0000 I STORAGE  [initandlisten] exception in initAndListen: 98 Unable to create/open lock file: /data/db/mongod.lock errno:13 Permission denied Is a mongod instance already running?, terminating
+</span><span class='line'>2016-03-27T16:58:37.069+0000 I CONTROL  [initandlisten] dbexit:  rc: 100</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li><a href="http://qiita.com/ota42y/items/af90ada86fd671dc5122">MacのDocker上で動くMongoDBのデータを永続化するの大変そう</a></li>
+</ul>
+
+
+<blockquote><p>MongoDBはVirtualBoxの共有フォルダはサポートしていないようです。</p></blockquote>
+
+<p>どうしよ。。。次回へ続く！</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
