@@ -9,8 +9,12 @@
   <meta name="author" content="TAC">
 
   
-  <meta name="description" content="プロトタイプを作ろう 前回なんとか開発環境を構築できました。
-とにかく早く開発したいけど慎重に設計してると前に進めない・・・ので！とりあえずプロトタイプを作ります！ tac0x2a/judgesv_app_prototype ">
+  <meta name="description" content="まずはプロトタイプ 前回なんとかDockerで実行環境兼開発環境を構築できました。
+とにかく早く作ってみたいので、プロトタイプという体で手を動かしてみます。
+どうせ作り直したくなってくるので、最初は適当にやってみようというかんじ。死にゲー。 Expressの環境構築 1
+2
+3
+$ nvm use &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -136,15 +140,108 @@
   </header>
 
 
-  <div class="entry-content"><h1>プロトタイプを作ろう</h1>
+  <div class="entry-content"><h1>まずはプロトタイプ</h1>
 
-<p>前回なんとか開発環境を構築できました。
-とにかく早く開発したいけど慎重に設計してると前に進めない・・・ので！とりあえずプロトタイプを作ります！</p>
+<p>前回なんとかDockerで実行環境兼開発環境を構築できました。
+とにかく早く作ってみたいので、プロトタイプという体で手を動かしてみます。
+どうせ作り直したくなってくるので、最初は適当にやってみようというかんじ。死にゲー。</p>
+
+<h2>Expressの環境構築</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ nvm use v5.9.0
+</span><span class='line'>$ npm init
+</span><span class='line'>$ npm install --save-dev express</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>--save-dev</code> オプションを付けておくと、インストールしたパッケージを<code>package.js</code>へ自動で追記してくれます。便利！</p>
+
+<h2>アプリを書いてみる</h2>
+
+<p><code>app.js</code> という名前で以下のファイルを作った。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="kd">var</span> <span class="nx">express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;express&#39;</span><span class="p">);</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">express</span><span class="p">();</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// receive http request</span>
+</span><span class='line'><span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>  <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s2">&quot;Hello, World&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="p">});</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// launch server</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">server</span> <span class="o">=</span> <span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="mi">3000</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>  <span class="kd">var</span> <span class="nx">host</span> <span class="o">=</span> <span class="nx">server</span><span class="p">.</span><span class="nx">address</span><span class="p">().</span><span class="nx">address</span><span class="p">;</span>
+</span><span class='line'>  <span class="kd">var</span> <span class="nx">port</span> <span class="o">=</span> <span class="nx">server</span><span class="p">.</span><span class="nx">address</span><span class="p">().</span><span class="nx">port</span><span class="p">;</span>
+</span><span class='line'>  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Judge server is started at http://%s:%s&quot;</span><span class="p">,</span> <span class="nx">host</span><span class="p">,</span> <span class="nx">port</span><span class="p">);</span>
+</span><span class='line'><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>で、できあがったのがこれ。</p>
 
 <ul>
 <li><a href="https://github.com/tac0x2a/judgesv_app_prototype">tac0x2a/judgesv_app_prototype</a></li>
 </ul>
 
+
+<h2>実行してみる</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">$</span> <span class="nx">node</span> <span class="nx">app</span><span class="p">.</span><span class="nx">js</span>
+</span><span class='line'><span class="nx">$</span> <span class="nx">curl</span> <span class="nx">http</span><span class="o">:</span><span class="c1">//:::3000</span>
+</span><span class='line'><span class="nx">Hello</span><span class="p">,</span> <span class="nx">World</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>おおお、動いてる！</p>
+
+<h1>Dockerで動かす</h1>
+
+<p>これまでは直接Macで動かしていましたが、前回作ったDockerの実行環境で動かしてみます。</p>
+
+<ul>
+<li><a href="https://github.com/tac0x2a/judgesv_devenv">tac0x2a/judgesv_devenv</a></li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">$</span> <span class="nx">git</span> <span class="nx">clone</span> <span class="nx">git</span><span class="err">@</span><span class="nx">github</span><span class="p">.</span><span class="nx">com</span><span class="o">:</span><span class="nx">tac0x2a</span><span class="o">/</span><span class="nx">judgesv_devenv</span><span class="p">.</span><span class="nx">git</span>
+</span><span class='line'><span class="nx">$</span> <span class="nx">cd</span> <span class="nx">judgesv_devenv</span><span class="o">/</span>
+</span><span class='line'><span class="nx">$</span> <span class="nx">git</span> <span class="nx">clone</span> <span class="nx">git</span><span class="err">@</span><span class="nx">github</span><span class="p">.</span><span class="nx">com</span><span class="o">:</span><span class="nx">tac0x2a</span><span class="o">/</span><span class="nx">judgesv_app_prototype</span><span class="p">.</span><span class="nx">git</span> <span class="nx">data</span><span class="o">/</span><span class="nx">work</span>
+</span><span class='line'><span class="nx">$</span> <span class="nx">docker</span><span class="o">-</span><span class="nx">compose</span> <span class="nx">build</span>
+</span><span class='line'><span class="nx">$</span> <span class="nx">docker</span><span class="o">-</span><span class="nx">compose</span> <span class="nx">pull</span>
+</span><span class='line'><span class="nx">$</span> <span class="nx">docker</span><span class="o">-</span><span class="nx">compose</span> <span class="nx">up</span> <span class="o">-</span><span class="nx">d</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>data/work</code> が DataVolumeになっており、コンテナの <code>/home/devenv/work</code> にマウントされて、<code>node app.js</code> で実行されます。</p>
+
+<p>エントリポイントが<code>app.js</code> 固定になってて気持ち悪いですが、何か設定ファイル等で指定する方法があるんだと思います。そのうち調べます。</p>
+
+<p>はい、今回はここまで〜</p>
 </div>
   
   
