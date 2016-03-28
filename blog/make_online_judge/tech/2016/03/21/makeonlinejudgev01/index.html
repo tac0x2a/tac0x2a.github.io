@@ -5,13 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>オンラインジャッジを作ろう vol.6(Node.jsとExpress) - tac42.net</title>
+  <title>オンラインジャッジを作ろう - tac42.net</title>
   <meta name="author" content="TAC">
 
   
-  <meta name="description" content="前回はフロントエンドとしてAngular2のチュートリアルを軽く触ってみました。
-今回はNode.js + Expressでバックエンドの環境を触ってみようと思います！ Node.js どちらもちょっと古め。WebアプリのフレームワークとしてExpressを紹介している。
-+ 基礎から学ぶNode &hellip;">
+  <meta name="description" content="作ろう！ オンラインジャッジって？ PaizaやCodeIQ、TopCoderなどのプログラミングコンテストで、提出されたコードを実行して採点するシステムのこと。 構想 特に難しいことを考えなければこんなかんじ？ Webアプリケーション - 問題の管理やコード受付をするよ
+ジャッジサーバ - &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -20,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="https://www.tac42.net/blog/2016/03/26/makeonlinejudgev06">
+  <link rel="canonical" href="https://www.tac42.net/blog/make_online_judge/tech/2016/03/21/makeonlinejudgev01">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="tac42.net" type="application/atom+xml">
@@ -116,7 +115,7 @@
   <header>
     
       
-        <h1 class="entry-title">オンラインジャッジを作ろう vol.6(Node.jsとExpress)</h1>
+        <h1 class="entry-title">オンラインジャッジを作ろう</h1>
       
     
     
@@ -126,7 +125,7 @@
 
 
 
-<time class='entry-date' datetime='2016-03-26T15:49:39+09:00'><span class='date'><span class='date-month'>Mar</span> <span class='date-day'>26</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>3:49 pm</span></time>
+<time class='entry-date' datetime='2016-03-21T23:32:05+09:00'><span class='date'><span class='date-month'>Mar</span> <span class='date-day'>21</span><span class='date-suffix'>st</span>, <span class='date-year'>2016</span></span> <span class='time'>11:32 pm</span></time>
         
          | <a href="#disqus_thread">Comments</a>
         
@@ -136,68 +135,79 @@
   </header>
 
 
-<div class="entry-content"><p>前回はフロントエンドとしてAngular2のチュートリアルを軽く触ってみました。
-今回はNode.js + Expressでバックエンドの環境を触ってみようと思います！</p>
+<div class="entry-content"><p>作ろう！</p>
 
-<h1>Node.js</h1>
+<h1>オンラインジャッジって？</h1>
 
-<p>どちらもちょっと古め。WebアプリのフレームワークとしてExpressを紹介している。
-+ <a href="http://gihyo.jp/dev/serial/01/nodejs/0001">基礎から学ぶNode.js</a>
-+ <a href="http://libro.tuyano.com/index2?id=1115003">ビギナーのための Node.jsプログラミング入門</a></p>
+<p><a href="https://paiza.jp/">Paiza</a>や<a href="https://codeiq.jp/">CodeIQ</a>、<a href="http://jp.topcoder.com/">TopCoder</a>などのプログラミングコンテストで、提出されたコードを実行して採点するシステムのこと。</p>
 
-<h1>Express</h1>
+<h1>構想</h1>
+
+<p>特に難しいことを考えなければこんなかんじ？</p>
 
 <ul>
-<li><a href="https://gist.github.com/mitsuruog/fc48397a8e80f051a145">express実践入門</a> - めちゃわかりやすい！</li>
+<li><strong>Webアプリケーション</strong> - 問題の管理やコード受付をするよ</li>
+<li><strong>ジャッジサーバ</strong> - コードのビルドと実行をするよ</li>
+<li><strong>データベース</strong> - プレイヤーの情報、問題、実行結果など、いろんなデータを格納するよ</li>
 </ul>
 
 
-<blockquote><p>expressを理解する上での最小構成要素。
-+ routing -
-  外部からのHTTP(S)リクエストに対して、内部のロジックをマッピングすること。</p>
+<p>せっかくなので全部Dockerコンテナで作るよ！</p>
 
-<ul>
-<li>middleware -
-routingの過程で何らかの処理を差し込む仕組み。
-共通処理(認証、エラーハンドリング、リクエストデータの加工、etc)を本来のロジッ> クから分離して、コードベースを健全に保つ。</li>
-</ul>
-</blockquote>
+<h1>やりたいこと</h1>
 
-<h2>Expressのキーワード</h2>
+<h2>アプリケーションとして配布したい！</h2>
 
-<ul>
-<li>Jade - デファクトなテンプレートエンジン</li>
-<li>Mongoose - MongoDBなORM</li>
-<li>Sequelize - PostgreSQL, MySQL, SQLite, MSSQL なORM</li>
-<li>Passport - node.jsの認証モジュールでデファクト</li>
-</ul>
+<p>会社や学校でプロコンの大会を開催したいけど、外部サービスは利用できない・・・ありますよね！</p>
 
+<p>そこで、Webアプリケーションとして配布して、誰でもプライベートなマシンにセットアップ出来るようにしたい。
+<code>docker run</code> するだけでセットアップ＆実行できるようなイメージ。</p>
 
-<h1>まとめ</h1>
+<h2>Dockerを使いたい！</h2>
 
-<p>なんか作れそうな気がしてきた！
-当面の方針として、Expressで作ってみて、フロントエンドをリッチにしたくなってきたらAngular2なりReactなりでViewを強化するようにしてみよう。
-まずは、Node.js(Express)とDockerで</p>
+<p>イメージで配布して簡単に導入できるようにしたい！
+あと、とにかく使ってみたい！細けぇことはいいんだよ！</p>
 
-<ul>
-<li>ユーザ登録/認証</li>
-<li>問題の登録
+<h2>Ruby以外の言語で作りたい！</h2>
 
-<ul>
-<li>テストの登録</li>
-</ul>
-</li>
-<li>回答の登録
+<p>そろそろ別の言語もまともに使えるようになりたい・・・！
+候補としては、Node.js, Go, Scala, Pythonの順かな。</p>
 
-<ul>
-<li>ユーザごとの回答の履歴</li>
-</ul>
-</li>
-<li>送信された回答とテストの実行</li>
-</ul>
+<h2>エディタ乗り換えたい</h2>
+
+<p>大学で悪い先輩に捕まって以来、Emacsを使い続けてきましたが、別のエディタに乗り換えようと思っています。
+候補はAtomです。</p>
+
+<h2>毎日、早く帰って続きを作りたい！と思えること</h2>
+
+<p>これめちゃ重要。去年ライブラリ作ってるときはこの状態でした。</p>
+
+<blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr">快楽を得る方法をドラッグから瞑想から娯楽から貪欲に調べまくったら、最高に人間の快楽を刺激し続けれるのは毎日規則正しく生活しながら一つの目に見える物をコツコツ作り続けて気の合う人と馬鹿なことやるっていうライフスタイルだという結論が出たことを快楽主義者各位は重く受け止めて下さい。</p>&mdash; ぐっちょむ (@gutchom) <a href="https://twitter.com/gutchom/status/375886913804058626">2013年9月6日</a></blockquote>
 
 
-<p>このあたりを作りたいと思います。</p>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+<p><a href="https://twitter.com/gutchom/status/375886913804058626">https://twitter.com/gutchom/status/375886913804058626</a></p>
+
+<p>この状態が継続するよう、コツコツ続けたい。毎日が本当に楽しくなる！</p>
+
+<h1>進め方</h1>
+
+<p>インタフェースなど考えながらボトムアップに進めたい。
+秋頃にリリースできるといいなー。</p>
+
+<ol>
+<li>ジャッジサーバの構築</li>
+<li>Webアプリケーション + データベースの構築</li>
+</ol>
+
+
+<h1>最後に</h1>
+
+<p>こんなかんじでコツコツやっていきます。
+とりあえず、第一回は構想だけですね。
+おしまい〜。</p>
 </div>
 
 
@@ -220,9 +230,15 @@ routingの過程で何らかの処理を差し込む仕組み。
 
 
 
-<time class='entry-date' datetime='2016-03-26T15:49:39+09:00'><span class='date'><span class='date-month'>Mar</span> <span class='date-day'>26</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>3:49 pm</span></time>
+<time class='entry-date' datetime='2016-03-21T23:32:05+09:00'><span class='date'><span class='date-month'>Mar</span> <span class='date-day'>21</span><span class='date-suffix'>st</span>, <span class='date-year'>2016</span></span> <span class='time'>11:32 pm</span></time>
       
       
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/make-online-judge/'>make_online_judge</a>, <a class='category' href='/blog/categories/tech/'>tech</a>
+  
+</span>
 
 
     </p>
@@ -230,11 +246,11 @@ routingの過程で何らかの処理を差し込む仕組み。
       <div class="sharing">
 
   
-  <a href="http://b.hatena.ne.jp/entry/https://www.tac42.net/blog/2016/03/26/makeonlinejudgev06/" class="hatena-bookmark-button" data-hatena-bookmark-layout="standard" title="このエントリーをはてなブックマークに追加"><img src="http://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="http://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+  <a href="http://b.hatena.ne.jp/entry/https://www.tac42.net/blog/make_online_judge/tech/2016/03/21/makeonlinejudgev01/" class="hatena-bookmark-button" data-hatena-bookmark-layout="standard" title="このエントリーをはてなブックマークに追加"><img src="http://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="http://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
   
 
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="https://www.tac42.net/blog/2016/03/26/makeonlinejudgev06/" data-via="tac0x2a" data-counturl="https://www.tac42.net/blog/2016/03/26/makeonlinejudgev06/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="https://www.tac42.net/blog/make_online_judge/tech/2016/03/21/makeonlinejudgev01/" data-via="tac0x2a" data-counturl="https://www.tac42.net/blog/make_online_judge/tech/2016/03/21/makeonlinejudgev01/" >Tweet</a>
   
   
   
@@ -245,10 +261,10 @@ routingの過程で何らかの処理を差し込む仕組み。
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2016/03/26/makeonlinejudgev05/" title="Previous Post: オンラインジャッジを作ろう vol.5(Atom設定)">&laquo; オンラインジャッジを作ろう vol.5(Atom設定)</a>
+        <a class="basic-alignment left" href="/blog/tech/2016/01/05/raspberrypi-setup/" title="Previous Post: RaspberryPi2をセットアップする">&laquo; RaspberryPi2をセットアップする</a>
       
       
-        <a class="basic-alignment right" href="/blog/2016/03/27/makeonlinejudgev07/" title="Next Post: オンラインジャッジを作ろう vol.7(Dockerによる開発環境)">オンラインジャッジを作ろう vol.7(Dockerによる開発環境) &raquo;</a>
+        <a class="basic-alignment right" href="/blog/make_online_judge/tech/2016/03/22/makeonlinejudgev02/" title="Next Post: フレームワークを選ぶ(Javascript)">フレームワークを選ぶ(Javascript) &raquo;</a>
       
     </p>
   </footer>
@@ -278,8 +294,8 @@ routingの過程で何らかの処理を差し込む仕組み。
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'https://www.tac42.net/blog/2016/03/26/makeonlinejudgev06/';
-        var disqus_url = 'https://www.tac42.net/blog/2016/03/26/makeonlinejudgev06/';
+        var disqus_identifier = 'https://www.tac42.net/blog/make_online_judge/tech/2016/03/21/makeonlinejudgev01/';
+        var disqus_url = 'https://www.tac42.net/blog/make_online_judge/tech/2016/03/21/makeonlinejudgev01/';
         var disqus_script = 'embed.js';
       
     (function () {

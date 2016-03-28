@@ -5,13 +5,16 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>オンラインジャッジを作ろう vol.4(Angular2入門) - tac42.net</title>
+  <title>プロトタイプを作ろう - tac42.net</title>
   <meta name="author" content="TAC">
 
   
-  <meta name="description" content="Angular2 入門 とりあえずAngular2を触ってみよう。合わなければやめる方向で。 TUTORIAL: TOUR OF HEROES 環境構築 そもそも nodeとnpmが入ってないので入れる。
-nvm(NodeVersionManager) 1
-% brew install nvm 1 &hellip;">
+  <meta name="description" content="まずはプロトタイプ 前回なんとかDockerで実行環境兼開発環境を構築できました。
+とにかく早く作ってみたいので、プロトタイプという体で手を動かしてみます。
+どうせ作り直したくなってくるので、最初は適当にやってみようというかんじ。死にゲー。 Expressの環境構築 1
+2
+3
+$ nvm use &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -20,7 +23,7 @@ nvm(NodeVersionManager) 1
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="https://www.tac42.net/blog/2016/03/23/makeonlinejudgev04">
+  <link rel="canonical" href="https://www.tac42.net/blog/make_online_judge/tech/2016/03/28/makeonlinejudgev08">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="tac42.net" type="application/atom+xml">
@@ -116,7 +119,7 @@ nvm(NodeVersionManager) 1
   <header>
     
       
-        <h1 class="entry-title">オンラインジャッジを作ろう vol.4(Angular2入門)</h1>
+        <h1 class="entry-title">プロトタイプを作ろう</h1>
       
     
     
@@ -126,7 +129,7 @@ nvm(NodeVersionManager) 1
 
 
 
-<time class='entry-date' datetime='2016-03-23T23:57:43+09:00'><span class='date'><span class='date-month'>Mar</span> <span class='date-day'>23</span><span class='date-suffix'>rd</span>, <span class='date-year'>2016</span></span> <span class='time'>11:57 pm</span></time>
+<time class='entry-date' datetime='2016-03-28T22:22:25+09:00'><span class='date'><span class='date-month'>Mar</span> <span class='date-day'>28</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>10:22 pm</span></time>
         
          | <a href="#disqus_thread">Comments</a>
         
@@ -136,24 +139,29 @@ nvm(NodeVersionManager) 1
   </header>
 
 
-<div class="entry-content"><h1>Angular2 入門</h1>
+<div class="entry-content"><h1>まずはプロトタイプ</h1>
 
-<p>とりあえずAngular2を触ってみよう。合わなければやめる方向で。</p>
+<p>前回なんとかDockerで実行環境兼開発環境を構築できました。
+とにかく早く作ってみたいので、プロトタイプという体で手を動かしてみます。
+どうせ作り直したくなってくるので、最初は適当にやってみようというかんじ。死にゲー。</p>
 
-<p><a href="https://angular.io/docs/ts/latest/tutorial/">TUTORIAL: TOUR OF HEROES</a></p>
-
-<h2>環境構築</h2>
-
-<p>そもそも nodeとnpmが入ってないので入れる。
-nvm(NodeVersionManager)</p>
+<h2>Expressの環境構築</h2>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>% brew install nvm</span></code></pre></td></tr></table></div></figure>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ nvm use v5.9.0
+</span><span class='line'>$ npm init
+</span><span class='line'>$ npm install --save-dev express</span></code></pre></td></tr></table></div></figure>
 
 
+<p><code>--save-dev</code> オプションを付けておくと、インストールしたパッケージを<code>package.js</code>へ自動で追記してくれます。便利！</p>
 
+<h2>アプリを書いてみる</h2>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><code>app.js</code> という名前で以下のファイルを作った。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -167,82 +175,72 @@ nvm(NodeVersionManager)</p>
 <span class='line-number'>12</span>
 <span class='line-number'>13</span>
 <span class='line-number'>14</span>
-<span class='line-number'>15</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>Add NVM's working directory to your $HOME path (if it doesn't exist):
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="kd">var</span> <span class="nx">express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;express&#39;</span><span class="p">);</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">express</span><span class="p">();</span>
 </span><span class='line'>
-</span><span class='line'>  mkdir ~/.nvm
+</span><span class='line'><span class="c1">// receive http request</span>
+</span><span class='line'><span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>  <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s2">&quot;Hello, World&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="p">});</span>
 </span><span class='line'>
-</span><span class='line'>Copy nvm-exec to NVM's working directory
-</span><span class='line'>
-</span><span class='line'>  cp $(brew --prefix nvm)/nvm-exec ~/.nvm/
-</span><span class='line'>
-</span><span class='line'>Add the following to $HOME/.bashrc, $HOME/.zshrc, or your shell's
-</span><span class='line'>equivalent configuration file:
-</span><span class='line'>
-</span><span class='line'>  export NVM_DIR=~/.nvm
-</span><span class='line'>  source $(brew --prefix nvm)/nvm.sh
-</span><span class='line'>
-</span><span class='line'>Type `nvm help` for further information.</span></code></pre></td></tr></table></div></figure>
+</span><span class='line'><span class="c1">// launch server</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">server</span> <span class="o">=</span> <span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="mi">3000</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>  <span class="kd">var</span> <span class="nx">host</span> <span class="o">=</span> <span class="nx">server</span><span class="p">.</span><span class="nx">address</span><span class="p">().</span><span class="nx">address</span><span class="p">;</span>
+</span><span class='line'>  <span class="kd">var</span> <span class="nx">port</span> <span class="o">=</span> <span class="nx">server</span><span class="p">.</span><span class="nx">address</span><span class="p">().</span><span class="nx">port</span><span class="p">;</span>
+</span><span class='line'>  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Judge server is started at http://%s:%s&quot;</span><span class="p">,</span> <span class="nx">host</span><span class="p">,</span> <span class="nx">port</span><span class="p">);</span>
+</span><span class='line'><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
-<p>と言われたので、</p>
+<p>で、できあがったのがこれ。</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<ul>
+<li><a href="https://github.com/tac0x2a/judgesv_app_prototype">tac0x2a/judgesv_app_prototype</a></li>
+</ul>
+
+
+<h2>実行してみる</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">$</span> <span class="nx">node</span> <span class="nx">app</span><span class="p">.</span><span class="nx">js</span>
+</span><span class='line'><span class="nx">$</span> <span class="nx">curl</span> <span class="nx">http</span><span class="o">:</span><span class="c1">//:::3000</span>
+</span><span class='line'><span class="nx">Hello</span><span class="p">,</span> <span class="nx">World</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>おおお、動いてる！</p>
+
+<h1>Dockerで動かす</h1>
+
+<p>これまでは直接Macで動かしていましたが、前回作ったDockerの実行環境で動かしてみます。</p>
+
+<ul>
+<li><a href="https://github.com/tac0x2a/judgesv_devenv">tac0x2a/judgesv_devenv</a></li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>% mkdir ~/.nvm
-</span><span class='line'>% cp $(brew --prefix nvm)/nvm-exec ~/.nvm/
-</span><span class='line'>% echo 'export NVM_DIR=~/.nvm' &gt;&gt; .zshrc.mine
-</span><span class='line'>% echo 'source $(brew --prefix nvm)/nvm.sh'  &gt;&gt; .zshrc.mine
-</span><span class='line'>% soruce ~/.zshrc</span></code></pre></td></tr></table></div></figure>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">$</span> <span class="nx">git</span> <span class="nx">clone</span> <span class="nx">git</span><span class="err">@</span><span class="nx">github</span><span class="p">.</span><span class="nx">com</span><span class="o">:</span><span class="nx">tac0x2a</span><span class="o">/</span><span class="nx">judgesv_devenv</span><span class="p">.</span><span class="nx">git</span>
+</span><span class='line'><span class="nx">$</span> <span class="nx">cd</span> <span class="nx">judgesv_devenv</span><span class="o">/</span>
+</span><span class='line'><span class="nx">$</span> <span class="nx">git</span> <span class="nx">clone</span> <span class="nx">git</span><span class="err">@</span><span class="nx">github</span><span class="p">.</span><span class="nx">com</span><span class="o">:</span><span class="nx">tac0x2a</span><span class="o">/</span><span class="nx">judgesv_app_prototype</span><span class="p">.</span><span class="nx">git</span> <span class="nx">data</span><span class="o">/</span><span class="nx">work</span>
+</span><span class='line'><span class="nx">$</span> <span class="nx">docker</span><span class="o">-</span><span class="nx">compose</span> <span class="nx">build</span>
+</span><span class='line'><span class="nx">$</span> <span class="nx">docker</span><span class="o">-</span><span class="nx">compose</span> <span class="nx">pull</span>
+</span><span class='line'><span class="nx">$</span> <span class="nx">docker</span><span class="o">-</span><span class="nx">compose</span> <span class="nx">up</span> <span class="o">-</span><span class="nx">d</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
-<p>これで nvm が使えるようになった。nodeをインストールする。</p>
+<p><code>data/work</code> が DataVolumeになっており、コンテナの <code>/home/devenv/work</code> にマウントされて、<code>node app.js</code> で実行されます。</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>% nvm --version
-</span><span class='line'>% nvm ls-remote #利用可能なnodeのバージョン
-</span><span class='line'>% nvm install v5.9.0  #一番新しそうなver</span></code></pre></td></tr></table></div></figure>
+<p>エントリポイントが<code>app.js</code> 固定になってて気持ち悪いですが、何か設定ファイル等で指定する方法があるんだと思います。そのうち調べます。</p>
 
-
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>% node -v
-</span><span class='line'>v5.9.0
-</span><span class='line'>
-</span><span class='line'>% npm -v
-</span><span class='line'>3.7.3</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>いよいよチュートリアル</h2>
-
-<p><a href="https://angular.io/docs/ts/latest/quickstart.html">5 MIN QUICKSTART</a>
-全然5分ぢゃない・・・</p>
-
-<p>まずは環境構築。<code>tsconfig.json</code>, <code>typings.json</code>, <code>package.json</code> を用意して・・・</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>% npm install</span></code></pre></td></tr></table></div></figure>
-
-
-<p><code>app/app.component.ts</code>, <code>app/main.ts</code>, <code>index.html</code>, <code>style.css</code>, を追加して</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>% npm start</span></code></pre></td></tr></table></div></figure>
-
-
-<p>上記で、"My First Angular 2 App" が表示されることを確認。動いてるっぽい。</p>
-
-<p>今回はとりあえずここまで。</p>
+<p>はい、今回はここまで〜</p>
 </div>
 
 
@@ -265,9 +263,15 @@ nvm(NodeVersionManager)</p>
 
 
 
-<time class='entry-date' datetime='2016-03-23T23:57:43+09:00'><span class='date'><span class='date-month'>Mar</span> <span class='date-day'>23</span><span class='date-suffix'>rd</span>, <span class='date-year'>2016</span></span> <span class='time'>11:57 pm</span></time>
+<time class='entry-date' datetime='2016-03-28T22:22:25+09:00'><span class='date'><span class='date-month'>Mar</span> <span class='date-day'>28</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>10:22 pm</span></time>
       
       
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/make-online-judge/'>make_online_judge</a>, <a class='category' href='/blog/categories/tech/'>tech</a>
+  
+</span>
 
 
     </p>
@@ -275,11 +279,11 @@ nvm(NodeVersionManager)</p>
       <div class="sharing">
 
   
-  <a href="http://b.hatena.ne.jp/entry/https://www.tac42.net/blog/2016/03/23/makeonlinejudgev04/" class="hatena-bookmark-button" data-hatena-bookmark-layout="standard" title="このエントリーをはてなブックマークに追加"><img src="http://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="http://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+  <a href="http://b.hatena.ne.jp/entry/https://www.tac42.net/blog/make_online_judge/tech/2016/03/28/makeonlinejudgev08/" class="hatena-bookmark-button" data-hatena-bookmark-layout="standard" title="このエントリーをはてなブックマークに追加"><img src="http://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="http://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
   
 
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="https://www.tac42.net/blog/2016/03/23/makeonlinejudgev04/" data-via="tac0x2a" data-counturl="https://www.tac42.net/blog/2016/03/23/makeonlinejudgev04/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="https://www.tac42.net/blog/make_online_judge/tech/2016/03/28/makeonlinejudgev08/" data-via="tac0x2a" data-counturl="https://www.tac42.net/blog/make_online_judge/tech/2016/03/28/makeonlinejudgev08/" >Tweet</a>
   
   
   
@@ -290,10 +294,8 @@ nvm(NodeVersionManager)</p>
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2016/03/23/makeonlinejudgev03/" title="Previous Post: オンラインジャッジを作ろう vol.3(Golangのフレームワーク)">&laquo; オンラインジャッジを作ろう vol.3(Golangのフレームワーク)</a>
+        <a class="basic-alignment left" href="/blog/make_online_judge/tech/2016/03/27/makeonlinejudgev07/" title="Previous Post: Dockerによる環境構築">&laquo; Dockerによる環境構築</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2016/03/26/makeonlinejudgev05/" title="Next Post: オンラインジャッジを作ろう vol.5(Atom設定)">オンラインジャッジを作ろう vol.5(Atom設定) &raquo;</a>
       
     </p>
   </footer>
@@ -323,8 +325,8 @@ nvm(NodeVersionManager)</p>
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'https://www.tac42.net/blog/2016/03/23/makeonlinejudgev04/';
-        var disqus_url = 'https://www.tac42.net/blog/2016/03/23/makeonlinejudgev04/';
+        var disqus_identifier = 'https://www.tac42.net/blog/make_online_judge/tech/2016/03/28/makeonlinejudgev08/';
+        var disqus_url = 'https://www.tac42.net/blog/make_online_judge/tech/2016/03/28/makeonlinejudgev08/';
         var disqus_script = 'embed.js';
       
     (function () {

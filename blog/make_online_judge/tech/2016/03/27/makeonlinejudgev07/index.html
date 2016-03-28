@@ -5,12 +5,13 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>オンラインジャッジを作ろう vol.1(構想) - tac42.net</title>
+  <title>Dockerによる環境構築 - tac42.net</title>
   <meta name="author" content="TAC">
 
   
-  <meta name="description" content="作ろう！ オンラインジャッジって？ PaizaやCodeIQ、TopCoderなどのプログラミングコンテストで、提出されたコードを実行して採点するシステムのこと。 構想 特に難しいことを考えなければこんなかんじ？ Webアプリケーション - 問題の管理やコード受付をするよ
-ジャッジサーバ - &hellip;">
+  <meta name="description" content="開発/実行環境を作る とりあえず、Node.js, Express, MongoDBが動作する環境を作る。
+他環境へ持って行ったり、どこかで自動テストできるように、
+以下を参考にしながら開発/実行環境をDockerで作る。 docker-composeを使って最高の開発環境を手に入れた &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,7 +20,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="https://www.tac42.net/blog/2016/03/21/makeonlinejudgev01">
+  <link rel="canonical" href="https://www.tac42.net/blog/make_online_judge/tech/2016/03/27/makeonlinejudgev07">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="tac42.net" type="application/atom+xml">
@@ -115,7 +116,7 @@
   <header>
     
       
-        <h1 class="entry-title">オンラインジャッジを作ろう vol.1(構想)</h1>
+        <h1 class="entry-title">Dockerによる環境構築</h1>
       
     
     
@@ -125,7 +126,7 @@
 
 
 
-<time class='entry-date' datetime='2016-03-21T23:32:05+09:00'><span class='date'><span class='date-month'>Mar</span> <span class='date-day'>21</span><span class='date-suffix'>st</span>, <span class='date-year'>2016</span></span> <span class='time'>11:32 pm</span></time>
+<time class='entry-date' datetime='2016-03-27T23:23:06+09:00'><span class='date'><span class='date-month'>Mar</span> <span class='date-day'>27</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>11:23 pm</span></time>
         
          | <a href="#disqus_thread">Comments</a>
         
@@ -135,79 +136,50 @@
   </header>
 
 
-<div class="entry-content"><p>作ろう！</p>
+<div class="entry-content"><h1>開発/実行環境を作る</h1>
 
-<h1>オンラインジャッジって？</h1>
-
-<p><a href="https://paiza.jp/">Paiza</a>や<a href="https://codeiq.jp/">CodeIQ</a>、<a href="http://jp.topcoder.com/">TopCoder</a>などのプログラミングコンテストで、提出されたコードを実行して採点するシステムのこと。</p>
-
-<h1>構想</h1>
-
-<p>特に難しいことを考えなければこんなかんじ？</p>
+<p>とりあえず、Node.js, Express, MongoDBが動作する環境を作る。
+他環境へ持って行ったり、どこかで自動テストできるように、
+以下を参考にしながら開発/実行環境をDockerで作る。</p>
 
 <ul>
-<li><strong>Webアプリケーション</strong> - 問題の管理やコード受付をするよ</li>
-<li><strong>ジャッジサーバ</strong> - コードのビルドと実行をするよ</li>
-<li><strong>データベース</strong> - プレイヤーの情報、問題、実行結果など、いろんなデータを格納するよ</li>
+<li><a href="http://blog.muuny-blue.info/7d128c1d4a33165a8676d1650d8ff828.html">docker-composeを使って最高の開発環境を手に入れた</a></li>
 </ul>
 
 
-<p>せっかくなので全部Dockerコンテナで作るよ！</p>
+<p>上記を参考に作ったらこんなかんじになった。</p>
 
-<h1>やりたいこと</h1>
-
-<h2>アプリケーションとして配布したい！</h2>
-
-<p>会社や学校でプロコンの大会を開催したいけど、外部サービスは利用できない・・・ありますよね！</p>
-
-<p>そこで、Webアプリケーションとして配布して、誰でもプライベートなマシンにセットアップ出来るようにしたい。
-<code>docker run</code> するだけでセットアップ＆実行できるようなイメージ。</p>
-
-<h2>Dockerを使いたい！</h2>
-
-<p>イメージで配布して簡単に導入できるようにしたい！
-あと、とにかく使ってみたい！細けぇことはいいんだよ！</p>
-
-<h2>Ruby以外の言語で作りたい！</h2>
-
-<p>そろそろ別の言語もまともに使えるようになりたい・・・！
-候補としては、Node.js, Go, Scala, Pythonの順かな。</p>
-
-<h2>エディタ乗り換えたい</h2>
-
-<p>大学で悪い先輩に捕まって以来、Emacsを使い続けてきましたが、別のエディタに乗り換えようと思っています。
-候補はAtomです。</p>
-
-<h2>毎日、早く帰って続きを作りたい！と思えること</h2>
-
-<p>これめちゃ重要。去年ライブラリ作ってるときはこの状態でした。</p>
-
-<blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr">快楽を得る方法をドラッグから瞑想から娯楽から貪欲に調べまくったら、最高に人間の快楽を刺激し続けれるのは毎日規則正しく生活しながら一つの目に見える物をコツコツ作り続けて気の合う人と馬鹿なことやるっていうライフスタイルだという結論が出たことを快楽主義者各位は重く受け止めて下さい。</p>&mdash; ぐっちょむ (@gutchom) <a href="https://twitter.com/gutchom/status/375886913804058626">2013年9月6日</a></blockquote>
+<ul>
+<li><a href="https://github.com/tac0x2a/judgesv_devenv">tac0x2a/judgesv_devenv</a></li>
+</ul>
 
 
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+<h1>ところが・・・</h1>
+
+<p>MongoDBのVolumeマウントでハマった。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>2016-03-27T16:58:37.013+0000 I CONTROL  [initandlisten] options: {}
+</span><span class='line'>2016-03-27T16:58:37.069+0000 I STORAGE  [initandlisten] exception in initAndListen: 98 Unable to create/open lock file: /data/db/mongod.lock errno:13 Permission denied Is a mongod instance already running?, terminating
+</span><span class='line'>2016-03-27T16:58:37.069+0000 I CONTROL  [initandlisten] dbexit:  rc: 100</span></code></pre></td></tr></table></div></figure>
 
 
-<p><a href="https://twitter.com/gutchom/status/375886913804058626">https://twitter.com/gutchom/status/375886913804058626</a></p>
-
-<p>この状態が継続するよう、コツコツ続けたい。毎日が本当に楽しくなる！</p>
-
-<h1>進め方</h1>
-
-<p>インタフェースなど考えながらボトムアップに進めたい。
-秋頃にリリースできるといいなー。</p>
-
-<ol>
-<li>ジャッジサーバの構築</li>
-<li>Webアプリケーション + データベースの構築</li>
-</ol>
+<ul>
+<li><a href="http://qiita.com/ota42y/items/af90ada86fd671dc5122">MacのDocker上で動くMongoDBのデータを永続化するの大変そう</a></li>
+</ul>
 
 
-<h1>最後に</h1>
+<blockquote><p>MongoDBはVirtualBoxの共有フォルダはサポートしていないようです。</p></blockquote>
 
-<p>こんなかんじでコツコツやっていきます。
-とりあえず、第一回は構想だけですね。
-おしまい〜。</p>
+<p>どうしよ。。。</p>
+
+<h1>2016/03/28 追記</h1>
+
+<p>mongoのイメージはそれほど頻繁に更新されんだろうと踏んで、とりあえずMongoDBはDataVolumeを諦めることに。</p>
+
+<p>次回からいよいよアプリを作りますよー</p>
 </div>
 
 
@@ -230,9 +202,15 @@
 
 
 
-<time class='entry-date' datetime='2016-03-21T23:32:05+09:00'><span class='date'><span class='date-month'>Mar</span> <span class='date-day'>21</span><span class='date-suffix'>st</span>, <span class='date-year'>2016</span></span> <span class='time'>11:32 pm</span></time>
+<time class='entry-date' datetime='2016-03-27T23:23:06+09:00'><span class='date'><span class='date-month'>Mar</span> <span class='date-day'>27</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>11:23 pm</span></time>
       
       
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/make-online-judge/'>make_online_judge</a>, <a class='category' href='/blog/categories/tech/'>tech</a>
+  
+</span>
 
 
     </p>
@@ -240,11 +218,11 @@
       <div class="sharing">
 
   
-  <a href="http://b.hatena.ne.jp/entry/https://www.tac42.net/blog/2016/03/21/makeonlinejudgev01/" class="hatena-bookmark-button" data-hatena-bookmark-layout="standard" title="このエントリーをはてなブックマークに追加"><img src="http://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="http://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+  <a href="http://b.hatena.ne.jp/entry/https://www.tac42.net/blog/make_online_judge/tech/2016/03/27/makeonlinejudgev07/" class="hatena-bookmark-button" data-hatena-bookmark-layout="standard" title="このエントリーをはてなブックマークに追加"><img src="http://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="http://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
   
 
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="https://www.tac42.net/blog/2016/03/21/makeonlinejudgev01/" data-via="tac0x2a" data-counturl="https://www.tac42.net/blog/2016/03/21/makeonlinejudgev01/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="https://www.tac42.net/blog/make_online_judge/tech/2016/03/27/makeonlinejudgev07/" data-via="tac0x2a" data-counturl="https://www.tac42.net/blog/make_online_judge/tech/2016/03/27/makeonlinejudgev07/" >Tweet</a>
   
   
   
@@ -255,10 +233,10 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/tech/2016/01/05/raspberrypi-setup/" title="Previous Post: RaspberryPi2をセットアップする">&laquo; RaspberryPi2をセットアップする</a>
+        <a class="basic-alignment left" href="/blog/make_online_judge/tech/2016/03/26/makeonlinejudgev06/" title="Previous Post: Node.jsとExpress">&laquo; Node.jsとExpress</a>
       
       
-        <a class="basic-alignment right" href="/blog/2016/03/22/makeonlinejudgev02/" title="Next Post: オンラインジャッジを作ろう vol.2(Javascriptのフレームワーク)">オンラインジャッジを作ろう vol.2(Javascriptのフレームワーク) &raquo;</a>
+        <a class="basic-alignment right" href="/blog/make_online_judge/tech/2016/03/28/makeonlinejudgev08/" title="Next Post: プロトタイプを作ろう">プロトタイプを作ろう &raquo;</a>
       
     </p>
   </footer>
@@ -288,8 +266,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'https://www.tac42.net/blog/2016/03/21/makeonlinejudgev01/';
-        var disqus_url = 'https://www.tac42.net/blog/2016/03/21/makeonlinejudgev01/';
+        var disqus_identifier = 'https://www.tac42.net/blog/make_online_judge/tech/2016/03/27/makeonlinejudgev07/';
+        var disqus_url = 'https://www.tac42.net/blog/make_online_judge/tech/2016/03/27/makeonlinejudgev07/';
         var disqus_script = 'embed.js';
       
     (function () {
