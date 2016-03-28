@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "オンラインジャッジを作ろう vol.7(Dockerによる開発環境)"
+title: "Dockerによる環境構築"
 date: 2016-03-27 23:23:06 +0900
 comments: true
-categories:
+categories: make_online_judge tech
 ---
 
-# 開発環境を作る
+# 開発/実行環境を作る
 とりあえず、Node.js, Express, MongoDBが動作する環境を作る。
 他環境へ持って行ったり、どこかで自動テストできるように、
 以下を参考にしながら開発/実行環境をDockerで作る。

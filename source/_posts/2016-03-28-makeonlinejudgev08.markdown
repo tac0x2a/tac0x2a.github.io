@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "オンラインジャッジを作ろう vol.8(プロトタイプを作ろう)"
+title: "プロトタイプを作ろう"
 date: 2016-03-28 22:22:25 +0900
 comments: true
-categories:
+categories: make_online_judge tech
 ---
 # まずはプロトタイプ
 

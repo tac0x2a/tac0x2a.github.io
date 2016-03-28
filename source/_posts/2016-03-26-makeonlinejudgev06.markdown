@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "オンラインジャッジを作ろう vol.6(Node.jsとExpress)"
+title: "Node.jsとExpress"
 date: 2016-03-26 15:49:39 +0900
 comments: true
-categories:
+categories: make_online_judge tech
 ---
 前回はフロントエンドとしてAngular2のチュートリアルを軽く触ってみました。
 今回はNode.js + Expressでバックエンドの環境を触ってみようと思います！

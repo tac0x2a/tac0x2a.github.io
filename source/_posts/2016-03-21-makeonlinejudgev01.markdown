@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "オンラインジャッジを作ろう vol.1(構想)"
+title: "オンラインジャッジを作ろう"
 date: 2016-03-21 23:32:05 +0900
 comments: true
-categories:
+categories: make_online_judge tech
 ---
 
 作ろう！

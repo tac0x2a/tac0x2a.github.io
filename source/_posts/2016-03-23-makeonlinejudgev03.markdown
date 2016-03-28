@@ -1,12 +1,11 @@
 ---
 layout: post
-title: "オンラインジャッジを作ろう vol.3(Golangのフレームワーク)"
+title: "フレームワークを選ぶ(Golang)"
 date: 2016-03-23 00:19:24 +0900
 comments: true
-categories:
+categories: make_online_judge tech
 ---
 
-# フレームワークを選ぶ(Golang編)
 GoでWebアプリを書くためのフレームワークを調べました。
 
 + [Revel](https://revel.github.io/)

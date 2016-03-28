@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "オンラインジャッジを作ろう vol.5(Atom設定)"
+title: "Atomを使おう"
 date: 2016-03-26 01:19:06 +0900
 comments: true
-categories:
+categories: make_online_judge tech
 ---
 
 # パッケージ

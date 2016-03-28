@@ -1,12 +1,11 @@
 ---
 layout: post
-title: "オンラインジャッジを作ろう vol.2(Javascriptのフレームワーク)"
+title: "フレームワークを選ぶ(Javascript)"
 date: 2016-03-22 19:43:37 +0900
 comments: true
-categories:
+categories: make_online_judge tech
 ---
 
-# フレームワークを選ぶ(Javascript編)
 JavascriptでWebアプリを書くためのフレームワークを調べました。
 
 
