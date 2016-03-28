@@ -4,7 +4,7 @@
   <title><![CDATA[tac42.net]]></title>
   <link href="https://www.tac42.net/atom.xml" rel="self"/>
   <link href="https://www.tac42.net/"/>
-  <updated>2016-03-28T07:53:02+09:00</updated>
+  <updated>2016-03-28T22:29:00+09:00</updated>
   <id>https://www.tac42.net/</id>
   <author>
     <name><![CDATA[TAC]]></name>
@@ -12,6 +12,23 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[オンラインジャッジを作ろう vol.8(プロトタイプを作ろう)]]></title>
+    <link href="https://www.tac42.net/blog/2016/03/28/makeonlinejudgev08/"/>
+    <updated>2016-03-28T22:22:25+09:00</updated>
+    <id>https://www.tac42.net/blog/2016/03/28/makeonlinejudgev08</id>
+    <content type="html"><![CDATA[<h1>プロトタイプを作ろう</h1>
+
+<p>前回なんとか開発環境を構築できました。
+とにかく早く開発したいけど慎重に設計してると前に進めない・・・ので！とりあえずプロトタイプを作ります！</p>
+
+<ul>
+<li><a href="https://github.com/tac0x2a/judgesv_app_prototype">tac0x2a/judgesv_app_prototype</a></li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[オンラインジャッジを作ろう vol.7(Dockerによる開発環境)]]></title>
@@ -55,7 +72,13 @@
 
 <blockquote><p>MongoDBはVirtualBoxの共有フォルダはサポートしていないようです。</p></blockquote>
 
-<p>どうしよ。。。次回へ続く！</p>
+<p>どうしよ。。。</p>
+
+<h1>2016/03/28 追記</h1>
+
+<p>mongoのイメージはそれほど頻繁に更新されんだろうと踏んで、とりあえずMongoDBはDataVolumeを諦めることに。</p>
+
+<p>次回からいよいよアプリを作りますよー</p>
 ]]></content>
   </entry>
   
