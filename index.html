@@ -9,12 +9,8 @@
   <meta name="author" content="TAC">
 
   
-  <meta name="description" content="まずはプロトタイプ 前回なんとかDockerで実行環境兼開発環境を構築できました。
-とにかく早く作ってみたいので、プロトタイプという体で手を動かしてみます。
-どうせ作り直したくなってくるので、最初は適当にやってみようというかんじ。死にゲー。 Expressの環境構築 1
-2
-3
-$ nvm use &hellip;">
+  <meta name="description" content="しばらくこのエントリに追記する形で進める。 express-generator Node.jsのMVCフレームワーク「Express」の基礎知識とインストール express-generator コマンドでプロジェクトの雛形が作れるらしい。
+前回の app.json の代わりに、 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -115,6 +111,73 @@ $ nvm use &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/make_online_judge/tech/2016/03/30/makeonlinejudgev09/">Expressでバックエンドを作る</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2016-03-30T00:39:31+09:00'><span class='date'><span class='date-month'>Mar</span> <span class='date-day'>30</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>12:39 am</span></time>
+        
+         | <a href="/blog/make_online_judge/tech/2016/03/30/makeonlinejudgev09/#disqus_thread">Comments</a>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>しばらくこのエントリに追記する形で進める。</p>
+
+<h1>express-generator</h1>
+
+<ul>
+<li><a href="http://www.atmarkit.co.jp/ait/articles/1503/04/news047.html">Node.jsのMVCフレームワーク「Express」の基礎知識とインストール</a></li>
+</ul>
+
+
+<p><code>express-generator</code> コマンドでプロジェクトの雛形が作れるらしい。
+前回の <code>app.json</code> の代わりに、上記で置き換えることにした。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ npm install exress-generator
+</span><span class='line'>$ express judgesv_app_prototype
+</span><span class='line'>$ cd judgesv_app_prototype && npm install</span></code></pre></td></tr></table></div></figure>
+
+
+<p>実行する場合は、</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ npm start</span></code></pre></td></tr></table></div></figure>
+
+
+<p>これで、<code>package.json</code> に書かれている通り、<code>node ./bin/www</code> が実行されて起動するようになった。</p>
+
+<h1>まずはともかくユーザ認証</h1>
+
+<p>ユーザ認証を実装する。以前調べた <a href="http://knimon-software.github.io/www.passportjs.org/">Passport</a>を使ってみる。
+ためしに、GoogleアカウントでOAuth認証してみる。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ npm install passport-google --save</span></code></pre></td></tr></table></div></figure>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -1303,90 +1366,6 @@ sshするところまで．</p>
 
 <p><a href="http://sig9.hatenablog.com/entry/2015/08/22/233646">http://sig9.hatenablog.com/entry/2015/08/22/233646</a>
 <a href="http://denshikousaku.net/fix-sluggish-response-of-raspberry-pi-wifi-adaptor">http://denshikousaku.net/fix-sluggish-response-of-raspberry-pi-wifi-adaptor</a></p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/other/2016/01/02/how-to-write-octopress/">Octopressで記事を書くには</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2016-01-02T02:27:30+09:00'><span class='date'><span class='date-month'>Jan</span> <span class='date-day'>2</span><span class='date-suffix'>nd</span>, <span class='date-year'>2016</span></span> <span class='time'>2:27 am</span></time>
-        
-         | <a href="/blog/other/2016/01/02/how-to-write-octopress/#disqus_thread">Comments</a>
-        
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><img src="https://cdn.tutsplus.com/webdesign/authors/ian-yates/octopress-header.png" alt="" /></p>
-
-<p>備忘録です．Octopressに乗り換えたものの，環境構築忘れるとあれなので．</p>
-
-<p><a href="https://tac0x2a.github.io/">https://tac0x2a.github.io/</a></p>
-
-<h2>セットアップ</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ git clone git@github.com:tac0x2a/tac0x2a.github.io.git
-</span><span class='line'>$ cd tac0x2a.github.io
-</span><span class='line'>$ git checkout source
-</span><span class='line'>$ rbenv exec bundle install
-</span><span class='line'>$ git clone git@github.com:tac0x2a/tac0x2a.github.io.git _deploy</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>記事を書く</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ rbenv exec rake new_post\['Entry Title'\] # source/_posts 以下にファイルが出来る
-</span><span class='line'>$ emacs source/_posts/&lt;yyyy-mm-dd-&gt;'EntryTitle'.markdown</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>記事を確認する</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ rbenv exec rake preview
-</span><span class='line'>$ open http://localhost:4000</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Sourceにコミット</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ git add source/_posts/&lt;yyyy-mm-dd-&gt;'EntryTitle'.markdown
-</span><span class='line'>$ git commit -m "Add new post."
-</span><span class='line'>$ git push origin source:source</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>記事を公開する</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ rbenv exec rake gen_deploy #masterブランチに_deploy以下がpushされる</span></code></pre></td></tr></table></div></figure>
-
-
-<p>たぶんあってる．</p>
 </div>
   
   

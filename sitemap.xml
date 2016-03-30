@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://www.tac42.net/blog/make_online_judge/tech/2016/03/30/makeonlinejudgev09/</loc>
+    <lastmod>2016-03-30T00:39:31+09:00</lastmod>
+  </url>
+  <url>
     <loc>https://www.tac42.net/blog/make_online_judge/tech/2016/03/28/makeonlinejudgev08/</loc>
     <lastmod>2016-03-28T22:22:25+09:00</lastmod>
   </url>

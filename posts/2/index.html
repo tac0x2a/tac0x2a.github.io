@@ -9,9 +9,13 @@
   <meta name="author" content="TAC">
 
   
-  <meta name="description" content="GooglePhotoを見ながら2015年を振り返り．ごった煮です． 1Q(1月から3月) 石川へ行く(1回目)
-beatmania IIDX 関連のOSSを3つリリース．全部Ruby． プレーデータ取得用のライブラリ - tac0x2a/iidx_lib
-プレー結果通知ツール - tac0x2a &hellip;">
+  <meta name="description" content="備忘録です．Octopressに乗り換えたものの，環境構築忘れるとあれなので． https://tac0x2a.github.io/ セットアップ 1
+2
+3
+4
+5
+$ git clone git@github.com:tac0x2a/tac0x2a.github.io.git
+$ cd &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -112,6 +116,90 @@ beatmania IIDX 関連のOSSを3つリリース．全部Ruby． プレーデー�
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/other/2016/01/02/how-to-write-octopress/">Octopressで記事を書くには</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2016-01-02T02:27:30+09:00'><span class='date'><span class='date-month'>Jan</span> <span class='date-day'>2</span><span class='date-suffix'>nd</span>, <span class='date-year'>2016</span></span> <span class='time'>2:27 am</span></time>
+        
+         | <a href="/blog/other/2016/01/02/how-to-write-octopress/#disqus_thread">Comments</a>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><img src="https://cdn.tutsplus.com/webdesign/authors/ian-yates/octopress-header.png" alt="" /></p>
+
+<p>備忘録です．Octopressに乗り換えたものの，環境構築忘れるとあれなので．</p>
+
+<p><a href="https://tac0x2a.github.io/">https://tac0x2a.github.io/</a></p>
+
+<h2>セットアップ</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ git clone git@github.com:tac0x2a/tac0x2a.github.io.git
+</span><span class='line'>$ cd tac0x2a.github.io
+</span><span class='line'>$ git checkout source
+</span><span class='line'>$ rbenv exec bundle install
+</span><span class='line'>$ git clone git@github.com:tac0x2a/tac0x2a.github.io.git _deploy</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>記事を書く</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ rbenv exec rake new_post\['Entry Title'\] # source/_posts 以下にファイルが出来る
+</span><span class='line'>$ emacs source/_posts/&lt;yyyy-mm-dd-&gt;'EntryTitle'.markdown</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>記事を確認する</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ rbenv exec rake preview
+</span><span class='line'>$ open http://localhost:4000</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Sourceにコミット</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ git add source/_posts/&lt;yyyy-mm-dd-&gt;'EntryTitle'.markdown
+</span><span class='line'>$ git commit -m "Add new post."
+</span><span class='line'>$ git push origin source:source</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>記事を公開する</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ rbenv exec rake gen_deploy #masterブランチに_deploy以下がpushされる</span></code></pre></td></tr></table></div></figure>
+
+
+<p>たぶんあってる．</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>

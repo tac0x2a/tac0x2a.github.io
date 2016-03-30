@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Tech | tac42.net]]></title>
   <link href="https://www.tac42.net/blog/categories/tech/atom.xml" rel="self"/>
   <link href="https://www.tac42.net/"/>
-  <updated>2016-03-29T07:51:39+09:00</updated>
+  <updated>2016-03-30T08:20:53+09:00</updated>
   <id>https://www.tac42.net/</id>
   <author>
     <name><![CDATA[TAC]]></name>
@@ -12,6 +12,45 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Expressでバックエンドを作る]]></title>
+    <link href="https://www.tac42.net/blog/make_online_judge/tech/2016/03/30/makeonlinejudgev09/"/>
+    <updated>2016-03-30T00:39:31+09:00</updated>
+    <id>https://www.tac42.net/blog/make_online_judge/tech/2016/03/30/makeonlinejudgev09</id>
+    <content type="html"><![CDATA[<p>しばらくこのエントリに追記する形で進める。</p>
+
+<h1>express-generator</h1>
+
+<ul>
+<li><a href="http://www.atmarkit.co.jp/ait/articles/1503/04/news047.html">Node.jsのMVCフレームワーク「Express」の基礎知識とインストール</a></li>
+</ul>
+
+
+<p><code>express-generator</code> コマンドでプロジェクトの雛形が作れるらしい。
+前回の <code>app.json</code> の代わりに、上記で置き換えることにした。</p>
+
+<pre><code>$ npm install exress-generator
+$ express judgesv_app_prototype
+$ cd judgesv_app_prototype &amp;&amp; npm install
+</code></pre>
+
+<p>実行する場合は、</p>
+
+<pre><code>$ npm start
+</code></pre>
+
+<p>これで、<code>package.json</code> に書かれている通り、<code>node ./bin/www</code> が実行されて起動するようになった。</p>
+
+<h1>まずはともかくユーザ認証</h1>
+
+<p>ユーザ認証を実装する。以前調べた <a href="http://knimon-software.github.io/www.passportjs.org/">Passport</a>を使ってみる。
+ためしに、GoogleアカウントでOAuth認証してみる。</p>
+
+<pre><code>$ npm install passport-google --save
+</code></pre>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[プロトタイプを作ろう]]></title>
@@ -274,84 +313,6 @@ apm install project-manager
 + AP<a href="http://tanksuzuki.com/post/atom-markdown-style/">AtomでカッコよくMarkdown PreviewするためのCSS</a></p>
 
 <p>ここまで。気が向いたら追記する。</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Angular2入門]]></title>
-    <link href="https://www.tac42.net/blog/make_online_judge/tech/2016/03/23/makeonlinejudgev04/"/>
-    <updated>2016-03-23T23:57:43+09:00</updated>
-    <id>https://www.tac42.net/blog/make_online_judge/tech/2016/03/23/makeonlinejudgev04</id>
-    <content type="html"><![CDATA[<p>とりあえずAngular2を触ってみよう。合わなければやめる方向で。</p>
-
-<p><a href="https://angular.io/docs/ts/latest/tutorial/">TUTORIAL: TOUR OF HEROES</a></p>
-
-<h2>環境構築</h2>
-
-<p>そもそも nodeとnpmが入ってないので入れる。
-nvm(NodeVersionManager)</p>
-
-<pre><code>% brew install nvm
-</code></pre>
-
-<pre><code>Add NVM's working directory to your $HOME path (if it doesn't exist):
-
-  mkdir ~/.nvm
-
-Copy nvm-exec to NVM's working directory
-
-  cp $(brew --prefix nvm)/nvm-exec ~/.nvm/
-
-Add the following to $HOME/.bashrc, $HOME/.zshrc, or your shell's
-equivalent configuration file:
-
-  export NVM_DIR=~/.nvm
-  source $(brew --prefix nvm)/nvm.sh
-
-Type `nvm help` for further information.
-</code></pre>
-
-<p>と言われたので、</p>
-
-<pre><code>% mkdir ~/.nvm
-% cp $(brew --prefix nvm)/nvm-exec ~/.nvm/
-% echo 'export NVM_DIR=~/.nvm' &gt;&gt; .zshrc.mine
-% echo 'source $(brew --prefix nvm)/nvm.sh'  &gt;&gt; .zshrc.mine
-% soruce ~/.zshrc
-</code></pre>
-
-<p>これで nvm が使えるようになった。nodeをインストールする。</p>
-
-<pre><code>% nvm --version
-% nvm ls-remote #利用可能なnodeのバージョン
-% nvm install v5.9.0  #一番新しそうなver
-</code></pre>
-
-<pre><code>% node -v
-v5.9.0
-
-% npm -v
-3.7.3
-</code></pre>
-
-<h2>いよいよチュートリアル</h2>
-
-<p><a href="https://angular.io/docs/ts/latest/quickstart.html">5 MIN QUICKSTART</a>
-全然5分ぢゃない・・・</p>
-
-<p>まずは環境構築。<code>tsconfig.json</code>, <code>typings.json</code>, <code>package.json</code> を用意して・・・</p>
-
-<pre><code>% npm install
-</code></pre>
-
-<p><code>app/app.component.ts</code>, <code>app/main.ts</code>, <code>index.html</code>, <code>style.css</code>, を追加して</p>
-
-<pre><code>% npm start
-</code></pre>
-
-<p>上記で、"My First Angular 2 App" が表示されることを確認。動いてるっぽい。</p>
-
-<p>今回はとりあえずここまで。</p>
 ]]></content>
   </entry>
   

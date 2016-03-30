@@ -4,7 +4,7 @@
   <title><![CDATA[tac42.net]]></title>
   <link href="https://www.tac42.net/atom.xml" rel="self"/>
   <link href="https://www.tac42.net/"/>
-  <updated>2016-03-29T07:51:39+09:00</updated>
+  <updated>2016-03-30T08:20:53+09:00</updated>
   <id>https://www.tac42.net/</id>
   <author>
     <name><![CDATA[TAC]]></name>
@@ -12,6 +12,50 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Expressでバックエンドを作る]]></title>
+    <link href="https://www.tac42.net/blog/make_online_judge/tech/2016/03/30/makeonlinejudgev09/"/>
+    <updated>2016-03-30T00:39:31+09:00</updated>
+    <id>https://www.tac42.net/blog/make_online_judge/tech/2016/03/30/makeonlinejudgev09</id>
+    <content type="html"><![CDATA[<p>しばらくこのエントリに追記する形で進める。</p>
+
+<h1>express-generator</h1>
+
+<ul>
+<li><a href="http://www.atmarkit.co.jp/ait/articles/1503/04/news047.html">Node.jsのMVCフレームワーク「Express」の基礎知識とインストール</a></li>
+</ul>
+
+
+<p><code>express-generator</code> コマンドでプロジェクトの雛形が作れるらしい。
+前回の <code>app.json</code> の代わりに、上記で置き換えることにした。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ npm install exress-generator
+</span><span class='line'>$ express judgesv_app_prototype
+</span><span class='line'>$ cd judgesv_app_prototype && npm install</span></code></pre></td></tr></table></div></figure>
+
+
+<p>実行する場合は、</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ npm start</span></code></pre></td></tr></table></div></figure>
+
+
+<p>これで、<code>package.json</code> に書かれている通り、<code>node ./bin/www</code> が実行されて起動するようになった。</p>
+
+<h1>まずはともかくユーザ認証</h1>
+
+<p>ユーザ認証を実装する。以前調べた <a href="http://knimon-software.github.io/www.passportjs.org/">Passport</a>を使ってみる。
+ためしに、GoogleアカウントでOAuth認証してみる。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ npm install passport-google --save</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[プロトタイプを作ろう]]></title>
