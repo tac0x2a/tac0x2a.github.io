@@ -31,8 +31,22 @@ $ npm start
 
 # まずはともかくユーザ認証
 ユーザ認証を実装する。以前調べた [Passport](http://knimon-software.github.io/www.passportjs.org/)を使ってみる。
-ためしに、GoogleアカウントでOAuth認証してみる。
+## Google OAuth2
+ためしに、GoogleアカウントのOAuth2で認証してみる。
+
++ https://github.com/mstade/passport-google-oauth2
 
 ```
-$ npm install passport-google
+$ npm install passport-google-oauth2 --save-dev
 ```
+
+## GoogleAPIs
++ https://console.developers.google.com/project
+
+新しいプロジェクトを作成して、新しく認証情報を作成する。(OAuthクライアントID)
+
+`承認済みのJavaScript生成元`, `承認済みのリダイレクトURI` は空白のままでOK。
+
+redirect_uri_mismatchで認証できなかったが、GoogleAPIsでリダイレクトURLが設定できてなかったため。 [こちら](http://perl.no-tubo.net/2013/09/27/netgoogleanalyticsoauth2-%E3%81%A7%E3%80%8C%E3%82%A8%E3%83%A9%E3%83%BCredirect_uri_mismatch%E3%80%8D%E3%81%A3%E3%81%A6%E8%A8%80%E3%82%8F%E3%82%8C%E3%81%A6refresh_access_token%E3%81%8C%E5%8F%96/)を参考。
+
+今度はコールバックされた先で`failed to fetch user profile`のエラー。GoogleAPIsで作ったプロジェクトで`Google+ API`を有効にすればよい。[こちら](https://github.com/jaredhanson/passport-google-oauth/issues/46)を参考。
