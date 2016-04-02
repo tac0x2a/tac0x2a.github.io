@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Tech | tac42.net]]></title>
   <link href="https://www.tac42.net/blog/categories/tech/atom.xml" rel="self"/>
   <link href="https://www.tac42.net/"/>
-  <updated>2016-03-30T08:20:53+09:00</updated>
+  <updated>2016-04-02T13:02:19+09:00</updated>
   <id>https://www.tac42.net/</id>
   <author>
     <name><![CDATA[TAC]]></name>
@@ -44,11 +44,34 @@ $ cd judgesv_app_prototype &amp;&amp; npm install
 
 <h1>まずはともかくユーザ認証</h1>
 
-<p>ユーザ認証を実装する。以前調べた <a href="http://knimon-software.github.io/www.passportjs.org/">Passport</a>を使ってみる。
-ためしに、GoogleアカウントでOAuth認証してみる。</p>
+<p>ユーザ認証を実装する。以前調べた <a href="http://knimon-software.github.io/www.passportjs.org/">Passport</a>を使ってみる。</p>
 
-<pre><code>$ npm install passport-google --save
+<h2>Google OAuth2</h2>
+
+<p>ためしに、GoogleアカウントのOAuth2で認証してみる。</p>
+
+<ul>
+<li><a href="https://github.com/mstade/passport-google-oauth2">https://github.com/mstade/passport-google-oauth2</a></li>
+</ul>
+
+
+<pre><code>$ npm install passport-google-oauth2 --save-dev
 </code></pre>
+
+<h2>GoogleAPIs</h2>
+
+<ul>
+<li><a href="https://console.developers.google.com/project">https://console.developers.google.com/project</a></li>
+</ul>
+
+
+<p>新しいプロジェクトを作成して、新しく認証情報を作成する。(OAuthクライアントID)</p>
+
+<p><code>承認済みのJavaScript生成元</code>, <code>承認済みのリダイレクトURI</code> は空白のままでOK。</p>
+
+<p>redirect_uri_mismatchで認証できなかったが、GoogleAPIsでリダイレクトURLが設定できてなかったため。 <a href="http://perl.no-tubo.net/2013/09/27/netgoogleanalyticsoauth2-%E3%81%A7%E3%80%8C%E3%82%A8%E3%83%A9%E3%83%BCredirect_uri_mismatch%E3%80%8D%E3%81%A3%E3%81%A6%E8%A8%80%E3%82%8F%E3%82%8C%E3%81%A6refresh_access_token%E3%81%8C%E5%8F%96/">こちら</a>を参考。</p>
+
+<p>今度はコールバックされた先で<code>failed to fetch user profile</code>のエラー。GoogleAPIsで作ったプロジェクトで<code>Google+ API</code>を有効にすればよい。<a href="https://github.com/jaredhanson/passport-google-oauth/issues/46">こちら</a>を参考。</p>
 ]]></content>
   </entry>
   
