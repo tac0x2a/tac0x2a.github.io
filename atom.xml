@@ -4,7 +4,7 @@
   <title><![CDATA[tac42.net]]></title>
   <link href="https://www.tac42.net/atom.xml" rel="self"/>
   <link href="https://www.tac42.net/"/>
-  <updated>2016-04-02T13:02:19+09:00</updated>
+  <updated>2016-04-03T00:58:54+09:00</updated>
   <id>https://www.tac42.net/</id>
   <author>
     <name><![CDATA[TAC]]></name>
@@ -55,12 +55,12 @@
 <p>ためしに、GoogleアカウントのOAuth2で認証してみる。</p>
 
 <ul>
-<li><a href="https://github.com/mstade/passport-google-oauth2">https://github.com/mstade/passport-google-oauth2</a></li>
+<li><a href="https://github.com/barberboy/passport-google-oauth2-example">https://github.com/barberboy/passport-google-oauth2-example</a></li>
 </ul>
 
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ npm install passport-google-oauth2 --save-dev</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ npm install passport-google-oauth --save-dev</span></code></pre></td></tr></table></div></figure>
 
 
 <h2>GoogleAPIs</h2>
