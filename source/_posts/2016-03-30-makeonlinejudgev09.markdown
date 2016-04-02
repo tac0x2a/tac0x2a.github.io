@@ -34,10 +34,10 @@ $ npm start
 ## Google OAuth2
 ためしに、GoogleアカウントのOAuth2で認証してみる。
 
-+ https://github.com/mstade/passport-google-oauth2
++ https://github.com/barberboy/passport-google-oauth2-example
 
 ```
-$ npm install passport-google-oauth2 --save-dev
+$ npm install passport-google-oauth --save-dev
 ```
 
 ## GoogleAPIs
