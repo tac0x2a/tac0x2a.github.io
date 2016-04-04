@@ -37,7 +37,7 @@ $ npm start
 + https://github.com/barberboy/passport-google-oauth2-example
 
 ```
-$ npm install passport-google-oauth --save-dev
+$ npm install passport-google-oauth --save
 ```
 
 ## GoogleAPIs
@@ -50,3 +50,39 @@ $ npm install passport-google-oauth --save-dev
 redirect_uri_mismatchで認証できなかったが、GoogleAPIsでリダイレクトURLが設定できてなかったため。 [こちら](http://perl.no-tubo.net/2013/09/27/netgoogleanalyticsoauth2-%E3%81%A7%E3%80%8C%E3%82%A8%E3%83%A9%E3%83%BCredirect_uri_mismatch%E3%80%8D%E3%81%A3%E3%81%A6%E8%A8%80%E3%82%8F%E3%82%8C%E3%81%A6refresh_access_token%E3%81%8C%E5%8F%96/)を参考。
 
 今度はコールバックされた先で`failed to fetch user profile`のエラー。GoogleAPIsで作ったプロジェクトで`Google+ API`を有効にすればよい。[こちら](https://github.com/jaredhanson/passport-google-oauth/issues/46)を参考。
+
+
+## SemanticUI を導入
+これまではCSSに[Bootstrap](http://getbootstrap.com/)ばかり使っていたのですが、今回は[SemanticUI](http://semantic-ui.com/)を使ってみることに。
+
+ビルドするのにgulpが必要なのでインストールする。
+```
+$ npm install -g gulp
+```
+
+```
+$ npm install semantic-ui --save
+```
+
+途中いろいろ聞かれたが、`Express` を選択し、packageは全て選択した。
+
+```
+$ cd semantic/
+$ gulp build
+```
+
+これで必要なファイルが生成された。読み込むようheadを修正する。
+
+```layout.jade
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', type='text/css' href='semantic/dist/semantic.min.css')
+    script(src='semantic/dist/semantic.min.js')
+
+  body
+    block content
+```
+
+![Signup]({{ root_url }}/assets/blog/2016-04-05-express/signup.png)
