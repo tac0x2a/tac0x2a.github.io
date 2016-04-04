@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Make_online_judge | tac42.net]]></title>
   <link href="https://www.tac42.net/blog/categories/make-online-judge/atom.xml" rel="self"/>
   <link href="https://www.tac42.net/"/>
-  <updated>2016-04-05T00:30:09+09:00</updated>
+  <updated>2016-04-05T07:46:43+09:00</updated>
   <id>https://www.tac42.net/</id>
   <author>
     <name><![CDATA[TAC]]></name>
@@ -93,7 +93,7 @@ $ gulp build
 
 <p>これで必要なファイルが生成された。読み込むようheadを修正する。</p>
 
-<pre><code class="layout.jade">doctype html
+<pre><code>doctype html
 html
   head
     title= title
@@ -104,8 +104,8 @@ html
     block content
 </code></pre>
 
-<p>  <img src="{{root_url}}/assets/blog/2015-12-31-conclusion2015/wave_flower.jpg" alt="波の花" />
-  <img src="{{%20root_url%20}}/assets/blog/2016-04-05-express/signup.png" alt="Signup" /></p>
+<p><img src="/assets/blog/2016-04-05-express/signup.png" alt="Signup" />
+こんなかんじになった。</p>
 ]]></content>
   </entry>
   
