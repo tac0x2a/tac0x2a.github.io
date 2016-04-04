@@ -73,7 +73,7 @@ $ gulp build
 
 これで必要なファイルが生成された。読み込むようheadを修正する。
 
-```layout.jade
+```
 doctype html
 html
   head
@@ -86,3 +86,4 @@ html
 ```
 
 ![Signup]({{ root_url }}/assets/blog/2016-04-05-express/signup.png)
+こんなかんじになった。
