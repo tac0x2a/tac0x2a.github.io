@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Tech | tac42.net]]></title>
   <link href="https://www.tac42.net/blog/categories/tech/atom.xml" rel="self"/>
   <link href="https://www.tac42.net/"/>
-  <updated>2016-04-03T00:58:54+09:00</updated>
+  <updated>2016-04-05T00:30:09+09:00</updated>
   <id>https://www.tac42.net/</id>
   <author>
     <name><![CDATA[TAC]]></name>
@@ -55,7 +55,7 @@ $ cd judgesv_app_prototype &amp;&amp; npm install
 </ul>
 
 
-<pre><code>$ npm install passport-google-oauth --save-dev
+<pre><code>$ npm install passport-google-oauth --save
 </code></pre>
 
 <h2>GoogleAPIs</h2>
@@ -72,6 +72,40 @@ $ cd judgesv_app_prototype &amp;&amp; npm install
 <p>redirect_uri_mismatchで認証できなかったが、GoogleAPIsでリダイレクトURLが設定できてなかったため。 <a href="http://perl.no-tubo.net/2013/09/27/netgoogleanalyticsoauth2-%E3%81%A7%E3%80%8C%E3%82%A8%E3%83%A9%E3%83%BCredirect_uri_mismatch%E3%80%8D%E3%81%A3%E3%81%A6%E8%A8%80%E3%82%8F%E3%82%8C%E3%81%A6refresh_access_token%E3%81%8C%E5%8F%96/">こちら</a>を参考。</p>
 
 <p>今度はコールバックされた先で<code>failed to fetch user profile</code>のエラー。GoogleAPIsで作ったプロジェクトで<code>Google+ API</code>を有効にすればよい。<a href="https://github.com/jaredhanson/passport-google-oauth/issues/46">こちら</a>を参考。</p>
+
+<h2>SemanticUI を導入</h2>
+
+<p>これまではCSSに<a href="http://getbootstrap.com/">Bootstrap</a>ばかり使っていたのですが、今回は<a href="http://semantic-ui.com/">SemanticUI</a>を使ってみることに。</p>
+
+<p>ビルドするのにgulpが必要なのでインストールする。
+<code>
+$ npm install -g gulp
+</code></p>
+
+<pre><code>$ npm install semantic-ui --save
+</code></pre>
+
+<p>途中いろいろ聞かれたが、<code>Express</code> を選択し、packageは全て選択した。</p>
+
+<pre><code>$ cd semantic/
+$ gulp build
+</code></pre>
+
+<p>これで必要なファイルが生成された。読み込むようheadを修正する。</p>
+
+<pre><code class="layout.jade">doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', type='text/css' href='semantic/dist/semantic.min.css')
+    script(src='semantic/dist/semantic.min.js')
+
+  body
+    block content
+</code></pre>
+
+<p>  <img src="{{root_url}}/assets/blog/2015-12-31-conclusion2015/wave_flower.jpg" alt="波の花" />
+  <img src="{{%20root_url%20}}/assets/blog/2016-04-05-express/signup.png" alt="Signup" /></p>
 ]]></content>
   </entry>
   
