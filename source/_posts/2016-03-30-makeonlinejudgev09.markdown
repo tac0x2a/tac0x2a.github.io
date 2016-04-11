@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Expressでバックエンドを作る"
+title: "Expressでバックエンドを作る(ユーザ認証まで)"
 date: 2016-03-30 00:39:31 +0900
 comments: true
 categories: make_online_judge tech
@@ -188,6 +188,16 @@ router.post('/return', function(req, res, next) {
 あとはView側で `errors` に何か入っていたらエラー表示するようにすればOK。
 
 
+### セッションを張る
+
++ [Express 4 のログ出力とフォームの処理 - セッション](http://qiita.com/hoshi-takanori/items/7f5602d7fd7ee0fa6427#2-8)
+
+```
+$ npm install express-session --save
+```
+
+
+
 ## ユーザ認証を実装する
 以前調べた[Passport](http://knimon-software.github.io/www.passportjs.org/)を使ってみる。
 
@@ -198,7 +208,15 @@ $ npm install passport --save
 ### Local認証
 まずは素朴にメールアドレスとパスワードで認証してみる。
 
++ [Passport - Documentation](http://passportjs.org/docs/)
+
 + [Express + Passport でお手軽ユーザー認証](http://kikuchy.hatenablog.com/entry/2013/07/03/042221)
+
+
+```
+$ npm install passport-local --save
+```
+
 
 
 
@@ -223,3 +241,63 @@ $ npm install passport-google-oauth --save
 redirect_uri_mismatchで認証できなかったが、GoogleAPIsでリダイレクトURLが設定できてなかったため。 [こちら](http://perl.no-tubo.net/2013/09/27/netgoogleanalyticsoauth2-%E3%81%A7%E3%80%8C%E3%82%A8%E3%83%A9%E3%83%BCredirect_uri_mismatch%E3%80%8D%E3%81%A3%E3%81%A6%E8%A8%80%E3%82%8F%E3%82%8C%E3%81%A6refresh_access_token%E3%81%8C%E5%8F%96/)を参考。
 
 今度はコールバックされた先で`failed to fetch user profile`のエラー。GoogleAPIsで作ったプロジェクトで`Google+ API`を有効にすればよい。[こちら](https://github.com/jaredhanson/passport-google-oauth/issues/46)を参考。
+
+
+## おまけ
+### MongoDB
+
+#### Macで起動するには
+
++ [Macにhomebrewを使ってmongodbをインストール](http://qiita.com/hajimeni/items/3c93fd981e92f66a20ce)
+
+```
+$ brew install mongodb
+```
+
+```
+$ mongod --config /usr/local/etc/mongod.conf
+```
+
+
+#### Ubuntu14.04にインストール出来ない
+正確には、インストールできるんだけど、サービスが登録されないです。
+
+[MongoDBのInstallation](https://docs.mongodb.org/manual/tutorial/install-mongodb-on-ubuntu/#install-mongodb-community-edition)に従って進めてみましたが
+`/etc/init.d/` 以下にそれらしいファイルが作られておらず、`start service mongodb` しても、サービスが見つからない旨のメッセージが出ていました。
+
+どうやら、パッケージとして `mongodb-org` よりも `mongodb` を指定する方が良さそうです。
+
++ [E: Unable to locate package mongodb-org / stackover flow](http://stackoverflow.com/questions/28945921/e-unable-to-locate-package-mongodb-org)
+
+私の環境でも上記でサービス起動できるようになりました。
+
+
+### Dockerのコンテナから名前が引けない
+```
+Step 4 : RUN apt-get update -y
+ ---> Running in 78957f038aed
+Err http://archive.ubuntu.com trusty InRelease
+
+Err http://archive.ubuntu.com trusty-updates InRelease
+
+Err http://archive.ubuntu.com trusty-security InRelease
+
+Err http://archive.ubuntu.com trusty Release.gpg
+  Could not resolve 'archive.ubuntu.com'
+Err http://archive.ubuntu.com trusty-updates Release.gpg
+  Could not resolve 'archive.ubuntu.com'
+Err http://archive.ubuntu.com trusty-security Release.gpg
+  Could not resolve 'archive.ubuntu.com'
+...
+```
+
+DockerMachineが起動したまま別の環境に移動したからかも。
+`docker-machine restart` したら治った。
+
+
+一通り認証まで実装できたので本エントリは終了。
+意外といい感じに進んできてるので、プロトタイプから格上げすることに。
+
++ [tac0x2a/WitchCoder](https://github.com/tac0x2a/WitchCoder)
+
+Wizardに対抗してWitch。。。。次回に続く！！
