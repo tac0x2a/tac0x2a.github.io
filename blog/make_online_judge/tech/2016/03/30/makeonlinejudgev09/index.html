@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Expressでバックエンドを作る - tac42.net</title>
+  <title>Expressでバックエンドを作る(ユーザ認証まで) - tac42.net</title>
   <meta name="author" content="TAC">
 
   
@@ -115,7 +115,7 @@
   <header>
     
       
-        <h1 class="entry-title">Expressでバックエンドを作る</h1>
+        <h1 class="entry-title">Expressでバックエンドを作る(ユーザ認証まで)</h1>
       
     
     
@@ -425,6 +425,18 @@
 
 <p>あとはView側で <code>errors</code> に何か入っていたらエラー表示するようにすればOK。</p>
 
+<h3>セッションを張る</h3>
+
+<ul>
+<li><a href="http://qiita.com/hoshi-takanori/items/7f5602d7fd7ee0fa6427#2-8">Express 4 のログ出力とフォームの処理 - セッション</a></li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">$</span> <span class="nx">npm</span> <span class="nx">install</span> <span class="nx">express</span><span class="o">-</span><span class="nx">session</span> <span class="o">--</span><span class="nx">save</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
 <h2>ユーザ認証を実装する</h2>
 
 <p>以前調べた<a href="http://knimon-software.github.io/www.passportjs.org/">Passport</a>を使ってみる。</p>
@@ -439,8 +451,14 @@
 <p>まずは素朴にメールアドレスとパスワードで認証してみる。</p>
 
 <ul>
-<li><a href="http://kikuchy.hatenablog.com/entry/2013/07/03/042221">Express + Passport でお手軽ユーザー認証</a></li>
+<li><p><a href="http://passportjs.org/docs/">Passport - Documentation</a></p></li>
+<li><p><a href="http://kikuchy.hatenablog.com/entry/2013/07/03/042221">Express + Passport でお手軽ユーザー認証</a></p></li>
 </ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">$</span> <span class="nx">npm</span> <span class="nx">install</span> <span class="nx">passport</span><span class="o">-</span><span class="nx">local</span> <span class="o">--</span><span class="nx">save</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <h3>Google OAuth2</h3>
@@ -472,6 +490,93 @@
 <p>redirect_uri_mismatchで認証できなかったが、GoogleAPIsでリダイレクトURLが設定できてなかったため。 <a href="http://perl.no-tubo.net/2013/09/27/netgoogleanalyticsoauth2-%E3%81%A7%E3%80%8C%E3%82%A8%E3%83%A9%E3%83%BCredirect_uri_mismatch%E3%80%8D%E3%81%A3%E3%81%A6%E8%A8%80%E3%82%8F%E3%82%8C%E3%81%A6refresh_access_token%E3%81%8C%E5%8F%96/">こちら</a>を参考。</p>
 
 <p>今度はコールバックされた先で<code>failed to fetch user profile</code>のエラー。GoogleAPIsで作ったプロジェクトで<code>Google+ API</code>を有効にすればよい。<a href="https://github.com/jaredhanson/passport-google-oauth/issues/46">こちら</a>を参考。</p>
+
+<h2>おまけ</h2>
+
+<h3>MongoDB</h3>
+
+<h4>Macで起動するには</h4>
+
+<ul>
+<li><a href="http://qiita.com/hajimeni/items/3c93fd981e92f66a20ce">Macにhomebrewを使ってmongodbをインストール</a></li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">$</span> <span class="nx">brew</span> <span class="nx">install</span> <span class="nx">mongodb</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">$</span> <span class="nx">mongod</span> <span class="o">--</span><span class="nx">config</span> <span class="o">/</span><span class="nx">usr</span><span class="o">/</span><span class="nx">local</span><span class="o">/</span><span class="nx">etc</span><span class="o">/</span><span class="nx">mongod</span><span class="p">.</span><span class="nx">conf</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h4>Ubuntu14.04にインストール出来ない</h4>
+
+<p>正確には、インストールできるんだけど、サービスが登録されないです。</p>
+
+<p><a href="https://docs.mongodb.org/manual/tutorial/install-mongodb-on-ubuntu/#install-mongodb-community-edition">MongoDBのInstallation</a>に従って進めてみましたが
+<code>/etc/init.d/</code> 以下にそれらしいファイルが作られておらず、<code>start service mongodb</code> しても、サービスが見つからない旨のメッセージが出ていました。</p>
+
+<p>どうやら、パッケージとして <code>mongodb-org</code> よりも <code>mongodb</code> を指定する方が良さそうです。</p>
+
+<ul>
+<li><a href="http://stackoverflow.com/questions/28945921/e-unable-to-locate-package-mongodb-org">E: Unable to locate package mongodb-org / stackover flow</a></li>
+</ul>
+
+
+<p>私の環境でも上記でサービス起動できるようになりました。</p>
+
+<h3>Dockerのコンテナから名前が引けない</h3>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">Step</span> <span class="mi">4</span> <span class="o">:</span> <span class="nx">RUN</span> <span class="nx">apt</span><span class="o">-</span><span class="nx">get</span> <span class="nx">update</span> <span class="o">-</span><span class="nx">y</span>
+</span><span class='line'> <span class="o">---&gt;</span> <span class="nx">Running</span> <span class="k">in</span> <span class="mi">78957</span><span class="nx">f038aed</span>
+</span><span class='line'><span class="nx">Err</span> <span class="nx">http</span><span class="o">:</span><span class="c1">//archive.ubuntu.com trusty InRelease</span>
+</span><span class='line'>
+</span><span class='line'><span class="nx">Err</span> <span class="nx">http</span><span class="o">:</span><span class="c1">//archive.ubuntu.com trusty-updates InRelease</span>
+</span><span class='line'>
+</span><span class='line'><span class="nx">Err</span> <span class="nx">http</span><span class="o">:</span><span class="c1">//archive.ubuntu.com trusty-security InRelease</span>
+</span><span class='line'>
+</span><span class='line'><span class="nx">Err</span> <span class="nx">http</span><span class="o">:</span><span class="c1">//archive.ubuntu.com trusty Release.gpg</span>
+</span><span class='line'>  <span class="nx">Could</span> <span class="nx">not</span> <span class="nx">resolve</span> <span class="s1">&#39;archive.ubuntu.com&#39;</span>
+</span><span class='line'><span class="nx">Err</span> <span class="nx">http</span><span class="o">:</span><span class="c1">//archive.ubuntu.com trusty-updates Release.gpg</span>
+</span><span class='line'>  <span class="nx">Could</span> <span class="nx">not</span> <span class="nx">resolve</span> <span class="s1">&#39;archive.ubuntu.com&#39;</span>
+</span><span class='line'><span class="nx">Err</span> <span class="nx">http</span><span class="o">:</span><span class="c1">//archive.ubuntu.com trusty-security Release.gpg</span>
+</span><span class='line'>  <span class="nx">Could</span> <span class="nx">not</span> <span class="nx">resolve</span> <span class="s1">&#39;archive.ubuntu.com&#39;</span>
+</span><span class='line'><span class="p">...</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>DockerMachineが起動したまま別の環境に移動したからかも。
+<code>docker-machine restart</code> したら治った。</p>
+
+<p>一通り認証まで実装できたので本エントリは終了。
+意外といい感じに進んできてるので、プロトタイプから格上げすることに。</p>
+
+<ul>
+<li><a href="https://github.com/tac0x2a/WitchCoder">tac0x2a/WitchCoder</a></li>
+</ul>
+
+
+<p>Wizardに対抗してWitch。。。。次回に続く！！</p>
 </div>
 
 
@@ -527,6 +632,8 @@
       
         <a class="basic-alignment left" href="/blog/make_online_judge/tech/2016/03/28/makeonlinejudgev08/" title="Previous Post: プロトタイプを作ろう">&laquo; プロトタイプを作ろう</a>
       
+      
+        <a class="basic-alignment right" href="/blog/make_online_judge/tech/2016/04/13/makeonlinejudgev10/" title="Next Post: テストフレームワークを導入する(mocha)">テストフレームワークを導入する(mocha) &raquo;</a>
       
     </p>
   </footer>

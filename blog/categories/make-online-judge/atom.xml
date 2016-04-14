@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Make_online_judge | tac42.net]]></title>
   <link href="https://www.tac42.net/blog/categories/make-online-judge/atom.xml" rel="self"/>
   <link href="https://www.tac42.net/"/>
-  <updated>2016-04-07T02:18:06+09:00</updated>
+  <updated>2016-04-15T00:41:21+09:00</updated>
   <id>https://www.tac42.net/</id>
   <author>
     <name><![CDATA[TAC]]></name>
@@ -14,7 +14,123 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Expressでバックエンドを作る]]></title>
+    <title type="html"><![CDATA[テストフレームワークを導入する(mocha)]]></title>
+    <link href="https://www.tac42.net/blog/make_online_judge/tech/2016/04/13/makeonlinejudgev10/"/>
+    <updated>2016-04-13T08:04:24+09:00</updated>
+    <id>https://www.tac42.net/blog/make_online_judge/tech/2016/04/13/makeonlinejudgev10</id>
+    <content type="html"><![CDATA[<p>ユーザのサインアップ、ログイン・ログアウトを実装できたので
+いよいよ本格的に機能を作りこんでいきたいのですが、
+やはりテストが無いと不安です。</p>
+
+<h1>Mocha</h1>
+
+<p>比較的シンプルそうなテストフレームワーク <a href="http://mochajs.org/">mocah</a> を導入します。</p>
+
+<ul>
+<li><a href="http://mochajs.org/">Mocha</a></li>
+</ul>
+
+
+<pre><code>$ npm install -g mocha --save-dev
+</code></pre>
+
+<p>さっそく動かしてみる.</p>
+
+<pre><code>$ mkdir test
+$ touch test/test.js
+</code></pre>
+
+<pre><code class="js">var assert = require("chai").assert
+describe('Array', function() {
+  describe('#indexOf()', function () {
+    it('should return -1 when the value is not present', function () {
+      assert.equal(-1, [1,2,3].indexOf(5));
+      assert.equal(-1, [1,2,3].indexOf(0));
+    });
+  });
+});
+</code></pre>
+
+<pre><code>$ mocha
+</code></pre>
+
+<pre><code>Array
+  #indexOf()
+    1) should return -1 when the value is not present
+
+0 passing (14ms)
+1 failing
+
+1) Array #indexOf() should return -1 when the value is not present:
+   ReferenceError: assert is not defined
+    at Context.&lt;anonymous&gt; (test/test.js:4:7)
+</code></pre>
+
+<p>お、動いてるっぽい。
+ちなみにアサーションにはChaiを使っています。</p>
+
+<ul>
+<li><a href="http://chaijs.com/">Chai</a></li>
+</ul>
+
+
+<pre><code class="js">var assert = require("chai").assert
+</code></pre>
+
+<p>Chaiは他にも <code>expect</code> や <code>should</code> を使った書き方もサポートしています。
+<code>should</code> や <code>expect</code> はRspecで使っていましたが冗長になりがちだったので、今回はassertを使ってみようと思います。</p>
+
+<h1>CIに乗せる</h1>
+
+<p>いつものTravis-CIで。</p>
+
+<ul>
+<li><a href="https://travis-ci.org/">Travis CI</a></li>
+<li><a href="https://docs.travis-ci.com/user/languages/javascript-with-nodejs">Building a Node.js project</a></li>
+</ul>
+
+
+<p>以下の内容で <code>.travis.yml</code> をリポジトリのルートに作る。</p>
+
+<pre><code class="yml">language: node_js
+node_js:
+  - "5.9.0"
+</code></pre>
+
+<p>TravisCIは <code>npm test</code> を叩いてテストするので、<code>package.js</code> に以下を加える。
+<code>js
+{
+...
+  "scripts": {
+    "test": "mocha"
+  },
+...
+}
+</code></p>
+
+<p>TravisCIでリポジトリを有効にしてビルド。<code>README.md</code>にバッジを追記する。</p>
+
+<pre><code>......
+$ npm test
+&gt; WitchCoder@0.0.0 test /home/travis/build/tac0x2a/WitchCoder
+&gt; mocha
+  login
+    /return
+  ✓ should be return error when email is empty
+  ✓ should be return error when name is empty
+  ✓ login failed if user not found
+  ✓ login failed if password is not matched
+  4 passing (14ms)
+The command "npm test" exited with 0.
+Done. Your build exited with 0.
+</code></pre>
+
+<p>動いてる！いい感じ〜</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Expressでバックエンドを作る(ユーザ認証まで)]]></title>
     <link href="https://www.tac42.net/blog/make_online_judge/tech/2016/03/30/makeonlinejudgev09/"/>
     <updated>2016-03-30T00:39:31+09:00</updated>
     <id>https://www.tac42.net/blog/make_online_judge/tech/2016/03/30/makeonlinejudgev09</id>
@@ -200,6 +316,16 @@ router.post('/return', function(req, res, next) {
 
 <p>あとはView側で <code>errors</code> に何か入っていたらエラー表示するようにすればOK。</p>
 
+<h3>セッションを張る</h3>
+
+<ul>
+<li><a href="http://qiita.com/hoshi-takanori/items/7f5602d7fd7ee0fa6427#2-8">Express 4 のログ出力とフォームの処理 - セッション</a></li>
+</ul>
+
+
+<pre><code>$ npm install express-session --save
+</code></pre>
+
 <h2>ユーザ認証を実装する</h2>
 
 <p>以前調べた<a href="http://knimon-software.github.io/www.passportjs.org/">Passport</a>を使ってみる。</p>
@@ -212,9 +338,13 @@ router.post('/return', function(req, res, next) {
 <p>まずは素朴にメールアドレスとパスワードで認証してみる。</p>
 
 <ul>
-<li><a href="http://kikuchy.hatenablog.com/entry/2013/07/03/042221">Express + Passport でお手軽ユーザー認証</a></li>
+<li><p><a href="http://passportjs.org/docs/">Passport - Documentation</a></p></li>
+<li><p><a href="http://kikuchy.hatenablog.com/entry/2013/07/03/042221">Express + Passport でお手軽ユーザー認証</a></p></li>
 </ul>
 
+
+<pre><code>$ npm install passport-local --save
+</code></pre>
 
 <h3>Google OAuth2</h3>
 
@@ -243,6 +373,71 @@ router.post('/return', function(req, res, next) {
 <p>redirect_uri_mismatchで認証できなかったが、GoogleAPIsでリダイレクトURLが設定できてなかったため。 <a href="http://perl.no-tubo.net/2013/09/27/netgoogleanalyticsoauth2-%E3%81%A7%E3%80%8C%E3%82%A8%E3%83%A9%E3%83%BCredirect_uri_mismatch%E3%80%8D%E3%81%A3%E3%81%A6%E8%A8%80%E3%82%8F%E3%82%8C%E3%81%A6refresh_access_token%E3%81%8C%E5%8F%96/">こちら</a>を参考。</p>
 
 <p>今度はコールバックされた先で<code>failed to fetch user profile</code>のエラー。GoogleAPIsで作ったプロジェクトで<code>Google+ API</code>を有効にすればよい。<a href="https://github.com/jaredhanson/passport-google-oauth/issues/46">こちら</a>を参考。</p>
+
+<h2>おまけ</h2>
+
+<h3>MongoDB</h3>
+
+<h4>Macで起動するには</h4>
+
+<ul>
+<li><a href="http://qiita.com/hajimeni/items/3c93fd981e92f66a20ce">Macにhomebrewを使ってmongodbをインストール</a></li>
+</ul>
+
+
+<pre><code>$ brew install mongodb
+</code></pre>
+
+<pre><code>$ mongod --config /usr/local/etc/mongod.conf
+</code></pre>
+
+<h4>Ubuntu14.04にインストール出来ない</h4>
+
+<p>正確には、インストールできるんだけど、サービスが登録されないです。</p>
+
+<p><a href="https://docs.mongodb.org/manual/tutorial/install-mongodb-on-ubuntu/#install-mongodb-community-edition">MongoDBのInstallation</a>に従って進めてみましたが
+<code>/etc/init.d/</code> 以下にそれらしいファイルが作られておらず、<code>start service mongodb</code> しても、サービスが見つからない旨のメッセージが出ていました。</p>
+
+<p>どうやら、パッケージとして <code>mongodb-org</code> よりも <code>mongodb</code> を指定する方が良さそうです。</p>
+
+<ul>
+<li><a href="http://stackoverflow.com/questions/28945921/e-unable-to-locate-package-mongodb-org">E: Unable to locate package mongodb-org / stackover flow</a></li>
+</ul>
+
+
+<p>私の環境でも上記でサービス起動できるようになりました。</p>
+
+<h3>Dockerのコンテナから名前が引けない</h3>
+
+<pre><code>Step 4 : RUN apt-get update -y
+ ---&gt; Running in 78957f038aed
+Err http://archive.ubuntu.com trusty InRelease
+
+Err http://archive.ubuntu.com trusty-updates InRelease
+
+Err http://archive.ubuntu.com trusty-security InRelease
+
+Err http://archive.ubuntu.com trusty Release.gpg
+  Could not resolve 'archive.ubuntu.com'
+Err http://archive.ubuntu.com trusty-updates Release.gpg
+  Could not resolve 'archive.ubuntu.com'
+Err http://archive.ubuntu.com trusty-security Release.gpg
+  Could not resolve 'archive.ubuntu.com'
+...
+</code></pre>
+
+<p>DockerMachineが起動したまま別の環境に移動したからかも。
+<code>docker-machine restart</code> したら治った。</p>
+
+<p>一通り認証まで実装できたので本エントリは終了。
+意外といい感じに進んできてるので、プロトタイプから格上げすることに。</p>
+
+<ul>
+<li><a href="https://github.com/tac0x2a/WitchCoder">tac0x2a/WitchCoder</a></li>
+</ul>
+
+
+<p>Wizardに対抗してWitch。。。。次回に続く！！</p>
 ]]></content>
   </entry>
   
@@ -443,70 +638,6 @@ routingの過程で何らかの処理を差し込む仕組み。
 
 
 <p>このあたりを作りたいと思います。</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Atomを使おう]]></title>
-    <link href="https://www.tac42.net/blog/make_online_judge/tech/2016/03/26/makeonlinejudgev05/"/>
-    <updated>2016-03-26T01:19:06+09:00</updated>
-    <id>https://www.tac42.net/blog/make_online_judge/tech/2016/03/26/makeonlinejudgev05</id>
-    <content type="html"><![CDATA[<h1>パッケージ</h1>
-
-<ul>
-<li>sync-settings - <a href="http://qiita.com/T_M/items/0fb0804eb1fd256aac4e">Atomの設定を同期する</a>。</li>
-<li>atomic-emacs - Emacsのキーバインド</li>
-<li>emacs-plus   - Emacsのキーバインド</li>
-<li>disable-keybindings - Emacsのキーバインドとぶつかっているキーを無効にする。</li>
-<li>ruby-block - Rubyのblockをハイライトしてくれる</li>
-<li>file-icons - ファイルツリーのアイコンを見やすく</li>
-<li>project-manager - 複数プロジェクトを記憶して切り替える</li>
-<li><a href="https://atom.io/packages/minimap">minimap</a> - スクロールバーの位置にソースコードの全体像を表示する</li>
-<li>atom-typescript - TypeScript用のplugin. 機能多すぎてよくわからんけど凄い</li>
-</ul>
-
-
-<p>コマンドでインストールするには</p>
-
-<pre><code>apm install sync-settings
-apm install atomic-emacs
-apm install emacs-plus
-apm install disable-keybindings
-apm install ruby-block
-apm install file-icons
-apm install project-manager
-</code></pre>
-
-<h2>sync-settings</h2>
-
-<ul>
-<li>GistのIDとGitHubのAccessTokenをそれぞれ設定する。</li>
-<li>コマンドパレットを開いて(<code>Cmd+Shift+p</code>) <code>Sync Settings:Restore</code> でgistから設定をリストアする。</li>
-</ul>
-
-
-<h2>disable-keybindings</h2>
-
-<ul>
-<li>All Community Packages にチェック入れる。</li>
-<li>Except Community Packages に <code>atomic-emacs, emacs-plus</code> を設定する。</li>
-<li>Prefix Keys に <code>ctrl-k</code> を設定する。</li>
-</ul>
-
-
-<h1>テーマ</h1>
-
-<h2><code>robin-hood-syntax</code></h2>
-
-<p><img src="https://i.github-camo.com/ab5bd775f86c75113818f712d96c55ba934e1cf8/68747470733a2f2f6769746875622e636f6d2f617a61742d696f2f61746f6d2d726f62696e2d686f6f642d73796e7461782f626c6f622f6d61737465722f696d616765732f68746d6c2e706e673f7261773d74727565" alt="" />
-<img src="https://i.github-camo.com/e16edf8a04d83900fd3cb9d6907fe8b677e051e7/68747470733a2f2f6769746875622e636f6d2f617a61742d696f2f61746f6d2d726f62696e2d686f6f642d73796e7461782f626c6f622f6d61737465722f696d616765732f6373732e706e673f7261773d74727565" alt="" /></p>
-
-<h1>その他</h1>
-
-<p>Markdownプレビューのフォントを変更する。
-+ AP<a href="http://tanksuzuki.com/post/atom-markdown-style/">AtomでカッコよくMarkdown PreviewするためのCSS</a></p>
-
-<p>ここまで。気が向いたら追記する。</p>
 ]]></content>
   </entry>
   

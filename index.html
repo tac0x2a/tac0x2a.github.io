@@ -9,8 +9,10 @@
   <meta name="author" content="TAC">
 
   
-  <meta name="description" content="しばらくこのエントリに追記する形で進める。 express-generator Node.jsのMVCフレームワーク「Express」の基礎知識とインストール express-generator コマンドでプロジェクトの雛形が作れるらしい。
-前回の app.json の代わりに、 &hellip;">
+  <meta name="description" content="ユーザのサインアップ、ログイン・ログアウトを実装できたので
+いよいよ本格的に機能を作りこんでいきたいのですが、
+やはりテストが無いと不安です。 Mocha 比較的シンプルそうなテストフレームワーク mocah を導入します。 Mocha 1
+$ npm install -g mocha -- &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -117,7 +119,206 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/make_online_judge/tech/2016/03/30/makeonlinejudgev09/">Expressでバックエンドを作る</a></h1>
+      <h1 class="entry-title"><a href="/blog/make_online_judge/tech/2016/04/13/makeonlinejudgev10/">テストフレームワークを導入する(mocha)</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2016-04-13T08:04:24+09:00'><span class='date'><span class='date-month'>Apr</span> <span class='date-day'>13</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>8:04 am</span></time>
+        
+         | <a href="/blog/make_online_judge/tech/2016/04/13/makeonlinejudgev10/#disqus_thread">Comments</a>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>ユーザのサインアップ、ログイン・ログアウトを実装できたので
+いよいよ本格的に機能を作りこんでいきたいのですが、
+やはりテストが無いと不安です。</p>
+
+<h1>Mocha</h1>
+
+<p>比較的シンプルそうなテストフレームワーク <a href="http://mochajs.org/">mocah</a> を導入します。</p>
+
+<ul>
+<li><a href="http://mochajs.org/">Mocha</a></li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ npm install -g mocha --save-dev</span></code></pre></td></tr></table></div></figure>
+
+
+<p>さっそく動かしてみる.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ mkdir test
+</span><span class='line'>$ touch test/test.js</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="kd">var</span> <span class="nx">assert</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;chai&quot;</span><span class="p">).</span><span class="nx">assert</span>
+</span><span class='line'><span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;Array&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>  <span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;#indexOf()&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nx">it</span><span class="p">(</span><span class="s1">&#39;should return -1 when the value is not present&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>      <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">].</span><span class="nx">indexOf</span><span class="p">(</span><span class="mi">5</span><span class="p">));</span>
+</span><span class='line'>      <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">].</span><span class="nx">indexOf</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span>
+</span><span class='line'>    <span class="p">});</span>
+</span><span class='line'>  <span class="p">});</span>
+</span><span class='line'><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">$</span> <span class="nx">mocha</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nb">Array</span>
+</span><span class='line'>  <span class="err">#</span><span class="nx">indexOf</span><span class="p">()</span>
+</span><span class='line'>    <span class="mi">1</span><span class="p">)</span> <span class="nx">should</span> <span class="k">return</span> <span class="o">-</span><span class="mi">1</span> <span class="nx">when</span> <span class="nx">the</span> <span class="nx">value</span> <span class="nx">is</span> <span class="nx">not</span> <span class="nx">present</span>
+</span><span class='line'>
+</span><span class='line'><span class="mi">0</span> <span class="nx">passing</span> <span class="p">(</span><span class="mi">14</span><span class="nx">ms</span><span class="p">)</span>
+</span><span class='line'><span class="mi">1</span> <span class="nx">failing</span>
+</span><span class='line'>
+</span><span class='line'><span class="mi">1</span><span class="p">)</span> <span class="nb">Array</span> <span class="err">#</span><span class="nx">indexOf</span><span class="p">()</span> <span class="nx">should</span> <span class="k">return</span> <span class="o">-</span><span class="mi">1</span> <span class="nx">when</span> <span class="nx">the</span> <span class="nx">value</span> <span class="nx">is</span> <span class="nx">not</span> <span class="nx">present</span><span class="o">:</span>
+</span><span class='line'>   <span class="nx">ReferenceError</span><span class="o">:</span> <span class="nx">assert</span> <span class="nx">is</span> <span class="nx">not</span> <span class="nx">defined</span>
+</span><span class='line'>    <span class="nx">at</span> <span class="nx">Context</span><span class="p">.</span><span class="o">&lt;</span><span class="nx">anonymous</span><span class="o">&gt;</span> <span class="p">(</span><span class="nx">test</span><span class="o">/</span><span class="nx">test</span><span class="p">.</span><span class="nx">js</span><span class="o">:</span><span class="mi">4</span><span class="o">:</span><span class="mi">7</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>お、動いてるっぽい。
+ちなみにアサーションにはChaiを使っています。</p>
+
+<ul>
+<li><a href="http://chaijs.com/">Chai</a></li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="kd">var</span> <span class="nx">assert</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;chai&quot;</span><span class="p">).</span><span class="nx">assert</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Chaiは他にも <code>expect</code> や <code>should</code> を使った書き方もサポートしています。
+<code>should</code> や <code>expect</code> はRspecで使っていましたが冗長になりがちだったので、今回はassertを使ってみようと思います。</p>
+
+<h1>CIに乗せる</h1>
+
+<p>いつものTravis-CIで。</p>
+
+<ul>
+<li><a href="https://travis-ci.org/">Travis CI</a></li>
+<li><a href="https://docs.travis-ci.com/user/languages/javascript-with-nodejs">Building a Node.js project</a></li>
+</ul>
+
+
+<p>以下の内容で <code>.travis.yml</code> をリポジトリのルートに作る。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='yaml'><span class='line'><span class="l-Scalar-Plain">language</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">node_js</span>
+</span><span class='line'><span class="l-Scalar-Plain">node_js</span><span class="p-Indicator">:</span>
+</span><span class='line'>  <span class="p-Indicator">-</span> <span class="s">&quot;5.9.0&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>TravisCIは <code>npm test</code> を叩いてテストするので、<code>package.js</code> に以下を加える。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="p">{</span>
+</span><span class='line'><span class="p">...</span>
+</span><span class='line'>  <span class="s2">&quot;scripts&quot;</span><span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>    <span class="s2">&quot;test&quot;</span><span class="o">:</span> <span class="s2">&quot;mocha&quot;</span>
+</span><span class='line'>  <span class="p">},</span>
+</span><span class='line'><span class="p">...</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>TravisCIでリポジトリを有効にしてビルド。<code>README.md</code>にバッジを追記する。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="p">......</span>
+</span><span class='line'><span class="nx">$</span> <span class="nx">npm</span> <span class="nx">test</span>
+</span><span class='line'><span class="o">&gt;</span> <span class="nx">WitchCoder</span><span class="err">@</span><span class="mf">0.0</span><span class="p">.</span><span class="mi">0</span> <span class="nx">test</span> <span class="o">/</span><span class="nx">home</span><span class="o">/</span><span class="nx">travis</span><span class="o">/</span><span class="nx">build</span><span class="o">/</span><span class="nx">tac0x2a</span><span class="o">/</span><span class="nx">WitchCoder</span>
+</span><span class='line'><span class="o">&gt;</span> <span class="nx">mocha</span>
+</span><span class='line'>  <span class="nx">login</span>
+</span><span class='line'>    <span class="o">/</span><span class="k">return</span>
+</span><span class='line'>  <span class="err">✓</span> <span class="nx">should</span> <span class="nx">be</span> <span class="k">return</span> <span class="nx">error</span> <span class="nx">when</span> <span class="nx">email</span> <span class="nx">is</span> <span class="nx">empty</span>
+</span><span class='line'>  <span class="err">✓</span> <span class="nx">should</span> <span class="nx">be</span> <span class="k">return</span> <span class="nx">error</span> <span class="nx">when</span> <span class="nx">name</span> <span class="nx">is</span> <span class="nx">empty</span>
+</span><span class='line'>  <span class="err">✓</span> <span class="nx">login</span> <span class="nx">failed</span> <span class="k">if</span> <span class="nx">user</span> <span class="nx">not</span> <span class="nx">found</span>
+</span><span class='line'>  <span class="err">✓</span> <span class="nx">login</span> <span class="nx">failed</span> <span class="k">if</span> <span class="nx">password</span> <span class="nx">is</span> <span class="nx">not</span> <span class="nx">matched</span>
+</span><span class='line'>  <span class="mi">4</span> <span class="nx">passing</span> <span class="p">(</span><span class="mi">14</span><span class="nx">ms</span><span class="p">)</span>
+</span><span class='line'><span class="nx">The</span> <span class="nx">command</span> <span class="s2">&quot;npm test&quot;</span> <span class="nx">exited</span> <span class="kd">with</span> <span class="mi">0</span><span class="p">.</span>
+</span><span class='line'><span class="nx">Done</span><span class="p">.</span> <span class="nx">Your</span> <span class="nx">build</span> <span class="nx">exited</span> <span class="kd">with</span> <span class="mi">0</span><span class="p">.</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>動いてる！いい感じ〜</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/make_online_judge/tech/2016/03/30/makeonlinejudgev09/">Expressでバックエンドを作る(ユーザ認証まで)</a></h1>
     
     
       <p class="meta">
@@ -426,6 +627,18 @@
 
 <p>あとはView側で <code>errors</code> に何か入っていたらエラー表示するようにすればOK。</p>
 
+<h3>セッションを張る</h3>
+
+<ul>
+<li><a href="http://qiita.com/hoshi-takanori/items/7f5602d7fd7ee0fa6427#2-8">Express 4 のログ出力とフォームの処理 - セッション</a></li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">$</span> <span class="nx">npm</span> <span class="nx">install</span> <span class="nx">express</span><span class="o">-</span><span class="nx">session</span> <span class="o">--</span><span class="nx">save</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
 <h2>ユーザ認証を実装する</h2>
 
 <p>以前調べた<a href="http://knimon-software.github.io/www.passportjs.org/">Passport</a>を使ってみる。</p>
@@ -440,8 +653,14 @@
 <p>まずは素朴にメールアドレスとパスワードで認証してみる。</p>
 
 <ul>
-<li><a href="http://kikuchy.hatenablog.com/entry/2013/07/03/042221">Express + Passport でお手軽ユーザー認証</a></li>
+<li><p><a href="http://passportjs.org/docs/">Passport - Documentation</a></p></li>
+<li><p><a href="http://kikuchy.hatenablog.com/entry/2013/07/03/042221">Express + Passport でお手軽ユーザー認証</a></p></li>
 </ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">$</span> <span class="nx">npm</span> <span class="nx">install</span> <span class="nx">passport</span><span class="o">-</span><span class="nx">local</span> <span class="o">--</span><span class="nx">save</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <h3>Google OAuth2</h3>
@@ -473,6 +692,93 @@
 <p>redirect_uri_mismatchで認証できなかったが、GoogleAPIsでリダイレクトURLが設定できてなかったため。 <a href="http://perl.no-tubo.net/2013/09/27/netgoogleanalyticsoauth2-%E3%81%A7%E3%80%8C%E3%82%A8%E3%83%A9%E3%83%BCredirect_uri_mismatch%E3%80%8D%E3%81%A3%E3%81%A6%E8%A8%80%E3%82%8F%E3%82%8C%E3%81%A6refresh_access_token%E3%81%8C%E5%8F%96/">こちら</a>を参考。</p>
 
 <p>今度はコールバックされた先で<code>failed to fetch user profile</code>のエラー。GoogleAPIsで作ったプロジェクトで<code>Google+ API</code>を有効にすればよい。<a href="https://github.com/jaredhanson/passport-google-oauth/issues/46">こちら</a>を参考。</p>
+
+<h2>おまけ</h2>
+
+<h3>MongoDB</h3>
+
+<h4>Macで起動するには</h4>
+
+<ul>
+<li><a href="http://qiita.com/hajimeni/items/3c93fd981e92f66a20ce">Macにhomebrewを使ってmongodbをインストール</a></li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">$</span> <span class="nx">brew</span> <span class="nx">install</span> <span class="nx">mongodb</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">$</span> <span class="nx">mongod</span> <span class="o">--</span><span class="nx">config</span> <span class="o">/</span><span class="nx">usr</span><span class="o">/</span><span class="nx">local</span><span class="o">/</span><span class="nx">etc</span><span class="o">/</span><span class="nx">mongod</span><span class="p">.</span><span class="nx">conf</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h4>Ubuntu14.04にインストール出来ない</h4>
+
+<p>正確には、インストールできるんだけど、サービスが登録されないです。</p>
+
+<p><a href="https://docs.mongodb.org/manual/tutorial/install-mongodb-on-ubuntu/#install-mongodb-community-edition">MongoDBのInstallation</a>に従って進めてみましたが
+<code>/etc/init.d/</code> 以下にそれらしいファイルが作られておらず、<code>start service mongodb</code> しても、サービスが見つからない旨のメッセージが出ていました。</p>
+
+<p>どうやら、パッケージとして <code>mongodb-org</code> よりも <code>mongodb</code> を指定する方が良さそうです。</p>
+
+<ul>
+<li><a href="http://stackoverflow.com/questions/28945921/e-unable-to-locate-package-mongodb-org">E: Unable to locate package mongodb-org / stackover flow</a></li>
+</ul>
+
+
+<p>私の環境でも上記でサービス起動できるようになりました。</p>
+
+<h3>Dockerのコンテナから名前が引けない</h3>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">Step</span> <span class="mi">4</span> <span class="o">:</span> <span class="nx">RUN</span> <span class="nx">apt</span><span class="o">-</span><span class="nx">get</span> <span class="nx">update</span> <span class="o">-</span><span class="nx">y</span>
+</span><span class='line'> <span class="o">---&gt;</span> <span class="nx">Running</span> <span class="k">in</span> <span class="mi">78957</span><span class="nx">f038aed</span>
+</span><span class='line'><span class="nx">Err</span> <span class="nx">http</span><span class="o">:</span><span class="c1">//archive.ubuntu.com trusty InRelease</span>
+</span><span class='line'>
+</span><span class='line'><span class="nx">Err</span> <span class="nx">http</span><span class="o">:</span><span class="c1">//archive.ubuntu.com trusty-updates InRelease</span>
+</span><span class='line'>
+</span><span class='line'><span class="nx">Err</span> <span class="nx">http</span><span class="o">:</span><span class="c1">//archive.ubuntu.com trusty-security InRelease</span>
+</span><span class='line'>
+</span><span class='line'><span class="nx">Err</span> <span class="nx">http</span><span class="o">:</span><span class="c1">//archive.ubuntu.com trusty Release.gpg</span>
+</span><span class='line'>  <span class="nx">Could</span> <span class="nx">not</span> <span class="nx">resolve</span> <span class="s1">&#39;archive.ubuntu.com&#39;</span>
+</span><span class='line'><span class="nx">Err</span> <span class="nx">http</span><span class="o">:</span><span class="c1">//archive.ubuntu.com trusty-updates Release.gpg</span>
+</span><span class='line'>  <span class="nx">Could</span> <span class="nx">not</span> <span class="nx">resolve</span> <span class="s1">&#39;archive.ubuntu.com&#39;</span>
+</span><span class='line'><span class="nx">Err</span> <span class="nx">http</span><span class="o">:</span><span class="c1">//archive.ubuntu.com trusty-security Release.gpg</span>
+</span><span class='line'>  <span class="nx">Could</span> <span class="nx">not</span> <span class="nx">resolve</span> <span class="s1">&#39;archive.ubuntu.com&#39;</span>
+</span><span class='line'><span class="p">...</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>DockerMachineが起動したまま別の環境に移動したからかも。
+<code>docker-machine restart</code> したら治った。</p>
+
+<p>一通り認証まで実装できたので本エントリは終了。
+意外といい感じに進んできてるので、プロトタイプから格上げすることに。</p>
+
+<ul>
+<li><a href="https://github.com/tac0x2a/WitchCoder">tac0x2a/WitchCoder</a></li>
+</ul>
+
+
+<p>Wizardに対抗してWitch。。。。次回に続く！！</p>
 </div>
   
   
@@ -1276,397 +1582,6 @@ Grunt(make的なビルドツール), Bower(パッケージマネージャ), Yo(�
 <p>こんなかんじでコツコツやっていきます。
 とりあえず、第一回は構想だけですね。
 おしまい〜。</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/tech/2016/01/05/raspberrypi-setup/">RaspberryPi2をセットアップする</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2016-01-05T01:42:19+09:00'><span class='date'><span class='date-month'>Jan</span> <span class='date-day'>5</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>1:42 am</span></time>
-        
-         | <a href="/blog/tech/2016/01/05/raspberrypi-setup/#disqus_thread">Comments</a>
-        
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><img src="/assets/blog/2016-01-05-raspberrypi-setup/raspi.jpg" alt="RaspberryPi" /></p>
-
-<p>すごい今更感ありますが、Raspberry Pi2 Model B を買ってしまったのでセットアップしたメモ．
-sshするところまで．</p>
-
-<h1>イメージの書き込み</h1>
-
-<p>OSイメージをmicroSDへ書き込む．使用OSごとの書き込み方法は<a href="https://www.raspberrypi.org/documentation/installation/installing-images/README.md">こちら</a>を参照．</p>
-
-<p>イメージをダウンロード．今回使用したのは RASPBIAN JESSIE で、1.3GBくらい．なかなか落ちてこない．
-<a href="https://www.raspberrypi.org/downloads/raspbian/">Download Raspbian for RaspberryPi</a></p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">$ </span>unzip 2015-11-21-raspbian-jessie.zip
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>書き込みたいディスクを確認．別なディスクに書き込むと大変なことになるので慎重に．</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">$ </span>diskutil list
-</span><span class='line'>/dev/disk0 <span class="o">(</span>internal, physical<span class="o">)</span>:
-</span><span class='line'>   <span class="c">#:                       TYPE NAME                    SIZE       IDENTIFIER</span>
-</span><span class='line'>   0:      GUID_partition_scheme                        *121.3 GB   disk0
-</span><span class='line'>   1:                        EFI EFI                     209.7 MB   disk0s1
-</span><span class='line'>   2:          Apple_CoreStorage Macintosh HD            121.0 GB   disk0s2
-</span><span class='line'>   3:                 Apple_Boot Boot OS X               134.2 MB   disk0s3
-</span><span class='line'>/dev/disk1 <span class="o">(</span>internal, physical<span class="o">)</span>:
-</span><span class='line'>   <span class="c">#:                       TYPE NAME                    SIZE       IDENTIFIER</span>
-</span><span class='line'>   0:      GUID_partition_scheme                        *1.0 TB     disk1
-</span><span class='line'>   1:                        EFI EFI                     209.7 MB   disk1s1
-</span><span class='line'>   2:          Apple_CoreStorage Macintosh HD            999.3 GB   disk1s2
-</span><span class='line'>   3:                 Apple_Boot Recovery HD             650.1 MB   disk1s3
-</span><span class='line'>/dev/disk2 <span class="o">(</span>internal, virtual<span class="o">)</span>:
-</span><span class='line'>   <span class="c">#:                       TYPE NAME                    SIZE       IDENTIFIER</span>
-</span><span class='line'>   0:                  Apple_HFS Macintosh HD           +1.1 TB     disk2
-</span><span class='line'>                                 Logical Volume on disk0s2, disk1s2
-</span><span class='line'>                                 D17EF55D-4792-45E2-A2A1-BA52348E9108
-</span><span class='line'>                                 Unencrypted Fusion Drive
-</span><span class='line'>/dev/disk5 <span class="o">(</span>external, physical<span class="o">)</span>:
-</span><span class='line'>   <span class="c">#:                       TYPE NAME                    SIZE       IDENTIFIER</span>
-</span><span class='line'>   0:     FDisk_partition_scheme                        *31.9 GB    disk5
-</span><span class='line'>   1:             Windows_FAT_32 NO NAME                 31.9 GB    disk5s1
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>/dev/disk5 っぽい．<code>dd</code>で書き込む．めっちゃ時間かかる．</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">$ </span>diskutil unmountDisk /dev/disk5
-</span><span class='line'>Unmount of all volumes on disk5 was successful
-</span><span class='line'>
-</span><span class='line'><span class="nv">$ </span>sudo dd <span class="nv">bs</span><span class="o">=</span>1m <span class="k">if</span><span class="o">=</span>2015-11-21-raspbian-jessie.img  <span class="nv">of</span><span class="o">=</span>/dev/disk5
-</span><span class='line'>3752+0 records in
-</span><span class='line'>3752+0 records out
-</span><span class='line'><span class="m">3934257152</span> bytes transferred in 1713.306842 secs <span class="o">(</span><span class="m">2296295</span> bytes/sec<span class="o">)</span>
-</span><span class='line'><span class="err">$</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>30分近くかかってたらしい．</p>
-
-<p>書き込み終わったmicroSDをRaspberryPi2に差し込んで起動する．</p>
-
-<h1>シリアル接続</h1>
-
-<h2>シリアルドライバのインストール</h2>
-
-<p><a href="http://www.prolific.com.tw/US/ShowProduct.aspx?p_id=229&amp;pcid=41">ここ</a>からドライバをダウンロード．</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">$ </span>unzip PL2303_MacOSX_1_6_0_20151022.zip
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>出てきたpkgファイルをダブルクリックして実行．PCを再起動する．</p>
-
-<h2>接続</h2>
-
-<p>ボーレートは115200．</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">$ </span>sudo cu -s <span class="m">115200</span> -l /dev/tty.usbserial
-</span><span class='line'>Connected.
-</span><span class='line'>
-</span><span class='line'>Raspbian GNU/Linux <span class="m">8</span> raspberrypi ttyAMA0
-</span><span class='line'>
-</span><span class='line'>raspberrypi login:
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>ユーザ名は &ldquo;pi&rdquo;, パスワードは &ldquo;raspberry&rdquo; でログイン．</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'>Last login: Sat Nov <span class="m">21</span> 21:35:31 UTC <span class="m">2015</span> on tty1
-</span><span class='line'>Linux raspberrypi 4.1.13-v7+ <span class="c">#826 SMP PREEMPT Fri Nov 13 20:19:03 GMT 2015 armv7l</span>
-</span><span class='line'>
-</span><span class='line'>The programs included with the Debian GNU/Linux system are free software<span class="p">;</span>
-</span><span class='line'>the exact distribution terms <span class="k">for</span> each program are described in the
-</span><span class='line'>individual files in /usr/share/doc/*/copyright.
-</span><span class='line'>
-</span><span class='line'>Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
-</span><span class='line'>permitted by applicable law.
-</span><span class='line'>pi@raspberrypi:~<span class="err">$</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>ログインできた．最初からRubyとかgitとか入っててすごい．．．</p>
-
-<h2>初期設定</h2>
-
-<p>ファイルシステム拡張とSSHを有効にする．</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-</pre></td><td class='code'><pre><code class='text'><span class='line'>pi@raspberrypi:~$ sudo raspi-config
-</span><span class='line'>┌─────────┤ Raspberry Pi Software Configuration Tool (raspi-config) ├──────────┐
-</span><span class='line'>│                                                                              │
-</span><span class='line'>│    1 Expand Filesystem              Ensures that all of the SD card s        │
-</span><span class='line'>│    2 Change User Password           Change password for the default u        │
-</span><span class='line'>│    3 Boot Options                   Choose whether to boot into a des        │
-</span><span class='line'>│    4 Wait for Network at Boot       Choose whether to wait for networ        │
-</span><span class='line'>│    5 Internationalisation Options   Set up language and regional sett        │
-</span><span class='line'>│    6 Enable Camera                  Enable this Pi to work with the R        │
-</span><span class='line'>│    7 Add to Rastrack                Add this Pi to the online Raspber        │
-</span><span class='line'>│    8 Overclock                      Configure overclocking for your P        │
-</span><span class='line'>│    9 Advanced Options               Configure advanced settings              │
-</span><span class='line'>│    0 About raspi-config             Information about this configurat        │
-</span><span class='line'>│                                                                              │
-</span><span class='line'>│                                                                              │
-</span><span class='line'>│                     &lt;Select&gt;                     &lt;Finish&gt;                    │
-</span><span class='line'>│                                                                              │
-</span><span class='line'>└──────────────────────────────────────────────────────────────────────────────┘
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p><code>Expand Filesystem</code>, と <code>Advanced Options -&gt; SSH -&gt; Enable</code> で．Finish して Reboot.</p>
-
-<h1>ネットワーク設定</h1>
-
-<p>無線LAN接続じゃないとやってられんので、<a href="http://www.amazon.co.jp/gp/product/B00JTSF8WO/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B00JTSF8WO&amp;linkCode=as2&amp;tag=tac42-22">ELECOMのWDC-150SU2MWH</a> をつないでみた．
-<a href="http://www.amazon.co.jp/gp/product/B010EGTPVY/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B010EGTPVY&amp;linkCode=as2&amp;tag=tac42-22">BuffaloのWLI-UC-GNME</a> も試したが、後述のプチ切れ対策を行っても、しばらくすると通信できなくなってしまった．</p>
-
-<h2>ドングルの設定</h2>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='text'><span class='line'>pi@raspberrypi:~$ lsusb
-</span><span class='line'>Bus 001 Device 004: ID 0411:01a2 BUFFALO INC. (formerly MelCo., Inc.) WLI-UC-GNM Wireless LAN Adapter [Ralink RT8070]
-</span><span class='line'>Bus 001 Device 003: ID 0424:ec00 Standard Microsystems Corp. SMSC9512/9514 Fast Ethernet Adapter
-</span><span class='line'>Bus 001 Device 002: ID 0424:9514 Standard Microsystems Corp.
-</span><span class='line'>Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p><code>ID 0411:01a2</code> として認識出来てるっぽい． 設定は<a href="https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md">こちら</a>を参照．
-以下でAP一覧を確認できる．</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='text'><span class='line'>pi@raspberrypi:~$ sudo iwlist wlan0 scan | less
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p><code>/etc/wpa_supplicant/wpa_supplicant.conf</code> を修正し、APの設定を追加する．</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'>pi@raspberrypi:~<span class="nv">$ </span>sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
-</span></code></pre></td></tr></table></div></figure>
-
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-</pre></td><td class='code'><pre><code class='diff'><span class='line'><span class="gd">--- wpa_supplicant.conf.org 2015-11-21 22:17:56.359999815 +0000</span>
-</span><span class='line'><span class="gi">+++ /etc/wpa_supplicant/wpa_supplicant.conf     2015-11-21 22:19:14.759999785 +0000</span>
-</span><span class='line'><span class="gu">@@ -1,2 +1,6 @@</span>
-</span><span class='line'> ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
-</span><span class='line'> update_config=1
-</span><span class='line'><span class="gi">+network={</span>
-</span><span class='line'><span class="gi">+    ssid=&quot;The_ESSID_from_earlier&quot;</span>
-</span><span class='line'><span class="gi">+    psk=&quot;Your_wifi_password&quot;</span>
-</span><span class='line'><span class="gi">+}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>ifの再起動</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'>pi@raspberrypi:~<span class="nv">$ </span>sudo ifdown wlan0 <span class="o">&amp;&amp;</span> sudo ifup wlan0
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>確認</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'>pi@raspberrypi:~<span class="nv">$ </span>ifconfig wlan0
-</span><span class='line'>wlan0     Link encap:Ethernet  HWaddr cc:e1:d5:3e:2a:97
-</span><span class='line'>          inet addr:192.168.11.110  Bcast:192.168.11.255  Mask:255.255.255.0
-</span><span class='line'>          inet6 addr: fe80::fe15:1190:9afa:732b/64 Scope:Link
-</span><span class='line'>          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
-</span><span class='line'>          RX packets:18 errors:0 dropped:0 overruns:0 frame:0
-</span><span class='line'>          TX packets:30 errors:0 dropped:0 overruns:0 carrier:0
-</span><span class='line'>          collisions:0 txqueuelen:1000
-</span><span class='line'>          RX bytes:2944 <span class="o">(</span>2.8 KiB<span class="o">)</span>  TX bytes:5250 <span class="o">(</span>5.1 KiB<span class="o">)</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>つながったっぽい．</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">$ </span>ping 192.168.11.110
-</span><span class='line'>ING 192.168.11.110 <span class="o">(</span>192.168.11.110<span class="o">)</span>: <span class="m">56</span> data bytes
-</span><span class='line'><span class="m">64</span> bytes from 192.168.11.110: <span class="nv">icmp_seq</span><span class="o">=</span><span class="m">0</span> <span class="nv">ttl</span><span class="o">=</span><span class="m">64</span> <span class="nb">time</span><span class="o">=</span>1.043 ms
-</span><span class='line'><span class="m">64</span> bytes from 192.168.11.110: <span class="nv">icmp_seq</span><span class="o">=</span><span class="m">1</span> <span class="nv">ttl</span><span class="o">=</span><span class="m">64</span> <span class="nb">time</span><span class="o">=</span>1.289 ms
-</span><span class='line'>...
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>きたきた．</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">$ </span>ssh 192.168.11.110
-</span><span class='line'>The authenticity of host <span class="s1">&#39;192.168.11.110 (192.168.11.110)&#39;</span> can<span class="s1">&#39;t be established.</span>
-</span><span class='line'><span class="s1">ECDSA key fingerprint is SHA256:...</span>
-</span><span class='line'><span class="s1">Are you sure you want to continue connecting (yes/no)? yes</span>
-</span><span class='line'><span class="s1">Warning: Permanently added &#39;</span>192.168.11.110<span class="err">&#39;</span> <span class="o">(</span>ECDSA<span class="o">)</span> to the list of known hosts.
-</span><span class='line'>
-</span><span class='line'>pi@raspberrypi:~<span class="err">$</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>きたー！！</p>
-
-<p>しばらくほっとくと勝手に切れちゃうので、省電力機能を無効化する．</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'>pi@raspberrypi:~<span class="nv">$ </span>sudo nano /etc/modprobe.d/8192cu.conf
-</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='diff'><span class='line'><span class="gi">+ options 8192cu rtw_power_mgnt=0 rtw_enusbss=1 rtw_ips_mode=1</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>電力アップ</h2>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">$ </span>sudo nano /boot/config.txt
-</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='diff'><span class='line'><span class="gi">+ safe_mode_apio=4</span>
-</span><span class='line'><span class="gi">+ max_usb_current=1</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='diff'><span class='line'>pi@raspberrypi:~$ sudo reboot
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h1>参考</h1>
-
-<p><a href="http://sig9.hatenablog.com/entry/2015/08/22/233646">http://sig9.hatenablog.com/entry/2015/08/22/233646</a>
-<a href="http://denshikousaku.net/fix-sluggish-response-of-raspberry-pi-wifi-adaptor">http://denshikousaku.net/fix-sluggish-response-of-raspberry-pi-wifi-adaptor</a></p>
 </div>
   
   
