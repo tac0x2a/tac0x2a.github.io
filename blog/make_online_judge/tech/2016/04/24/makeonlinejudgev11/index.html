@@ -5,13 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Blog Archive - tac42.net</title>
+  <title>AngularJS導入 - tac42.net</title>
   <meta name="author" content="TAC">
 
   
-  <meta name="description" content="Blog Archive 2016 AngularJS導入
-Apr 24 2016 posted in make_online_judge, tech テストフレームワークを導入する(mocha)
-Apr 13 2016 posted in make_online_judge, tech &hellip;">
+  <meta name="description" content="随分間が空きましたがこつこつ進めてますよ！ npm で AngularJS 入れると node_modulesの下に入ってしまい面倒なのでBowerを使ってみることに。 ここ数年前から2015/5までのモダンフロントエンドを総まとめしてみた Angular.js 2.0やReact.jsなど、 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -20,7 +18,7 @@ Apr 13 2016 posted in make_online_judge, tech &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="https://www.tac42.net/blog/archives">
+  <link rel="canonical" href="https://www.tac42.net/blog/make_online_judge/tech/2016/04/24/makeonlinejudgev11">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="tac42.net" type="application/atom+xml">
@@ -111,231 +109,199 @@ Apr 13 2016 posted in make_online_judge, tech &hellip;">
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Blog Archive</h1>
+    
+      
+        <h1 class="entry-title">AngularJS導入</h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2016-04-24T14:30:27+09:00'><span class='date'><span class='date-month'>Apr</span> <span class='date-day'>24</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>2:30 pm</span></time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives">
 
 
+<div class="entry-content"><p>随分間が空きましたがこつこつ進めてますよ！</p>
 
-  
-  <h2>2016</h2>
+<p>npm で AngularJS 入れると node_modulesの下に入ってしまい面倒なのでBowerを使ってみることに。</p>
 
-<article>
-  
-<h1><a href="/blog/make_online_judge/tech/2016/04/24/makeonlinejudgev11/">AngularJS導入</a></h1>
-<time datetime="2016-04-24T14:30:27+09:00" pubdate><span class='month'>Apr</span> <span class='day'>24</span> <span class='year'>2016</span></time>
+<ul>
+<li><a href="http://qiita.com/okmttdhr/items/1caff5a36c8468779a64">ここ数年前から2015/5までのモダンフロントエンドを総まとめしてみた</a></li>
+</ul>
 
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/make-online-judge/'>make_online_judge</a>, <a class='category' href='/blog/categories/tech/'>tech</a></span>
-</footer>
 
+<blockquote><p>Angular.js 2.0やReact.jsなど、ES6の流れをくんでいるスクリプトは、Node.jsの世界で完結させることができるので、今後Bowerは使いドコロが減ってゆきそうです。</p></blockquote>
 
-</article>
+<p>ぐぬぬ。初心者なのでちょっと枯れてるくらいが丁度いいんですよ！</p>
 
+<h2>Bower 入れる</h2>
 
+<p><img src="http://bower.io/img/bower-logo.svg" alt="Bower" /></p>
 
-<article>
-  
-<h1><a href="/blog/make_online_judge/tech/2016/04/13/makeonlinejudgev10/">テストフレームワークを導入する(mocha)</a></h1>
-<time datetime="2016-04-13T08:04:24+09:00" pubdate><span class='month'>Apr</span> <span class='day'>13</span> <span class='year'>2016</span></time>
+<p>アイコンかわいい！</p>
 
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/make-online-judge/'>make_online_judge</a>, <a class='category' href='/blog/categories/tech/'>tech</a></span>
-</footer>
+<p>Bowerはフロントエンドで使われるパッケージマネージャ。npmはバックエンド(Node.js)用と考えておけばOKっぽい。</p>
 
+<ul>
+<li><a href="http://bower.io/">Bower - A package manager for the web</a></li>
+<li><a href="http://qiita.com/megane42/items/2ab6ffd866c3f2fda066">npm とか bower とか一体何なんだよ！Javascript 界隈の文脈を理解しよう</a></li>
+</ul>
 
-</article>
 
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">$ </span>npm install -g bower
+</span></code></pre></td></tr></table></div></figure>
 
 
-<article>
-  
-<h1><a href="/blog/make_online_judge/tech/2016/03/30/makeonlinejudgev09/">Expressでバックエンドを作る(ユーザ認証まで)</a></h1>
-<time datetime="2016-03-30T00:39:31+09:00" pubdate><span class='month'>Mar</span> <span class='day'>30</span> <span class='year'>2016</span></time>
+<p>以下の内容で<code>.bowerrc</code>を作る。</p>
 
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/make-online-judge/'>make_online_judge</a>, <a class='category' href='/blog/categories/tech/'>tech</a></span>
-</footer>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="nt">&quot;directory&quot;</span><span class="p">:</span> <span class="s2">&quot;public/components&quot;</span><span class="p">,</span>
+</span><span class='line'>  <span class="nt">&quot;json&quot;</span><span class="p">:</span> <span class="s2">&quot;bower.json&quot;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
-</article>
 
 
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">$ </span>bower init
+</span></code></pre></td></tr></table></div></figure>
 
-<article>
-  
-<h1><a href="/blog/make_online_judge/tech/2016/03/28/makeonlinejudgev08/">プロトタイプを作ろう</a></h1>
-<time datetime="2016-03-28T22:22:25+09:00" pubdate><span class='month'>Mar</span> <span class='day'>28</span> <span class='year'>2016</span></time>
 
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/make-online-judge/'>make_online_judge</a>, <a class='category' href='/blog/categories/tech/'>tech</a></span>
-</footer>
+<h2>余計な静的ファイルを見えないようにする</h2>
 
+<p>bowerのパッケージをpublicの下にしたので、<code>app.js</code>の静的ファイルのルーティングを修正して、余計なファイル(Bowerde入れたパッケージのREADME.mdとか)を見えないように、必要な物だけ見せるように設定する。</p>
 
-</article>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='diff'><span class='line'><span class="gd">-app.use(express.static(path.join(__dirname, &#39;public&#39;)));</span>
+</span><span class='line'><span class="gi">+app.use(&#39;/images&#39;, express.static(path.join(__dirname, &#39;public&#39;,&#39;images&#39;)));</span>
+</span><span class='line'><span class="gi">+app.use(&#39;/javascripts&#39;,express.static(path.join(__dirname, &#39;public&#39;,&#39;javascripts&#39;)));</span>
+</span><span class='line'><span class="gi">+app.use(&#39;/stylesheets&#39;,express.static(path.join(__dirname, &#39;public&#39;,&#39;stylesheets&#39;)));</span>
+</span><span class='line'><span class="gi">+app.use(&#39;/semantic&#39;,express.static(path.join(__dirname, &#39;public&#39;,&#39;semantic&#39;)));</span>
+</span><span class='line'><span class="gi">+app.use(&#39;/angular&#39;,express.static(path.join(__dirname, &#39;public&#39;,&#39;components&#39;,&#39;angular&#39;)));</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
+<h2>AngularJSを入れる</h2>
 
-<article>
-  
-<h1><a href="/blog/make_online_judge/tech/2016/03/27/makeonlinejudgev07/">Dockerによる環境構築</a></h1>
-<time datetime="2016-03-27T23:23:06+09:00" pubdate><span class='month'>Mar</span> <span class='day'>27</span> <span class='year'>2016</span></time>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">$ </span>bower install --save angular
+</span></code></pre></td></tr></table></div></figure>
 
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/make-online-judge/'>make_online_judge</a>, <a class='category' href='/blog/categories/tech/'>tech</a></span>
-</footer>
 
+<p>あとは以下を参考に。</p>
 
-</article>
+<ul>
+<li><a href="http://qiita.com/naga3/items/e63144e17cb1ab9e03e9">MongoDB+Express+AngularJS+Node.jsでシンプルなCRUDアプリ作成</a></li>
+</ul>
 
 
+<h1>小ネタ</h1>
 
-<article>
-  
-<h1><a href="/blog/make_online_judge/tech/2016/03/26/makeonlinejudgev06/">Node.jsとExpress</a></h1>
-<time datetime="2016-03-26T15:49:39+09:00" pubdate><span class='month'>Mar</span> <span class='day'>26</span> <span class='year'>2016</span></time>
+<h2>ファイル変更で自動サーバ再起動</h2>
 
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/make-online-judge/'>make_online_judge</a>, <a class='category' href='/blog/categories/tech/'>tech</a></span>
-</footer>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">$ </span>npm install -g nodemon
+</span></code></pre></td></tr></table></div></figure>
 
 
-</article>
+<p>以下のコマンドで起動する。</p>
 
-
-
-<article>
-  
-<h1><a href="/blog/make_online_judge/tech/2016/03/26/makeonlinejudgev05/">Atomを使おう</a></h1>
-<time datetime="2016-03-26T01:19:06+09:00" pubdate><span class='month'>Mar</span> <span class='day'>26</span> <span class='year'>2016</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/make-online-judge/'>make_online_judge</a>, <a class='category' href='/blog/categories/tech/'>tech</a></span>
-</footer>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/make_online_judge/tech/2016/03/23/makeonlinejudgev04/">Angular2入門</a></h1>
-<time datetime="2016-03-23T23:57:43+09:00" pubdate><span class='month'>Mar</span> <span class='day'>23</span> <span class='year'>2016</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/make-online-judge/'>make_online_judge</a>, <a class='category' href='/blog/categories/tech/'>tech</a></span>
-</footer>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/make_online_judge/tech/2016/03/23/makeonlinejudgev03/">フレームワークを選ぶ(Golang)</a></h1>
-<time datetime="2016-03-23T00:19:24+09:00" pubdate><span class='month'>Mar</span> <span class='day'>23</span> <span class='year'>2016</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/make-online-judge/'>make_online_judge</a>, <a class='category' href='/blog/categories/tech/'>tech</a></span>
-</footer>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/make_online_judge/tech/2016/03/22/makeonlinejudgev02/">フレームワークを選ぶ(Javascript)</a></h1>
-<time datetime="2016-03-22T19:43:37+09:00" pubdate><span class='month'>Mar</span> <span class='day'>22</span> <span class='year'>2016</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/make-online-judge/'>make_online_judge</a>, <a class='category' href='/blog/categories/tech/'>tech</a></span>
-</footer>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/make_online_judge/tech/2016/03/21/makeonlinejudgev01/">オンラインジャッジを作ろう</a></h1>
-<time datetime="2016-03-21T23:32:05+09:00" pubdate><span class='month'>Mar</span> <span class='day'>21</span> <span class='year'>2016</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/make-online-judge/'>make_online_judge</a>, <a class='category' href='/blog/categories/tech/'>tech</a></span>
-</footer>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/tech/2016/01/05/raspberrypi-setup/">RaspberryPi2をセットアップする</a></h1>
-<time datetime="2016-01-05T01:42:19+09:00" pubdate><span class='month'>Jan</span> <span class='day'>05</span> <span class='year'>2016</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/tech/'>tech</a></span>
-</footer>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/other/2016/01/02/how-to-write-octopress/">Octopressで記事を書くには</a></h1>
-<time datetime="2016-01-02T02:27:30+09:00" pubdate><span class='month'>Jan</span> <span class='day'>02</span> <span class='year'>2016</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/other/'>other</a></span>
-</footer>
-
-
-</article>
-
-
-
-  
-  <h2>2015</h2>
-
-<article>
-  
-<h1><a href="/blog/other/2015/12/31/conclusion2015/">2015年のまとめ</a></h1>
-<time datetime="2015-12-31T23:59:25+09:00" pubdate><span class='month'>Dec</span> <span class='day'>31</span> <span class='year'>2015</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/other/'>other</a></span>
-</footer>
-
-
-</article>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">$ </span>nodemon ./bin/www
+</span></code></pre></td></tr></table></div></figure>
 
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
-</article>
 
 
-</div>
 
-<aside class="sidebar">
+  <span class="byline author vcard">Authored by <span class="fn">
   
+    TAC
+  
+  </span></span>
+
+
+      
+
+
+
+
+<time class='entry-date' datetime='2016-04-24T14:30:27+09:00'><span class='date'><span class='date-month'>Apr</span> <span class='date-day'>24</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>2:30 pm</span></time>
+      
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/make-online-judge/'>make_online_judge</a>, <a class='category' href='/blog/categories/tech/'>tech</a>
+  
+</span>
+
+
+    </p>
     
-  
-</aside>
+      <div class="sharing">
 
+  
+  <a href="http://b.hatena.ne.jp/entry/https://www.tac42.net/blog/make_online_judge/tech/2016/04/24/makeonlinejudgev11/" class="hatena-bookmark-button" data-hatena-bookmark-layout="standard" title="このエントリーをはてなブックマークに追加"><img src="http://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="http://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+  
+
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="https://www.tac42.net/blog/make_online_judge/tech/2016/04/24/makeonlinejudgev11/" data-via="tac0x2a" data-counturl="https://www.tac42.net/blog/make_online_judge/tech/2016/04/24/makeonlinejudgev11/" >Tweet</a>
+  
+  
+  
+    <div class="fb-like" data-layout="button_count" data-send="false" data-width="300" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/make_online_judge/tech/2016/04/13/makeonlinejudgev10/" title="Previous Post: テストフレームワークを導入する(mocha)">&laquo; テストフレームワークを導入する(mocha)</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+
+</div>
 
     </div>
   </div>
@@ -351,7 +317,10 @@ Apr 13 2016 posted in make_online_judge, tech &hellip;">
       var disqus_shortname = 'tac0x2a';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'https://www.tac42.net/blog/make_online_judge/tech/2016/04/24/makeonlinejudgev11/';
+        var disqus_url = 'https://www.tac42.net/blog/make_online_judge/tech/2016/04/24/makeonlinejudgev11/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

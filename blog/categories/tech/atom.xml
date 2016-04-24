@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Tech | tac42.net]]></title>
   <link href="https://www.tac42.net/blog/categories/tech/atom.xml" rel="self"/>
   <link href="https://www.tac42.net/"/>
-  <updated>2016-04-15T00:41:21+09:00</updated>
+  <updated>2016-04-25T01:14:19+09:00</updated>
   <id>https://www.tac42.net/</id>
   <author>
     <name><![CDATA[TAC]]></name>
@@ -12,6 +12,90 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[AngularJS導入]]></title>
+    <link href="https://www.tac42.net/blog/make_online_judge/tech/2016/04/24/makeonlinejudgev11/"/>
+    <updated>2016-04-24T14:30:27+09:00</updated>
+    <id>https://www.tac42.net/blog/make_online_judge/tech/2016/04/24/makeonlinejudgev11</id>
+    <content type="html"><![CDATA[<p>随分間が空きましたがこつこつ進めてますよ！</p>
+
+<p>npm で AngularJS 入れると node_modulesの下に入ってしまい面倒なのでBowerを使ってみることに。</p>
+
+<ul>
+<li><a href="http://qiita.com/okmttdhr/items/1caff5a36c8468779a64">ここ数年前から2015/5までのモダンフロントエンドを総まとめしてみた</a></li>
+</ul>
+
+
+<blockquote><p>Angular.js 2.0やReact.jsなど、ES6の流れをくんでいるスクリプトは、Node.jsの世界で完結させることができるので、今後Bowerは使いドコロが減ってゆきそうです。</p></blockquote>
+
+<p>ぐぬぬ。初心者なのでちょっと枯れてるくらいが丁度いいんですよ！</p>
+
+<h2>Bower 入れる</h2>
+
+<p><img src="http://bower.io/img/bower-logo.svg" alt="Bower" /></p>
+
+<p>アイコンかわいい！</p>
+
+<p>Bowerはフロントエンドで使われるパッケージマネージャ。npmはバックエンド(Node.js)用と考えておけばOKっぽい。</p>
+
+<ul>
+<li><a href="http://bower.io/">Bower - A package manager for the web</a></li>
+<li><a href="http://qiita.com/megane42/items/2ab6ffd866c3f2fda066">npm とか bower とか一体何なんだよ！Javascript 界隈の文脈を理解しよう</a></li>
+</ul>
+
+
+<pre><code class="sh">$ npm install -g bower
+</code></pre>
+
+<p>以下の内容で<code>.bowerrc</code>を作る。
+<code>json
+{
+  "directory": "public/components",
+  "json": "bower.json"
+}
+</code></p>
+
+<pre><code class="sh">$ bower init
+</code></pre>
+
+<h2>余計な静的ファイルを見えないようにする</h2>
+
+<p>bowerのパッケージをpublicの下にしたので、<code>app.js</code>の静的ファイルのルーティングを修正して、余計なファイル(Bowerde入れたパッケージのREADME.mdとか)を見えないように、必要な物だけ見せるように設定する。
+<code>diff
+-app.use(express.static(path.join(__dirname, 'public')));
++app.use('/images', express.static(path.join(__dirname, 'public','images')));
++app.use('/javascripts',express.static(path.join(__dirname, 'public','javascripts')));
++app.use('/stylesheets',express.static(path.join(__dirname, 'public','stylesheets')));
++app.use('/semantic',express.static(path.join(__dirname, 'public','semantic')));
++app.use('/angular',express.static(path.join(__dirname, 'public','components','angular')));
+</code></p>
+
+<h2>AngularJSを入れる</h2>
+
+<pre><code class="sh">$ bower install --save angular
+</code></pre>
+
+<p>あとは以下を参考に。</p>
+
+<ul>
+<li><a href="http://qiita.com/naga3/items/e63144e17cb1ab9e03e9">MongoDB+Express+AngularJS+Node.jsでシンプルなCRUDアプリ作成</a></li>
+</ul>
+
+
+<h1>小ネタ</h1>
+
+<h2>ファイル変更で自動サーバ再起動</h2>
+
+<pre><code>$ npm install -g nodemon
+</code></pre>
+
+<p>以下のコマンドで起動する。
+<code>
+$ nodemon ./bin/www
+</code></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[テストフレームワークを導入する(mocha)]]></title>
@@ -568,76 +652,6 @@ $ docker-compose up -d
 <p>mongoのイメージはそれほど頻繁に更新されんだろうと踏んで、とりあえずMongoDBはDataVolumeを諦めることに。</p>
 
 <p>次回からいよいよアプリを作りますよー</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Node.jsとExpress]]></title>
-    <link href="https://www.tac42.net/blog/make_online_judge/tech/2016/03/26/makeonlinejudgev06/"/>
-    <updated>2016-03-26T15:49:39+09:00</updated>
-    <id>https://www.tac42.net/blog/make_online_judge/tech/2016/03/26/makeonlinejudgev06</id>
-    <content type="html"><![CDATA[<p>前回はフロントエンドとしてAngular2のチュートリアルを軽く触ってみました。
-今回はNode.js + Expressでバックエンドの環境を触ってみようと思います！</p>
-
-<h1>Node.js</h1>
-
-<p>どちらもちょっと古め。WebアプリのフレームワークとしてExpressを紹介している。
-+ <a href="http://gihyo.jp/dev/serial/01/nodejs/0001">基礎から学ぶNode.js</a>
-+ <a href="http://libro.tuyano.com/index2?id=1115003">ビギナーのための Node.jsプログラミング入門</a></p>
-
-<h1>Express</h1>
-
-<ul>
-<li><a href="https://gist.github.com/mitsuruog/fc48397a8e80f051a145">express実践入門</a> - めちゃわかりやすい！</li>
-</ul>
-
-
-<blockquote><p>expressを理解する上での最小構成要素。
-+ routing -
-  外部からのHTTP(S)リクエストに対して、内部のロジックをマッピングすること。</p>
-
-<ul>
-<li>middleware -
-routingの過程で何らかの処理を差し込む仕組み。
-共通処理(認証、エラーハンドリング、リクエストデータの加工、etc)を本来のロジッ> クから分離して、コードベースを健全に保つ。</li>
-</ul>
-</blockquote>
-
-<h2>Expressのキーワード</h2>
-
-<ul>
-<li>Jade - デファクトなテンプレートエンジン</li>
-<li>Mongoose - MongoDBなORM</li>
-<li>Sequelize - PostgreSQL, MySQL, SQLite, MSSQL なORM</li>
-<li>Passport - node.jsの認証モジュールでデファクト</li>
-</ul>
-
-
-<h1>まとめ</h1>
-
-<p>なんか作れそうな気がしてきた！
-当面の方針として、Expressで作ってみて、フロントエンドをリッチにしたくなってきたらAngular2なりReactなりでViewを強化するようにしてみよう。
-まずは、Node.js(Express)とDockerで</p>
-
-<ul>
-<li>ユーザ登録/認証</li>
-<li>問題の登録
-
-<ul>
-<li>テストの登録</li>
-</ul>
-</li>
-<li>回答の登録
-
-<ul>
-<li>ユーザごとの回答の履歴</li>
-</ul>
-</li>
-<li>送信された回答とテストの実行</li>
-</ul>
-
-
-<p>このあたりを作りたいと思います。</p>
 ]]></content>
   </entry>
   

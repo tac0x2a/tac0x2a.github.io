@@ -4,7 +4,7 @@
   <title><![CDATA[tac42.net]]></title>
   <link href="https://www.tac42.net/atom.xml" rel="self"/>
   <link href="https://www.tac42.net/"/>
-  <updated>2016-04-15T00:41:21+09:00</updated>
+  <updated>2016-04-25T01:14:19+09:00</updated>
   <id>https://www.tac42.net/</id>
   <author>
     <name><![CDATA[TAC]]></name>
@@ -12,6 +12,114 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[AngularJS導入]]></title>
+    <link href="https://www.tac42.net/blog/make_online_judge/tech/2016/04/24/makeonlinejudgev11/"/>
+    <updated>2016-04-24T14:30:27+09:00</updated>
+    <id>https://www.tac42.net/blog/make_online_judge/tech/2016/04/24/makeonlinejudgev11</id>
+    <content type="html"><![CDATA[<p>随分間が空きましたがこつこつ進めてますよ！</p>
+
+<p>npm で AngularJS 入れると node_modulesの下に入ってしまい面倒なのでBowerを使ってみることに。</p>
+
+<ul>
+<li><a href="http://qiita.com/okmttdhr/items/1caff5a36c8468779a64">ここ数年前から2015/5までのモダンフロントエンドを総まとめしてみた</a></li>
+</ul>
+
+
+<blockquote><p>Angular.js 2.0やReact.jsなど、ES6の流れをくんでいるスクリプトは、Node.jsの世界で完結させることができるので、今後Bowerは使いドコロが減ってゆきそうです。</p></blockquote>
+
+<p>ぐぬぬ。初心者なのでちょっと枯れてるくらいが丁度いいんですよ！</p>
+
+<h2>Bower 入れる</h2>
+
+<p><img src="http://bower.io/img/bower-logo.svg" alt="Bower" /></p>
+
+<p>アイコンかわいい！</p>
+
+<p>Bowerはフロントエンドで使われるパッケージマネージャ。npmはバックエンド(Node.js)用と考えておけばOKっぽい。</p>
+
+<ul>
+<li><a href="http://bower.io/">Bower - A package manager for the web</a></li>
+<li><a href="http://qiita.com/megane42/items/2ab6ffd866c3f2fda066">npm とか bower とか一体何なんだよ！Javascript 界隈の文脈を理解しよう</a></li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">$ </span>npm install -g bower
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>以下の内容で<code>.bowerrc</code>を作る。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="nt">&quot;directory&quot;</span><span class="p">:</span> <span class="s2">&quot;public/components&quot;</span><span class="p">,</span>
+</span><span class='line'>  <span class="nt">&quot;json&quot;</span><span class="p">:</span> <span class="s2">&quot;bower.json&quot;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">$ </span>bower init
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>余計な静的ファイルを見えないようにする</h2>
+
+<p>bowerのパッケージをpublicの下にしたので、<code>app.js</code>の静的ファイルのルーティングを修正して、余計なファイル(Bowerde入れたパッケージのREADME.mdとか)を見えないように、必要な物だけ見せるように設定する。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='diff'><span class='line'><span class="gd">-app.use(express.static(path.join(__dirname, &#39;public&#39;)));</span>
+</span><span class='line'><span class="gi">+app.use(&#39;/images&#39;, express.static(path.join(__dirname, &#39;public&#39;,&#39;images&#39;)));</span>
+</span><span class='line'><span class="gi">+app.use(&#39;/javascripts&#39;,express.static(path.join(__dirname, &#39;public&#39;,&#39;javascripts&#39;)));</span>
+</span><span class='line'><span class="gi">+app.use(&#39;/stylesheets&#39;,express.static(path.join(__dirname, &#39;public&#39;,&#39;stylesheets&#39;)));</span>
+</span><span class='line'><span class="gi">+app.use(&#39;/semantic&#39;,express.static(path.join(__dirname, &#39;public&#39;,&#39;semantic&#39;)));</span>
+</span><span class='line'><span class="gi">+app.use(&#39;/angular&#39;,express.static(path.join(__dirname, &#39;public&#39;,&#39;components&#39;,&#39;angular&#39;)));</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>AngularJSを入れる</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">$ </span>bower install --save angular
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>あとは以下を参考に。</p>
+
+<ul>
+<li><a href="http://qiita.com/naga3/items/e63144e17cb1ab9e03e9">MongoDB+Express+AngularJS+Node.jsでシンプルなCRUDアプリ作成</a></li>
+</ul>
+
+
+<h1>小ネタ</h1>
+
+<h2>ファイル変更で自動サーバ再起動</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">$ </span>npm install -g nodemon
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>以下のコマンドで起動する。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">$ </span>nodemon ./bin/www
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[テストフレームワークを導入する(mocha)]]></title>
