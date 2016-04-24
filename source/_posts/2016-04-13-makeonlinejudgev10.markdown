@@ -14,7 +14,7 @@ categories: make_online_judge tech
 
 比較的シンプルそうなテストフレームワーク [mocah](http://mochajs.org/) を導入します。
 
-+ [mocah](http://mochajs.org/)
++ [Mocha](http://mochajs.org/)
 
 ```
 $ npm install -g mocha --save-dev
