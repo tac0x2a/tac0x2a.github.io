@@ -4,7 +4,7 @@
   <title><![CDATA[tac42.net]]></title>
   <link href="https://www.tac42.net/atom.xml" rel="self"/>
   <link href="https://www.tac42.net/"/>
-  <updated>2020-01-01T00:28:36+09:00</updated>
+  <updated>2020-01-01T02:30:55+09:00</updated>
   <id>https://www.tac42.net/</id>
   <author>
     <name><![CDATA[TAC]]></name>
@@ -12,6 +12,123 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[2019年のまとめ]]></title>
+    <link href="https://www.tac42.net/blog/other/2019/12/31/conclusion2019/"/>
+    <updated>2019-12-31T23:59:59+09:00</updated>
+    <id>https://www.tac42.net/blog/other/2019/12/31/conclusion2019</id>
+    <content type="html"><![CDATA[<p>久しぶりに1年を振り返る記事を投稿してみようと思います。</p>
+
+<h1>今年の出来事</h1>
+
+<h2>1Q(1月から3月)</h2>
+
+<ul>
+<li>名古屋でスマブラ合宿したり食い倒れたりする</li>
+<li>和歌山の橋杭岩へ写真を撮りに行く</li>
+<li>滋賀の余呉湖へ写真を撮りに行く</li>
+<li>福岡へEvo Japan 2019を観戦しに行く</li>
+<li>奈良の高野山へ星空を撮りに行く</li>
+</ul>
+
+
+<h2>2Q(4月から6月)</h2>
+
+<ul>
+<li>異動で京都勤務になる</li>
+<li>ビジネススクール前半戦開始で死にそう</li>
+<li>奈良の吉野山へ桜を撮りに行く</li>
+<li>奈良の屏風岩公苑へ桜を撮りに行く</li>
+<li>御嶽山からの高ボッチ高原(661km, 10:50)</li>
+<li>京都で<a href="https://bitsummit.org/ja/">BitSummit 7 Spirits</a>を観に行く
+
+<ul>
+<li>IGN Japapan 主催の公開収録イベント <a href="https://jp.ign.com/gamer-1/35452/news/gamernightbitsummit2019531">しゃべりすぎNIGHT@BitSummit 2019</a>にも参加する</li>
+</ul>
+</li>
+</ul>
+
+
+<h2>3Q(7月から9月)</h2>
+
+<ul>
+<li>ビジネススクール後半戦開始で死にそう
+
+<ul>
+<li>後半は結構面白かった</li>
+</ul>
+</li>
+<li>仕事の都合で温泉旅館に約1週間滞在する。役得。</li>
+<li>ついに 0x20 歳となり成人する</li>
+<li><p>人生2度目の海外、カナダのイエローナイフにてオーロラリベンジ成功</p>
+
+<p><img src="https://www.tac42.net/assets/blog/2019-12-31-conclusion2019/aurora.jpg" alt="オーロラ" /></p></li>
+<li><p>長野の御嶽山に行く(563km, 10:45)</p></li>
+<li>このあたりから仕事が忙しくなり始める</li>
+<li><a href="http://www.celestegame.com/">Celeste</a>の最終章がリリースされ、引き籠って遊ぶ</li>
+<li>広島の尾道にラーメンを食べに行く(614km, 09:20)</li>
+</ul>
+
+
+<h2>4Q(10月から12月)</h2>
+
+<ul>
+<li>忙しかったプロジェクトが何とか終了。精神的に辛かったが得たものも多い</li>
+<li>奈良の曽爾高原に写真を撮りに行く</li>
+<li>余呉湖、諏訪湖、精進湖(富士山)を回って帰る(683km, 11:21)</li>
+<li><a href="https://clickhouse.connpass.com/event/147001/">Clickhouse Meetup Tokyo 2019</a>に参加する</li>
+<li>いいことがある</li>
+<li>滋賀の鶏足寺に写真を撮りに行く</li>
+<li>長野の霧ヶ峰高原に写真を撮りに行く(634km, 10:20)</li>
+</ul>
+
+
+<h2>今年遊んだ/遊んでいるゲーム</h2>
+
+<ul>
+<li><a href="https://www.smashbros.com/ja_JP/">大乱闘スマッシュブラザーズ SPECIAL</a></li>
+<li><a href="https://redcandlegames.com/detention/">返校 -Detention-</a></li>
+<li><a href="http://www.nightinthewoods.com/">Night in the Woods</a></li>
+<li><a href="https://www.nintendo.co.jp/zelda/index.html">ゼルダの伝説 ブレス オブ ザ ワイルド</a></li>
+<li><a href="https://dead-cells.com/">Dead Cells</a></li>
+<li><a href="http://www.celestegame.com/">Celeste(Chapter9)</a></li>
+<li><a href="https://www.nintendo.co.jp/switch/ar3na/">ゼルダの伝説 夢をみる島(Switch)</a></li>
+<li><a href="https://www.pokemon.co.jp/ex/sword_shield/">ポケットモンスター ソード・シールド</a></li>
+<li><a href="http://13sar.jp/">十三機兵防衛圏</a></li>
+</ul>
+
+
+<h2>今年作ったもの</h2>
+
+<p>コミットはそれなりにしているもののPrivateリポジトリのため公開できず。。残念。</p>
+
+<ul>
+<li><p><a href="https://github.com/tac0x2a/lake_weed">tac0x2a/lake_weed</a>
+JSONをいい感じに型推定してくれるライブラリ</p></li>
+<li><p><a href="https://github.com/tac0x2a/grebe">tac0x2a/grebe</a>
+RabbitMQに投げられたJSONをいい感じにClickhouseへ挿入するOSS</p></li>
+</ul>
+
+
+<h1>今年頑張ったこと</h1>
+
+<ul>
+<li>AWS認定の5冠をとったこと</li>
+<li>(半年ではあったが)ビジネススクールに通い切ったこと</li>
+</ul>
+
+
+<h1>2020年どうするか</h1>
+
+<ul>
+<li><a href="http://www.dama-japan.org/">DMBOK</a>を一通り読む</li>
+<li>痩せる</li>
+<li>入れていく</li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[AngularJS導入]]></title>
