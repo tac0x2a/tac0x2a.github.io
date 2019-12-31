@@ -655,7 +655,7 @@ sshするところまで．</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ rbenv exec rake new_post\['Entry Title'\] # source/_posts 以下にファイルが出来る
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ rbenv exec bundle exec rake new_post\['Entry Title'\] # source/_posts 以下にファイルが出来る
 </span><span class='line'>$ emacs source/_posts/&lt;yyyy-mm-dd-&gt;'EntryTitle'.markdown</span></code></pre></td></tr></table></div></figure>
 
 
@@ -663,7 +663,7 @@ sshするところまで．</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ rbenv exec rake preview
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ rbenv exec bundle exec rake preview
 </span><span class='line'>$ open http://localhost:4000</span></code></pre></td></tr></table></div></figure>
 
 
@@ -680,7 +680,7 @@ sshするところまで．</p>
 <h2>記事を公開する</h2>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ rbenv exec rake gen_deploy #masterブランチに_deploy以下がpushされる</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ rbenv exec bundle exec rake gen_deploy #masterブランチに_deploy以下がpushされる</span></code></pre></td></tr></table></div></figure>
 
 
 <p>たぶんあってる．</p>
@@ -822,7 +822,7 @@ sshするところまで．</p>
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2016 - TAC -
+  Copyright &copy; 2020 - TAC -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a> | Themed with <a href="https://github.com/lucaslew/whitespace">Whitespace</a></span>
 </p>
 

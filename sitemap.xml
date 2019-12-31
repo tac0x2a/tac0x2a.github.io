@@ -1,80 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://www.tac42.net/blog/make_online_judge/tech/2016/04/24/makeonlinejudgev11/</loc>
-    <lastmod>2016-04-24T14:30:27+09:00</lastmod>
-  </url>
-  <url>
-    <loc>https://www.tac42.net/blog/make_online_judge/tech/2016/04/13/makeonlinejudgev10/</loc>
-    <lastmod>2016-04-13T08:04:24+09:00</lastmod>
-  </url>
-  <url>
-    <loc>https://www.tac42.net/blog/make_online_judge/tech/2016/03/30/makeonlinejudgev09/</loc>
-    <lastmod>2016-03-30T00:39:31+09:00</lastmod>
-  </url>
-  <url>
-    <loc>https://www.tac42.net/blog/make_online_judge/tech/2016/03/28/makeonlinejudgev08/</loc>
-    <lastmod>2016-03-28T22:22:25+09:00</lastmod>
-  </url>
-  <url>
-    <loc>https://www.tac42.net/blog/make_online_judge/tech/2016/03/27/makeonlinejudgev07/</loc>
-    <lastmod>2016-03-27T23:23:06+09:00</lastmod>
-  </url>
-  <url>
-    <loc>https://www.tac42.net/blog/make_online_judge/tech/2016/03/26/makeonlinejudgev06/</loc>
-    <lastmod>2016-03-26T15:49:39+09:00</lastmod>
-  </url>
-  <url>
-    <loc>https://www.tac42.net/blog/make_online_judge/tech/2016/03/26/makeonlinejudgev05/</loc>
-    <lastmod>2016-03-26T01:19:06+09:00</lastmod>
-  </url>
-  <url>
-    <loc>https://www.tac42.net/blog/make_online_judge/tech/2016/03/23/makeonlinejudgev04/</loc>
-    <lastmod>2016-03-23T23:57:43+09:00</lastmod>
-  </url>
-  <url>
-    <loc>https://www.tac42.net/blog/make_online_judge/tech/2016/03/23/makeonlinejudgev03/</loc>
-    <lastmod>2016-03-23T00:19:24+09:00</lastmod>
-  </url>
-  <url>
-    <loc>https://www.tac42.net/blog/make_online_judge/tech/2016/03/22/makeonlinejudgev02/</loc>
-    <lastmod>2016-03-22T19:43:37+09:00</lastmod>
-  </url>
-  <url>
-    <loc>https://www.tac42.net/blog/make_online_judge/tech/2016/03/21/makeonlinejudgev01/</loc>
-    <lastmod>2016-03-21T23:32:05+09:00</lastmod>
-  </url>
-  <url>
-    <loc>https://www.tac42.net/blog/tech/2016/01/05/raspberrypi-setup/</loc>
-    <lastmod>2016-01-05T01:42:19+09:00</lastmod>
-  </url>
-  <url>
-    <loc>https://www.tac42.net/blog/other/2016/01/02/how-to-write-octopress/</loc>
-    <lastmod>2016-01-02T02:27:30+09:00</lastmod>
-  </url>
-  <url>
-    <loc>https://www.tac42.net/blog/other/2015/12/31/conclusion2015/</loc>
-    <lastmod>2015-12-31T23:59:25+09:00</lastmod>
-  </url>
-  <url>
-    <loc>https://www.tac42.net/blog/archives/</loc>
-  </url>
-  <url>
-    <loc>https://www.tac42.net/</loc>
-  </url>
-  <url>
-    <loc>https://www.tac42.net/products/</loc>
-  </url>
-  <url>
-    <loc>https://www.tac42.net/blog/categories/other/</loc>
-  </url>
-  <url>
-    <loc>https://www.tac42.net/blog/categories/tech/</loc>
-  </url>
-  <url>
-    <loc>https://www.tac42.net/blog/categories/make-online-judge/</loc>
-  </url>
-  <url>
-    <loc>https://www.tac42.net/posts/2/</loc>
-  </url>
+<url>
+<loc>https://www.tac42.net/blog/make_online_judge/tech/2016/04/24/makeonlinejudgev11/</loc>
+<lastmod>2016-04-24T14:30:27+09:00</lastmod>
+</url>
+<url>
+<loc>https://www.tac42.net/blog/make_online_judge/tech/2016/04/13/makeonlinejudgev10/</loc>
+<lastmod>2016-04-13T08:04:24+09:00</lastmod>
+</url>
+<url>
+<loc>https://www.tac42.net/blog/make_online_judge/tech/2016/03/30/makeonlinejudgev09/</loc>
+<lastmod>2016-03-30T00:39:31+09:00</lastmod>
+</url>
+<url>
+<loc>https://www.tac42.net/blog/make_online_judge/tech/2016/03/28/makeonlinejudgev08/</loc>
+<lastmod>2016-03-28T22:22:25+09:00</lastmod>
+</url>
+<url>
+<loc>https://www.tac42.net/blog/make_online_judge/tech/2016/03/27/makeonlinejudgev07/</loc>
+<lastmod>2016-03-27T23:23:06+09:00</lastmod>
+</url>
+<url>
+<loc>https://www.tac42.net/blog/make_online_judge/tech/2016/03/26/makeonlinejudgev06/</loc>
+<lastmod>2016-03-26T15:49:39+09:00</lastmod>
+</url>
+<url>
+<loc>https://www.tac42.net/blog/make_online_judge/tech/2016/03/26/makeonlinejudgev05/</loc>
+<lastmod>2016-03-26T01:19:06+09:00</lastmod>
+</url>
+<url>
+<loc>https://www.tac42.net/blog/make_online_judge/tech/2016/03/23/makeonlinejudgev04/</loc>
+<lastmod>2016-03-23T23:57:43+09:00</lastmod>
+</url>
+<url>
+<loc>https://www.tac42.net/blog/make_online_judge/tech/2016/03/23/makeonlinejudgev03/</loc>
+<lastmod>2016-03-23T00:19:24+09:00</lastmod>
+</url>
+<url>
+<loc>https://www.tac42.net/blog/make_online_judge/tech/2016/03/22/makeonlinejudgev02/</loc>
+<lastmod>2016-03-22T19:43:37+09:00</lastmod>
+</url>
+<url>
+<loc>https://www.tac42.net/blog/make_online_judge/tech/2016/03/21/makeonlinejudgev01/</loc>
+<lastmod>2016-03-21T23:32:05+09:00</lastmod>
+</url>
+<url>
+<loc>https://www.tac42.net/blog/tech/2016/01/05/raspberrypi-setup/</loc>
+<lastmod>2016-01-05T01:42:19+09:00</lastmod>
+</url>
+<url>
+<loc>https://www.tac42.net/blog/other/2016/01/02/how-to-write-octopress/</loc>
+<lastmod>2016-01-02T02:27:30+09:00</lastmod>
+</url>
+<url>
+<loc>https://www.tac42.net/blog/other/2015/12/31/conclusion2015/</loc>
+<lastmod>2015-12-31T23:59:25+09:00</lastmod>
+</url>
+<url>
+<loc>https://www.tac42.net/blog/archives/</loc>
+</url>
+<url>
+<loc>https://www.tac42.net/</loc>
+</url>
+<url>
+<loc>https://www.tac42.net/products/</loc>
+</url>
+<url>
+<loc>https://www.tac42.net/blog/categories/other/</loc>
+</url>
+<url>
+<loc>https://www.tac42.net/blog/categories/tech/</loc>
+</url>
+<url>
+<loc>https://www.tac42.net/blog/categories/make-online-judge/</loc>
+</url>
 </urlset>
