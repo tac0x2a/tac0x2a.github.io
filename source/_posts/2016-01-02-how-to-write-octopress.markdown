@@ -23,13 +23,13 @@ $ git clone git@github.com:tac0x2a/tac0x2a.github.io.git _deploy
 
 ## 記事を書く
 ```
-$ rbenv exec rake new_post\['Entry Title'\] # source/_posts 以下にファイルが出来る
+$ rbenv exec bundle exec rake new_post\['Entry Title'\] # source/_posts 以下にファイルが出来る
 $ emacs source/_posts/<yyyy-mm-dd->'EntryTitle'.markdown
 ```
 
 ## 記事を確認する
 ```
-$ rbenv exec rake preview
+$ rbenv exec bundle exec rake preview
 $ open http://localhost:4000
 ```
 
@@ -42,7 +42,7 @@ $ git push origin source:source
 
 ## 記事を公開する
 ```
-$ rbenv exec rake gen_deploy #masterブランチに_deploy以下がpushされる
+$ rbenv exec bundle exec rake gen_deploy #masterブランチに_deploy以下がpushされる
 ```
 
 たぶんあってる．
