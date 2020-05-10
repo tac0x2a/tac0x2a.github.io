@@ -1,0 +1,2710 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Vue.js に関するメモ - tac42.net</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="tac0x2a" /><meta name="description" content="Vue.js について少し勉強したので、思い出したいところだけメモ Vue.js の基本 基本ルートのテンプレート 1 2 3 4 5 &amp;lt;body&amp;gt; &amp;lt;div id=&amp;#34;app&amp;#34;&amp;gt; &amp;lt;!-- ここに書く --&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/body&amp;gt; 1 2 3 4 var app = new Vue({ el:" /><meta name="keywords" content="Tech, Photo, Blog" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.70.0 with theme even" />
+
+
+<link rel="canonical" href="https://www.tac42.net/post/2020-05-06-vuejs-memo/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c" rel="stylesheet">
+
+
+<link href="/sass/main.min.8c3cbcb0324c2bb4875ceccba4007cbad4b4ac8377f33af9953c3e7684534a50.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Vue.js に関するメモ" />
+<meta property="og:description" content="Vue.js について少し勉強したので、思い出したいところだけメモ Vue.js の基本 基本ルートのテンプレート 1 2 3 4 5 &lt;body&gt; &lt;div id=&#34;app&#34;&gt; &lt;!-- ここに書く --&gt; &lt;/div&gt; &lt;/body&gt; 1 2 3 4 var app = new Vue({ el:" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.tac42.net/post/2020-05-06-vuejs-memo/" />
+<meta property="article:published_time" content="2020-05-10T17:41:19+09:00" />
+<meta property="article:modified_time" content="2020-05-10T17:41:19+09:00" />
+<meta itemprop="name" content="Vue.js に関するメモ">
+<meta itemprop="description" content="Vue.js について少し勉強したので、思い出したいところだけメモ Vue.js の基本 基本ルートのテンプレート 1 2 3 4 5 &lt;body&gt; &lt;div id=&#34;app&#34;&gt; &lt;!-- ここに書く --&gt; &lt;/div&gt; &lt;/body&gt; 1 2 3 4 var app = new Vue({ el:">
+<meta itemprop="datePublished" content="2020-05-10T17:41:19&#43;09:00" />
+<meta itemprop="dateModified" content="2020-05-10T17:41:19&#43;09:00" />
+<meta itemprop="wordCount" content="10794">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Vue.js に関するメモ"/>
+<meta name="twitter:description" content="Vue.js について少し勉強したので、思い出したいところだけメモ Vue.js の基本 基本ルートのテンプレート 1 2 3 4 5 &lt;body&gt; &lt;div id=&#34;app&#34;&gt; &lt;!-- ここに書く --&gt; &lt;/div&gt; &lt;/body&gt; 1 2 3 4 var app = new Vue({ el:"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">tac42.net</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Blog</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/products/">
+        <li class="mobile-menu-item">Products</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">tac42.net</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Blog</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/products/">Products</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Vue.js に関するメモ</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-05-10 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">コンテンツ</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#vuejs-の基本">Vue.js の基本</a></li>
+    <li><a href="#ディレクティブ">ディレクティブ</a>
+      <ul>
+        <li><a href="#textv-text式-式">Text(<code>v-text=&quot;式&quot;</code>, <code>{{式}}</code>)</a></li>
+        <li><a href="#繰り返しv-forループっぽい式">繰り返し(<code>v-for=&quot;ループっぽい式&quot;</code>)</a></li>
+        <li><a href="#条件">条件</a></li>
+        <li><a href="#データバインディング">データバインディング</a></li>
+        <li><a href="#イベントハンドリングv-onclick評価するとfunctionになる式-v-onclick式">イベントハンドリング(<code>v-on:click=&quot;評価するとfunctionになる式&quot;</code>, <code>v-on:click=&quot;式&quot;</code>)</a></li>
+        <li><a href="#フォーム入力バインディングv-modelリアクティブデータの変数">フォーム入力バインディング(<code>v-model=&quot;リアクティブデータの変数&quot;</code>)</a></li>
+        <li><a href="#カスタムディレクティブ">カスタムディレクティブ</a></li>
+      </ul>
+    </li>
+    <li><a href="#算出プロパティ">算出プロパティ</a></li>
+    <li><a href="#監視">監視</a></li>
+    <li><a href="#フィルタ">フィルタ</a>
+      <ul>
+        <li><a href="#コンポーネント">コンポーネント</a></li>
+      </ul>
+    </li>
+    <li><a href="#vueでアプリを作る">Vueでアプリを作る</a>
+      <ul>
+        <li><a href="#vue-cli">Vue CLI</a></li>
+        <li><a href="#単一ファイルコンポーネントvueファイル">単一ファイルコンポーネント(<code>.vue</code>ファイル)</a></li>
+        <li><a href="#vuex">Vuex</a></li>
+        <li><a href="#axios">axios</a></li>
+      </ul>
+    </li>
+    <li><a href="#ui-fwを導入">UI FWを導入</a>
+      <ul>
+        <li><a href="#bootstrapvue">BootstrapVue</a></li>
+      </ul>
+    </li>
+    <li><a href="#firebaseにデプロイ">Firebaseにデプロイ</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#es2015es6関連">ES2015(ES6)関連</a>
+      <ul>
+        <li><a href="#文法いろいろ">文法いろいろ</a></li>
+        <li><a href="#モジュール定義とインポート">モジュール定義とインポート</a></li>
+      </ul>
+    </li>
+    <li><a href="#メモ">メモ</a>
+      <ul>
+        <li><a href="#開発環境">開発環境</a></li>
+        <li><a href="#いろいろ">いろいろ</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>Vue.js について少し勉強したので、思い出したいところだけメモ</p>
+<h2 id="vuejs-の基本">Vue.js の基本</h2>
+<p>基本ルートのテンプレート</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;app&#34;</span><span class="p">&gt;</span>
+    <span class="c">&lt;!-- ここに書く --&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
+  <span class="nx">el</span><span class="o">:</span> <span class="s1">&#39;#app&#39;</span><span class="p">,</span>
+  <span class="p">...</span>
+<span class="p">})</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><code>app</code>はセレクタ(<code>#app</code>)に対応。
+アプリと配置する要素を紐付けることをマウントという。
+<code>var app</code> に代入してもしなくてもよい。</p>
+<hr>
+<h2 id="ディレクティブ">ディレクティブ</h2>
+<p><a href="https://012-jp.vuejs.org/guide/directives.html">ディレクティブ</a></p>
+<blockquote>
+<p>ディレクティブとは、 DOM 要素に対して何かを実行することをライブラリに伝達する、マークアップ中の特別なトークンです。
+Vue.js でのディレクティブのコンセプトは徹底的にシンプルです。Vue.js のディレクティブは、下記のフォーマットのように、接頭辞のついた HTML 属性の形でのみ表されます。</p>
+</blockquote>
+<p>基本は以下。
+<code>ディレクティブ</code>:<code>引数</code>.<code>修飾子</code> = <code>値</code></p>
+<p>(ex) <code>v-bind:value.sync = &quot;message&quot;</code></p>
+<h3 id="textv-text式-式">Text(<code>v-text=&quot;式&quot;</code>, <code>{{式}}</code>)</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="c">&lt;!-- dataオプションにmessageプロパティが登録されているとして  --&gt;</span>
+
+<span class="c">&lt;!-- messageの値を表示 --&gt;</span>
+<span class="p">&lt;</span><span class="nt">h1</span> <span class="na">v-text</span><span class="o">=</span><span class="s">&#34;message&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+
+<span class="c">&lt;!-- こう書く場合のほうが多そう --&gt;</span>
+<span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>{{message}}<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+
+<span class="c">&lt;!-- 42が表示される --&gt;</span>
+<span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>{{40+2}}<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="繰り返しv-forループっぽい式">繰り返し(<code>v-for=&quot;ループっぽい式&quot;</code>)</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="c">&lt;!-- dataオプションにitemsプロパティがリストとして登録されているとして  --&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">li</span> <span class="na">v-for</span><span class="o">=</span><span class="s">&#34;i in items&#34;</span><span class="p">&gt;</span>{{i}}<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">li</span> <span class="na">v-for</span><span class="o">=</span><span class="s">&#34;(item, index) in items&#34;</span><span class="p">&gt;</span>{{i}}<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+
+ <span class="c">&lt;!-- 要素ごとに条件でclass設定できたりする --&gt;</span>
+<span class="p">&lt;</span><span class="nt">li</span> <span class="na">v-for</span><span class="o">=</span><span class="s">&#34;item in array&#34;</span> <span class="na">v-bind:class</span><span class="o">=</span><span class="s">&#34;{rainbow_badge: lv &lt;= 50}&#34;</span> <span class="na">v-if</span><span class="o">=</span><span class="s">&#34;item != &#39;a&#39;&#34;</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><code>key</code>としてユニークな値をとるプロパティを指定することで、要素の識別と効率的な描画処理が可能になる。<code>key</code>がないと、リストが更新された際に、リスト内の全要素を再描画してしまう。(変化した要素をvueが特定できないため。)</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">li</span> <span class="na">v-for</span><span class="o">=</span><span class="s">&#34;item in array&#34;</span> <span class="na">:key</span><span class="o">=</span><span class="s">&#34;item.id&#34;</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="条件">条件</h3>
+<p>式を評価した結果に応じて要素を消したりする。値の真偽値解釈はJavaScriptの条件式と同じ。</p>
+<h4 id="v-if式-v-show式"><code>v-if=&quot;式&quot;</code>, <code>v-show=&quot;式&quot;</code></h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="c">&lt;!-- dataオプションにshowプロパティが登録されているとして  --&gt;</span>
+
+<span class="c">&lt;!-- DOMごと消える  --&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">v-if</span><span class="o">=</span><span class="s">&#34;show&#34;</span><span class="p">&gt;</span>v-if {{show}}<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">template</span> <span class="na">v-if</span><span class="o">=</span><span class="s">&#34;show&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+
+<span class="c">&lt;!-- DOMには残るが、style=&#34;display: none;&#34; 属性が付与されるため、消えたように見える --&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">v-show</span><span class="o">=</span><span class="s">&#34;show&#34;</span><span class="p">&gt;</span>v-show {{show}} <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li><code>v-if</code>はDOMごと消えてるため、配下の要素で参照するプロパティの有無を条件に入れる等でエラー回避したりできる。また、監視が解除されて破棄されるため、次に描画されるときは状態が初期化されてしまう。<code>v-if</code>は単一な要素にしか付与で機内が、<code>template</code>要素に付与することで、<code>template</code>配下の要素をまとめて消したりできる。</li>
+<li><code>v-show</code>は消えたように見えるだけ。切り替え頻度が高いものはこちらを使うのが良い。</li>
+</ul>
+<h4 id="v-else-if式-v-else"><code>v-else-if=&quot;式&quot;</code>, <code>v-else</code></h4>
+<p>いわゆる<code>elseif</code>節や<code>else</code>節に相当。</p>
+<h3 id="データバインディング">データバインディング</h3>
+<h4 id="属性のデータバインディングv-bind属性名属性値の式">属性のデータバインディング(<code>v-bind:属性名=&quot;属性値の式&quot;</code>)</h4>
+<ul>
+<li><code>&lt;div key=&quot;id&quot;&gt;</code>: &ldquo;id&rdquo; という文字列</li>
+<li><code>&lt;div v-bind:key=&quot;id&quot;&gt;</code>: <code>id</code> というJavaScriptの変数の値が展開される</li>
+</ul>
+<p>以下はどちらで書いても同じ</p>
+<ul>
+<li><code>&lt;div v-bind:key=&quot;id&quot;&gt;</code></li>
+<li><code>&lt;div :key=&quot;id&quot;&gt;</code></li>
+</ul>
+<p>直値で与えた属性と併用する例。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="c">&lt;!-- dataオプションのurlプロパティは展開される。 --&gt;</span>
+<span class="c">&lt;!-- 直値で与えた属性と同じ名前のプロパティを指定する場合、プロパティの値で上書きされる --&gt;</span>
+<span class="p">&lt;</span><span class="nt">a</span> <span class="na">v-bind:href</span><span class="o">=</span><span class="s">&#34;url&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://default.com&#34;</span> <span class="na">target</span><span class="o">=</span><span class="s">&#34;_blank&#34;</span><span class="p">&gt;</span>URL<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="クラスとスタイルのデータバインディングv-bindclass属性名-条件式--v-bindstyle属性名-式-">クラスとスタイルのデータバインディング(<code>v-bind:class=&quot;{属性名: 条件式, ...}&quot;</code>, <code>v-bind:style=&quot;{属性名: 式, ...}&quot;</code>)</h4>
+<p>オブジェクトや配列をバインドすると、クラス名やCSSプロパティとして展開される。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">p</span> <span class="na">v-bind:class</span><span class="o">=</span><span class="s">&#34;{a: isA, b: isB, c: isC }&#34;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">p</span> <span class="na">v-bind:style</span><span class="o">=</span><span class="s">&#34;{color: textColor, backgroundColor: bgColor}&#34;</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
+  <span class="nx">el</span><span class="o">:</span> <span class="s1">&#39;#app&#39;</span><span class="p">,</span>
+  <span class="nx">data</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">isA</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="nx">isB</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+      <span class="nx">isC</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="nx">textColor</span><span class="o">:</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span>
+      <span class="nx">bgColor</span><span class="o">:</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>これで動かすと</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;a c&#34;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">p</span> <span class="na">style</span><span class="o">=</span><span class="s">&#34;color: blue; backgroundColor: green;&#34;</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>となる。
+<code>class</code>で指定する式は条件式として評価され、真となる値だけが残るようだ。
+<code>style</code>の方は値が文字列として展開されるようだ。</p>
+<p>属性のデータバインディングと同じように、以下はどちらで書いても同じ。</p>
+<ul>
+<li><code>&lt;p v-bind:class={...}&gt;</code></li>
+<li><code>&lt;p :class={...}&gt;</code></li>
+</ul>
+<p>オブジェクトデータを直接渡すこともできる。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">p</span> <span class="na">v-bind:style</span><span class="o">=</span><span class="s">&#34;styleObject&#34;</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
+  <span class="nx">el</span><span class="o">:</span> <span class="s1">&#39;#app&#39;</span><span class="p">,</span>
+  <span class="nx">data</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">styleObject</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">color</span><span class="o">:</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span>
+        <span class="nx">backgroundColor</span><span class="o">:</span> <span class="s1">&#39;green&#39;</span>
+      <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="まとめてバインディングするv-bind評価するとobjectになる式">まとめてバインディングする(<code>v-bind=&quot;評価するとobjectになる式&quot;</code>)</h4>
+<p>以下はどちらで書いても同じ。</p>
+<ul>
+<li><code>&lt;img v-bind:src=&quot;item.src&quot; v-bind:alt=&quot;item.alt&quot; v-bind:width=&quot;item.width&quot; v-bind:height=&quot;item.height&quot;&gt;</code></li>
+<li><code>&lt;img v-bind=&quot;item&quot;&gt;</code></li>
+</ul>
+<p>一部だけ書き換えることもできる。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">img</span> <span class="na">v-bind</span><span class="o">=</span><span class="s">&#34;item&#34;</span> <span class="na">v-bind:width</span><span class="o">=</span><span class="s">&#34;item.width*2&#34;</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="イベントハンドリングv-onclick評価するとfunctionになる式-v-onclick式">イベントハンドリング(<code>v-on:click=&quot;評価するとfunctionになる式&quot;</code>, <code>v-on:click=&quot;式&quot;</code>)</h3>
+<ul>
+<li><code>v-on:click</code> ボタンクリック時</li>
+<li><code>v-on:load</code> 画像などの読み込みが完了したとき</li>
+<li><code>v-on:scroll</code> 要素のスクロールイベント</li>
+<li><code>v-on:mousewheel</code> マウスホイールイベント</li>
+<li><code>v-on:dragstart</code> ドラッグ</li>
+<li><code>v-on:input</code> inputに値が入力された</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">button</span> <span class="na">v-on:click</span><span class="o">=</span><span class="s">&#34;handleClick&#34;</span><span class="p">&gt;</span>Click<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+
+<span class="c">&lt;!-- 引数を与える場合は()で指定する。ループの中でインデックスを与えたりして使う --&gt;</span>
+<span class="p">&lt;</span><span class="nt">button</span> <span class="na">v-on:click</span><span class="o">=</span><span class="s">&#34;bracket(42)&#34;</span><span class="p">&gt;</span>Click<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
+  <span class="p">...</span>
+  <span class="nx">methods</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">handleClick</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">alert</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">target</span><span class="p">)</span>
+    <span class="p">},</span>
+    <span class="nx">bracket</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">idx</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// 配列の要素を置き換える場合は $set を使う必要がある。
+</span><span class="c1"></span>      <span class="c1">// 代入すると配列要素が更新されただけになってしまうため、再描画されない。
+</span><span class="c1"></span>
+      <span class="c1">// $set は値をリアクティブデータとして追加する。
+</span><span class="c1"></span>      <span class="k">this</span><span class="p">.</span><span class="nx">$set</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">array</span><span class="p">,</span> <span class="nx">idx</span><span class="p">,</span> <span class="s2">&#34;[&#34;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">array</span><span class="p">[</span><span class="nx">idx</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&#34;]&#34;</span><span class="p">)</span>
+      <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>以下はどちらで書いても同じ。</p>
+<ul>
+<li><code>&lt;button v-on:click=&quot;bracket(42)&quot;&gt;Click&lt;/button&gt;</code></li>
+<li><code>&lt;button @click=&quot;bracket(42)&quot;&gt;Click&lt;/button&gt;</code></li>
+</ul>
+<p>もとのイベントはこんな感じで拾える。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">button</span> <span class="na">v-on:click</span><span class="o">=</span><span class="s">&#34;handleClick($event)&#34;</span><span class="p">&gt;</span>Click<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
+    <span class="p">...</span>
+    <span class="nx">handleClick</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">alert</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">target</span><span class="p">)</span>
+    <span class="p">},</span>
+    <span class="p">...</span>
+<span class="p">})</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><a href="https://jp.vuejs.org/v2/guide/events.html#%E3%82%A4%E3%83%99%E3%83%B3%E3%83%88%E4%BF%AE%E9%A3%BE%E5%AD%90">イベントの修飾子についてはこちら</a></p>
+<p>コンポーネントは<code>v-on</code>でイベントをハンドルできるが、<code>window</code>や<code>body</code>については<code>addeventListener</code>メソッドで登録しておく必要がある。</p>
+<h3 id="フォーム入力バインディングv-modelリアクティブデータの変数">フォーム入力バインディング(<code>v-model=&quot;リアクティブデータの変数&quot;</code>)</h3>
+<p>input 要素 や textarea 要素、 select 要素に双方向 (two-way) データバインディングを作成し、指定したリアクティブデータの変数に入力値がセットされる。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">input</span> <span class="na">v-model</span><span class="o">=</span><span class="s">&#34;out&#34;</span> <span class="p">/&gt;</span>
+<span class="p">&lt;</span><span class="nt">input</span> <span class="na">v-model</span><span class="o">=</span><span class="s">&#34;round&#34;</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;range&#34;</span> <span class="na">min</span><span class="o">=</span><span class="s">&#34;0&#34;</span> <span class="na">max</span><span class="o">=</span><span class="s">&#34;50&#34;</span> <span class="p">/&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><code>v-model</code>を使わずに、<code>v-bind</code>や<code>v-on</code>で頑張ることもできる。自分でバリデーションしたいときはこっち？</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">input</span> <span class="na">v-bind:value</span><span class="o">=</span><span class="s">&#34;out&#34;</span> <span class="na">v-on:input</span><span class="o">=</span><span class="s">&#34;handleInput&#34;</span> <span class="p">/&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
+  <span class="p">...</span>
+  <span class="nx">methods</span><span class="o">:</span> <span class="p">{</span>
+    <span class="c1">// 10文字未満に制限する
+</span><span class="c1"></span>    <span class="nx">handleInput</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">length</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">out</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">},</span>
+  <span class="p">}</span>
+  <span class="p">...</span>
+<span class="p">})</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>いろいろ</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="c">&lt;!-- 文字列 --&gt;</span>
+<span class="p">&lt;</span><span class="nt">input</span> <span class="na">v-model</span><span class="o">=</span><span class="s">&#34;out&#34;</span> <span class="p">/&gt;</span>
+
+<span class="c">&lt;!-- 複数行であっても文字列 --&gt;</span>
+<span class="p">&lt;</span><span class="nt">textarea</span> <span class="na">v-model</span><span class="o">=</span><span class="s">&#34;out&#34;</span> <span class="p">/&gt;</span>
+
+<span class="c">&lt;!-- v-model.numberとすることで、プロパティに数値として値を設定できる --&gt;</span>
+<span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;range&#34;</span> <span class="na">v-model</span><span class="err">.</span><span class="na">number</span><span class="o">=</span><span class="s">&#34;r&#34;</span><span class="p">&gt;</span>
+
+<span class="c">&lt;!-- &#34;#008000&#34; みたいな文字列 --&gt;</span>
+<span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;color&#34;</span> <span class="na">v-model</span><span class="o">=</span><span class="s">&#34;col&#34;</span><span class="p">&gt;</span>
+
+<span class="c">&lt;!-- ラジオボックスは文字列 --&gt;</span>
+<span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;radio&#34;</span> <span class="na">value</span><span class="o">=</span><span class="s">&#34;フシギダネ&#34;</span> <span class="na">v-model</span><span class="o">=</span><span class="s">&#34;poke&#34;</span><span class="p">&gt;</span> フシギダネ キミにきめた！ <span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;radio&#34;</span> <span class="na">value</span><span class="o">=</span><span class="s">&#34;ヒトカゲ&#34;</span> <span class="na">v-model</span><span class="o">=</span><span class="s">&#34;poke&#34;</span><span class="p">&gt;</span> ヒトカゲ キミにきめた！ <span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;radio&#34;</span> <span class="na">value</span><span class="o">=</span><span class="s">&#34;ゼニガメ&#34;</span> <span class="na">v-model</span><span class="o">=</span><span class="s">&#34;poke&#34;</span><span class="p">&gt;</span> ゼニガメ キミにきめた！ <span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+
+<span class="c">&lt;!-- 択一なselectは文字列 --&gt;</span>
+<span class="p">&lt;</span><span class="nt">select</span> <span class="na">v-model</span><span class="o">=</span><span class="s">&#34;out&#34;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">option</span> <span class="na">disabled</span><span class="o">=</span><span class="s">&#34;disabled&#34;</span><span class="p">&gt;</span>以下から選択！<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">&#34;a&#34;</span><span class="p">&gt;</span> A <span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">&#34;b&#34;</span><span class="p">&gt;</span> B <span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">&#34;c&#34;</span><span class="p">&gt;</span> C <span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">select</span><span class="p">&gt;</span>
+
+<span class="c">&lt;!-- 複数選択のselectは配列 --&gt;</span>
+<span class="p">&lt;</span><span class="nt">select</span> <span class="na">v-model</span><span class="o">=</span><span class="s">&#34;out&#34;</span> <span class="na">multiple</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">option</span> <span class="na">disabled</span><span class="o">=</span><span class="s">&#34;disabled&#34;</span><span class="p">&gt;</span>以下から選択！<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">&#34;a&#34;</span><span class="p">&gt;</span> A <span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">&#34;b&#34;</span><span class="p">&gt;</span> B <span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">&#34;c&#34;</span><span class="p">&gt;</span> C <span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">select</span><span class="p">&gt;</span>
+
+<span class="c">&lt;!-- チェックボックスはBoolean。値を指定することもできる --&gt;</span>
+<span class="p">&lt;</span><span class="nt">input</span> <span class="na">v-model</span><span class="o">=</span><span class="s">&#34;out&#34;</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;checkbox&#34;</span> <span class="p">/&gt;</span>
+<span class="p">&lt;</span><span class="nt">input</span> <span class="na">v-model</span><span class="o">=</span><span class="s">&#34;out&#34;</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;checkbox&#34;</span> <span class="na">true-value</span><span class="o">=</span><span class="s">&#34;真&#34;</span> <span class="na">false-value</span><span class="o">=</span><span class="s">&#34;偽&#34;</span> <span class="p">/&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>複数のチェックボックスは配列にもできる</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">label</span><span class="p">&gt;&lt;</span><span class="nt">input</span> <span class="na">v-model</span><span class="o">=</span><span class="s">&#34;array&#34;</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;checkbox&#34;</span> <span class="na">value</span><span class="o">=</span><span class="s">&#34;a&#34;</span><span class="p">&gt;</span> A <span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">label</span><span class="p">&gt;&lt;</span><span class="nt">input</span> <span class="na">v-model</span><span class="o">=</span><span class="s">&#34;array&#34;</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;checkbox&#34;</span> <span class="na">value</span><span class="o">=</span><span class="s">&#34;b&#34;</span><span class="p">&gt;</span> B <span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">label</span><span class="p">&gt;&lt;</span><span class="nt">input</span> <span class="na">v-model</span><span class="o">=</span><span class="s">&#34;array&#34;</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;checkbox&#34;</span> <span class="na">value</span><span class="o">=</span><span class="s">&#34;c&#34;</span><span class="p">&gt;</span> C <span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+
+<span class="c">&lt;!-- AとCにチェックを入れると [&#34;a&#34;, &#34;c&#34;] になる --&gt;</span>
+<span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>{{array}}<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
+  <span class="p">...</span>
+  <span class="nx">data</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">array</span><span class="o">:</span> <span class="p">[]</span>
+  <span class="p">}</span>
+  <span class="p">...</span>
+<span class="p">})</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><a href="https://jp.vuejs.org/v2/guide/forms.html#%E4%BF%AE%E9%A3%BE%E5%AD%90">修飾子についてはこちら</a>
+数値に変換したり(<code>.number</code>)、余白を取り除いたり(<code>.trim</code>)できる。</p>
+<p>なお、画像などの<code>type=&quot;file&quot;</code>は<code>v-model</code>を使えないので、<code>change</code>イベントをハンドルする。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;file&#34;</span> <span class="na">v-on:change</span><span class="o">=</span><span class="s">&#34;handleChange&#34;</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="カスタムディレクティブ">カスタムディレクティブ</h3>
+<p><code>v-</code>から始まるディレクティブを自分で作れるらしい。</p>
+<h2 id="算出プロパティ">算出プロパティ</h2>
+<p>計算をキャッシュしておいて、<code>{{halfWidth}}</code>のように参照できる。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
+  <span class="nx">computed</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">halfWidth</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+      <span class="p">...</span>
+      <span class="k">return</span> <span class="nx">width</span><span class="o">/</span><span class="mf">2.0</span><span class="p">;</span>
+    <span class="p">},</span>
+    <span class="nx">halfRect</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+      <span class="k">return</span> <span class="p">{</span>
+        <span class="nx">w</span><span class="o">:</span> <span class="nx">halfWidth</span><span class="p">,</span>
+        <span class="nx">h</span><span class="o">:</span> <span class="nx">width</span><span class="o">*</span><span class="mf">0.6</span> <span class="o">/</span> <span class="mf">2.0</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>functionの中でリアクティブデータを参照している場合、値が変更されると再計算される。
+計算コストの高い処理結果をキャッシュするのに使える。例えばリストの絞り込み結果とか。</p>
+<h2 id="監視">監視</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
+  <span class="nx">watch</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">監視対象のリアクティブデータやプロパティ</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">新しい値</span><span class="p">,</span> <span class="nx">古い値</span><span class="p">){</span>
+      <span class="p">...</span>
+    <span class="p">},</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>フォームの入力を監視して、値が変更されたら検索APIコールして・・・みたいな使い方で動的検索ができる。</p>
+<h2 id="フィルタ">フィルタ</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
+  <span class="nx">filters</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">bracket</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">v</span><span class="p">){</span>
+      <span class="k">return</span> <span class="s2">&#34;[&#34;</span> <span class="o">+</span> <span class="nx">v</span> <span class="o">+</span> <span class="s2">&#34;]&#34;</span>
+    <span class="p">},</span>
+    <span class="nx">upper</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">v</span><span class="p">){</span>
+      <span class="k">return</span> <span class="nx">v</span><span class="p">.</span><span class="nx">toUpeerCase</span><span class="p">()</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>{{ str | upper | bracket }}<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>methodsとよく似ているが、文字列を加工するときは便利。
+パイプみたいになっていて、左から右へデータが流れていく。</p>
+<hr>
+<h3 id="コンポーネント">コンポーネント</h3>
+<p>JavaScriptとテンプレート(HTML, CSS)を1つにまとめたもの。帰納単位に分離して開発する仕組み。</p>
+<p>コンポーネントはWebにも転がっている
+awesome-vue
+<a href="https://github.com/vuejs/awesome-vue">https://github.com/vuejs/awesome-vue</a></p>
+<p>Vue Curated
+<a href="https://curated.vuejs.org/">https://curated.vuejs.org/</a></p>
+<p>element
+<a href="https://github.com/ElemeFE/element">https://github.com/ElemeFE/element</a>
+紹介記事: <a href="https://s8a.jp/vue-js-library-element">https://s8a.jp/vue-js-library-element</a></p>
+<p>Onsen UI
+<a href="https://ja.onsen.io/">https://ja.onsen.io/</a>
+モバイル向けのUIを簡単につくれる。良さそう。</p>
+<h4 id="コンポーネントを自作する">コンポーネントを自作する</h4>
+<p>グローバルに登録</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">Vue</span><span class="p">.</span><span class="nx">component</span><span class="p">(</span><span class="s1">&#39;new-component&#39;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">template</span><span class="o">:</span> <span class="s1">&#39;&lt;p&gt;New Component!!&lt;/p&gt;&#39;</span><span class="p">,</span>
+  <span class="nx">data</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="k">return</span> <span class="p">{</span>
+      <span class="p">...</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="nx">methods</span><span class="o">:</span> <span class="p">{</span>
+    <span class="p">...</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;app&#34;</span><span class="p">&gt;</span>
+  <span class="c">&lt;!-- どのVueテンプレートからでも参照できる --&gt;</span>
+  <span class="p">&lt;</span><span class="nt">new-component</span><span class="p">&gt;&lt;/</span><span class="nt">new-component</span><span class="p">&gt;</span>
+  <span class="c">&lt;!-- &lt;p&gt;New Component!!&lt;/p&gt; として表示される --&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li><code>new Vue()</code>と同じように定義する。ただし、<code>data</code>はObjectを返すfunctionになっていなければならない。</li>
+<li><code>template</code>で指定するhtmlはツリーになってないとだめ。ルートは1つ。<code>&lt;div&gt;</code>とかでくくっておくのがよい。</li>
+<li>コンポーネントはネストできる。</li>
+</ul>
+<p>ローカルへの登録</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">newComponent</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">template</span><span class="o">:</span> <span class="s1">&#39;&lt;p&gt;New Component!!&lt;/p&gt;&#39;</span>
+  <span class="nx">data</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="k">return</span> <span class="p">{</span>
+      <span class="p">...</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="nx">methods</span><span class="o">:</span> <span class="p">{</span>
+    <span class="p">...</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
+  <span class="nx">el</span><span class="o">:</span> <span class="s1">&#39;#app&#39;</span><span class="p">,</span>
+  <span class="nx">components</span><span class="o">:</span> <span class="p">{</span>
+    <span class="c1">//これで&lt;new-components&gt;が使用できるようになる
+</span><span class="c1"></span>    <span class="s1">&#39;new-components&#39;</span><span class="o">:</span> <span class="nx">newComponents</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>基本的にローカル登録にしておいてスコープを絞っといたほうがいい。</p>
+<h4 id="コンポーネント間の通信">コンポーネント間の通信</h4>
+<h5 id="ネストしたコンポーネントの親から子props-down">ネストしたコンポーネントの親から子(props down)</h5>
+<p>静的に値を渡す。引数の値渡しみたいな感じ？</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="c">&lt;!-- 親のテンプレート --&gt;</span>
+<span class="p">&lt;</span><span class="nt">child</span> <span class="na">name</span><span class="o">=</span><span class="s">&#39;Mario&#39;</span><span class="err">,</span> <span class="na">age</span><span class="o">=</span><span class="s">10</span><span class="p">&gt;&lt;/</span><span class="nt">child</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">child</span> <span class="na">name</span><span class="o">=</span><span class="s">&#39;Luigi&#39;</span><span class="err">,</span> <span class="na">age</span><span class="o">=</span><span class="s">8</span><span class="p">&gt;&lt;/</span><span class="nt">child</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">Vue</span><span class="p">.</span><span class="nx">component</span><span class="p">(</span><span class="s1">&#39;child&#39;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">template</span><span class="o">:</span> <span class="s1">&#39;&lt;p&gt;{{name}}({{age}})&lt;/p&gt;&#39;</span><span class="p">,</span>
+
+  <span class="nx">props</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">]</span> <span class="c1">//ここで受け取る属性を指定する
+</span><span class="c1"></span>
+<span class="c1">// 型指定することもできる
+</span><span class="c1">// props: {
+</span><span class="c1">//   name: String
+</span><span class="c1">//   age: Number
+</span><span class="c1">// }
+</span><span class="c1"></span><span class="p">})</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>リアクティブデータを渡す場合</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">child</span> <span class="na">v-bind:name</span><span class="o">=</span><span class="s">&#39;Mario&#39;</span><span class="err">,</span> <span class="na">age</span><span class="o">=</span><span class="s">10</span><span class="p">&gt;&lt;/</span><span class="nt">child</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>これで、親側で<code>name</code>を変更すると、子のnameが変更される。</p>
+<h5 id="ネストしたコンポーネントの子から親event-up">ネストしたコンポーネントの子から親(event up)</h5>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="c">&lt;!-- 親 --&gt;</span>
+<span class="p">&lt;</span><span class="nt">child</span> <span class="na">v-on:child-event</span><span class="o">=</span><span class="s">&#34;parentsHandler&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">child</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">// 子
+</span><span class="c1"></span><span class="k">this</span><span class="p">.</span><span class="nx">$emit</span><span class="p">(</span><span class="s1">&#39;child-event&#39;</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><code>$emit('イベント名', 引数,...,)</code>を使う。子要素のボタンを押したときに、親要素をどうこうしたいときに。</p>
+<h5 id="親子で双方向のデータバインディングするv-model">親子で双方向のデータバインディングする(<code>v-model</code>)</h5>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="c">&lt;!-- 親 --&gt;</span>
+<span class="p">&lt;</span><span class="nt">child</span> <span class="na">v-model:</span><span class="err">&#34;</span><span class="na">date</span><span class="err">&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">child</span><span class="p">&gt;</span>
+
+<span class="c">&lt;!-- 上記は以下の糖衣構文 --&gt;</span>
+<span class="p">&lt;</span><span class="nt">child</span> <span class="na">v-bind:value</span><span class="o">=</span><span class="s">&#34;date&#34;</span> <span class="na">v-on:input</span><span class="o">=</span><span class="s">&#34;date = $event&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">child</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">// 子から以下のように$emitすることで、dateが自動で更新される。
+</span><span class="c1">// v-modelで子へ渡されるプロパティはvalueなので、子側のpropsに指定するのを忘れないように！
+</span><span class="c1"></span><span class="k">this</span><span class="p">.</span><span class="nx">$emit</span><span class="p">(</span><span class="s1">&#39;input&#39;</span><span class="p">,</span> <span class="s1">&#39;20210-04-28&#39;</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>いくつもバインドする場合は <code>.sync</code> 修飾子を使う。</p>
+<h5 id="親子ではないコンポーネント間">親子ではないコンポーネント間</h5>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">bus</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Vue</span><span class="p">()</span> <span class="c1">//イベントバス。
+</span><span class="c1"></span>
+<span class="kd">var</span> <span class="nx">bus</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
+  <span class="nx">data</span><span class="o">:</span> <span class="p">{</span>
+      <span class="p">...</span> <span class="c1">//値をもたせることもできる。
+</span><span class="c1"></span>  <span class="p">}</span>
+<span class="p">})</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><p>というのを作っておいて</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">// 受け取る方
+</span><span class="c1"></span><span class="nx">bus</span><span class="p">.</span><span class="nx">$on</span><span class="p">(</span><span class="s1">&#39;何らかの-event&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
+  <span class="p">...</span>
+<span class="p">})</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">// eventを発行する方
+</span><span class="c1"></span><span class="nx">bus</span><span class="p">.</span><span class="nx">$emit</span><span class="p">(</span><span class="s1">&#39;何らかの-event&#39;</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="スロット">スロット</h4>
+<p>親コンポーネントから、子コンポーネントのテンプレートの一部に何かを差し込むのに使う機能。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="c">&lt;!-- 子のテンプレート --&gt;</span>
+<span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>ここに入る→ <span class="p">&lt;</span><span class="nt">slot</span><span class="p">&gt;&lt;/</span><span class="nt">slot</span><span class="p">&gt;&lt;</span><span class="nt">p</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="c">&lt;!-- 親 --&gt;</span>
+<span class="p">&lt;</span><span class="nt">child</span><span class="p">&gt;</span>これを入れる<span class="p">&lt;/</span><span class="nt">child</span><span class="p">&gt;</span>
+
+<span class="c">&lt;!-- するとこんな感じになる --&gt;</span>
+<span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>ここに入る→ これを入れる<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><code>&lt;slot&gt;</code> タグが置き換わる。 <code>&lt;slot name=''&gt;</code> とすることで複数のスロットを名前付きで挿入することができる。</p>
+<p>ほかにもいろいろ使えるらしい。</p>
+<hr>
+<h2 id="vueでアプリを作る">Vueでアプリを作る</h2>
+<ul>
+<li>Vuex: 状態管理用ライブラリ。複数コンポーネントでのデータ共有や、アプリの状態の一元管理を行う。</li>
+<li>Vue Router: 複数の画面とURLを紐付ける、SPA構築用ライブラリ</li>
+</ul>
+<h3 id="vue-cli">Vue CLI</h3>
+<p>アプリ構築用ツール郡のCLI。
+かんたんにwebpackで単一ファイルコンポーネントを作ることができる。</p>
+<p><a href="https://qiita.com/soarflat/items/28bf799f7e0335b68186#webpack%E3%81%A8%E3%81%AF">webpackとは</a></p>
+<p>内部ではBabel使ってるらしい。</p>
+<h4 id="プロジェクトを作る">プロジェクトを作る</h4>
+<p><a href="https://cli.vuejs.org/guide/creating-a-project.html#vue-create">参考: Creating Project</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">$ vue create &lt;プロジェクト名&gt;
+  <span class="c1"># 対話形式で色々設定する。 `vue ui` でブラウザから同様のプロジェクト作成を行える。</span>
+$ <span class="nb">cd</span> &lt;プロジェクト名&gt;
+$ npm run serve
+</code></pre></td></tr></table>
+</div>
+</div><p>http://localhost:8080/ にアクセスすると、アプリ画面が表示される。</p>
+<p><a href="https://cr-vue.mio3io.com/guide/chapter7.html#vue-cli3-%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB">参考: Vue CLI3について</a></p>
+<blockquote>
+<p>ビルド設定のカスタマイズは、プロジェクトルートに vue.config.js というファイル作成してそこに追加していきます。</p>
+</blockquote>
+<h3 id="単一ファイルコンポーネントvueファイル">単一ファイルコンポーネント(<code>.vue</code>ファイル)</h3>
+<p>単一ファイルコンポーネント(SFC, Single File Components) として、 HTML/JavaScript/CSSをまとめた <code>.vue</code>ファイル単位で管理する。</p>
+<h6 id="indexhtml">index.html</h6>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;app&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h6 id="indexjs">index.js</h6>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">import</span> <span class="nx">Vue</span> <span class="nx">from</span> <span class="s2">&#34;vue&#34;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">App</span> <span class="nx">from</span> <span class="s2">&#34;./Hello&#34;</span><span class="p">;</span>
+
+<span class="nx">Vue</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="nx">productionTip</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+
+<span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
+  <span class="nx">el</span><span class="o">:</span> <span class="s2">&#34;#app&#34;</span><span class="p">,</span>
+  <span class="nx">template</span><span class="o">:</span> <span class="s2">&#34;&lt;App/&gt;&#34;</span><span class="p">,</span>
+  <span class="nx">components</span><span class="o">:</span> <span class="p">{</span> <span class="nx">App</span> <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></td></tr></table>
+</div>
+</div><h6 id="hellovue">Hello.vue</h6>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">template</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>{{ greeting }} World!<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="kr">export</span> <span class="k">default</span> <span class="p">{</span>
+  <span class="nx">data</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">{</span>
+      <span class="nx">greeting</span><span class="o">:</span> <span class="s2">&#34;Hello&#34;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">style</span> <span class="na">scoped</span><span class="p">&gt;</span>
+<span class="nt">p</span> <span class="p">{</span>
+  <span class="k">font-size</span><span class="p">:</span> <span class="mi">2</span><span class="kt">em</span><span class="p">;</span>
+  <span class="k">text-align</span><span class="p">:</span> <span class="kc">center</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li><code>&lt;template&gt;</code> : コンポーネントのテンプレート部分。必要なパッケージ入れて <code>lang=&quot;jade&quot;</code> とすると Jadeで書けたりする。</li>
+<li><code>&lt;script&gt;</code>: コンポーネントのテンプレート以外の部分。</li>
+<li><code>&lt;style&gt;</code>: CSSの部分。<code>scoped</code> にすると、このコンポーネントとその配下のコンポーネントで有効になる。こちらも<code>lang=stylus</code>でStylusで書けたりする。</li>
+</ul>
+<h3 id="vuex">Vuex</h3>
+<p><a href="https://vuex.vuejs.org/ja/">Vuexとは何か?</a></p>
+<blockquote>
+<p>Vuex は Vue.js アプリケーションのための 状態管理パターン + ライブラリ</p>
+</blockquote>
+<blockquote>
+<p>あなたのアプリがシンプルであれば、Vuex なしで問題ないでしょう。</p>
+</blockquote>
+<p>コンポーネント横断で使えるリアクティブなグローバル変数群？</p>
+<h4 id="基本">基本</h4>
+<h6 id="srcstorejs"><code>src/store.js</code></h6>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">const</span> <span class="nx">store</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Vuex</span><span class="p">.</span><span class="nx">Store</span><span class="p">({</span>
+  <span class="nx">state</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">count</span><span class="o">:</span> <span class="mi">0</span>
+  <span class="p">},</span>
+  <span class="nx">mutations</span><span class="o">:</span> <span class="p">{</span>
+    <span class="c1">// stateを変更するための関数群。
+</span><span class="c1"></span>    <span class="c1">// state.commitしたときに呼ばれる
+</span><span class="c1"></span>    <span class="nx">increment</span><span class="o">:</span> <span class="nx">state</span> <span class="p">=&gt;</span> <span class="nx">state</span><span class="p">.</span><span class="nx">count</span><span class="o">++</span><span class="p">,</span>
+
+    <span class="nx">setCount</span><span class="o">:</span><span class="p">(</span><span class="nx">state</span><span class="p">,</span> <span class="nx">payload</span><span class="p">){</span>
+      <span class="nx">state</span><span class="p">.</span><span class="nx">count</span> <span class="o">=</span> <span class="nx">payload</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="nx">getters</span><span class="o">:</span> <span class="p">{</span> <span class="c1">// stateの値を取得するための関数群
+</span><span class="c1"></span>    <span class="nx">count</span><span class="p">(</span><span class="nx">state</span><span class="p">,</span> <span class="nx">getters</span><span class="p">,</span> <span class="nx">rootState</span><span class="p">,</span> <span class="nx">rootGetter</span><span class="p">){</span> <span class="c1">//getters経由で他のgetterを使うこともできる。
+</span><span class="c1"></span>      <span class="k">return</span> <span class="nx">state</span><span class="p">.</span><span class="nx">count</span>
+    <span class="p">},</span>
+    <span class="nx">isLarge</span><span class="p">(</span><span class="nx">state</span><span class="p">){</span> <span class="c1">// getters等は受け取っても受け取らなくてもよい
+</span><span class="c1"></span>      <span class="c1">// 引数をとるGetterも作れる。 state.getters.isLarge(42) のようにコールする
+</span><span class="c1"></span>      <span class="k">return</span> <span class="nx">op</span> <span class="p">=&gt;</span> <span class="nx">state</span><span class="p">.</span><span class="nx">count</span> <span class="o">&gt;</span> <span class="nx">op</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="nx">store</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">import</span> <span class="nx">store</span> <span class="nx">from</span> <span class="s1">&#39;@/store.js&#39;</span> <span class="c1">// @はsrcのエイリアス
+</span><span class="c1"></span>
+<span class="nx">store</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">count</span>         <span class="c1">// -&gt; 0
+</span><span class="c1"></span><span class="nx">state</span><span class="p">.</span><span class="nx">getters</span><span class="p">.</span><span class="nx">count</span>      <span class="c1">// -&gt; false
+</span><span class="c1"></span><span class="nx">state</span><span class="p">.</span><span class="nx">getters</span><span class="p">.</span><span class="nx">isLarge</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="c1">// -&gt; false
+</span><span class="c1"></span>
+<span class="nx">store</span><span class="p">.</span><span class="nx">commit</span><span class="p">(</span><span class="s1">&#39;increment&#39;</span><span class="p">)</span>
+
+<span class="nx">store</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">count</span>         <span class="c1">// -&gt; 1
+</span><span class="c1"></span><span class="nx">state</span><span class="p">.</span><span class="nx">getters</span><span class="p">.</span><span class="nx">count</span>       <span class="c1">// -&gt; 1
+</span><span class="c1"></span><span class="nx">state</span><span class="p">.</span><span class="nx">getters</span><span class="p">.</span><span class="nx">isLarge</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="c1">// -&gt; true
+</span><span class="c1"></span>
+<span class="nx">store</span><span class="p">.</span><span class="nx">commit</span><span class="p">(</span><span class="s1">&#39;setCount&#39;</span><span class="p">,</span> <span class="mi">42</span><span class="p">)</span>
+<span class="nx">store</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">count</span>         <span class="c1">// -&gt; 42
+</span></code></pre></td></tr></table>
+</div>
+</div><p><a href="https://vuex.vuejs.org/ja/guide/getters.html">Vuexのドキュメント</a>をみたところ、ストアの値をフィルタリングする場合や、共通の処理をコンポーネント間で共有したい場合に、getterを使っているようだ。</p>
+<p>複数のコンポーネントで使う場合は<code>new Vue</code>するときに指定する</p>
+<h6 id="srcappvue"><code>src/App.vue</code></h6>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">import</span> <span class="nx">store</span> <span class="nx">from</span> <span class="s1">&#39;./store.js&#39;</span>
+<span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
+  <span class="p">...</span>
+  <span class="nx">store</span><span class="p">,</span>
+  <span class="p">...</span>
+<span class="p">})</span>
+</code></pre></td></tr></table>
+</div>
+</div><h6 id="適当なコンポーネントvue"><code>適当なコンポーネント.vue</code></h6>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">export</span> <span class="k">default</span> <span class="p">{</span>
+  <span class="nx">craeted</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">$store</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">count</span><span class="p">)</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">$store</span><span class="p">.</span><span class="nx">commit</span><span class="p">(</span><span class="s1">&#39;increment&#39;</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><code>this.$state</code> でアクセスする。</p>
+<p>引数を取るgetterは結果がキャッシュされないので、コンポーネントの算出プロパティに入れておくとよい。</p>
+<h6 id="適当なコンポーネントvue-1"><code>適当なコンポーネント.vue</code></h6>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">export</span> <span class="k">default</span> <span class="p">{</span>
+  <span class="nx">data</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">current</span><span class="o">:</span> <span class="mi">42</span>
+  <span class="p">}</span>
+  <span class="nx">computed</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">isLarge</span><span class="p">(){</span>
+      <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">$state</span><span class="p">.</span><span class="nx">getters</span><span class="p">.</span><span class="nx">isLarge</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">current</span><span class="p">)</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>mutation は satateを変更する唯一の方法。</p>
+<h4 id="actionsとdispatch">actionsとdispatch</h4>
+<h6 id="srcstorejs-1"><code>src/store.js</code></h6>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">const</span> <span class="nx">store</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Vuex</span><span class="p">.</span><span class="nx">Store</span><span class="p">({</span>
+  <span class="nx">state</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">searchResult</span><span class="o">:</span> <span class="p">[]</span>
+  <span class="p">},</span>
+  <span class="nx">mutations</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">setSearchResult</span><span class="p">(</span><span class="nx">state</span><span class="p">,</span> <span class="nx">payload</span><span class="p">){</span>
+      <span class="nx">state</span><span class="p">.</span><span class="nx">searchResult</span> <span class="o">=</span> <span class="nx">payload</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="nx">getters</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">actions</span><span class="o">:</span> <span class="p">{</span>
+      <span class="c1">// 非同期処理用。commitをコールして値を変更するのに使う。
+</span><span class="c1"></span>      <span class="c1">// 非同期にストアに書き込む(検索結果をストアするとか)ときに使うのかな
+</span><span class="c1"></span>      <span class="c1">//state.dispatchしたときに呼ばれる
+</span><span class="c1"></span>      <span class="nx">search</span><span class="p">({</span> <span class="nx">commit</span> <span class="p">},</span> <span class="nx">payload</span><span class="p">){</span>
+        <span class="nx">axios</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/api/search&#39;</span><span class="p">,</span> <span class="p">{</span><span class="nx">param</span><span class="o">:</span><span class="p">{</span> <span class="nx">query</span><span class="o">:</span> <span class="nx">payload</span><span class="p">}}).</span><span class="nx">then</span><span class="p">(</span><span class="nx">res</span><span class="p">,</span> <span class="p">{</span>
+          <span class="nx">commit</span><span class="p">(</span><span class="s1">&#39;setSearchResult&#39;</span><span class="p">,</span> <span class="nx">res</span><span class="p">.</span><span class="nx">body</span><span class="p">)</span>
+        <span class="p">})</span>
+      <span class="p">},</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="nx">store</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">$store</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">dispatch</span><span class="p">(</span><span class="s1">&#39;search&#39;</span><span class="p">,</span> <span class="s1">&#39;ピカチュウ&#39;</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="vue-router">Vue Router</h4>
+<p>コンポーネントとURLを紐付けてコンテンツを生成し、SPAを構築するための拡張ライブラリ。</p>
+<p><a href="https://router.vuejs.org/ja/">Vue Router</a></p>
+<blockquote>
+<p>Vue Router は Vue.js 公式ルータです。これは Vue.js のコアと深く深く統合されており、Vue.js でシングルページアプリケーションを構築します。機能は次の通りです:
+・ネストされたルート/ビューマッピング
+・モジュール式、コンポーネントベースのルータ構造
+・ルートパラメータ、クエリ、ワイルドカード
+・Vue.js の transition 機能による、transition エフェクトの表示
+・細かいナビゲーションコントロール
+・自動で付与される active CSS クラス
+・HTML5 history モードまたは hash モードと IE9 の互換性
+・カスタマイズ可能なスクロール動作</p>
+</blockquote>
+<h4 id="準備">準備</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">$ npm install vue-router
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="使ってみる">使ってみる</h4>
+<p>慣例として、ルートに直接紐づくコンポーネントは<code>views</code>や<code>pages</code>のようなディレクトリにまとめることが多い。</p>
+<h6 id="srcviewshomevue">src/views/Home.vue</h6>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">template</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Home<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h6 id="srcviewsproductvue">src/views/Product.vue</h6>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">template</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Product<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h6 id="srcrouterjs">src/router.js</h6>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">import</span> <span class="nx">Vue</span> <span class="nx">from</span> <span class="s1">&#39;vue&#39;</span>
+<span class="kr">import</span> <span class="nx">VueRouter</span> <span class="nx">from</span> <span class="s1">&#39;vue-router&#39;</span>
+
+<span class="kr">import</span> <span class="nx">Home</span> <span class="nx">from</span> <span class="s1">&#39;@/views/Home.vue&#39;</span>
+<span class="kr">import</span> <span class="nx">Product</span> <span class="nx">from</span> <span class="s1">&#39;@/views/Product.vue&#39;</span>
+
+<span class="nx">Vue</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">VueRouter</span><span class="p">)</span>
+
+<span class="kr">const</span> <span class="nx">router</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">VueRouter</span><span class="p">({</span>
+  <span class="nx">routes</span><span class="o">:</span> <span class="p">[</span>
+    <span class="p">{</span> <span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="nx">component</span><span class="o">:</span> <span class="nx">Home</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;/product&#39;</span><span class="p">,</span> <span class="nx">component</span><span class="o">:</span> <span class="nx">Product</span> <span class="p">},</span>
+  <span class="p">]</span>
+<span class="p">})</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="nx">router</span>
+</code></pre></td></tr></table>
+</div>
+</div><h6 id="srcmainjs">src/main.js</h6>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">import</span> <span class="nx">Vue</span> <span class="nx">from</span> <span class="s1">&#39;vue&#39;</span>
+<span class="kr">import</span> <span class="nx">App</span> <span class="nx">from</span> <span class="s1">&#39;./App.vue&#39;</span>
+
+<span class="kr">import</span> <span class="nx">router</span> <span class="nx">from</span> <span class="s1">&#39;@/router.js&#39;</span>
+
+<span class="nx">Vue</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="nx">productionTip</span> <span class="o">=</span> <span class="kc">false</span>
+
+<span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
+  <span class="nx">router</span><span class="o">:</span> <span class="nx">router</span><span class="p">,</span>
+  <span class="nx">render</span><span class="o">:</span> <span class="nx">h</span> <span class="p">=&gt;</span> <span class="nx">h</span><span class="p">(</span><span class="nx">App</span><span class="p">),</span>
+<span class="p">}).</span><span class="nx">$mount</span><span class="p">(</span><span class="s1">&#39;#app&#39;</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h6 id="srcappvue-1">src/App.vue</h6>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">template</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;app&#34;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">nav</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">router-link</span> <span class="na">to</span><span class="o">=</span><span class="s">&#34;/&#34;</span><span class="p">&gt;</span>Home<span class="p">&lt;/</span><span class="nt">router-link</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">router-link</span> <span class="na">to</span><span class="o">=</span><span class="s">&#34;/product&#34;</span><span class="p">&gt;</span>Product<span class="p">&lt;/</span><span class="nt">router-link</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">nav</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">router-view</span> <span class="p">/&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>これで、 http://localhost:8080 にアクセスすると、&ldquo;Home&rdquo; と &ldquo;Product&rdquo; リンクが生成されて、クリックするとそれぞれのコンポーネントが <code>&lt;router-view /&gt;</code>の位置に表示される。</p>
+<h4 id="ハッシュモードとヒストリーモード">ハッシュモードとヒストリーモード</h4>
+<p><a href="https://router.vuejs.org/ja/guide/essentials/history-mode.html">HTML5 History モード</a></p>
+<blockquote>
+<p>vue-router のデフォルトは hash モード です - 完全な URL を hash を使ってシミュレートし、 URL が変更された時にページのリロードが起きません。
+history モードを使用する時は、URL は &ldquo;普通&rdquo; に見えます e.g. <a href="http://oursite.com/user/id">http://oursite.com/user/id</a> 。美しいですね!</p>
+</blockquote>
+<p>ヒストリーモードを有効にするには、<code>VueRouter</code>の<code>mode</code>プロパティを<code>'history'</code>にして、サーバの設定を変更する必要がある。</p>
+<h6 id="srcrouterjs-1">src/router.js</h6>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">const</span> <span class="nx">router</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">VueRouter</span><span class="p">({</span>
+  <span class="nx">mode</span><span class="o">:</span> <span class="s1">&#39;history&#39;</span><span class="p">,</span>
+  <span class="nx">routes</span><span class="o">:</span> <span class="p">[...]</span>
+<span class="p">})</span>
+</code></pre></td></tr></table>
+</div>
+</div><h6 id="nginxの例">nginxの例</h6>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">location / {
+  try_files $uri $uri/ /index.html;
+}
+</code></pre></td></tr></table>
+</div>
+</div><p>その他サーバの設定方法は<a href="https://router.vuejs.org/ja/guide/essentials/history-mode.html#%E3%82%B5%E3%83%BC%E3%83%90%E3%83%BC%E3%81%AE%E8%A8%AD%E5%AE%9A%E4%BE%8B">こちら</a>参照。</p>
+<h4 id="ルート定義のオプション">ルート定義のオプション</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="p">...</span>
+<span class="kr">const</span> <span class="nx">router</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">VueRouter</span><span class="p">({</span>
+  <span class="nx">mode</span><span class="o">:</span> <span class="s1">&#39;history&#39;</span><span class="p">,</span>
+  <span class="nx">routes</span><span class="o">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;prod&#39;</span><span class="p">,</span>
+      <span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;/product/:id&#39;</span><span class="p">,</span> <span class="c1">//URLからパラメータを受け取る場合はこう書く。
+</span><span class="c1"></span>      <span class="c1">//path: &#39;/product/:id(\\d+)&#39;, //正規表現で数字のみにマッチさせることもできる
+</span><span class="c1"></span>      <span class="nx">compnent</span><span class="o">:</span> <span class="nx">Product</span><span class="p">,</span>
+      <span class="nx">meta</span><span class="o">:</span> <span class="p">{</span> <span class="nx">requiresAuth</span><span class="o">:</span> <span class="kc">true</span> <span class="p">}</span> <span class="c1">//認証が必要な場合はtrue
+</span><span class="c1"></span>    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;prodlist&#39;</span><span class="p">,</span>
+      <span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;/product&#39;</span><span class="p">,</span> <span class="c1">// パラメータなしの場合はrouteを別にすることもできる。
+</span><span class="c1"></span>      <span class="nx">compnent</span><span class="o">:</span> <span class="nx">ProductList</span><span class="p">,</span>
+      <span class="nx">meta</span><span class="o">:</span> <span class="p">{</span> <span class="nx">requiresAuth</span><span class="o">:</span> <span class="kc">true</span> <span class="p">}</span> <span class="c1">//認証が必要な場合はtrue
+</span><span class="c1"></span>    <span class="p">}</span>
+  <span class="p">],</span>
+  <span class="c1">// リダイレクトの設定。リダイレクト先はパスまたは名前で指定する
+</span><span class="c1"></span>  <span class="p">{</span> <span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;/a&#39;</span><span class="p">,</span> <span class="nx">redirect</span><span class="o">:</span> <span class="s1">&#39;/product&#39;</span> <span class="p">},</span>
+  <span class="p">{</span> <span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;/a&#39;</span><span class="p">,</span> <span class="nx">redirect</span><span class="o">:</span> <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;prod&#39;</span><span class="p">}</span> <span class="p">},</span>
+<span class="p">})</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>受け取ったパラメータはこのように参照する。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="k">this</span><span class="p">.</span><span class="nx">$route</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">id</span> <span class="c1">//URLパラメータを受け取る
+</span><span class="c1"></span><span class="k">this</span><span class="p">.</span><span class="nx">$route</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">id</span> <span class="c1">//クエリパラメータを受け取る場合はこう
+</span></code></pre></td></tr></table>
+</div>
+</div><p><code>$route</code> は マッチしたルートの情報が入ったオブジェクト。</p>
+<p>ちなみに、パラメータは<code>$route</code>ではなくpropsとして受け取っておいたほうがいい。ユニットテストがしやすいので。</p>
+<h6 id="srcproductvue">src/Product.vue</h6>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">template</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Product<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">v-if</span><span class="o">=</span><span class="s">&#34;pid&#34;</span><span class="p">&gt;</span>Param: ID:{{pid}}<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">v-if</span><span class="o">=</span><span class="s">&#34;qid&#34;</span><span class="p">&gt;</span>Query: ID:{{qid}}<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="kr">export</span> <span class="k">default</span> <span class="p">{</span>
+  <span class="nx">props</span><span class="o">:</span> <span class="p">{</span><span class="nx">pid</span><span class="o">:</span> <span class="nb">Number</span><span class="p">,</span>  <span class="nx">qid</span><span class="o">:</span> <span class="nb">Number</span><span class="p">}</span> <span class="c1">//受け取るパラメータ
+</span><span class="c1"></span><span class="p">}</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h6 id="srcrouterjs-2">src/router.js</h6>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="p">...</span>
+<span class="kr">const</span> <span class="nx">router</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">VueRouter</span><span class="p">({</span>
+  <span class="nx">routes</span><span class="o">:</span> <span class="p">[</span>
+    <span class="p">{</span> <span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="nx">component</span><span class="o">:</span> <span class="nx">Home</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;/product&#39;</span><span class="p">,</span> <span class="nx">component</span><span class="o">:</span> <span class="nx">Product</span> <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;/product/:id(\\d+)&#39;</span><span class="p">,</span>
+      <span class="nx">component</span><span class="o">:</span> <span class="nx">Product</span><span class="p">,</span>
+      <span class="nx">props</span><span class="o">:</span> <span class="nx">r</span> <span class="p">=&gt;</span> <span class="p">({</span> <span class="nx">qid</span><span class="o">:</span> <span class="nx">r</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span>  <span class="nx">pid</span><span class="o">:</span> <span class="nx">r</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">id</span><span class="p">})</span> <span class="c1">//こんな感じで。
+</span><span class="c1"></span>    <span class="p">},</span>
+  <span class="p">]</span>
+<span class="p">})</span>
+<span class="p">...</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="ナビゲーション">ナビゲーション</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">template</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;app&#34;</span><span class="p">&gt;</span>
+
+    <span class="c">&lt;!-- 基本はこれ --&gt;</span>
+    <span class="p">&lt;</span><span class="nt">router-link</span> <span class="na">to</span><span class="o">=</span><span class="s">&#34;/product&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">router-link</span><span class="p">&gt;</span>
+
+    <span class="c">&lt;!-- テンプレートリテラルを使う場合。込み入った記述をするとき便利 --&gt;</span>
+    <span class="c">&lt;!-- =より右をJavaScriptの式として評価したい場合は `:to` を使うっぽい --&gt;</span>
+    <span class="p">&lt;</span><span class="nt">router-link</span> <span class="na">:to</span><span class="o">=</span><span class="s">&#34;`/product/${ id }`&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">router-link</span><span class="p">&gt;</span>
+
+    <span class="c">&lt;!-- aタグ以外で囲みたい場合は`tag`で指定する --&gt;</span>
+    <span class="p">&lt;</span><span class="nt">router-link</span> <span class="na">to</span><span class="o">=</span><span class="s">&#34;/product&#34;</span> <span class="na">tag</span><span class="o">=</span><span class="s">&#34;button&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">router-link</span><span class="p">&gt;</span>
+
+    <span class="c">&lt;!-- objectで指定できる。パラメータを渡す場合に便利か --&gt;</span>
+    <span class="c">&lt;!-- paramsを渡す場合は、routerにnameを登録しておく必要がある --&gt;</span>
+    <span class="p">&lt;</span><span class="nt">router-link</span> <span class="na">:to</span><span class="o">=</span><span class="s">&#34;{ path: &#39;/product&#39; }&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">router-link</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">router-link</span> <span class="na">:to</span><span class="o">=</span><span class="s">&#34;{ path: &#39;/product&#39;, query: { id: 42 } }&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">router-link</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">router-link</span> <span class="na">:to</span><span class="o">=</span><span class="s">&#34;{ name: &#39;prod&#39;, params: { id: 42 } }&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">router-link</span><span class="p">&gt;</span>
+
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>アクティブなルートにマッチする <code>router-link</code> には <code>.router-link-exact-active</code> や <code>.router-link-active</code> が付与されるので、簡単にハイライトできる。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-css" data-lang="css"><span class="p">.</span><span class="nc">router-link-exact-active</span> <span class="p">{</span><span class="k">background</span><span class="p">:</span> <span class="mh">#ff00ff</span><span class="p">}</span> <span class="o">//</span><span class="nt">完全一致したルート</span>
+<span class="p">.</span><span class="nc">router-link-active</span> <span class="p">{</span><span class="k">background</span><span class="p">:</span> <span class="mh">#ff00ff</span><span class="p">}</span> <span class="o">//</span><span class="nt">マッチしたパスを含むルート</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>コードから遷移するには <code>$router</code> に対していろいろやる</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="k">this</span><span class="p">.</span><span class="nx">$router</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="s1">&#39;/product&#39;</span><span class="p">)</span> <span class="c1">// push, replace, go
+</span><span class="c1"></span><span class="k">this</span><span class="p">.</span><span class="nx">$router</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span><span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;prod&#39;</span><span class="p">,</span> <span class="nx">params</span><span class="o">:</span> <span class="p">{</span> <span class="nx">id</span><span class="o">:</span> <span class="mi">1</span><span class="p">}})</span> <span class="c1">//router-linkのようにパラメータを渡すこともできる
+</span></code></pre></td></tr></table>
+</div>
+</div><h4 id="動的ルートのサンプル">動的ルートのサンプル</h4>
+<p>ポケモン図鑑(Pokedex)を作る。データは <code>src/DummyPokedex.js</code>にハードコードしたダミーを使う。</p>
+<h6 id="srcappvue-2">src/App.vue</h6>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">template</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;app&#34;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">nav</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">router-link</span> <span class="na">to</span><span class="o">=</span><span class="s">&#34;/&#34;</span><span class="p">&gt;</span>Home<span class="p">&lt;/</span><span class="nt">router-link</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">router-link</span> <span class="na">to</span><span class="o">=</span><span class="s">&#34;/pokemon&#34;</span><span class="p">&gt;</span>Pokedex<span class="p">&lt;/</span><span class="nt">router-link</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">nav</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">img</span> <span class="na">alt</span><span class="o">=</span><span class="s">&#34;Vue logo&#34;</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;./assets/logo.png&#34;</span> <span class="p">/&gt;</span>
+    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">router-view</span> <span class="p">/&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="kr">export</span> <span class="k">default</span> <span class="p">{</span>
+  <span class="nx">name</span><span class="o">:</span> <span class="s2">&#34;App&#34;</span>
+<span class="p">}</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h6 id="srcapidummypokedexjs">src/api/DummyPokedex.js</h6>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">const</span> <span class="nx">pokedex</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="p">{</span> <span class="nx">number</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">name</span><span class="o">:</span> <span class="s2">&#34;フシギダネ&#34;</span><span class="p">,</span> <span class="nx">types</span><span class="o">:</span> <span class="p">[</span><span class="s2">&#34;くさ&#34;</span><span class="p">,</span> <span class="s2">&#34;どく&#34;</span><span class="p">],</span> <span class="nx">height</span><span class="o">:</span> <span class="mf">0.7</span><span class="p">,</span> <span class="nx">weight</span><span class="o">:</span> <span class="mf">6.9</span> <span class="p">},</span>
+  <span class="p">{</span> <span class="nx">number</span><span class="o">:</span> <span class="mi">4</span><span class="p">,</span> <span class="nx">name</span><span class="o">:</span> <span class="s2">&#34;ヒトカゲ&#34;</span><span class="p">,</span> <span class="nx">types</span><span class="o">:</span> <span class="p">[</span><span class="s2">&#34;ほのお&#34;</span><span class="p">],</span> <span class="nx">height</span><span class="o">:</span> <span class="mf">0.6</span><span class="p">,</span> <span class="nx">weight</span><span class="o">:</span> <span class="mf">8.5</span> <span class="p">},</span>
+  <span class="p">{</span> <span class="nx">number</span><span class="o">:</span> <span class="mi">7</span><span class="p">,</span> <span class="nx">name</span><span class="o">:</span> <span class="s2">&#34;ゼニガメ&#34;</span><span class="p">,</span> <span class="nx">types</span><span class="o">:</span> <span class="p">[</span><span class="s2">&#34;みず&#34;</span><span class="p">],</span> <span class="nx">height</span><span class="o">:</span> <span class="mf">0.5</span><span class="p">,</span> <span class="nx">weight</span><span class="o">:</span> <span class="mf">9.0</span><span class="p">},</span>
+<span class="p">]</span>
+
+<span class="c1">//ダミーデータとアクセス用のAPIを定義する
+</span><span class="c1"></span><span class="kr">export</span> <span class="k">default</span> <span class="p">{</span>
+  <span class="nx">fetchAll</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">pokedex</span> <span class="p">},</span>
+  <span class="nx">findFirst</span><span class="p">(</span><span class="nx">number</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">pokedex</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="nx">p</span> <span class="p">=&gt;</span> <span class="nx">p</span><span class="p">.</span><span class="nx">number</span> <span class="o">==</span> <span class="nx">number</span><span class="p">)</span> <span class="p">},</span>
+
+  <span class="c1">// DB等から読み込んでるように振る舞わせるため、`setTimeout` で2秒後にコールバックする
+</span><span class="c1"></span>  <span class="nx">asyncFindFirst</span><span class="p">(</span><span class="nx">number</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">setTimeout</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+      <span class="nx">callback</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">findFirst</span><span class="p">(</span><span class="nx">number</span><span class="p">))</span>
+    <span class="p">},</span> <span class="mi">2000</span><span class="p">)</span> <span class="c1">// 2000ms 後に callbackする
+</span><span class="c1"></span>  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h6 id="srcrouterjs-3">src/router.js</h6>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">import</span> <span class="nx">Vue</span> <span class="nx">from</span> <span class="s1">&#39;vue&#39;</span>
+<span class="kr">import</span> <span class="nx">VueRouter</span> <span class="nx">from</span> <span class="s1">&#39;vue-router&#39;</span>
+
+<span class="kr">import</span> <span class="nx">Home</span> <span class="nx">from</span> <span class="s1">&#39;@/views/Home.vue&#39;</span>
+<span class="kr">import</span> <span class="nx">Pokedex</span> <span class="nx">from</span> <span class="s1">&#39;@/views/Pokedex.vue&#39;</span>
+<span class="kr">import</span> <span class="nx">Pokemon</span> <span class="nx">from</span> <span class="s1">&#39;@/views/Pokemon.vue&#39;</span>
+
+<span class="nx">Vue</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">VueRouter</span><span class="p">)</span>
+
+<span class="kr">const</span> <span class="nx">router</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">VueRouter</span><span class="p">({</span>
+  <span class="nx">routes</span><span class="o">:</span> <span class="p">[</span>
+    <span class="p">{</span> <span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="nx">component</span><span class="o">:</span> <span class="nx">Home</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;/pokemon&#39;</span><span class="p">,</span> <span class="nx">component</span><span class="o">:</span> <span class="nx">Pokedex</span> <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;/pokemon/:number(\\d+)&#39;</span><span class="p">,</span>
+      <span class="nx">component</span><span class="o">:</span> <span class="nx">Pokemon</span><span class="p">,</span>
+      <span class="nx">props</span><span class="o">:</span> <span class="nx">route</span> <span class="p">=&gt;</span> <span class="p">({</span>
+        <span class="nx">number</span><span class="o">:</span> <span class="nb">Number</span><span class="p">(</span><span class="nx">route</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">number</span><span class="p">)</span>
+      <span class="p">})</span>
+    <span class="p">},</span>
+  <span class="p">]</span>
+<span class="p">})</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="nx">router</span>
+</code></pre></td></tr></table>
+</div>
+</div><h6 id="srcviewspokedexvue">src/views/Pokedex.vue</h6>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">template</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Pokedex<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+      <span class="c">&lt;!-- ポケモン一覧をを表示する --&gt;</span>
+      <span class="p">&lt;</span><span class="nt">li</span> <span class="na">v-for</span><span class="o">=</span><span class="s">&#34;{number, name} in pokedex&#34;</span> <span class="na">:key</span><span class="o">=</span><span class="s">&#34;number&#34;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">router-link</span> <span class="na">:to</span><span class="o">=</span><span class="s">&#34;`/pokemon/${number}`&#34;</span><span class="p">&gt;</span>No.{{number}} {{name}}<span class="p">&lt;/</span><span class="nt">router-link</span><span class="p">&gt;</span>
+      <span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="kr">import</span> <span class="nx">Pokedex</span> <span class="nx">from</span> <span class="s1">&#39;@/api/DummyPokedex.js&#39;</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="p">{</span>
+  <span class="nx">computed</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">pokedex</span><span class="o">:</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="nx">Pokedex</span><span class="p">.</span><span class="nx">fetchAll</span><span class="p">()</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h6 id="srcviewspokemonvue">src/views/Pokemon.vue</h6>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">template</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">v-if</span><span class="o">=</span><span class="s">&#34;pokemon&#34;</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>No. {{pokemon.number}} {{pokemon.name}}<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>体長:{{pokemon.height}}[m] 重さ:{{pokemon.weight}}[kg]<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>タイプ<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">p</span> <span class="na">v-for</span><span class="o">=</span><span class="s">&#34;type in pokemon.types&#34;</span> <span class="na">:key</span><span class="o">=</span><span class="s">&#34;type&#34;</span><span class="p">&gt;</span>{{type}}<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">v-else</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>Loading...<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="kr">import</span> <span class="nx">Pokedex</span> <span class="nx">from</span> <span class="s1">&#39;@/api/DummyPokedex.js&#39;</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="p">{</span>
+  <span class="nx">props</span><span class="o">:</span> <span class="p">{</span><span class="nx">number</span><span class="o">:</span> <span class="nb">Number</span><span class="p">},</span>
+  <span class="nx">data</span><span class="p">(){</span>
+    <span class="k">return</span> <span class="p">{</span><span class="nx">pokemon</span><span class="o">:</span> <span class="kc">null</span><span class="p">}</span>
+  <span class="p">},</span>
+  <span class="c1">// computed では this.numberを参照できないので、watch で numberを監視するように。
+</span><span class="c1"></span>  <span class="nx">watch</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">number</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">handler</span><span class="p">(){</span>
+        <span class="c1">// 遅延読み込みした結果を格納する
+</span><span class="c1"></span>        <span class="nx">Pokedex</span><span class="p">.</span><span class="nx">asyncFindFirst</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">number</span><span class="p">,</span> <span class="nx">pokemon</span> <span class="p">=&gt;</span> <span class="p">{</span>
+          <span class="k">this</span><span class="p">.</span><span class="nx">pokemon</span> <span class="o">=</span> <span class="nx">pokemon</span>
+        <span class="p">})</span>
+      <span class="p">},</span> <span class="nx">immediate</span><span class="o">:</span> <span class="kc">true</span> <span class="c1">//ここがtrueじゃないと、すぐにhandlerが呼ばれない。
+</span><span class="c1"></span>    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><code>src/views/Pokemon.vue</code> の下に子コンポーネントを作る場合は、<code>src/views/Pokemon/*.vue</code> とするのがいいらしい。</p>
+<h4 id="遷移アニメーション">遷移アニメーション</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">transition</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;viewwww&#34;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">router-view</span> <span class="p">/&gt;</span>
+<span class="p">&lt;/</span><span class="nt">transition</span><span class="p">&gt;</span>
+...
+<span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+<span class="p">.</span><span class="nc">viewwww-enter-active</span> <span class="p">{</span>
+  <span class="k">transition</span><span class="p">:</span> <span class="k">opacity</span> <span class="mf">0.5</span><span class="kt">s</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="p">.</span><span class="nc">viewwww-enter</span><span class="o">,</span> <span class="p">.</span><span class="nc">viewwww-leave-to</span> <span class="p">{</span>
+  <span class="k">opacity</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><code>name</code>に指定した<code>viewwww</code>が一致してないといけない。</p>
+<h4 id="ナビゲーションガード">ナビゲーションガード</h4>
+<p>遷移を操作するためのフック。</p>
+<ul>
+<li><code>to()</code>: 遷移後のrouteオブジェクトを受け取る</li>
+<li><code>from()</code>: 遷移前のrouteオブジェクトを受け取る</li>
+<li><code>next()</code>: これを呼ぶとフックが解決してrouteの遷移が行われる。遷移を中止する場合は<code>next(false)</code>をコールする。<code>next('/pokemon')</code>などで任意のrouteにリダイレクトもできる。</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">const</span> <span class="nx">router</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">VueRouter</span><span class="p">({</span>
+  <span class="nx">routes</span><span class="o">:</span> <span class="p">[</span>
+    <span class="p">...</span>
+    <span class="p">{</span>
+      <span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;/pokemon&#39;</span><span class="p">,</span>
+      <span class="nx">component</span><span class="o">:</span> <span class="nx">Pokedex</span>
+      <span class="nx">beforeEnter</span><span class="p">(</span><span class="nx">to</span><span class="p">,</span> <span class="nx">from</span><span class="p">,</span> <span class="nx">next</span><span class="p">){</span> <span class="c1">//このrouteへ遷移する前に呼ばれる。
+</span><span class="c1"></span>        <span class="nx">next</span><span class="p">()</span> <span class="c1">//遷移してもOKな場合に呼ぶ
+</span><span class="c1"></span>      <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="p">...</span>
+  <span class="p">]</span>
+<span class="p">})</span>
+<span class="c1">//グローバルなガードも使える
+</span><span class="c1"></span><span class="nx">router</span><span class="p">.</span><span class="nx">beforEeach</span><span class="p">((</span><span class="nx">to</span><span class="p">,</span> <span class="nx">from</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+<span class="c1">//コンポーネントガード解決前に呼ばれる
+</span><span class="c1"></span><span class="p">...</span>
+<span class="p">})</span>
+
+<span class="nx">router</span><span class="p">.</span><span class="nx">afterResolve</span><span class="p">((</span><span class="nx">to</span><span class="p">,</span> <span class="nx">from</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+<span class="c1">//コンポーネントガード解決後に呼ばれる
+</span><span class="c1"></span><span class="p">...</span>
+<span class="p">});</span>
+
+<span class="nx">router</span><span class="p">.</span><span class="nx">afterEeach</span><span class="p">((</span><span class="nx">to</span><span class="p">,</span> <span class="nx">from</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span> <span class="c1">// 遷移が終わってから呼ばれるのでnextは使えない。
+</span><span class="c1">//すべてのルートの遷移後に呼ばれる
+</span><span class="c1"></span><span class="p">...</span>
+<span class="p">});</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="kr">export</span> <span class="k">default</span> <span class="p">{</span>
+  <span class="c1">// beforeRoute{Enter, Update, Leave} が使える
+</span><span class="c1"></span>
+  <span class="nx">beforeRouteEnter</span><span class="p">(</span><span class="nx">to</span><span class="p">,</span><span class="nx">from</span><span class="p">,</span><span class="nx">next</span><span class="p">){</span>
+    <span class="c1">// この時点ではコンポーネントのインスタンスはまだ作られていないので、thisにアクセスできないことに注意。
+</span><span class="c1"></span>    <span class="nx">next</span><span class="p">(</span><span class="nx">vm</span> <span class="p">=&gt;</span> <span class="p">{</span>
+      <span class="c1">// vm には VueComponent が入っている
+</span><span class="c1"></span>      <span class="c1">// このコールバックでthisにアクセスできる。
+</span><span class="c1"></span>    <span class="p">})</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><code>beforEeach</code>とかで、認証認可のチェックができる？</p>
+<h3 id="axios">axios</h3>
+<p><a href="https://jp.vuejs.org/v2/cookbook/using-axios-to-consume-apis.html">axios を利用した API の使用</a></p>
+<blockquote>
+<p>Promise ベースの HTTP クライアント</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">$ npm install axios
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">const</span> <span class="nx">axios</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;axios&#39;</span><span class="p">).</span><span class="k">default</span>
+<span class="c1">// Make a request for a user with a given ID
+</span><span class="c1"></span><span class="nx">axios</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/user?ID=12345&#39;</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// handle success
+</span><span class="c1"></span>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
+  <span class="p">})</span>
+  <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// handle error
+</span><span class="c1"></span>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+  <span class="p">})</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// always executed
+</span><span class="c1"></span>  <span class="p">});</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="ui-fwを導入">UI FWを導入</h2>
+<h3 id="bootstrapvue">BootstrapVue</h3>
+<ul>
+<li><a href="https://bootstrap-vue.org/docs/#using-module-bundlers">Using module bundlers</a></li>
+<li><a href="https://bootstrap-vue.org/docs/#vue-cli-3">Vue CLI 3</a></li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">$ npm install bootstrap-view
+</code></pre></td></tr></table>
+</div>
+</div><h6 id="srcmainjs-1">src/main.js</h6>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="p">...</span>
+<span class="kr">import</span> <span class="nx">BootstrapVue</span> <span class="nx">from</span> <span class="s1">&#39;bootstrap-vue&#39;</span>
+<span class="kr">import</span> <span class="s1">&#39;bootstrap/dist/css/bootstrap.css&#39;</span>
+<span class="kr">import</span> <span class="s1">&#39;bootstrap-vue/dist/bootstrap-vue.css&#39;</span>
+<span class="nx">Vue</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">BootstrapVue</span><span class="p">)</span>
+<span class="p">...</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>これでOK</p>
+<h2 id="firebaseにデプロイ">Firebaseにデプロイ</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">$ ls
+README.md        node_modules       package.json  src
+babel.config.js  package-lock.json  public        vue.config.js
+
+$ firebase login
+
+$ firebase init
+<span class="c1"># Hostingを選択</span>
+<span class="c1"># ? What do you want to use as your public directory? public</span>
+<span class="c1"># ? Configure as a single-page app (rewrite all urls to /index.html)? Yes</span>
+<span class="c1"># ? File public/index.html already exists. Overwrite? No</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><code>.firebaserc</code> はデプロイ先のプロジェクト名とかが入っているので、 <code>.gitignore</code>に加えておくと良い。</p>
+<h6 id="firebasejson">firebase.json</h6>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
+  <span class="nt">&#34;hosting&#34;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&#34;public&#34;</span><span class="p">:</span> <span class="s2">&#34;dist&#34;</span><span class="p">,</span>
+    <span class="nt">&#34;ignore&#34;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="s2">&#34;firebase.json&#34;</span><span class="p">,</span>
+      <span class="s2">&#34;**/.*&#34;</span><span class="p">,</span>
+      <span class="s2">&#34;**/node_modules/**&#34;</span>
+    <span class="p">],</span>
+    <span class="nt">&#34;rewrites&#34;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="nt">&#34;source&#34;</span><span class="p">:</span> <span class="s2">&#34;**&#34;</span><span class="p">,</span>
+        <span class="nt">&#34;destination&#34;</span><span class="p">:</span> <span class="s2">&#34;/index.html&#34;</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Vueはdistにデプロイ用のもろもろを吐き出すので、<code>&quot;public&quot;:&quot;public&quot;</code> から <code>&quot;public&quot;:&quot;dist&quot;</code>に変更しておく。</p>
+<p>ビルドしてデプロイする</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">$ npm run build
+$ firebase deploy
+</code></pre></td></tr></table>
+</div>
+</div><hr>
+<h2 id="es2015es6関連">ES2015(ES6)関連</h2>
+<h3 id="文法いろいろ">文法いろいろ</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">// 変数宣言
+</span><span class="c1">// var x = 0 //スコープ広い
+</span><span class="c1"></span><span class="kd">let</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1">//スコープ内でのみ有効
+</span><span class="c1"></span><span class="kr">const</span> <span class="nx">y</span> <span class="o">=</span> <span class="mi">42</span> <span class="c1">//再代入不可
+</span><span class="c1"></span>
+<span class="c1">// function
+</span><span class="c1"></span><span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
+  <span class="nx">methods</span><span class="o">:</span> <span class="p">{</span>
+    <span class="c1">// 以下は handle: function(){ ... } と同じ。
+</span><span class="c1"></span>    <span class="c1">// プロパティとして関数を宣言するときは function を省略できる。
+</span><span class="c1"></span>    <span class="nx">handle</span><span class="p">(){</span>  <span class="p">...</span>  <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+
+<span class="c1">//アロー関数
+</span><span class="c1"></span><span class="kd">let</span> <span class="nx">hoge</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="s2">&#34;hoge&#34;</span>
+<span class="kd">let</span> <span class="nx">fuga</span> <span class="o">=</span> <span class="nx">arg</span> <span class="p">=&gt;</span> <span class="s2">&#34;fuga and &#34;</span> <span class="o">+</span> <span class="nx">arg</span>
+<span class="kd">let</span> <span class="nx">piyo</span> <span class="o">=</span> <span class="p">(</span><span class="nx">arg1</span><span class="p">,</span> <span class="nx">arg2</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">joined</span> <span class="o">=</span> <span class="nx">arg1</span> <span class="o">+</span> <span class="s2">&#34;piyo&#34;</span> <span class="o">+</span> <span class="nx">arg2</span><span class="p">;</span>
+  <span class="k">return</span> <span class="nx">joined</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">//テンプレートリテラル
+</span><span class="c1"></span><span class="kd">let</span> <span class="nx">template</span> <span class="o">=</span> <span class="sb">`
+</span><span class="sb">  &lt;div class=&#34;sample&#34;&gt;
+</span><span class="sb">    &lt;p&gt;</span><span class="si">${</span> <span class="k">this</span><span class="p">.</span><span class="nx">variable</span> <span class="si">}</span><span class="sb">&lt;/p&gt;
+</span><span class="sb">  &lt;/div&gt;`</span>
+
+<span class="c1">// オブジェクトプロパティのショートバンド
+</span><span class="c1"></span><span class="kd">let</span> <span class="kr">short</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">hoge</span><span class="p">,</span> <span class="nx">fuga</span> <span class="c1">// 変数名がプロパティの名前になる
+</span><span class="c1"></span><span class="p">}</span>
+<span class="c1">// let short = {
+</span><span class="c1">//   hoge: hoge,
+</span><span class="c1">//   fuga: fuga
+</span><span class="c1">// }
+</span><span class="c1"></span>
+<span class="c1">// 多重代入(分割代入)
+</span><span class="c1"></span><span class="kd">let</span> <span class="p">[</span><span class="nx">a</span><span class="p">,</span><span class="nx">b</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="c1">// aに1, bに2が代入される
+</span><span class="c1"></span><span class="kd">let</span> <span class="p">{</span> <span class="nx">a</span> <span class="p">}</span> <span class="o">=</span> <span class="p">{</span><span class="nx">a</span><span class="o">:</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="nx">b</span><span class="o">:</span><span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="nx">c</span><span class="o">:</span><span class="s1">&#39;C&#39;</span><span class="p">}</span> <span class="c1">// a に &#39;A&#39;が 代入される
+</span><span class="c1"></span>
+<span class="c1">// スプレッド演算子
+</span><span class="c1"></span><span class="kd">let</span> <span class="nx">args</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
+<span class="nx">piyo</span><span class="p">(...</span><span class="nx">args</span><span class="p">)</span> <span class="c1">// piyo(1,2)と同義
+</span><span class="c1"></span><span class="kd">let</span> <span class="nx">args_ex</span> <span class="o">=</span> <span class="p">[</span> <span class="p">...</span><span class="nx">args</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="c1">// [1,2,3]
+</span></code></pre></td></tr></table>
+</div>
+</div><h3 id="モジュール定義とインポート">モジュール定義とインポート</h3>
+<h6 id="samplejs">Sample.js</h6>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">state</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">count</span><span class="o">:</span> <span class="mi">1</span>
+<span class="p">}</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="nx">state</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><code>export default state</code> は、デフォルトのimport文で呼ばれたときに返すデータを定義している。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">import</span> <span class="nx">Sample</span> <span class="nx">from</span> <span class="s1">&#39;./Sample.js&#39;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>みたいに書くと、stateのオブジェクトをSampleという変数名としてインポートする。</p>
+<h4 id="export-default-vs-moduleexports-"><code>export default</code> vs <code>module.exports =</code></h4>
+<p><a href="https://qiita.com/kiyodori/items/01d07d5c0659e539ecb9">こちら参照</a></p>
+<blockquote>
+<p>・基本的にはexport defaultを使う
+・複数のモジュールをexportするときはexportを使う
+・受け取り側はimportを使う</p>
+</blockquote>
+<h4 id="require-vs-import"><code>require</code> vs <code>import</code></h4>
+<p><a href="https://qiita.com/minato-naka/items/39ecc285d1e37226a283">こちら参照</a></p>
+<blockquote>
+<p>モジュール読み込みの仕様の主要なものとして、ESM (ECMAScript Modules)とCJS (CommonJS Modules)があります。
+importを使うのがESM方式で、requireを使うのがCJS方式
+require文は、CommonJSの仕様で、Nodejsの環境で動作してくれる書き方です。Nodejs環境ということはつまり、サーバサイドでの実行ということになります。</p>
+</blockquote>
+<p>import を使うのが良さそう。</p>
+<hr>
+<h2 id="メモ">メモ</h2>
+<h3 id="開発環境">開発環境</h3>
+<h4 id="ubuntuwsl環境にnodejsをインストールする">Ubuntu(WSL)環境にNode.jsをインストールする</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">$ sudo apt update
+$ sudo apt install nodejs npm
+$ sudo npm install n -g
+$ sudo n stable
+$ <span class="c1"># sudo apt purge -y nodejs npm #古いのは消すex</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="vue-cli-1">Vue CLI</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">$ sudo npm install -g @vue/cli
+$ vue --version
+@vue/cli 4.3.1
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="vs-codeに入れた拡張">VS Codeに入れた拡張</h4>
+<ul>
+<li>ESLint</li>
+<li>Prettier</li>
+<li>Veture (主な使い方は<a href="https://vuejs.github.io/vetur/snippet.html">ここ</a>。<a href="https://biz-navi.site/vscode%EF%BC%8Bvetur/">このあたり</a>も参考に。)</li>
+<li>Vue Peek</li>
+<li>Auto Rename Tag</li>
+</ul>
+<h3 id="いろいろ">いろいろ</h3>
+<ul>
+<li><code>&lt;ol&gt;</code>: 連番</li>
+<li><code>&lt;ul&gt;</code>: <code>・</code> だけ。</li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">作成者</span>
+    <span class="item-content">tac0x2a</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">最終更新時刻</span>
+    <span class="item-content">
+        2020-05-10
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/2020-05-10-hugopost/">
+            <span class="next-text nav-default">HugoでGithubPagesへ記事を公開する</span>
+            <span class="next-text nav-mobile">次の記事へ</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:tac@tac42.net" class="iconfont icon-email" title="email"></a>
+      <a href="https://twitter.com/tac0x2a/" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="https://github.com/tac0x2a" class="iconfont icon-github" title="github"></a>
+      <a href="https://osha-shin.tumblr.com/" class="iconfont icon-tumblr" title="tumblr"></a>
+  <a href="https://www.tac42.net/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2015 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">tac0x2a</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

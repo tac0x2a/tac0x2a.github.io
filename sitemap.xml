@@ -2,21 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://www.tac42.net/post/2020-05-10-hugopost/</loc>
-    <lastmod>2020-05-10T17:20:03+09:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://www.tac42.net/post/</loc>
-    <lastmod>2020-05-10T17:20:03+09:00</lastmod>
+    <lastmod>2020-05-10T17:41:19+09:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://www.tac42.net/</loc>
+    <lastmod>2020-05-10T17:41:19+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.tac42.net/post/2020-05-06-vuejs-memo/</loc>
+    <lastmod>2020-05-10T17:41:19+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.tac42.net/post/2020-05-10-hugopost/</loc>
     <lastmod>2020-05-10T17:20:03+09:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
