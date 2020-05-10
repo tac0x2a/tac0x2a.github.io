@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>プロトタイプを作ろう - tac42.net</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="tac0x2a" /><meta name="description" content="まずはプロトタイプ 前回なんとか Docker で実行環境兼開発環境を構築できました。 とにかく早く作ってみたいので、プロトタイプという体で手を動かしてみます" /><meta name="keywords" content="Tech, Photo, Blog" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.70.0 with theme even" />
+
+
+<link rel="canonical" href="https://www.tac42.net/post/2016-03-28-makeonlinejudgev08/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c" rel="stylesheet">
+
+
+<link href="/sass/main.min.8c3cbcb0324c2bb4875ceccba4007cbad4b4ac8377f33af9953c3e7684534a50.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="プロトタイプを作ろう" />
+<meta property="og:description" content="まずはプロトタイプ 前回なんとか Docker で実行環境兼開発環境を構築できました。 とにかく早く作ってみたいので、プロトタイプという体で手を動かしてみます" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.tac42.net/post/2016-03-28-makeonlinejudgev08/" />
+<meta property="article:published_time" content="2016-03-28T22:22:25+00:00" />
+<meta property="article:modified_time" content="2016-03-28T22:22:25+00:00" />
+<meta itemprop="name" content="プロトタイプを作ろう">
+<meta itemprop="description" content="まずはプロトタイプ 前回なんとか Docker で実行環境兼開発環境を構築できました。 とにかく早く作ってみたいので、プロトタイプという体で手を動かしてみます">
+<meta itemprop="datePublished" content="2016-03-28T22:22:25&#43;00:00" />
+<meta itemprop="dateModified" content="2016-03-28T22:22:25&#43;00:00" />
+<meta itemprop="wordCount" content="505">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="プロトタイプを作ろう"/>
+<meta name="twitter:description" content="まずはプロトタイプ 前回なんとか Docker で実行環境兼開発環境を構築できました。 とにかく早く作ってみたいので、プロトタイプという体で手を動かしてみます"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">tac42.net</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Blog</li>
+      </a><a href="/products/">
+        <li class="mobile-menu-item">Products</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">tac42.net</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Blog</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/products/">Products</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">プロトタイプを作ろう</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2016-03-28 </span>
+        <div class="post-category">
+            <a href="/categories/make_online_judge/"> make_online_judge </a>
+            <a href="/categories/tech/"> tech </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">コンテンツ</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#express-の環境構築">Express の環境構築</a></li>
+    <li><a href="#アプリを書いてみる">アプリを書いてみる</a></li>
+    <li><a href="#実行してみる">実行してみる</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="まずはプロトタイプ">まずはプロトタイプ</h1>
+<p>前回なんとか Docker で実行環境兼開発環境を構築できました。
+とにかく早く作ってみたいので、プロトタイプという体で手を動かしてみます。
+どうせ作り直したくなってくるので、最初は適当にやってみようというかんじ。死にゲー。</p>
+<h2 id="express-の環境構築">Express の環境構築</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ nvm use v5.9.0
+$ npm init
+$ npm install --save-dev express
+</code></pre></td></tr></table>
+</div>
+</div><p><code>--save-dev</code> オプションを付けておくと、インストールしたパッケージを<code>package.js</code>へ自動で追記してくれます。便利！</p>
+<h2 id="アプリを書いてみる">アプリを書いてみる</h2>
+<p><code>app.js</code> という名前で以下のファイルを作った。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;express&#39;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">express</span><span class="p">();</span>
+
+<span class="c1">// receive http request
+</span><span class="c1"></span><span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s1">&#39;Hello, World&#39;</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="c1">// launch server
+</span><span class="c1"></span><span class="kd">var</span> <span class="nx">server</span> <span class="o">=</span> <span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="mi">3000</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">host</span> <span class="o">=</span> <span class="nx">server</span><span class="p">.</span><span class="nx">address</span><span class="p">().</span><span class="nx">address</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">port</span> <span class="o">=</span> <span class="nx">server</span><span class="p">.</span><span class="nx">address</span><span class="p">().</span><span class="nx">port</span><span class="p">;</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Judge server is started at http://%s:%s&#39;</span><span class="p">,</span> <span class="nx">host</span><span class="p">,</span> <span class="nx">port</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>で、できあがったのがこれ。</p>
+<ul>
+<li><a href="https://github.com/tac0x2a/judgesv_app_prototype">tac0x2a/judgesv_app_prototype</a></li>
+</ul>
+<h2 id="実行してみる">実行してみる</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ node app.js
+$ curl http://:::3000
+Hello, World
+</code></pre></td></tr></table>
+</div>
+</div><p>おおお、動いてる！</p>
+<h1 id="docker-で動かす">Docker で動かす</h1>
+<p>これまでは直接 Mac で動かしていましたが、前回作った Docker の実行環境で動かしてみます。</p>
+<ul>
+<li><a href="https://github.com/tac0x2a/judgesv_devenv">tac0x2a/judgesv_devenv</a></li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ git clone git@github.com:tac0x2a/judgesv_devenv.git
+$ cd judgesv_devenv/
+$ git clone git@github.com:tac0x2a/judgesv_app_prototype.git data/work
+$ docker-compose build
+$ docker-compose pull
+$ docker-compose up -d
+</code></pre></td></tr></table>
+</div>
+</div><p><code>data/work</code> が DataVolume になっており、コンテナの <code>/home/devenv/work</code> にマウントされて、<code>node app.js</code> で実行されます。</p>
+<p>エントリポイントが<code>app.js</code> 固定になってて気持ち悪いですが、何か設定ファイル等で指定する方法があるんだと思います。そのうち調べます。</p>
+<p>はい、今回はここまで〜</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">作成者</span>
+    <span class="item-content">tac0x2a</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">最終更新時刻</span>
+    <span class="item-content">
+        2016-03-28
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/post/2016-03-30-makeonlinejudgev09/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Expressでバックエンドを作る(ユーザ認証まで)</span>
+            <span class="prev-text nav-mobile">前の記事へ</span>
+          </a>
+        <a class="next" href="/post/2016-03-27-makeonlinejudgev07/">
+            <span class="next-text nav-default">Dockerによる環境構築</span>
+            <span class="next-text nav-mobile">次の記事へ</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:tac@tac42.net" class="iconfont icon-email" title="email"></a>
+      <a href="https://twitter.com/tac0x2a/" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="https://github.com/tac0x2a" class="iconfont icon-github" title="github"></a>
+      <a href="https://osha-shin.tumblr.com/" class="iconfont icon-tumblr" title="tumblr"></a>
+  <a href="https://www.tac42.net/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2015 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">tac0x2a</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

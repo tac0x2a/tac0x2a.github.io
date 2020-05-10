@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>テストフレームワークを導入する(mocha) - tac42.net</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="tac0x2a" /><meta name="description" content="ユーザのサインアップ、ログイン・ログアウトを実装できたので いよいよ本格的に機能を作りこんでいきたいのですが、 やはりテストが無いと不安です。 Mocha" /><meta name="keywords" content="Tech, Photo, Blog" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.70.0 with theme even" />
+
+
+<link rel="canonical" href="https://www.tac42.net/post/2016-04-13-makeonlinejudgev10/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c" rel="stylesheet">
+
+
+<link href="/sass/main.min.8c3cbcb0324c2bb4875ceccba4007cbad4b4ac8377f33af9953c3e7684534a50.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="テストフレームワークを導入する(mocha)" />
+<meta property="og:description" content="ユーザのサインアップ、ログイン・ログアウトを実装できたので いよいよ本格的に機能を作りこんでいきたいのですが、 やはりテストが無いと不安です。 Mocha" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.tac42.net/post/2016-04-13-makeonlinejudgev10/" />
+<meta property="article:published_time" content="2016-04-13T08:04:24+00:00" />
+<meta property="article:modified_time" content="2016-04-13T08:04:24+00:00" />
+<meta itemprop="name" content="テストフレームワークを導入する(mocha)">
+<meta itemprop="description" content="ユーザのサインアップ、ログイン・ログアウトを実装できたので いよいよ本格的に機能を作りこんでいきたいのですが、 やはりテストが無いと不安です。 Mocha">
+<meta itemprop="datePublished" content="2016-04-13T08:04:24&#43;00:00" />
+<meta itemprop="dateModified" content="2016-04-13T08:04:24&#43;00:00" />
+<meta itemprop="wordCount" content="540">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="テストフレームワークを導入する(mocha)"/>
+<meta name="twitter:description" content="ユーザのサインアップ、ログイン・ログアウトを実装できたので いよいよ本格的に機能を作りこんでいきたいのですが、 やはりテストが無いと不安です。 Mocha"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">tac42.net</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Blog</li>
+      </a><a href="/products/">
+        <li class="mobile-menu-item">Products</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">tac42.net</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Blog</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/products/">Products</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">テストフレームワークを導入する(mocha)</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2016-04-13 </span>
+        <div class="post-category">
+            <a href="/categories/make_online_judge/"> make_online_judge </a>
+            <a href="/categories/tech/"> tech </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">コンテンツ</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents"></nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>ユーザのサインアップ、ログイン・ログアウトを実装できたので
+いよいよ本格的に機能を作りこんでいきたいのですが、
+やはりテストが無いと不安です。</p>
+<h1 id="mocha">Mocha</h1>
+<p>比較的シンプルそうなテストフレームワーク <a href="http://mochajs.org/">mocah</a> を導入します。</p>
+<ul>
+<li><a href="http://mochajs.org/">Mocha</a></li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ npm install -g mocha --save-dev
+</code></pre></td></tr></table>
+</div>
+</div><p>さっそく動かしてみる.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ mkdir test
+$ touch test/test.js
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">assert</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;chai&#39;</span><span class="p">).</span><span class="nx">assert</span><span class="p">;</span>
+<span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;Array&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;#indexOf()&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">it</span><span class="p">(</span><span class="s1">&#39;should return -1 when the value is not present&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+      <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">].</span><span class="nx">indexOf</span><span class="p">(</span><span class="mi">5</span><span class="p">));</span>
+      <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">].</span><span class="nx">indexOf</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span>
+    <span class="p">});</span>
+  <span class="p">});</span>
+<span class="p">});</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ mocha
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">Array
+  #indexOf()
+    1) should return -1 when the value is not present
+
+0 passing (14ms)
+1 failing
+
+1) Array #indexOf() should return -1 when the value is not present:
+   ReferenceError: assert is not defined
+    at Context.&lt;anonymous&gt; (test/test.js:4:7)
+</code></pre></td></tr></table>
+</div>
+</div><p>お、動いてるっぽい。
+ちなみにアサーションには Chai を使っています。</p>
+<ul>
+<li><a href="http://chaijs.com/">Chai</a></li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">assert</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;chai&#39;</span><span class="p">).</span><span class="nx">assert</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Chai は他にも <code>expect</code> や <code>should</code> を使った書き方もサポートしています。
+<code>should</code> や <code>expect</code> は Rspec で使っていましたが冗長になりがちだったので、今回は assert を使ってみようと思います。</p>
+<h1 id="ci-に乗せる">CI に乗せる</h1>
+<p>いつもの Travis-CI で。</p>
+<ul>
+<li><a href="https://travis-ci.org/">Travis CI</a></li>
+<li><a href="https://docs.travis-ci.com/user/languages/javascript-with-nodejs">Building a Node.js project</a></li>
+</ul>
+<p>以下の内容で <code>.travis.yml</code> をリポジトリのルートに作る。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-yml" data-lang="yml"><span class="k">language</span><span class="p">:</span><span class="w"> </span>node_js<span class="w">
+</span><span class="w"></span><span class="k">node_js</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span>- <span class="s1">&#39;5.9.0&#39;</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><p>TravisCI は <code>npm test</code> を叩いてテストするので、<code>package.js</code> に以下を加える。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="p">{</span>
+<span class="p">...</span>
+  <span class="s2">&#34;scripts&#34;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&#34;test&#34;</span><span class="o">:</span> <span class="s2">&#34;mocha&#34;</span>
+  <span class="p">},</span>
+<span class="p">...</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>TravisCI でリポジトリを有効にしてビルド。<code>README.md</code>にバッジを追記する。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">......
+$ npm test
+&gt; WitchCoder@0.0.0 test /home/travis/build/tac0x2a/WitchCoder
+&gt; mocha
+  login
+    /return
+  ✓ should be return error when email is empty
+  ✓ should be return error when name is empty
+  ✓ login failed if user not found
+  ✓ login failed if password is not matched
+  4 passing (14ms)
+The command &#34;npm test&#34; exited with 0.
+Done. Your build exited with 0.
+</code></pre></td></tr></table>
+</div>
+</div><p>動いてる！いい感じ〜</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">作成者</span>
+    <span class="item-content">tac0x2a</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">最終更新時刻</span>
+    <span class="item-content">
+        2016-04-13
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/post/2016-04-24-makeonlinejudgev11/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">AngularJS導入</span>
+            <span class="prev-text nav-mobile">前の記事へ</span>
+          </a>
+        <a class="next" href="/post/2016-03-30-makeonlinejudgev09/">
+            <span class="next-text nav-default">Expressでバックエンドを作る(ユーザ認証まで)</span>
+            <span class="next-text nav-mobile">次の記事へ</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:tac@tac42.net" class="iconfont icon-email" title="email"></a>
+      <a href="https://twitter.com/tac0x2a/" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="https://github.com/tac0x2a" class="iconfont icon-github" title="github"></a>
+      <a href="https://osha-shin.tumblr.com/" class="iconfont icon-tumblr" title="tumblr"></a>
+  <a href="https://www.tac42.net/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2015 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">tac0x2a</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

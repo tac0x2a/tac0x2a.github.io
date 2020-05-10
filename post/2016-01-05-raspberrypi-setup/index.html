@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>RaspberryPi2をセットアップする - tac42.net</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="tac0x2a" /><meta name="description" content="すごい今更感ありますが、Raspberry Pi2 Model B を買ってしまったのでセットアップしたメモ． ssh するところまで． イメージの書き込み OS イメージを microSD" /><meta name="keywords" content="Tech, Photo, Blog" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.70.0 with theme even" />
+
+
+<link rel="canonical" href="https://www.tac42.net/post/2016-01-05-raspberrypi-setup/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c" rel="stylesheet">
+
+
+<link href="/sass/main.min.8c3cbcb0324c2bb4875ceccba4007cbad4b4ac8377f33af9953c3e7684534a50.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="RaspberryPi2をセットアップする" />
+<meta property="og:description" content="すごい今更感ありますが、Raspberry Pi2 Model B を買ってしまったのでセットアップしたメモ． ssh するところまで． イメージの書き込み OS イメージを microSD" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.tac42.net/post/2016-01-05-raspberrypi-setup/" />
+<meta property="article:published_time" content="2016-01-05T01:42:19+00:00" />
+<meta property="article:modified_time" content="2016-01-05T01:42:19+00:00" />
+<meta itemprop="name" content="RaspberryPi2をセットアップする">
+<meta itemprop="description" content="すごい今更感ありますが、Raspberry Pi2 Model B を買ってしまったのでセットアップしたメモ． ssh するところまで． イメージの書き込み OS イメージを microSD">
+<meta itemprop="datePublished" content="2016-01-05T01:42:19&#43;00:00" />
+<meta itemprop="dateModified" content="2016-01-05T01:42:19&#43;00:00" />
+<meta itemprop="wordCount" content="1437">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="RaspberryPi2をセットアップする"/>
+<meta name="twitter:description" content="すごい今更感ありますが、Raspberry Pi2 Model B を買ってしまったのでセットアップしたメモ． ssh するところまで． イメージの書き込み OS イメージを microSD"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">tac42.net</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Blog</li>
+      </a><a href="/products/">
+        <li class="mobile-menu-item">Products</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">tac42.net</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Blog</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/products/">Products</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">RaspberryPi2をセットアップする</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2016-01-05 </span>
+        <div class="post-category">
+            <a href="/categories/tech/"> tech </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">コンテンツ</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#シリアルドライバのインストール">シリアルドライバのインストール</a></li>
+    <li><a href="#接続">接続</a></li>
+    <li><a href="#初期設定">初期設定</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#ドングルの設定">ドングルの設定</a></li>
+    <li><a href="#電力アップ">電力アップ</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p><img src="./raspi.jpg" alt="RaspberryPi"></p>
+<p>すごい今更感ありますが、Raspberry Pi2 Model B を買ってしまったのでセットアップしたメモ．
+ssh するところまで．</p>
+<h1 id="イメージの書き込み">イメージの書き込み</h1>
+<p>OS イメージを microSD へ書き込む．使用 OS ごとの書き込み方法は<a href="https://www.raspberrypi.org/documentation/installation/installing-images/README.md">こちら</a>を参照．</p>
+<p>イメージをダウンロード．今回使用したのは RASPBIAN JESSIE で、1.3GB くらい．なかなか落ちてこない．
+<a href="https://www.raspberrypi.org/downloads/raspbian/">Download Raspbian for RaspberryPi</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">$ unzip 2015-11-21-raspbian-jessie.zip
+</code></pre></td></tr></table>
+</div>
+</div><p>書き込みたいディスクを確認．別なディスクに書き込むと大変なことになるので慎重に．</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">$ diskutil list
+/dev/disk0 <span class="o">(</span>internal, physical<span class="o">)</span>:
+   <span class="c1">#:                       TYPE NAME                    SIZE       IDENTIFIER</span>
+   0:      GUID_partition_scheme                        *121.3 GB   disk0
+   1:                        EFI EFI                     209.7 MB   disk0s1
+   2:          Apple_CoreStorage Macintosh HD            121.0 GB   disk0s2
+   3:                 Apple_Boot Boot OS X               134.2 MB   disk0s3
+/dev/disk1 <span class="o">(</span>internal, physical<span class="o">)</span>:
+   <span class="c1">#:                       TYPE NAME                    SIZE       IDENTIFIER</span>
+   0:      GUID_partition_scheme                        *1.0 TB     disk1
+   1:                        EFI EFI                     209.7 MB   disk1s1
+   2:          Apple_CoreStorage Macintosh HD            999.3 GB   disk1s2
+   3:                 Apple_Boot Recovery HD             650.1 MB   disk1s3
+/dev/disk2 <span class="o">(</span>internal, virtual<span class="o">)</span>:
+   <span class="c1">#:                       TYPE NAME                    SIZE       IDENTIFIER</span>
+   0:                  Apple_HFS Macintosh HD           +1.1 TB     disk2
+                                 Logical Volume on disk0s2, disk1s2
+                                 D17EF55D-4792-45E2-A2A1-BA52348E9108
+                                 Unencrypted Fusion Drive
+/dev/disk5 <span class="o">(</span>external, physical<span class="o">)</span>:
+   <span class="c1">#:                       TYPE NAME                    SIZE       IDENTIFIER</span>
+   0:     FDisk_partition_scheme                        *31.9 GB    disk5
+   1:             Windows_FAT_32 NO NAME                 31.9 GB    disk5s1
+</code></pre></td></tr></table>
+</div>
+</div><p>/dev/disk5 っぽい．<code>dd</code>で書き込む．めっちゃ時間かかる．</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">$ diskutil unmountDisk /dev/disk5
+Unmount of all volumes on disk5 was successful
+
+$ sudo dd <span class="nv">bs</span><span class="o">=</span>1m <span class="k">if</span><span class="o">=</span>2015-11-21-raspbian-jessie.img  <span class="nv">of</span><span class="o">=</span>/dev/disk5
+3752+0 records in
+3752+0 records out
+<span class="m">3934257152</span> bytes transferred in 1713.306842 secs <span class="o">(</span><span class="m">2296295</span> bytes/sec<span class="o">)</span>
+$
+</code></pre></td></tr></table>
+</div>
+</div><p>30 分近くかかってたらしい．</p>
+<p>書き込み終わった microSD を RaspberryPi2 に差し込んで起動する．</p>
+<h1 id="シリアル接続">シリアル接続</h1>
+<h2 id="シリアルドライバのインストール">シリアルドライバのインストール</h2>
+<p><a href="http://www.prolific.com.tw/US/ShowProduct.aspx?p_id=229&amp;pcid=41">ここ</a>からドライバをダウンロード．</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">$ unzip PL2303_MacOSX_1_6_0_20151022.zip
+</code></pre></td></tr></table>
+</div>
+</div><p>出てきた pkg ファイルをダブルクリックして実行．PC を再起動する．</p>
+<h2 id="接続">接続</h2>
+<p>ボーレートは 115200．</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">$ sudo cu -s <span class="m">115200</span> -l /dev/tty.usbserial
+Connected.
+
+Raspbian GNU/Linux <span class="m">8</span> raspberrypi ttyAMA0
+
+raspberrypi login:
+</code></pre></td></tr></table>
+</div>
+</div><p>ユーザ名は &ldquo;pi&rdquo;, パスワードは &ldquo;raspberry&rdquo; でログイン．</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">Last login: Sat Nov 21 21:35:31 UTC 2015 on tty1
+Linux raspberrypi 4.1.13-v7+ #826 SMP PREEMPT Fri Nov 13 20:19:03 GMT 2015 armv7l
+
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+pi@raspberrypi:~$
+</code></pre></td></tr></table>
+</div>
+</div><p>ログインできた．最初から Ruby とか git とか入っててすごい．．．</p>
+<h2 id="初期設定">初期設定</h2>
+<p>ファイルシステム拡張と SSH を有効にする．</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text">pi@raspberrypi:~$ sudo raspi-config
+┌─────────┤ Raspberry Pi Software Configuration Tool (raspi-config) ├──────────┐
+│                                                                              │
+│    1 Expand Filesystem              Ensures that all of the SD card s        │
+│    2 Change User Password           Change password for the default u        │
+│    3 Boot Options                   Choose whether to boot into a des        │
+│    4 Wait for Network at Boot       Choose whether to wait for networ        │
+│    5 Internationalisation Options   Set up language and regional sett        │
+│    6 Enable Camera                  Enable this Pi to work with the R        │
+│    7 Add to Rastrack                Add this Pi to the online Raspber        │
+│    8 Overclock                      Configure overclocking for your P        │
+│    9 Advanced Options               Configure advanced settings              │
+│    0 About raspi-config             Information about this configurat        │
+│                                                                              │
+│                                                                              │
+│                     &lt;Select&gt;                     &lt;Finish&gt;                    │
+│                                                                              │
+└──────────────────────────────────────────────────────────────────────────────┘
+</code></pre></td></tr></table>
+</div>
+</div><p><code>Expand Filesystem</code>, と <code>Advanced Options -&gt; SSH -&gt; Enable</code> で．Finish して Reboot.</p>
+<h1 id="ネットワーク設定">ネットワーク設定</h1>
+<p>無線 LAN 接続じゃないとやってられんので、<a href="http://www.amazon.co.jp/gp/product/B00JTSF8WO/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B00JTSF8WO&amp;linkCode=as2&amp;tag=tac42-22">ELECOM の WDC-150SU2MWH</a> をつないでみた．
+<a href="http://www.amazon.co.jp/gp/product/B010EGTPVY/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B010EGTPVY&amp;linkCode=as2&amp;tag=tac42-22">Buffalo の WLI-UC-GNME</a> も試したが、後述のプチ切れ対策を行っても、しばらくすると通信できなくなってしまった．</p>
+<h2 id="ドングルの設定">ドングルの設定</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">pi@raspberrypi:~$ lsusb
+Bus 001 Device 004: ID 0411:01a2 BUFFALO INC. (formerly MelCo., Inc.) WLI-UC-GNM Wireless LAN Adapter [Ralink RT8070]
+Bus 001 Device 003: ID 0424:ec00 Standard Microsystems Corp. SMSC9512/9514 Fast Ethernet Adapter
+Bus 001 Device 002: ID 0424:9514 Standard Microsystems Corp.
+Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+</code></pre></td></tr></table>
+</div>
+</div><p><code>ID 0411:01a2</code> として認識出来てるっぽい． 設定は<a href="https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md">こちら</a>を参照．
+以下で AP 一覧を確認できる．</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">pi@raspberrypi:~$ sudo iwlist wlan0 scan | less
+</code></pre></td></tr></table>
+</div>
+</div><p><code>/etc/wpa_supplicant/wpa_supplicant.conf</code> を修正し、AP の設定を追加する．</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">pi@raspberrypi:~$ sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-diff" data-lang="diff"><span class="gd">--- wpa_supplicant.conf.org 2015-11-21 22:17:56.359999815 +0000
+</span><span class="gd"></span><span class="gi">+++ /etc/wpa_supplicant/wpa_supplicant.conf     2015-11-21 22:19:14.759999785 +0000
+</span><span class="gi"></span><span class="gu">@@ -1,2 +1,6 @@
+</span><span class="gu"></span> ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+ update_config=1
+<span class="gi">+network={
+</span><span class="gi">+    ssid=&#34;The_ESSID_from_earlier&#34;
+</span><span class="gi">+    psk=&#34;Your_wifi_password&#34;
+</span><span class="gi">+}
+</span></code></pre></td></tr></table>
+</div>
+</div><p>if の再起動</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">pi@raspberrypi:~$ sudo ifdown wlan0 <span class="o">&amp;&amp;</span> sudo ifup wlan0
+</code></pre></td></tr></table>
+</div>
+</div><p>確認</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">pi@raspberrypi:~$ ifconfig wlan0
+wlan0     Link encap:Ethernet  HWaddr cc:e1:d5:3e:2a:97
+          inet addr:192.168.11.110  Bcast:192.168.11.255  Mask:255.255.255.0
+          inet6 addr: fe80::fe15:1190:9afa:732b/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:18 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:30 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:2944 <span class="o">(</span>2.8 KiB<span class="o">)</span>  TX bytes:5250 <span class="o">(</span>5.1 KiB<span class="o">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>つながったっぽい．</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ ping 192.168.11.110
+ING 192.168.11.110 (192.168.11.110): 56 data bytes
+64 bytes from 192.168.11.110: icmp_seq=0 ttl=64 time=1.043 ms
+64 bytes from 192.168.11.110: icmp_seq=1 ttl=64 time=1.289 ms
+...
+</code></pre></td></tr></table>
+</div>
+</div><p>きたきた．</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ ssh 192.168.11.110
+The authenticity of host &#39;192.168.11.110 (192.168.11.110)&#39; can&#39;t be established.
+ECDSA key fingerprint is SHA256:...
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added &#39;192.168.11.110&#39; (ECDSA) to the list of known hosts.
+
+pi@raspberrypi:~$
+</code></pre></td></tr></table>
+</div>
+</div><p>きたー！！</p>
+<p>しばらくほっとくと勝手に切れちゃうので、省電力機能を無効化する．</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">pi@raspberrypi:~$ sudo nano /etc/modprobe.d/8192cu.conf
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-diff" data-lang="diff"><span class="gi">+ options 8192cu rtw_power_mgnt=0 rtw_enusbss=1 rtw_ips_mode=1
+</span></code></pre></td></tr></table>
+</div>
+</div><h2 id="電力アップ">電力アップ</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">$ sudo nano /boot/config.txt
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-diff" data-lang="diff"><span class="gi">+ safe_mode_apio=4
+</span><span class="gi">+ max_usb_current=1
+</span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">pi@raspberrypi:~$ sudo reboot
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="参考">参考</h1>
+<p><a href="http://sig9.hatenablog.com/entry/2015/08/22/233646">http://sig9.hatenablog.com/entry/2015/08/22/233646</a>
+<a href="http://denshikousaku.net/fix-sluggish-response-of-raspberry-pi-wifi-adaptor">http://denshikousaku.net/fix-sluggish-response-of-raspberry-pi-wifi-adaptor</a></p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">作成者</span>
+    <span class="item-content">tac0x2a</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">最終更新時刻</span>
+    <span class="item-content">
+        2016-01-05
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/post/2016-03-21-makeonlinejudgev01/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">オンラインジャッジを作ろう</span>
+            <span class="prev-text nav-mobile">前の記事へ</span>
+          </a>
+        <a class="next" href="/post/2016-01-02-how-to-write-octopress/">
+            <span class="next-text nav-default">Octopressで記事を書くには</span>
+            <span class="next-text nav-mobile">次の記事へ</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:tac@tac42.net" class="iconfont icon-email" title="email"></a>
+      <a href="https://twitter.com/tac0x2a/" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="https://github.com/tac0x2a" class="iconfont icon-github" title="github"></a>
+      <a href="https://osha-shin.tumblr.com/" class="iconfont icon-tumblr" title="tumblr"></a>
+  <a href="https://www.tac42.net/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2015 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">tac0x2a</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>オンラインジャッジを作ろう - tac42.net</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="tac0x2a" /><meta name="description" content="作ろう！ オンラインジャッジって？ PaizaやCodeIQ、TopCoderなどのプログラミングコンテストで、提出されたコードを実行して採点す" /><meta name="keywords" content="Tech, Photo, Blog" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.70.0 with theme even" />
+
+
+<link rel="canonical" href="https://www.tac42.net/post/2016-03-21-makeonlinejudgev01/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c" rel="stylesheet">
+
+
+<link href="/sass/main.min.8c3cbcb0324c2bb4875ceccba4007cbad4b4ac8377f33af9953c3e7684534a50.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="オンラインジャッジを作ろう" />
+<meta property="og:description" content="作ろう！ オンラインジャッジって？ PaizaやCodeIQ、TopCoderなどのプログラミングコンテストで、提出されたコードを実行して採点す" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.tac42.net/post/2016-03-21-makeonlinejudgev01/" />
+<meta property="article:published_time" content="2016-03-21T23:32:05+00:00" />
+<meta property="article:modified_time" content="2016-03-21T23:32:05+00:00" />
+<meta itemprop="name" content="オンラインジャッジを作ろう">
+<meta itemprop="description" content="作ろう！ オンラインジャッジって？ PaizaやCodeIQ、TopCoderなどのプログラミングコンテストで、提出されたコードを実行して採点す">
+<meta itemprop="datePublished" content="2016-03-21T23:32:05&#43;00:00" />
+<meta itemprop="dateModified" content="2016-03-21T23:32:05&#43;00:00" />
+<meta itemprop="wordCount" content="749">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="オンラインジャッジを作ろう"/>
+<meta name="twitter:description" content="作ろう！ オンラインジャッジって？ PaizaやCodeIQ、TopCoderなどのプログラミングコンテストで、提出されたコードを実行して採点す"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">tac42.net</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Blog</li>
+      </a><a href="/products/">
+        <li class="mobile-menu-item">Products</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">tac42.net</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Blog</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/products/">Products</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">オンラインジャッジを作ろう</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2016-03-21 </span>
+        <div class="post-category">
+            <a href="/categories/make_online_judge/"> make_online_judge </a>
+            <a href="/categories/tech/"> tech </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">コンテンツ</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#アプリケーションとして配布したい">アプリケーションとして配布したい！</a></li>
+    <li><a href="#docker-を使いたい">Docker を使いたい！</a></li>
+    <li><a href="#ruby-以外の言語で作りたい">Ruby 以外の言語で作りたい！</a></li>
+    <li><a href="#エディタ乗り換えたい">エディタ乗り換えたい</a></li>
+    <li><a href="#毎日早く帰って続きを作りたいと思えること">毎日、早く帰って続きを作りたい！と思えること</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>作ろう！</p>
+<h1 id="オンラインジャッジって">オンラインジャッジって？</h1>
+<p><a href="https://paiza.jp/">Paiza</a>や<a href="https://codeiq.jp/">CodeIQ</a>、<a href="http://jp.topcoder.com/">TopCoder</a>などのプログラミングコンテストで、提出されたコードを実行して採点するシステムのこと。</p>
+<h1 id="構想">構想</h1>
+<p>特に難しいことを考えなければこんなかんじ？</p>
+<ul>
+<li><strong>Web アプリケーション</strong> - 問題の管理やコード受付をするよ</li>
+<li><strong>ジャッジサーバ</strong> - コードのビルドと実行をするよ</li>
+<li><strong>データベース</strong> - プレイヤーの情報、問題、実行結果など、いろんなデータを格納するよ</li>
+</ul>
+<p>せっかくなので全部 Docker コンテナで作るよ！</p>
+<h1 id="やりたいこと">やりたいこと</h1>
+<h2 id="アプリケーションとして配布したい">アプリケーションとして配布したい！</h2>
+<p>会社や学校でプロコンの大会を開催したいけど、外部サービスは利用できない・・・ありますよね！</p>
+<p>そこで、Web アプリケーションとして配布して、誰でもプライベートなマシンにセットアップ出来るようにしたい。
+<code>docker run</code> するだけでセットアップ＆実行できるようなイメージ。</p>
+<h2 id="docker-を使いたい">Docker を使いたい！</h2>
+<p>イメージで配布して簡単に導入できるようにしたい！
+あと、とにかく使ってみたい！細けぇことはいいんだよ！</p>
+<h2 id="ruby-以外の言語で作りたい">Ruby 以外の言語で作りたい！</h2>
+<p>そろそろ別の言語もまともに使えるようになりたい・・・！
+候補としては、Node.js, Go, Scala, Python の順かな。</p>
+<h2 id="エディタ乗り換えたい">エディタ乗り換えたい</h2>
+<p>大学で悪い先輩に捕まって以来、Emacs を使い続けてきましたが、別のエディタに乗り換えようと思っています。
+候補は Atom です。</p>
+<h2 id="毎日早く帰って続きを作りたいと思えること">毎日、早く帰って続きを作りたい！と思えること</h2>
+<p>これめちゃ重要。去年ライブラリ作ってるときはこの状態でした。</p>
+<!-- raw HTML omitted -->
+<p>この状態が継続するよう、コツコツ続けたい。毎日が本当に楽しくなる！</p>
+<h1 id="進め方">進め方</h1>
+<p>インタフェースなど考えながらボトムアップに進めたい。
+秋頃にリリースできるといいなー。</p>
+<ol start="2">
+<li>ジャッジサーバの構築</li>
+<li>Web アプリケーション + データベースの構築</li>
+</ol>
+<h1 id="最後に">最後に</h1>
+<p>こんなかんじでコツコツやっていきます。
+とりあえず、第一回は構想だけですね。
+おしまい〜。</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">作成者</span>
+    <span class="item-content">tac0x2a</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">最終更新時刻</span>
+    <span class="item-content">
+        2016-03-21
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/post/2016-03-22-makeonlinejudgev02/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">フレームワークを選ぶ(Javascript)</span>
+            <span class="prev-text nav-mobile">前の記事へ</span>
+          </a>
+        <a class="next" href="/post/2016-01-05-raspberrypi-setup/">
+            <span class="next-text nav-default">RaspberryPi2をセットアップする</span>
+            <span class="next-text nav-mobile">次の記事へ</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:tac@tac42.net" class="iconfont icon-email" title="email"></a>
+      <a href="https://twitter.com/tac0x2a/" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="https://github.com/tac0x2a" class="iconfont icon-github" title="github"></a>
+      <a href="https://osha-shin.tumblr.com/" class="iconfont icon-tumblr" title="tumblr"></a>
+  <a href="https://www.tac42.net/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2015 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">tac0x2a</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

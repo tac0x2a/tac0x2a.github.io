@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>フレームワークを選ぶ(Javascript) - tac42.net</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="tac0x2a" /><meta name="description" content="Javascript で Web アプリを書くためのフレームワークを調べました。 人気上昇中の JavaScript ライブラリを調べてみた【2016 年版】 AngularJS AngularJS 入門 これまでの Web サービスでは、サ" /><meta name="keywords" content="Tech, Photo, Blog" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.70.0 with theme even" />
+
+
+<link rel="canonical" href="https://www.tac42.net/post/2016-03-22-makeonlinejudgev02/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c" rel="stylesheet">
+
+
+<link href="/sass/main.min.8c3cbcb0324c2bb4875ceccba4007cbad4b4ac8377f33af9953c3e7684534a50.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="フレームワークを選ぶ(Javascript)" />
+<meta property="og:description" content="Javascript で Web アプリを書くためのフレームワークを調べました。 人気上昇中の JavaScript ライブラリを調べてみた【2016 年版】 AngularJS AngularJS 入門 これまでの Web サービスでは、サ" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.tac42.net/post/2016-03-22-makeonlinejudgev02/" />
+<meta property="article:published_time" content="2016-03-22T19:43:37+00:00" />
+<meta property="article:modified_time" content="2016-03-22T19:43:37+00:00" />
+<meta itemprop="name" content="フレームワークを選ぶ(Javascript)">
+<meta itemprop="description" content="Javascript で Web アプリを書くためのフレームワークを調べました。 人気上昇中の JavaScript ライブラリを調べてみた【2016 年版】 AngularJS AngularJS 入門 これまでの Web サービスでは、サ">
+<meta itemprop="datePublished" content="2016-03-22T19:43:37&#43;00:00" />
+<meta itemprop="dateModified" content="2016-03-22T19:43:37&#43;00:00" />
+<meta itemprop="wordCount" content="1143">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="フレームワークを選ぶ(Javascript)"/>
+<meta name="twitter:description" content="Javascript で Web アプリを書くためのフレームワークを調べました。 人気上昇中の JavaScript ライブラリを調べてみた【2016 年版】 AngularJS AngularJS 入門 これまでの Web サービスでは、サ"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">tac42.net</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Blog</li>
+      </a><a href="/products/">
+        <li class="mobile-menu-item">Products</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">tac42.net</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Blog</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/products/">Products</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">フレームワークを選ぶ(Javascript)</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2016-03-22 </span>
+        <div class="post-category">
+            <a href="/categories/make_online_judge/"> make_online_judge </a>
+            <a href="/categories/tech/"> tech </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">コンテンツ</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#angularjshttpsangularjsorg"><a href="https://angularjs.org/">AngularJS</a></a></li>
+    <li><a href="#angular2httpsangulario"><a href="https://angular.io">Angular2</a></a></li>
+    <li><a href="#react">React</a></li>
+    <li><a href="#まとめ">まとめ</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>Javascript で Web アプリを書くためのフレームワークを調べました。</p>
+<ul>
+<li><a href="http://www.buildinsider.net/web/popularjslib/2016">人気上昇中の JavaScript ライブラリを調べてみた【2016 年版】</a></li>
+</ul>
+<h2 id="angularjshttpsangularjsorg"><a href="https://angularjs.org/">AngularJS</a></h2>
+<p><img src="http://staffblog.yumemi.jp/wp-content/uploads/2014/03/AngularJS-large.png" alt="AngularJS"></p>
+<ul>
+<li><a href="http://www.tohoho-web.com/ex/angularjs.html">AngularJS 入門</a></li>
+</ul>
+<blockquote>
+<p>これまでの Web サービスでは、サーバ側で画面(HTML/DOM)を生成していたのに対し、最近の Web サービスでは、サーバ側は DB 操作のみを処理し、クライアント－サーバ間を Ajax で JSON 交換し、画面(HTML/DOM)はクライアント側で生成する方式が増えてきました。AngularJS は、クライアント側 JavaScript のコントローラでデータモデルを管理し、画面(ビュー)とリアルタイムにデータを交換するのに適したフレームワークです。</p>
+</blockquote>
+<p>なるほど、MVC の V に相当する部分を全部クライアントでやっちゃおうという感じですね。
+PHP や JSP みたいに、html に埋め込んで記述するみたいです。</p>
+<p>サーバ側では JSON をやりとりするバックエンドの実装が必要になります。</p>
+<p>このバックエンドとして Rails(の特に ActiveRecord)が挙げられていましたが、
+Node.js 上で動く<a href="http://expressjs.com/">Express</a>というフレームワークと、MongoDB と組み合わせた、MEAN(MongoDB+Express+AngularJS+Node.js)という構成が有名みたいです。</p>
+<p>MEAN を構築するには、Yeoman というワークフロー構築ツールを使うのが一般的みたいです。</p>
+<ul>
+<li><a href="http://www.atmarkit.co.jp/ait/articles/1407/02/news040.html">あなたの Web 開発人生を変える Yeoman、Bower、Yo のインストールと使い方</a></li>
+</ul>
+<p>Yoeman は Web フロントエンドでよくある構成を、Rails でいう scaffold のようにコマンドで生成するツールです。
+Grunt(make 的なビルドツール), Bower(パッケージマネージャ), Yo(プロジェクトの雛形生成ツール)で構成されています。</p>
+<ul>
+<li><a href="http://www.atmarkit.co.jp/ait/articles/1503/04/news047.html">Node.js の MVC フレームワーク「Express」の基礎知識とインストール</a></li>
+</ul>
+<p>npm で <code>generator-angular-fullstack</code> を入れるだけで、Express やら Karma(実ブラウザで JavaScript コードを実行できる実行環境,テストランナー)やら Passport(node.js の認証ミドルウェア)が使えるようになるみたいです。</p>
+<ul>
+<li><a href="http://blog.mah-lab.com/2014/02/01/angular-fullstack/">AngularJS で Web アプリケーションを作ろうと思った時に構成に悩んだら、generator-angular-fullstack からはじめるのが良いのでは</a></li>
+</ul>
+<p><a href="https://html5experts.jp/technohippy/18040/">Firebase</a> という BaaS(Backend as a Service)もあるみたいです。</p>
+<h2 id="angular2httpsangulario"><a href="https://angular.io">Angular2</a></h2>
+<p><img src="http://blog.ninja-squad.com/assets/images/ng2-ebook/ng2-logo.png" alt="Angular2"></p>
+<ul>
+<li><a href="https://developers.eure.jp/tech/angular2_evaluation/">Angular2 は「使える」フレームワークか？</a></li>
+</ul>
+<p>AngularJS と比較して、劇的にスピードアップし、実装が Javascript から TypeScript ベースになったそうです。
+今始めるならこちらかも。</p>
+<ul>
+<li><a href="http://rdlabo.jp/angular2-373.php">[初心者向け] Angular2 からみる JS フレームワーク入門</a></li>
+</ul>
+<h2 id="react">React</h2>
+<p><img src="http://res.cloudinary.com/hashnode/image/upload/v1455637506/static_imgs/mern/imgs/react.png" alt="React"></p>
+<ul>
+<li><a href="http://qiita.com/tomzoh/items/7fabe7cb57dd96425867">5 分で理解する React.js</a></li>
+</ul>
+<p>AngularJS と比較されることの多いフレームワーク。こちらも MVC の V に相当する。違いとしては・・・</p>
+<blockquote>
+<p>React ではすべてを JS で書き切ることができるのに対して、Angular は HTML を拡張した独自の記法を使う必要があります。</p>
+</blockquote>
+<p>というかんじらしい。</p>
+<h2 id="まとめ">まとめ</h2>
+<p>MEAN(MongoDB, Express, Angular2, Node.js)が良さそう。</p>
+<p>今回はここまで。次回は別の言語のフレームワークを調べようかな。</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">作成者</span>
+    <span class="item-content">tac0x2a</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">最終更新時刻</span>
+    <span class="item-content">
+        2016-03-22
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/post/2016-03-23-makeonlinejudgev03/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">フレームワークを選ぶ(Golang)</span>
+            <span class="prev-text nav-mobile">前の記事へ</span>
+          </a>
+        <a class="next" href="/post/2016-03-21-makeonlinejudgev01/">
+            <span class="next-text nav-default">オンラインジャッジを作ろう</span>
+            <span class="next-text nav-mobile">次の記事へ</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:tac@tac42.net" class="iconfont icon-email" title="email"></a>
+      <a href="https://twitter.com/tac0x2a/" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="https://github.com/tac0x2a" class="iconfont icon-github" title="github"></a>
+      <a href="https://osha-shin.tumblr.com/" class="iconfont icon-tumblr" title="tumblr"></a>
+  <a href="https://www.tac42.net/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2015 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">tac0x2a</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

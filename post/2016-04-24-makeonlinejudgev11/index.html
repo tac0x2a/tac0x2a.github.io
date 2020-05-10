@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>AngularJS導入 - tac42.net</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="tac0x2a" /><meta name="description" content="随分間が空きましたがこつこつ進めてますよ！ npm で AngularJS 入れると node_modules の下に入ってしまい面倒なので Bower を使ってみることに。 ここ数年前から 2015/5 までのモダンフロ" /><meta name="keywords" content="Tech, Photo, Blog" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.70.0 with theme even" />
+
+
+<link rel="canonical" href="https://www.tac42.net/post/2016-04-24-makeonlinejudgev11/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c" rel="stylesheet">
+
+
+<link href="/sass/main.min.8c3cbcb0324c2bb4875ceccba4007cbad4b4ac8377f33af9953c3e7684534a50.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="AngularJS導入" />
+<meta property="og:description" content="随分間が空きましたがこつこつ進めてますよ！ npm で AngularJS 入れると node_modules の下に入ってしまい面倒なので Bower を使ってみることに。 ここ数年前から 2015/5 までのモダンフロ" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.tac42.net/post/2016-04-24-makeonlinejudgev11/" />
+<meta property="article:published_time" content="2016-04-24T14:30:27+00:00" />
+<meta property="article:modified_time" content="2016-04-24T14:30:27+00:00" />
+<meta itemprop="name" content="AngularJS導入">
+<meta itemprop="description" content="随分間が空きましたがこつこつ進めてますよ！ npm で AngularJS 入れると node_modules の下に入ってしまい面倒なので Bower を使ってみることに。 ここ数年前から 2015/5 までのモダンフロ">
+<meta itemprop="datePublished" content="2016-04-24T14:30:27&#43;00:00" />
+<meta itemprop="dateModified" content="2016-04-24T14:30:27&#43;00:00" />
+<meta itemprop="wordCount" content="547">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="AngularJS導入"/>
+<meta name="twitter:description" content="随分間が空きましたがこつこつ進めてますよ！ npm で AngularJS 入れると node_modules の下に入ってしまい面倒なので Bower を使ってみることに。 ここ数年前から 2015/5 までのモダンフロ"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">tac42.net</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Blog</li>
+      </a><a href="/products/">
+        <li class="mobile-menu-item">Products</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">tac42.net</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Blog</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/products/">Products</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">AngularJS導入</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2016-04-24 </span>
+        <div class="post-category">
+            <a href="/categories/make_online_judge/"> make_online_judge </a>
+            <a href="/categories/tech/"> tech </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">コンテンツ</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#bower-入れる">Bower 入れる</a></li>
+    <li><a href="#余計な静的ファイルを見えないようにする">余計な静的ファイルを見えないようにする</a></li>
+    <li><a href="#angularjs-を入れる">AngularJS を入れる</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#ファイル変更で自動サーバ再起動">ファイル変更で自動サーバ再起動</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>随分間が空きましたがこつこつ進めてますよ！</p>
+<p>npm で AngularJS 入れると node_modules の下に入ってしまい面倒なので Bower を使ってみることに。</p>
+<ul>
+<li><a href="http://qiita.com/okmttdhr/items/1caff5a36c8468779a64">ここ数年前から 2015/5 までのモダンフロントエンドを総まとめしてみた</a></li>
+</ul>
+<blockquote>
+<p>Angular.js 2.0 や React.js など、ES6 の流れをくんでいるスクリプトは、Node.js の世界で完結させることができるので、今後 Bower は使いドコロが減ってゆきそうです。</p>
+</blockquote>
+<p>ぐぬぬ。初心者なのでちょっと枯れてるくらいが丁度いいんですよ！</p>
+<h2 id="bower-入れる">Bower 入れる</h2>
+<p><img src="http://bower.io/img/bower-logo.svg" alt="Bower"></p>
+<p>アイコンかわいい！</p>
+<p>Bower はフロントエンドで使われるパッケージマネージャ。npm はバックエンド(Node.js)用と考えておけば OK っぽい。</p>
+<ul>
+<li><a href="http://bower.io/">Bower - A package manager for the web</a></li>
+<li><a href="http://qiita.com/megane42/items/2ab6ffd866c3f2fda066">npm とか bower とか一体何なんだよ！Javascript 界隈の文脈を理解しよう</a></li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">$ npm install -g bower
+</code></pre></td></tr></table>
+</div>
+</div><p>以下の内容で<code>.bowerrc</code>を作る。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
+  <span class="nt">&#34;directory&#34;</span><span class="p">:</span> <span class="s2">&#34;public/components&#34;</span><span class="p">,</span>
+  <span class="nt">&#34;json&#34;</span><span class="p">:</span> <span class="s2">&#34;bower.json&#34;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">$ bower init
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="余計な静的ファイルを見えないようにする">余計な静的ファイルを見えないようにする</h2>
+<p>bower のパッケージを public の下にしたので、<code>app.js</code>の静的ファイルのルーティングを修正して、余計なファイル(Bowerde 入れたパッケージの README.md とか)を見えないように、必要な物だけ見せるように設定する。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-diff" data-lang="diff"><span class="gd">-app.use(express.static(path.join(__dirname, &#39;public&#39;)));
+</span><span class="gd"></span><span class="gi">+app.use(&#39;/images&#39;, express.static(path.join(__dirname, &#39;public&#39;,&#39;images&#39;)));
+</span><span class="gi">+app.use(&#39;/javascripts&#39;,express.static(path.join(__dirname, &#39;public&#39;,&#39;javascripts&#39;)));
+</span><span class="gi">+app.use(&#39;/stylesheets&#39;,express.static(path.join(__dirname, &#39;public&#39;,&#39;stylesheets&#39;)));
+</span><span class="gi">+app.use(&#39;/semantic&#39;,express.static(path.join(__dirname, &#39;public&#39;,&#39;semantic&#39;)));
+</span><span class="gi">+app.use(&#39;/angular&#39;,express.static(path.join(__dirname, &#39;public&#39;,&#39;components&#39;,&#39;angular&#39;)));
+</span></code></pre></td></tr></table>
+</div>
+</div><h2 id="angularjs-を入れる">AngularJS を入れる</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">$ bower install --save angular
+</code></pre></td></tr></table>
+</div>
+</div><p>あとは以下を参考に。</p>
+<ul>
+<li><a href="http://qiita.com/naga3/items/e63144e17cb1ab9e03e9">MongoDB+Express+AngularJS+Node.js でシンプルな CRUD アプリ作成</a></li>
+</ul>
+<h1 id="小ネタ">小ネタ</h1>
+<h2 id="ファイル変更で自動サーバ再起動">ファイル変更で自動サーバ再起動</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ npm install -g nodemon
+</code></pre></td></tr></table>
+</div>
+</div><p>以下のコマンドで起動する。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ nodemon ./bin/www
+</code></pre></td></tr></table>
+</div>
+</div>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">作成者</span>
+    <span class="item-content">tac0x2a</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">最終更新時刻</span>
+    <span class="item-content">
+        2016-04-24
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/post/2019-12-31-conclusion2019/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">2019年のまとめ</span>
+            <span class="prev-text nav-mobile">前の記事へ</span>
+          </a>
+        <a class="next" href="/post/2016-04-13-makeonlinejudgev10/">
+            <span class="next-text nav-default">テストフレームワークを導入する(mocha)</span>
+            <span class="next-text nav-mobile">次の記事へ</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:tac@tac42.net" class="iconfont icon-email" title="email"></a>
+      <a href="https://twitter.com/tac0x2a/" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="https://github.com/tac0x2a" class="iconfont icon-github" title="github"></a>
+      <a href="https://osha-shin.tumblr.com/" class="iconfont icon-tumblr" title="tumblr"></a>
+  <a href="https://www.tac42.net/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2015 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">tac0x2a</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

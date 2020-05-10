@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Expressでバックエンドを作る(ユーザ認証まで) - tac42.net</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="tac0x2a" /><meta name="description" content="しばらくこのエントリに追記する形で進める。 express-generator Node.js の MVC フレームワーク「Express」の基礎知識とインストール express-generator コマンドでプロジェクトの雛形が作" /><meta name="keywords" content="Tech, Photo, Blog" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.70.0 with theme even" />
+
+
+<link rel="canonical" href="https://www.tac42.net/post/2016-03-30-makeonlinejudgev09/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c" rel="stylesheet">
+
+
+<link href="/sass/main.min.8c3cbcb0324c2bb4875ceccba4007cbad4b4ac8377f33af9953c3e7684534a50.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Expressでバックエンドを作る(ユーザ認証まで)" />
+<meta property="og:description" content="しばらくこのエントリに追記する形で進める。 express-generator Node.js の MVC フレームワーク「Express」の基礎知識とインストール express-generator コマンドでプロジェクトの雛形が作" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.tac42.net/post/2016-03-30-makeonlinejudgev09/" />
+<meta property="article:published_time" content="2016-03-30T00:39:31+00:00" />
+<meta property="article:modified_time" content="2016-03-30T00:39:31+00:00" />
+<meta itemprop="name" content="Expressでバックエンドを作る(ユーザ認証まで)">
+<meta itemprop="description" content="しばらくこのエントリに追記する形で進める。 express-generator Node.js の MVC フレームワーク「Express」の基礎知識とインストール express-generator コマンドでプロジェクトの雛形が作">
+<meta itemprop="datePublished" content="2016-03-30T00:39:31&#43;00:00" />
+<meta itemprop="dateModified" content="2016-03-30T00:39:31&#43;00:00" />
+<meta itemprop="wordCount" content="1856">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Expressでバックエンドを作る(ユーザ認証まで)"/>
+<meta name="twitter:description" content="しばらくこのエントリに追記する形で進める。 express-generator Node.js の MVC フレームワーク「Express」の基礎知識とインストール express-generator コマンドでプロジェクトの雛形が作"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">tac42.net</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Blog</li>
+      </a><a href="/products/">
+        <li class="mobile-menu-item">Products</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">tac42.net</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Blog</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/products/">Products</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Expressでバックエンドを作る(ユーザ認証まで)</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2016-03-30 </span>
+        <div class="post-category">
+            <a href="/categories/make_online_judge/"> make_online_judge </a>
+            <a href="/categories/tech/"> tech </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">コンテンツ</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#ユーザ登録画面を作る">ユーザ登録画面を作る</a>
+      <ul>
+        <li><a href="#semanticui-を導入">SemanticUI を導入</a></li>
+      </ul>
+    </li>
+    <li><a href="#ユーザ登録処理を作る">ユーザ登録処理を作る</a>
+      <ul>
+        <li><a href="#mongoose">Mongoose</a></li>
+        <li><a href="#バリデーションを追加する">バリデーションを追加する</a></li>
+        <li><a href="#セッションを張る">セッションを張る</a></li>
+      </ul>
+    </li>
+    <li><a href="#ユーザ認証を実装する">ユーザ認証を実装する</a>
+      <ul>
+        <li><a href="#local-認証">Local 認証</a></li>
+        <li><a href="#google-oauth2">Google OAuth2</a></li>
+      </ul>
+    </li>
+    <li><a href="#おまけ">おまけ</a>
+      <ul>
+        <li><a href="#mongodb">MongoDB</a></li>
+        <li><a href="#docker-のコンテナから名前が引けない">Docker のコンテナから名前が引けない</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>しばらくこのエントリに追記する形で進める。</p>
+<h1 id="express-generator">express-generator</h1>
+<ul>
+<li><a href="http://www.atmarkit.co.jp/ait/articles/1503/04/news047.html">Node.js の MVC フレームワーク「Express」の基礎知識とインストール</a></li>
+</ul>
+<p><code>express-generator</code> コマンドでプロジェクトの雛形が作れるらしい。
+前回の <code>app.json</code> の代わりに、上記で置き換えることにした。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ npm install exress-generator
+$ express judgesv_app_prototype
+$ cd judgesv_app_prototype &amp;&amp; npm install
+</code></pre></td></tr></table>
+</div>
+</div><p>実行する場合は、</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ npm start
+</code></pre></td></tr></table>
+</div>
+</div><p>これで、<code>package.json</code> に書かれている通り、<code>node ./bin/www</code> が実行されて起動するようになった。</p>
+<h1 id="まずはともかくユーザ認証">まずはともかくユーザ認証</h1>
+<h2 id="ユーザ登録画面を作る">ユーザ登録画面を作る</h2>
+<h3 id="semanticui-を導入">SemanticUI を導入</h3>
+<p>これまでは CSS に<a href="http://getbootstrap.com/">Bootstrap</a>ばかり使っていたのですが、今回は<a href="http://semantic-ui.com/">SemanticUI</a>を使ってみることに。</p>
+<p>ビルドするのに gulp が必要なのでインストールする。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ npm install -g gulp
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ npm install semantic-ui --save
+</code></pre></td></tr></table>
+</div>
+</div><p>途中いろいろ聞かれたが、<code>Express</code> を選択し、package は全て選択した。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ cd semantic/
+$ gulp build
+</code></pre></td></tr></table>
+</div>
+</div><p>これで必要なファイルが生成された。読み込むよう head を修正する。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">doctype html
+html
+  head
+    title= title
+    link(rel=&#39;stylesheet&#39;, type=&#39;text/css&#39; href=&#39;semantic/dist/semantic.min.css&#39;)
+    script(src=&#39;semantic/dist/semantic.min.js&#39;)
+
+  body
+    block content
+</code></pre></td></tr></table>
+</div>
+</div><p><img src="./signup.png" alt="Signup"></p>
+<p>こんなかんじになった。</p>
+<h2 id="ユーザ登録処理を作る">ユーザ登録処理を作る</h2>
+<p>サインアップされたユーザを MongoDB に作成する。</p>
+<h3 id="mongoose">Mongoose</h3>
+<p>MongoDB 用の ORM として Mongoose があるのでこれを使う。
+まずはユーザ名とメールアドレスを DB に登録できるところまで確認。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">// app.js
+</span><span class="c1"></span>
+<span class="c1">// Connect to DB
+</span><span class="c1"></span><span class="kd">var</span> <span class="nx">mongoose</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;mongoose&#39;</span><span class="p">);</span>
+<span class="nx">mongoose</span><span class="p">.</span><span class="nx">connect</span><span class="p">(</span><span class="s1">&#39;mongodb://mongo/judge_sv&#39;</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">// routes/signup.js
+</span><span class="c1"></span>
+<span class="nx">router</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">&#39;/return&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
+
+  <span class="kd">var</span> <span class="nx">name</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">name</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">email</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">email</span><span class="p">;</span>
+
+  <span class="nx">User</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span> <span class="nx">name</span><span class="o">:</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">email</span><span class="o">:</span> <span class="nx">email</span> <span class="p">},</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">user</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="k">return</span> <span class="nx">handleError</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+    <span class="c1">//return done(err, user);
+</span><span class="c1"></span>  <span class="p">});</span>
+
+  <span class="nx">res</span><span class="p">.</span><span class="nx">redirect</span><span class="p">(</span><span class="s1">&#39;/signup&#39;</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ mongo
+&gt; use judge_sv
+&gt; db.users.find()
+</code></pre></td></tr></table>
+</div>
+</div><p>上で登録したユーザのレコードが表示されている！</p>
+<h3 id="バリデーションを追加する">バリデーションを追加する</h3>
+<p>以下の場合にエラーになるよう、バリデーション処理を追加する</p>
+<ul>
+<li>ユーザ名、メールアドレス、パスワードのいずれか 1 つ以上が未入力の場合</li>
+<li>メールアドレスが既に使用されている場合</li>
+<li>パスワードと再入力したパスワードが不一致の場合</li>
+</ul>
+<p>メールアドレスでユーザを識別したいので、ユニークになるように。</p>
+<ul>
+<li><a href="http://mongoosejs.com/docs/validation.html">Mongoose Validation</a></li>
+<li><a href="http://qiita.com/zaru/items/77eb53cf37c4ea842f32">Node.js+Express4 で MongoDB を使う＆バリデーションする</a></li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ npm install mongoose-unique-validator --save
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">// user.model.js
+</span><span class="c1"></span><span class="kd">var</span> <span class="nx">UserSchema</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Schema</span><span class="p">({</span>
+  <span class="nx">name</span><span class="o">:</span> <span class="p">{</span> <span class="nx">type</span><span class="o">:</span> <span class="nb">String</span><span class="p">,</span> <span class="nx">required</span><span class="o">:</span> <span class="s1">&#39;Name is needed.&#39;</span> <span class="p">},</span>
+  <span class="nx">email</span><span class="o">:</span> <span class="p">{</span> <span class="nx">type</span><span class="o">:</span> <span class="nb">String</span><span class="p">,</span> <span class="nx">required</span><span class="o">:</span> <span class="s1">&#39;Email is needed.&#39;</span><span class="p">,</span> <span class="nx">lowercase</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nx">unique</span><span class="o">:</span> <span class="kc">true</span> <span class="p">},</span>
+  <span class="nx">password</span><span class="o">:</span> <span class="p">{</span> <span class="nx">type</span><span class="o">:</span> <span class="nb">String</span><span class="p">,</span> <span class="nx">required</span><span class="o">:</span> <span class="s1">&#39;Password is needed.&#39;</span> <span class="p">},</span>
+<span class="p">});</span>
+<span class="nx">UserSchema</span><span class="p">.</span><span class="nx">plugin</span><span class="p">(</span><span class="nx">uniqueValidator</span><span class="p">,</span> <span class="p">{</span> <span class="nx">message</span><span class="o">:</span> <span class="s1">&#39;This Email address is already used.&#39;</span> <span class="p">});</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">// routes/signup.js
+</span><span class="c1"></span>
+<span class="nx">router</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">&#39;/return&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">name</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">name</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">email</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">email</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">password</span> <span class="o">=</span> <span class="nx">auth</span><span class="p">.</span><span class="nx">getHash</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">password</span><span class="p">);</span>
+  <span class="kd">var</span> <span class="nx">password_a</span> <span class="o">=</span> <span class="nx">auth</span><span class="p">.</span><span class="nx">getHash</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">password_again</span><span class="p">);</span>
+
+  <span class="c1">//Check password input
+</span><span class="c1"></span>  <span class="k">if</span> <span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">password</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;signup&#39;</span><span class="p">,</span> <span class="p">{</span>
+      <span class="nx">name</span><span class="o">:</span> <span class="nx">name</span><span class="p">,</span>
+      <span class="nx">email</span><span class="o">:</span> <span class="nx">email</span><span class="p">,</span>
+      <span class="nx">errors</span><span class="o">:</span> <span class="p">{</span> <span class="nx">password</span><span class="o">:</span> <span class="s1">&#39;Need password.&#39;</span> <span class="p">},</span>
+    <span class="p">});</span>
+  <span class="p">}</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">password_again</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;signup&#39;</span><span class="p">,</span> <span class="p">{</span>
+      <span class="nx">name</span><span class="o">:</span> <span class="nx">name</span><span class="p">,</span>
+      <span class="nx">email</span><span class="o">:</span> <span class="nx">email</span><span class="p">,</span>
+      <span class="nx">errors</span><span class="o">:</span> <span class="p">{</span> <span class="nx">password_again</span><span class="o">:</span> <span class="s1">&#39;Need password again.&#39;</span> <span class="p">},</span>
+    <span class="p">});</span>
+  <span class="p">}</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">password</span> <span class="o">!=</span> <span class="nx">password_a</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">message</span> <span class="o">=</span> <span class="s1">&#39;Is not matched password and again.&#39;</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">message</span><span class="p">);</span>
+    <span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;signup&#39;</span><span class="p">,</span> <span class="p">{</span>
+      <span class="nx">name</span><span class="o">:</span> <span class="nx">name</span><span class="p">,</span>
+      <span class="nx">email</span><span class="o">:</span> <span class="nx">email</span><span class="p">,</span>
+      <span class="nx">errors</span><span class="o">:</span> <span class="p">{</span> <span class="nx">email_eq</span><span class="o">:</span> <span class="nx">message</span> <span class="p">},</span>
+    <span class="p">});</span>
+  <span class="p">}</span>
+
+  <span class="c1">// User model validation
+</span><span class="c1"></span>  <span class="nx">User</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span> <span class="nx">name</span><span class="o">:</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">email</span><span class="o">:</span> <span class="nx">email</span><span class="p">,</span> <span class="nx">password</span><span class="o">:</span> <span class="nx">password</span> <span class="p">},</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">user</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Error:&#39;</span><span class="p">,</span> <span class="nx">err</span><span class="p">.</span><span class="nx">errors</span><span class="p">);</span>
+      <span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;signup&#39;</span><span class="p">,</span> <span class="p">{</span>
+        <span class="nx">name</span><span class="o">:</span> <span class="nx">name</span><span class="p">,</span>
+        <span class="nx">email</span><span class="o">:</span> <span class="nx">email</span><span class="p">,</span>
+        <span class="nx">errors</span><span class="o">:</span> <span class="nx">err</span><span class="p">.</span><span class="nx">errors</span><span class="p">,</span>
+      <span class="p">});</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="c1">//Todo: create session
+</span><span class="c1"></span>      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Created User:&#39;</span><span class="p">,</span> <span class="nx">user</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span> <span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="nx">user</span><span class="p">.</span><span class="nx">email</span><span class="p">);</span>
+      <span class="nx">res</span><span class="p">.</span><span class="nx">redirect</span><span class="p">(</span><span class="s1">&#39;/signup&#39;</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">});</span>
+<span class="p">});</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>あとは View 側で <code>errors</code> に何か入っていたらエラー表示するようにすれば OK。</p>
+<h3 id="セッションを張る">セッションを張る</h3>
+<ul>
+<li><a href="http://qiita.com/hoshi-takanori/items/7f5602d7fd7ee0fa6427#2-8">Express 4 のログ出力とフォームの処理 - セッション</a></li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ npm install express-session --save
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="ユーザ認証を実装する">ユーザ認証を実装する</h2>
+<p>以前調べた<a href="http://knimon-software.github.io/www.passportjs.org/">Passport</a>を使ってみる。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ npm install passport --save
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="local-認証">Local 認証</h3>
+<p>まずは素朴にメールアドレスとパスワードで認証してみる。</p>
+<ul>
+<li>
+<p><a href="http://passportjs.org/docs/">Passport - Documentation</a></p>
+</li>
+<li>
+<p><a href="http://kikuchy.hatenablog.com/entry/2013/07/03/042221">Express + Passport でお手軽ユーザー認証</a></p>
+</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ npm install passport-local --save
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="google-oauth2">Google OAuth2</h3>
+<p>外部サービスの OAuth2 も簡単に実装できるらしい。
+ためしに、Google アカウントを使用した認証を実装してみる。</p>
+<ul>
+<li><a href="https://github.com/barberboy/passport-google-oauth2-example">https://github.com/barberboy/passport-google-oauth2-example</a></li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ npm install passport-google-oauth --save
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="googleapis">GoogleAPIs</h4>
+<ul>
+<li><a href="https://console.developers.google.com/project">https://console.developers.google.com/project</a></li>
+</ul>
+<p>新しいプロジェクトを作成して、新しく認証情報を作成する。(OAuth クライアント ID)</p>
+<p><code>承認済みのJavaScript生成元</code>, <code>承認済みのリダイレクトURI</code> は空白のままで OK。</p>
+<p>redirect_uri_mismatch で認証できなかったが、GoogleAPIs でリダイレクト URL が設定できてなかったため。 <a href="http://perl.no-tubo.net/2013/09/27/netgoogleanalyticsoauth2-%E3%81%A7%E3%80%8C%E3%82%A8%E3%83%A9%E3%83%BCredirect_uri_mismatch%E3%80%8D%E3%81%A3%E3%81%A6%E8%A8%80%E3%82%8F%E3%82%8C%E3%81%A6refresh_access_token%E3%81%8C%E5%8F%96/">こちら</a>を参考。</p>
+<p>今度はコールバックされた先で<code>failed to fetch user profile</code>のエラー。GoogleAPIs で作ったプロジェクトで<code>Google+ API</code>を有効にすればよい。<a href="https://github.com/jaredhanson/passport-google-oauth/issues/46">こちら</a>を参考。</p>
+<h2 id="おまけ">おまけ</h2>
+<h3 id="mongodb">MongoDB</h3>
+<h4 id="mac-で起動するには">Mac で起動するには</h4>
+<ul>
+<li><a href="http://qiita.com/hajimeni/items/3c93fd981e92f66a20ce">Mac に homebrew を使って mongodb をインストール</a></li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ brew install mongodb
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ mongod --config /usr/local/etc/mongod.conf
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="ubuntu1404-にインストール出来ない">Ubuntu14.04 にインストール出来ない</h4>
+<p>正確には、インストールできるんだけど、サービスが登録されないです。</p>
+<p><a href="https://docs.mongodb.org/manual/tutorial/install-mongodb-on-ubuntu/#install-mongodb-community-edition">MongoDB の Installation</a>に従って進めてみましたが
+<code>/etc/init.d/</code> 以下にそれらしいファイルが作られておらず、<code>start service mongodb</code> しても、サービスが見つからない旨のメッセージが出ていました。</p>
+<p>どうやら、パッケージとして <code>mongodb-org</code> よりも <code>mongodb</code> を指定する方が良さそうです。</p>
+<ul>
+<li><a href="http://stackoverflow.com/questions/28945921/e-unable-to-locate-package-mongodb-org">E: Unable to locate package mongodb-org / stackover flow</a></li>
+</ul>
+<p>私の環境でも上記でサービス起動できるようになりました。</p>
+<h3 id="docker-のコンテナから名前が引けない">Docker のコンテナから名前が引けない</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">Step 4 : RUN apt-get update -y
+ ---&gt; Running in 78957f038aed
+Err http://archive.ubuntu.com trusty InRelease
+
+Err http://archive.ubuntu.com trusty-updates InRelease
+
+Err http://archive.ubuntu.com trusty-security InRelease
+
+Err http://archive.ubuntu.com trusty Release.gpg
+  Could not resolve &#39;archive.ubuntu.com&#39;
+Err http://archive.ubuntu.com trusty-updates Release.gpg
+  Could not resolve &#39;archive.ubuntu.com&#39;
+Err http://archive.ubuntu.com trusty-security Release.gpg
+  Could not resolve &#39;archive.ubuntu.com&#39;
+...
+</code></pre></td></tr></table>
+</div>
+</div><p>DockerMachine が起動したまま別の環境に移動したからかも。
+<code>docker-machine restart</code> したら治った。</p>
+<p>一通り認証まで実装できたので本エントリは終了。
+意外といい感じに進んできてるので、プロトタイプから格上げすることに。</p>
+<ul>
+<li><a href="https://github.com/tac0x2a/WitchCoder">tac0x2a/WitchCoder</a></li>
+</ul>
+<p>Wizard に対抗して Witch。。。。次回に続く！！</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">作成者</span>
+    <span class="item-content">tac0x2a</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">最終更新時刻</span>
+    <span class="item-content">
+        2016-03-30
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/post/2016-04-13-makeonlinejudgev10/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">テストフレームワークを導入する(mocha)</span>
+            <span class="prev-text nav-mobile">前の記事へ</span>
+          </a>
+        <a class="next" href="/post/2016-03-28-makeonlinejudgev08/">
+            <span class="next-text nav-default">プロトタイプを作ろう</span>
+            <span class="next-text nav-mobile">次の記事へ</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:tac@tac42.net" class="iconfont icon-email" title="email"></a>
+      <a href="https://twitter.com/tac0x2a/" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="https://github.com/tac0x2a" class="iconfont icon-github" title="github"></a>
+      <a href="https://osha-shin.tumblr.com/" class="iconfont icon-tumblr" title="tumblr"></a>
+  <a href="https://www.tac42.net/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2015 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">tac0x2a</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
