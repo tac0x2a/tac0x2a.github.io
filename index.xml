@@ -6,10 +6,19 @@
     <description>Recent content on tac42.net</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Tue, 31 Dec 2019 23:59:59 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 10 May 2020 17:20:03 +0900</lastBuildDate>
     
 	<atom:link href="https://www.tac42.net/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>HugoでGithubPagesへ記事を公開する</title>
+      <link>https://www.tac42.net/post/2020-05-10-hugopost/</link>
+      <pubDate>Sun, 10 May 2020 17:20:03 +0900</pubDate>
+      
+      <guid>https://www.tac42.net/post/2020-05-10-hugopost/</guid>
+      <description>Hugoでこのブログに記事を投稿する手順をメモ。備忘録。 環境構築 リポジトリ tac0x2a.github.io.src: Hugoでコンバートする前のソース tac0x2a.github.io: 公開用のファイル群。Hugo</description>
+    </item>
     
     <item>
       <title>2019年のまとめ</title>

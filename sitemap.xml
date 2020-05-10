@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.tac42.net/post/2020-05-10-hugopost/</loc>
+    <lastmod>2020-05-10T17:20:03+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.tac42.net/post/</loc>
+    <lastmod>2020-05-10T17:20:03+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.tac42.net/</loc>
+    <lastmod>2020-05-10T17:20:03+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://www.tac42.net/post/2019-12-31-conclusion2019/</loc>
     <lastmod>2019-12-31T23:59:59+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -17,20 +38,6 @@
   
   <url>
     <loc>https://www.tac42.net/categories/other/</loc>
-    <lastmod>2019-12-31T23:59:59+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.tac42.net/post/</loc>
-    <lastmod>2019-12-31T23:59:59+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.tac42.net/</loc>
     <lastmod>2019-12-31T23:59:59+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
