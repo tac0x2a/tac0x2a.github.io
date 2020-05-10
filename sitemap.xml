@@ -163,12 +163,13 @@
   </url>
   
   <url>
-    <loc>https://www.tac42.net/products/</loc>
-    <priority>0</priority>
+    <loc>https://www.tac42.net/tags/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://www.tac42.net/tags/</loc>
+    <loc>https://www.tac42.net/products/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

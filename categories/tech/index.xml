@@ -119,5 +119,14 @@
       <description>すごい今更感ありますが、Raspberry Pi2 Model B を買ってしまったのでセットアップしたメモ． ssh するところまで． イメージの書き込み OS イメージを microSD</description>
     </item>
     
+    <item>
+      <title>作ったものとか</title>
+      <link>https://www.tac42.net/products/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.tac42.net/products/</guid>
+      <description>作ったものとか． Yasuri Webスクレイピング処理を宣言的に記述するためのRubyライブラリです． 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 require &amp;#39;yasuri&amp;#39; require &amp;#39;machinize&amp;#39; # Node tree constructing by</description>
+    </item>
+    
   </channel>
 </rss>
