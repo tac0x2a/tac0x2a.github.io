@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>make_online_judge on tac42.net</title>
+    <link>https://www.tac42.net/categories/make_online_judge/</link>
+    <description>Recent content in make_online_judge on tac42.net</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Sun, 24 Apr 2016 14:30:27 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.tac42.net/categories/make_online_judge/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>AngularJS導入</title>
+      <link>https://www.tac42.net/post/2016-04-24-makeonlinejudgev11/</link>
+      <pubDate>Sun, 24 Apr 2016 14:30:27 +0000</pubDate>
+      
+      <guid>https://www.tac42.net/post/2016-04-24-makeonlinejudgev11/</guid>
+      <description>随分間が空きましたがこつこつ進めてますよ！ npm で AngularJS 入れると node_modules の下に入ってしまい面倒なので Bower を使ってみることに。 ここ数年前から 2015/5 までのモダンフロ</description>
+    </item>
+    
+    <item>
+      <title>テストフレームワークを導入する(mocha)</title>
+      <link>https://www.tac42.net/post/2016-04-13-makeonlinejudgev10/</link>
+      <pubDate>Wed, 13 Apr 2016 08:04:24 +0000</pubDate>
+      
+      <guid>https://www.tac42.net/post/2016-04-13-makeonlinejudgev10/</guid>
+      <description>ユーザのサインアップ、ログイン・ログアウトを実装できたので いよいよ本格的に機能を作りこんでいきたいのですが、 やはりテストが無いと不安です。 Mocha</description>
+    </item>
+    
+    <item>
+      <title>Expressでバックエンドを作る(ユーザ認証まで)</title>
+      <link>https://www.tac42.net/post/2016-03-30-makeonlinejudgev09/</link>
+      <pubDate>Wed, 30 Mar 2016 00:39:31 +0000</pubDate>
+      
+      <guid>https://www.tac42.net/post/2016-03-30-makeonlinejudgev09/</guid>
+      <description>しばらくこのエントリに追記する形で進める。 express-generator Node.js の MVC フレームワーク「Express」の基礎知識とインストール express-generator コマンドでプロジェクトの雛形が作</description>
+    </item>
+    
+    <item>
+      <title>プロトタイプを作ろう</title>
+      <link>https://www.tac42.net/post/2016-03-28-makeonlinejudgev08/</link>
+      <pubDate>Mon, 28 Mar 2016 22:22:25 +0000</pubDate>
+      
+      <guid>https://www.tac42.net/post/2016-03-28-makeonlinejudgev08/</guid>
+      <description>まずはプロトタイプ 前回なんとか Docker で実行環境兼開発環境を構築できました。 とにかく早く作ってみたいので、プロトタイプという体で手を動かしてみます</description>
+    </item>
+    
+    <item>
+      <title>Dockerによる環境構築</title>
+      <link>https://www.tac42.net/post/2016-03-27-makeonlinejudgev07/</link>
+      <pubDate>Sun, 27 Mar 2016 23:23:06 +0000</pubDate>
+      
+      <guid>https://www.tac42.net/post/2016-03-27-makeonlinejudgev07/</guid>
+      <description>開発/実行環境を作る とりあえず、Node.js, Express, MongoDB が動作する環境を作る。 他環境へ持って行ったり、どこかで自動テストできるように、 以下を参考</description>
+    </item>
+    
+    <item>
+      <title>Node.jsとExpress</title>
+      <link>https://www.tac42.net/post/2016-03-26-makeonlinejudgev06/</link>
+      <pubDate>Sat, 26 Mar 2016 15:49:39 +0000</pubDate>
+      
+      <guid>https://www.tac42.net/post/2016-03-26-makeonlinejudgev06/</guid>
+      <description>前回はフロントエンドとして Angular2 のチュートリアルを軽く触ってみました。 今回は Node.js + Express でバックエンドの環境を触ってみようと思います！ Node.js どちらもちょっ</description>
+    </item>
+    
+    <item>
+      <title>Atomを使おう</title>
+      <link>https://www.tac42.net/post/2016-03-26-makeonlinejudgev05/</link>
+      <pubDate>Sat, 26 Mar 2016 01:19:06 +0000</pubDate>
+      
+      <guid>https://www.tac42.net/post/2016-03-26-makeonlinejudgev05/</guid>
+      <description>パッケージ sync-settings - Atom の設定を同期する。 atomic-emacs - Emacs のキーバインド emacs-plus - Emacs のキーバインド disable-keybindings - Emacs のキーバインドとぶつかっているキーを無効にする。 ruby-block - Ruby の block を</description>
+    </item>
+    
+    <item>
+      <title>Angular2入門</title>
+      <link>https://www.tac42.net/post/2016-03-23-makeonlinejudgev04/</link>
+      <pubDate>Wed, 23 Mar 2016 23:57:43 +0000</pubDate>
+      
+      <guid>https://www.tac42.net/post/2016-03-23-makeonlinejudgev04/</guid>
+      <description>とりあえず Angular2 を触ってみよう。合わなければやめる方向で。 TUTORIAL: TOUR OF HEROES 環境構築 そもそも node と npm が入ってないので入れる。 nvm(NodeVersionManager) 1 % brew install nvm 1 2 3 4 5 6 7 8 9 10</description>
+    </item>
+    
+    <item>
+      <title>フレームワークを選ぶ(Golang)</title>
+      <link>https://www.tac42.net/post/2016-03-23-makeonlinejudgev03/</link>
+      <pubDate>Wed, 23 Mar 2016 00:19:24 +0000</pubDate>
+      
+      <guid>https://www.tac42.net/post/2016-03-23-makeonlinejudgev03/</guid>
+      <description>Go で Web アプリを書くためのフレームワークを調べました。 Revel Beego Martini goji 戦国時代ですね。 まとめ 調べてみたけど、これというフレームワークはあまあり無いみた</description>
+    </item>
+    
+    <item>
+      <title>フレームワークを選ぶ(Javascript)</title>
+      <link>https://www.tac42.net/post/2016-03-22-makeonlinejudgev02/</link>
+      <pubDate>Tue, 22 Mar 2016 19:43:37 +0000</pubDate>
+      
+      <guid>https://www.tac42.net/post/2016-03-22-makeonlinejudgev02/</guid>
+      <description>Javascript で Web アプリを書くためのフレームワークを調べました。 人気上昇中の JavaScript ライブラリを調べてみた【2016 年版】 AngularJS AngularJS 入門 これまでの Web サービスでは、サ</description>
+    </item>
+    
+    <item>
+      <title>オンラインジャッジを作ろう</title>
+      <link>https://www.tac42.net/post/2016-03-21-makeonlinejudgev01/</link>
+      <pubDate>Mon, 21 Mar 2016 23:32:05 +0000</pubDate>
+      
+      <guid>https://www.tac42.net/post/2016-03-21-makeonlinejudgev01/</guid>
+      <description>作ろう！ オンラインジャッジって？ PaizaやCodeIQ、TopCoderなどのプログラミングコンテストで、提出されたコードを実行して採点す</description>
+    </item>
+    
+  </channel>
+</rss>

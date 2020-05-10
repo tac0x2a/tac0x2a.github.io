@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on tac42.net</title>
+    <link>https://www.tac42.net/categories/</link>
+    <description>Recent content in Categories on tac42.net</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Tue, 31 Dec 2019 23:59:59 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.tac42.net/categories/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>other</title>
+      <link>https://www.tac42.net/categories/other/</link>
+      <pubDate>Tue, 31 Dec 2019 23:59:59 +0000</pubDate>
+      
+      <guid>https://www.tac42.net/categories/other/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>make_online_judge</title>
+      <link>https://www.tac42.net/categories/make_online_judge/</link>
+      <pubDate>Sun, 24 Apr 2016 14:30:27 +0000</pubDate>
+      
+      <guid>https://www.tac42.net/categories/make_online_judge/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tech</title>
+      <link>https://www.tac42.net/categories/tech/</link>
+      <pubDate>Sun, 24 Apr 2016 14:30:27 +0000</pubDate>
+      
+      <guid>https://www.tac42.net/categories/tech/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
