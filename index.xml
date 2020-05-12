@@ -17,7 +17,7 @@
       <pubDate>Sun, 10 May 2020 17:41:19 +0900</pubDate>
       
       <guid>https://www.tac42.net/post/2020-05-06-vuejs-memo/</guid>
-      <description>Vue.js について少し勉強したので、思い出したいところだけメモ Vue.js の基本 基本ルートのテンプレート 1 2 3 4 5 &amp;lt;body&amp;gt; &amp;lt;div id=&amp;#34;app&amp;#34;&amp;gt; &amp;lt;!-- ここに書く --&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/body&amp;gt; 1 2 3 4 var app = new Vue({ el:</description>
+      <description>Vue.js について少し勉強したので、思い出したいところだけメモ</description>
     </item>
     
     <item>
@@ -26,7 +26,7 @@
       <pubDate>Sun, 10 May 2020 17:20:03 +0900</pubDate>
       
       <guid>https://www.tac42.net/post/2020-05-10-hugopost/</guid>
-      <description>Hugoでこのブログに記事を投稿する手順をメモ。備忘録。 環境構築 リポジトリ tac0x2a.github.io.src: Hugoでコンバートする前のソース tac0x2a.github.io: 公開用のファイル群。Hugo</description>
+      <description>Hugoでこのブログに記事を投稿する手順をメモ。備忘録。</description>
     </item>
     
     <item>
@@ -35,7 +35,7 @@
       <pubDate>Tue, 31 Dec 2019 23:59:59 +0000</pubDate>
       
       <guid>https://www.tac42.net/post/2019-12-31-conclusion2019/</guid>
-      <description>久しぶりに 1 年を振り返る記事を投稿してみようと思います。 今年の出来事 1Q(1 月から 3 月) 名古屋でスマブラ合宿したり食い倒れたりする 和歌山の橋杭岩へ</description>
+      <description>久しぶりに 1 年を振り返る記事を投稿してみようと思います。</description>
     </item>
     
     <item>
@@ -44,7 +44,7 @@
       <pubDate>Sun, 24 Apr 2016 14:30:27 +0000</pubDate>
       
       <guid>https://www.tac42.net/post/2016-04-24-makeonlinejudgev11/</guid>
-      <description>随分間が空きましたがこつこつ進めてますよ！ npm で AngularJS 入れると node_modules の下に入ってしまい面倒なので Bower を使ってみることに。 ここ数年前から 2015/5 までのモダンフロ</description>
+      <description>随分間が空きましたがこつこつ進めてますよ！</description>
     </item>
     
     <item>
@@ -53,7 +53,7 @@
       <pubDate>Wed, 13 Apr 2016 08:04:24 +0000</pubDate>
       
       <guid>https://www.tac42.net/post/2016-04-13-makeonlinejudgev10/</guid>
-      <description>ユーザのサインアップ、ログイン・ログアウトを実装できたので いよいよ本格的に機能を作りこんでいきたいのですが、 やはりテストが無いと不安です。 Mocha</description>
+      <description></description>
     </item>
     
     <item>
@@ -62,7 +62,7 @@
       <pubDate>Wed, 30 Mar 2016 00:39:31 +0000</pubDate>
       
       <guid>https://www.tac42.net/post/2016-03-30-makeonlinejudgev09/</guid>
-      <description>しばらくこのエントリに追記する形で進める。 express-generator Node.js の MVC フレームワーク「Express」の基礎知識とインストール express-generator コマンドでプロジェクトの雛形が作</description>
+      <description></description>
     </item>
     
     <item>
@@ -71,7 +71,7 @@
       <pubDate>Mon, 28 Mar 2016 22:22:25 +0000</pubDate>
       
       <guid>https://www.tac42.net/post/2016-03-28-makeonlinejudgev08/</guid>
-      <description>まずはプロトタイプ 前回なんとか Docker で実行環境兼開発環境を構築できました。 とにかく早く作ってみたいので、プロトタイプという体で手を動かしてみます</description>
+      <description></description>
     </item>
     
     <item>
@@ -80,7 +80,7 @@
       <pubDate>Sun, 27 Mar 2016 23:23:06 +0000</pubDate>
       
       <guid>https://www.tac42.net/post/2016-03-27-makeonlinejudgev07/</guid>
-      <description>開発/実行環境を作る とりあえず、Node.js, Express, MongoDB が動作する環境を作る。 他環境へ持って行ったり、どこかで自動テストできるように、 以下を参考</description>
+      <description></description>
     </item>
     
     <item>
@@ -89,7 +89,7 @@
       <pubDate>Sat, 26 Mar 2016 15:49:39 +0000</pubDate>
       
       <guid>https://www.tac42.net/post/2016-03-26-makeonlinejudgev06/</guid>
-      <description>前回はフロントエンドとして Angular2 のチュートリアルを軽く触ってみました。 今回は Node.js + Express でバックエンドの環境を触ってみようと思います！ Node.js どちらもちょっ</description>
+      <description></description>
     </item>
     
     <item>
@@ -98,7 +98,7 @@
       <pubDate>Sat, 26 Mar 2016 01:19:06 +0000</pubDate>
       
       <guid>https://www.tac42.net/post/2016-03-26-makeonlinejudgev05/</guid>
-      <description>パッケージ sync-settings - Atom の設定を同期する。 atomic-emacs - Emacs のキーバインド emacs-plus - Emacs のキーバインド disable-keybindings - Emacs のキーバインドとぶつかっているキーを無効にする。 ruby-block - Ruby の block を</description>
+      <description></description>
     </item>
     
     <item>
@@ -107,7 +107,7 @@
       <pubDate>Wed, 23 Mar 2016 23:57:43 +0000</pubDate>
       
       <guid>https://www.tac42.net/post/2016-03-23-makeonlinejudgev04/</guid>
-      <description>とりあえず Angular2 を触ってみよう。合わなければやめる方向で。 TUTORIAL: TOUR OF HEROES 環境構築 そもそも node と npm が入ってないので入れる。 nvm(NodeVersionManager) 1 % brew install nvm 1 2 3 4 5 6 7 8 9 10</description>
+      <description>とりあえず Angular2 を触ってみよう。合わなければやめる方向で。</description>
     </item>
     
     <item>
@@ -116,7 +116,7 @@
       <pubDate>Wed, 23 Mar 2016 00:19:24 +0000</pubDate>
       
       <guid>https://www.tac42.net/post/2016-03-23-makeonlinejudgev03/</guid>
-      <description>Go で Web アプリを書くためのフレームワークを調べました。 Revel Beego Martini goji 戦国時代ですね。 まとめ 調べてみたけど、これというフレームワークはあまあり無いみた</description>
+      <description>Go で Web アプリを書くためのフレームワークについて調べました。</description>
     </item>
     
     <item>
@@ -125,7 +125,7 @@
       <pubDate>Tue, 22 Mar 2016 19:43:37 +0000</pubDate>
       
       <guid>https://www.tac42.net/post/2016-03-22-makeonlinejudgev02/</guid>
-      <description>Javascript で Web アプリを書くためのフレームワークを調べました。 人気上昇中の JavaScript ライブラリを調べてみた【2016 年版】 AngularJS AngularJS 入門 これまでの Web サービスでは、サ</description>
+      <description>Javascript で Web アプリを書くためのフレームワークを調べました。</description>
     </item>
     
     <item>
@@ -134,7 +134,7 @@
       <pubDate>Mon, 21 Mar 2016 23:32:05 +0000</pubDate>
       
       <guid>https://www.tac42.net/post/2016-03-21-makeonlinejudgev01/</guid>
-      <description>作ろう！ オンラインジャッジって？ PaizaやCodeIQ、TopCoderなどのプログラミングコンテストで、提出されたコードを実行して採点す</description>
+      <description></description>
     </item>
     
     <item>
@@ -143,7 +143,7 @@
       <pubDate>Tue, 05 Jan 2016 01:42:19 +0000</pubDate>
       
       <guid>https://www.tac42.net/post/2016-01-05-raspberrypi-setup/</guid>
-      <description>すごい今更感ありますが、Raspberry Pi2 Model B を買ってしまったのでセットアップしたメモ． ssh するところまで． イメージの書き込み OS イメージを microSD</description>
+      <description>すごい今更感ありますが、Raspberry Pi2 Model B を買ってしまったのでセットアップしたメモ．</description>
     </item>
     
     <item>
@@ -152,7 +152,7 @@
       <pubDate>Sat, 02 Jan 2016 02:27:30 +0000</pubDate>
       
       <guid>https://www.tac42.net/post/2016-01-02-how-to-write-octopress/</guid>
-      <description>備忘録です．Octopress に乗り換えたものの，環境構築忘れるとあれなので． https://tac0x2a.github.io/ セットアップ 1 2 3 4 5 $ git clone git@github.com:tac0x2a/tac0x2a.github.io.git $ cd tac0x2a.github.io $ git checkout source $ rbenv exec bundle install $ git clone</description>
+      <description>備忘録です．Octopress に乗り換えたものの，環境構築忘れるとあれなので．</description>
     </item>
     
     <item>
@@ -161,7 +161,7 @@
       <pubDate>Thu, 31 Dec 2015 23:59:25 +0000</pubDate>
       
       <guid>https://www.tac42.net/post/2015-12-31-conclusion2015/</guid>
-      <description>GooglePhoto を見ながら 2015 年を振り返り．ごった煮です． 1Q(1 月から 3 月) 石川へ行く(1 回目) beatmania IIDX 関連の OSS を 3 つリリース．全部 Ruby． プレーデータ取得用のラ</description>
+      <description>GooglePhoto を見ながら 2015 年を振り返り</description>
     </item>
     
     <item>
