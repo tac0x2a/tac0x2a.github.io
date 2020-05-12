@@ -52,7 +52,7 @@
 <meta itemprop="description" content="Hugoでこのブログに記事を投稿する手順をメモ。備忘録。 環境構築 リポジトリ tac0x2a.github.io.src: Hugoでコンバートする前のソース tac0x2a.github.io: 公開用のファイル群。Hugo">
 <meta itemprop="datePublished" content="2020-05-10T17:20:03&#43;09:00" />
 <meta itemprop="dateModified" content="2020-05-10T17:20:03&#43;09:00" />
-<meta itemprop="wordCount" content="401">
+<meta itemprop="wordCount" content="437">
 
 
 
@@ -122,12 +122,13 @@
     
     <header class="post-header">
       <h1 class="post-title">HugoでGithubPagesへ記事を公開する</h1>
-
       <div class="post-meta">
         <span class="post-time"> 2020-05-10 </span>
         
         
       </div>
+      <a href="https://b.hatena.ne.jp/entry/" class="hatena-bookmark-button" data-hatena-bookmark-layout="basic-counter" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/v4/public/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+      <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     </header>
 
     <div class="post-toc" id="post-toc">
@@ -152,6 +153,7 @@
   </div>
 </div>
     <div class="post-content">
+
       <p>Hugoでこのブログに記事を投稿する手順をメモ。備忘録。</p>
 <h2 id="環境構築">環境構築</h2>
 <h3 id="リポジトリ">リポジトリ</h3>
@@ -206,14 +208,28 @@ sudo dpkg -i hugo_0.70.0_Linux-64bit.deb
 hugo new post/yyyy-mm-dd-&lt;title&gt;/index.md
 </code></pre></td></tr></table>
 </div>
-</div><div class="highlight"><div class="chroma">
+</div><p>確認するにはこう</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">hugo serve -D
+<span class="c1"># open localhost:1313</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><p>themeを変更した場合はこんな感じ。</p>
+<div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh">hugo serve -D
-<span class="c1"># open localhost:1313</span>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">cd theme/even
+sass --watch --sourcemap=none assets/sass/main.scss:resources/_gen/assets/scss/sass/main.scss_48b060fe05b0a273d182ef83c0605941.content
 </code></pre></td></tr></table>
 </div>
 </div><p>書き終わったら <code>draft: true</code> を <code>draft: false</code> に変える。</p>
