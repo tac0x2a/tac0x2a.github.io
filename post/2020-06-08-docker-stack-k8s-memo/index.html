@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>docker stackでk8sを使ってみるメモ - tac42.net</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="tac0x2a" /><meta name="description" content="既存の docker-compose.yml で k8sにデプロイできると聞いて調べてみたメモ。" /><meta name="keywords" content="Tech, Photo, Blog" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.70.0 with theme even" />
+
+
+<link rel="canonical" href="https://www.tac42.net/post/2020-06-08-docker-stack-k8s-memo/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c" rel="stylesheet">
+
+
+<link href="/sass/main.min.8c3cbcb0324c2bb4875ceccba4007cbad4b4ac8377f33af9953c3e7684534a50.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="docker stackでk8sを使ってみるメモ" />
+<meta property="og:description" content="既存の docker-compose.yml で k8sにデプロイできると聞いて調べてみたメモ。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.tac42.net/post/2020-06-08-docker-stack-k8s-memo/" />
+<meta property="article:published_time" content="2020-06-08T20:28:19+09:00" />
+<meta property="article:modified_time" content="2020-06-08T20:28:19+09:00" />
+<meta itemprop="name" content="docker stackでk8sを使ってみるメモ">
+<meta itemprop="description" content="既存の docker-compose.yml で k8sにデプロイできると聞いて調べてみたメモ。">
+<meta itemprop="datePublished" content="2020-06-08T20:28:19&#43;09:00" />
+<meta itemprop="dateModified" content="2020-06-08T20:28:19&#43;09:00" />
+<meta itemprop="wordCount" content="654">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="docker stackでk8sを使ってみるメモ"/>
+<meta name="twitter:description" content="既存の docker-compose.yml で k8sにデプロイできると聞いて調べてみたメモ。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">tac42.net</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Blog</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/products/">
+        <li class="mobile-menu-item">Products</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">tac42.net</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Blog</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/products/">Products</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">docker stackでk8sを使ってみるメモ</h1>
+      <div class="post-meta">
+        <span class="post-time"> 2020-06-08 </span>
+        
+        
+      </div>
+      <a href="https://b.hatena.ne.jp/entry/" class="hatena-bookmark-button" data-hatena-bookmark-layout="basic-counter" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/v4/public/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+      <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">コンテンツ</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#はじめに">はじめに</a></li>
+    <li><a href="#イメージのビルドとローカルregistryへの登録">イメージのビルドとローカルregistryへの登録</a>
+      <ul>
+        <li><a href="#ビルドしたイメージを参照する">ビルドしたイメージを参照する</a></li>
+      </ul>
+    </li>
+    <li><a href="#動かしてみる">動かしてみる</a>
+      <ul>
+        <li><a href="#デプロイ">デプロイ</a></li>
+        <li><a href="#ingress">Ingress</a></li>
+        <li><a href="#ボリュームについて">ボリュームについて</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+
+      <h2 id="はじめに">はじめに</h2>
+<p><code>docker stack</code> コマンドで、既存の <code>docker-compose.yml</code> を使ってk8sにアプリをデプロイできると聞いて調べてみたメモ。</p>
+<p>オンプレのクラスタ環境に自前アプリをデプロイする状況を想定。</p>
+<h2 id="イメージのビルドとローカルregistryへの登録">イメージのビルドとローカルregistryへの登録</h2>
+<p><code>docker stack</code> というよりk8sはイメージのビルドをサポートしてないので、事前にビルドして、ローカルに立てたレジストリに登録、みたいなことが必要。</p>
+<ul>
+<li>
+<p><code>docker-compose-registry.yml</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="k">version</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;3&#34;</span><span class="w">
+</span><span class="w"></span><span class="k">services</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="c"># registry for built images refered from k8s</span><span class="w">
+</span><span class="w">  </span><span class="k">registry</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="k">image</span><span class="p">:</span><span class="w"> </span>registry<span class="p">:</span><span class="m">2</span><span class="w">
+</span><span class="w">    </span><span class="k">hostname</span><span class="p">:</span><span class="w"> </span>registry<span class="w">
+</span><span class="w">    </span><span class="k">restart</span><span class="p">:</span><span class="w"> </span>always<span class="w">
+</span><span class="w">    </span><span class="k">ports</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span>- <span class="m">5000</span><span class="p">:</span><span class="m">5000</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p><code>docker-compose-build.yml</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-yml" data-lang="yml"><span class="k">version</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;3&#34;</span><span class="w">
+</span><span class="w"></span><span class="k">services</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="k">name-of-service</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="k">build</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="k">context</span><span class="p">:</span><span class="w"> </span>directory-name<span class="w">
+</span><span class="w">    </span><span class="k">image</span><span class="p">:</span><span class="w"> </span>image-name<span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><p>必要な分だけビルドする</p>
+</li>
+<li>
+<p>イメージの登録</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># Build</span>
+docker-compose -f docker-compose-build.yml build
+
+<span class="c1"># Regitry</span>
+docker-compose -f docker-compose-registry.yml up -d
+
+docker image tag image-name localhost:5000/image-name
+docker push localhost:5000/image-name
+</code></pre></td></tr></table>
+</div>
+</div><p><code>registry</code> は永続化していないので、<code>docker-compose -f docker-compose-registry.yml down</code> で消える。</p>
+</li>
+</ul>
+<h3 id="ビルドしたイメージを参照する">ビルドしたイメージを参照する</h3>
+<p>k8sからは localhost:5000 として参照されるよう、ローカルリポジトリを指すようイメージを指定する。</p>
+<ul>
+<li><code>docker-compose.yml</code>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-yml" data-lang="yml"><span class="k">version</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;3&#34;</span><span class="w">
+</span><span class="w"></span><span class="k">services</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="k">name-of-service</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="k">image</span><span class="p">:</span><span class="w"> </span>localhost<span class="p">:</span><span class="m">5000</span>/image-name<span class="w">
+</span><span class="w">    </span>...<span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<h2 id="動かしてみる">動かしてみる</h2>
+<h3 id="デプロイ">デプロイ</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">docker stack deploy --orchestrator<span class="o">=</span>kubernetes -c docker-compose.yml name-of-app
+</code></pre></td></tr></table>
+</div>
+</div><p>サービスごとにpodが作れられる。</p>
+<p>ちなみに、以下のオプションは<code>docker stack</code>でサポートされていない。</p>
+<ul>
+<li>build</li>
+<li>cgroup_parent</li>
+<li>container_name</li>
+<li>devices</li>
+<li>tmpfs</li>
+<li>external_links</li>
+<li>links</li>
+<li>network_mode</li>
+<li>restart</li>
+<li>security_opt</li>
+<li>userns_mode</li>
+</ul>
+<p>参考: <a href="https://docs.docker.com/compose/compose-file/">https://docs.docker.com/compose/compose-file/</a></p>
+<h3 id="ingress">Ingress</h3>
+<p>注意: 結局動いていない。パスでサービスを解決したくなったら調査して追記する。</p>
+<p>外部からサービスにアクセスするための口を作る。
+参考: <a href="https://kubernetes.io/ja/docs/concepts/services-networking/ingress/">https://kubernetes.io/ja/docs/concepts/services-networking/ingress/</a></p>
+<h4 id="ingress-controller">ingress-controller</h4>
+<p>まずingress-controllerを入れる。<a href="https://kubernetes.io/docs/concepts/services-networking/ingress-controllers">いろいろある</a>けど今回はingress-nginxを使う。</p>
+<ul>
+<li><a href="https://kubernetes.github.io/ingress-nginx/deploy/#bare-metal">Bare-metal</a>の場合
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-0.32.0/deploy/static/provider/baremetal/deploy.yaml
+</code></pre></td></tr></table>
+</div>
+</div><p>なんか色々入った。</p>
+</li>
+</ul>
+<h4 id="ingressを適用する">ingressを適用する</h4>
+<ul>
+<li>
+<p><code>ingress.yml</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-yml" data-lang="yml">WIP<span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>反映する</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">kubectl apply -f ingress.yml
+kubectl get ingress
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>確認する</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">kubectl describe ingress name-of-ingress
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<p>ingressを削除するときは <code>kubectl delete ingress name-of-ingress</code></p>
+<h3 id="ボリュームについて">ボリュームについて</h3>
+<p><a href="https://docs.docker.com/compose/compose-file/#volumes-for-services-swarms-and-stack-files">https://docs.docker.com/compose/compose-file/#volumes-for-services-swarms-and-stack-files</a></p>
+<h1 id="トラブルシュート">トラブルシュート</h1>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">kubectl describe pod name-of-pod
+</code></pre></td></tr></table>
+</div>
+</div>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">作成者</span>
+    <span class="item-content">tac0x2a</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">最終更新時刻</span>
+    <span class="item-content">
+        2020-06-08
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/2020-05-06-vuejs-memo/">
+            <span class="next-text nav-default">Vue.js に関するメモ</span>
+            <span class="next-text nav-mobile">古い記事へ</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:tac@tac42.net" class="iconfont icon-email" title="email"></a>
+      <a href="https://twitter.com/tac0x2a/" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="https://github.com/tac0x2a" class="iconfont icon-github" title="github"></a>
+      <a href="https://osha-shin.tumblr.com/" class="iconfont icon-tumblr" title="tumblr"></a>
+  <a href="https://www.tac42.net/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2015 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">tac0x2a</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
