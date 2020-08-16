@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>小さなデータ基盤 Nayco をリリースしました - tac42.net</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="tac0x2a" /><meta name="description" content="オンプレでも頑張って動く小さなデータ基盤 Nayco を作りました" /><meta name="keywords" content="Tech, Photo, Blog" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.70.0 with theme even" />
+
+
+<link rel="canonical" href="https://www.tac42.net/post/2020-08-17-nayco-first-release/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c" rel="stylesheet">
+
+
+<link href="/sass/main.min.8c3cbcb0324c2bb4875ceccba4007cbad4b4ac8377f33af9953c3e7684534a50.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="小さなデータ基盤 Nayco をリリースしました" />
+<meta property="og:description" content="オンプレでも頑張って動く小さなデータ基盤 Nayco を作りました" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.tac42.net/post/2020-08-17-nayco-first-release/" />
+<meta property="article:published_time" content="2020-08-17T07:37:40+09:00" />
+<meta property="article:modified_time" content="2020-08-17T07:37:40+09:00" />
+<meta itemprop="name" content="小さなデータ基盤 Nayco をリリースしました">
+<meta itemprop="description" content="オンプレでも頑張って動く小さなデータ基盤 Nayco を作りました">
+<meta itemprop="datePublished" content="2020-08-17T07:37:40&#43;09:00" />
+<meta itemprop="dateModified" content="2020-08-17T07:37:40&#43;09:00" />
+<meta itemprop="wordCount" content="2483">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="小さなデータ基盤 Nayco をリリースしました"/>
+<meta name="twitter:description" content="オンプレでも頑張って動く小さなデータ基盤 Nayco を作りました"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">tac42.net</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Blog</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/products/">
+        <li class="mobile-menu-item">Products</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">tac42.net</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Blog</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/products/">Products</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">小さなデータ基盤 Nayco をリリースしました</h1>
+      <div class="post-meta">
+        <span class="post-time"> 2020-08-17 </span>
+        
+        
+      </div>
+      <a href="https://b.hatena.ne.jp/entry/" class="hatena-bookmark-button" data-hatena-bookmark-layout="basic-counter" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/v4/public/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+      <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">コンテンツ</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#nayco-とは">Nayco とは？</a></li>
+    <li><a href="#主な特徴">主な特徴</a></li>
+    <li><a href="#nayco-の概要">Nayco の概要</a></li>
+    <li><a href="#なぜ-nayco-を作ったのか">なぜ Nayco を作ったのか？</a></li>
+    <li><a href="#とりあえず動かしてみる">とりあえず動かしてみる</a>
+      <ul>
+        <li><a href="#1-起動">1. 起動</a></li>
+        <li><a href="#2-サンプルデータの入力">2. サンプルデータの入力</a></li>
+        <li><a href="#3-データの確認">3. データの確認</a></li>
+        <li><a href="#4-データの可視化">4. データの可視化</a></li>
+      </ul>
+    </li>
+    <li><a href="#今後">今後</a></li>
+    <li><a href="#最後に">最後に</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+
+      <h2 id="nayco-とは">Nayco とは？</h2>
+<p>Naycoは主にオンプレミスのデータ収集・蓄積・可視化環境を素早く立ち上げるための、オールインワンの小さなデータ基盤です。</p>
+<p><a href="https://github.com/tac0x2a/nayco"><img src="./img/nayco.svg" alt="nayco"></a></p>
+<p><a href="https://github.com/tac0x2a/nayco">tac0x2a/nayco</a></p>
+<p>#アイコンはパワポで頑張って描きました</p>
+<h2 id="主な特徴">主な特徴</h2>
+<ul>
+<li>Dockerコンテナ群で構成され、<code>docker-compose</code> コマンド一発で起動</li>
+<li>列指向DWH(<a href="https://clickhouse.tech/">ClickHouse</a>)による、高速な集計とデータ圧縮による高いストレージ効率</li>
+<li>入力データを元にスキーマを推定し、自動でDWHにテーブルを作成。データに合わせてテーブルを作成する必要はありません。</li>
+<li>構成するソフトウェアは全てOSS</li>
+</ul>
+<p><code>docker-compose</code> コマンドで立ち上げたあとは、共有フォルダにファイルを置いたりMQTTでデータを送信するだけで、DWHへ自動でデータが蓄積され、<a href="https://www.metabase.com/">Metabase</a>や一般的なツールによってデータを利用することができます。</p>
+<h2 id="nayco-の概要">Nayco の概要</h2>
+<p><img src="./img/overview.drawio.svg" alt="overview"></p>
+<p>Naycoは、データの入力、変換、蓄積、可視化のためのソフトウェア群によって構成されています。
+基本の入力はMQTTで、JSON, JSONL, またはヘッダ付きCSV形式のデータを受け付けます。ヘッダなしのCSVフォーマットはサポートされません。
+ファイルによる入力も可能で、所定のフォルダに上記形式のファイルを置くか追記することで、同様にデータを入力できます。</p>
+<p>入力されたデータは内部のブローカーを経由し、DWHへ保存されます。このとき、データから推定された型を元に、自動的にテーブルが作成されます。</p>
+<p>DWHへ格納されたデータは、Naycoが内蔵する可視化サービスを用いて分析やダッシュボードを作ったり、外部のSQLクライアントから直接データを利用することができます。</p>
+<p>その他、コンテナの管理ツールや、DWHのテーブルを管理するツールが含まれています。</p>
+<p>詳細については <a href="https://github.com/tac0x2a/nayco/blob/master/doc/Usage.ja.md">Usage.ja.md</a> を参照してください。</p>
+<h2 id="なぜ-nayco-を作ったのか">なぜ Nayco を作ったのか？</h2>
+<p>いわゆるデータ基盤は、クラウドのオブジェクトストレージや分散処理基盤のマネージドサービスなどを組み合わせて構築するのが一般的ですが、インターネットとの接続が困難な環境でデータ収集/分析をスモールスタートしたい、という人たちが案外います。(私もそう)</p>
+<p>このようなケースにおいて、私の経験では小規模なツールやRDBを組み合わせたシステムを、個別のエンジニアリングで構築&amp;スタートすることが多いのですが、収集データの項目を追加するたびにテーブルのメンテナンスが必要になったり、非力なハードウェアでは十分な性能が出ないなど、色々と苦労が多かったです。</p>
+<p>そこで、データ項目が多少変化してもエンジニアリングレスでいい感じにデータを貯め続けてくれる仕組みと、オンプレのマシンでも性能が期待できるClickHouseを使ったデータ基盤を爆速で構築できる環境がほしい！という思いで、この Nayco を作りました。</p>
+<hr>
+<h2 id="とりあえず動かしてみる">とりあえず動かしてみる</h2>
+<h3 id="1-起動">1. 起動</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">$ docker -v
+Docker version 19.03.12
+
+$ docker-compose -v
+docker-compose version 1.26.2
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">$ git clone https://github.com/tac0x2a/nayco.git
+$ <span class="nb">cd</span> nayco
+$ docker-compose up -d
+</code></pre></td></tr></table>
+</div>
+</div><p>上記でNaycoが起動します。各コンテナの状態は Portainer(<code>http://&lt;NAYCO_HOST&gt;:19000</code> )にアクセスして確認することができます。</p>
+<p>なお、<code>&lt;NAYCO_HOST&gt;</code> は Naycoが実行されているホストまたはIPアドレスに読み替えてください。</p>
+<h3 id="2-サンプルデータの入力">2. サンプルデータの入力</h3>
+<p>ここでは、MQTTでJSONを送信してデータを入力してみます。</p>
+<p>以下のデータをMQTTでNaycoへ送信します。</p>
+<ul>
+<li>Topic: <code>hello/nayco</code></li>
+<li>Payload: <code>{&quot;title&quot;: &quot;The Perfect Insider&quot;, &quot;pub_date&quot;: &quot;1996/4/5&quot;, &quot;lang&quot;: &quot;ja&quot;}</code></li>
+<li>Host: <code>&lt;NAYCO_HOST&gt;</code></li>
+<li>Port: <code>1883</code></li>
+</ul>
+<p>Pythonの例</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-py" data-lang="py"><span class="kn">import</span> <span class="nn">paho.mqtt.publish</span> <span class="kn">as</span> <span class="nn">pub</span>
+
+<span class="n">topic</span> <span class="o">=</span> <span class="s2">&#34;hello/nayco&#34;</span>
+<span class="n">payload</span> <span class="o">=</span> <span class="s1">&#39;{&#34;title&#34;: &#34;The Perfect Insider&#34;, &#34;pub_date&#34;: &#34;1996/4/5&#34;, &#34;lang&#34;: &#34;ja&#34;}&#39;</span>
+<span class="n">hostname</span> <span class="o">=</span> <span class="s2">&#34;&lt;NAYCO_HOST&gt;&#34;</span>
+<span class="n">port</span> <span class="o">=</span> <span class="mi">1883</span>
+
+<span class="n">pub</span><span class="o">.</span><span class="n">single</span><span class="p">(</span><span class="n">topic</span><span class="o">=</span><span class="n">topic</span><span class="p">,</span> <span class="n">payload</span><span class="o">=</span><span class="n">payload</span><span class="p">,</span> <span class="n">hostname</span><span class="o">=</span><span class="n">hostname</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">1883</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="3-データの確認">3. データの確認</h3>
+<p>送信が完了したら、以下のデータ管理サービスでテーブルが作成されたことを確認します。</p>
+<ul>
+<li>
+<p>Uminoco: <code>http://&lt;NAYCO_HOST&gt;:5000/table/hello_nayco_001</code></p>
+<p><img src="./img/hello_nayco_table.png" alt=""></p>
+</li>
+</ul>
+<p>データとtopic名を元にテーブルが自動作成されていることを確認できます。
+テーブル名はtopic名を元に生成されますが、<code>RENAME TABLE</code> ボタンから変更することができます。
+今はデータが1件だけなので圧縮率が悪く見えますが、データが増えるにつれて、ClickHouseによるデータ圧縮が効果を発揮します。</p>
+<h3 id="4-データの可視化">4. データの可視化</h3>
+<p>蓄積したデータを可視化するサービスとして、Naycoには<a href="https://www.metabase.com/">Metabase</a> が含まれています。</p>
+<ul>
+<li>Metabase: <code>http://&lt;NAYCO_HOST&gt;:3000</code></li>
+</ul>
+<p>Metabaseを利用するためには、初回アクセス時に、DWH(ClickHouse)のDBをデータソースとして登録する必要があります。</p>
+<ul>
+<li>Database type <code>ClickHouse</code>,</li>
+<li>Database Name: 任意</li>
+<li>Host: <code>clickhouse</code></li>
+<li>Port: <code>8123</code></li>
+<li>Database user name: <code>default</code></li>
+<li>Database password: &lt;空&gt;</li>
+</ul>
+<p><img src="./img/metabase_clickhouse.png" alt=""></p>
+<p>上記をSaveして、Naycoに蓄積されたデータをMetabseで可視化する準備が整いました。(Metabaseのクロールが実行されるまでの間、実際のテーブルがMetabase上に表示されない場合があります)
+試しに、簡単な可視化をしてみましょう。Metabase上で <code>hello_nayco_001</code> テーブルが見えるようになったので、以下のようなチャート(Question)を作成します。
+Metabaseの使い方については、<a href="https://www.metabase.com/docs/latest/getting-started.html">Metabaseのドキュメント</a>を参照してください。</p>
+<p><img src="./img/metabase_1.png" alt=""></p>
+<p>横軸を公開日、縦軸を件数とするバーチャートです。今は1件しかデータが登録されていないので、シンプルな見た目です。</p>
+<p>以下のようなスクリプトを実行し、データを追加してみます。</p>
+<p>Pythonの例</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-py" data-lang="py"><span class="kn">import</span> <span class="nn">paho.mqtt.publish</span> <span class="kn">as</span> <span class="nn">pub</span>
+
+<span class="n">topic</span> <span class="o">=</span> <span class="s2">&#34;hello/nayco&#34;</span>
+<span class="n">payload</span> <span class="o">=</span> <span class="s2">&#34;&#34;&#34;
+</span><span class="s2">{ &#34;title&#34;: &#34;Doctors in Isolated Room&#34;, &#34;pub_date&#34;: &#34;1996/7/5&#34;, &#34;lang&#34;: &#34;ja&#34; }
+</span><span class="s2">{ &#34;title&#34;: &#34;Mathematical Goodbye&#34;,     &#34;pub_date&#34;: &#34;1996/9/5&#34;, &#34;lang&#34;: &#34;ja&#34; }
+</span><span class="s2">{ &#34;title&#34;: &#34;Jack the Poetical Private&#34;,&#34;pub_date&#34;: &#34;1997/1/5&#34;, &#34;lang&#34;: &#34;ja&#34; }
+</span><span class="s2">{ &#34;title&#34;: &#34;Who Inside&#34;,               &#34;pub_date&#34;: &#34;1997/4/5&#34;, &#34;lang&#34;: &#34;ja&#34; }
+</span><span class="s2">{ &#34;title&#34;: &#34;Illusion Acts Like Magic&#34;, &#34;pub_date&#34;: &#34;1997/10/5&#34;,&#34;lang&#34;: &#34;ja&#34; }
+</span><span class="s2">{ &#34;title&#34;: &#34;Replaceable Summer&#34;,       &#34;pub_date&#34;: &#34;1998/1/7&#34;, &#34;lang&#34;: &#34;ja&#34; }
+</span><span class="s2">{ &#34;title&#34;: &#34;Switch Back&#34;,              &#34;pub_date&#34;: &#34;1998/4/5&#34;, &#34;lang&#34;: &#34;ja&#34; }
+</span><span class="s2">{ &#34;title&#34;: &#34;Numerical Models&#34;,         &#34;pub_date&#34;: &#34;1998/7/5&#34;, &#34;lang&#34;: &#34;ja&#34; }
+</span><span class="s2">{ &#34;title&#34;: &#34;The Perfect Outsider&#34;,     &#34;pub_date&#34;: &#34;1998/10/5&#34;,&#34;lang&#34;: &#34;ja&#34; }
+</span><span class="s2">&#34;&#34;&#34;</span>
+<span class="n">hostname</span> <span class="o">=</span> <span class="s2">&#34;&lt;NAYCO_HOST&gt;&#34;</span>
+<span class="n">port</span> <span class="o">=</span> <span class="mi">1883</span>
+
+<span class="n">pub</span><span class="o">.</span><span class="n">single</span><span class="p">(</span><span class="n">topic</span><span class="o">=</span><span class="n">topic</span><span class="p">,</span> <span class="n">payload</span><span class="o">=</span><span class="n">payload</span><span class="p">,</span> <span class="n">hostname</span><span class="o">=</span><span class="n">hostname</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">1883</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>その後、Metabaseのページをリロードすると追加されたデータが表示されます。</p>
+<p><img src="./img/metabase_10.png" alt=""></p>
+<p>このように、MQTTでデータを送信するだけで、簡単に可視化が可能です。その他、任意のSQLクライアントでDWHを直接クエリしたり、ファイルとしてエクスポートすることが可能です。</p>
+<p>その他詳細については <a href="https://github.com/tac0x2a/nayco/blob/master/doc/Usage.ja.md">Usage.ja.md</a> を御覧ください。</p>
+<hr>
+<h2 id="今後">今後</h2>
+<ul>
+<li>(特に)DWHのDB名や認証認可がガバガバなので、もう少しまともにしたい</li>
+<li>データマートを構成するためのETLっぽい仕組みの導入。
+Node-Redでそれっぽいことも頑張れ無くないが、Embulkをブラウザからキックするようなサービスを入れたい。</li>
+</ul>
+<h2 id="最後に">最後に</h2>
+<p><a href="https://clickhouse.tech/">ClickHouse</a>はいいぞ！</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">作成者</span>
+    <span class="item-content">tac0x2a</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">最終更新時刻</span>
+    <span class="item-content">
+        2020-08-17
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/2020-06-08-docker-stack-k8s-memo/">
+            <span class="next-text nav-default">docker stackでk8sを使ってみるメモ</span>
+            <span class="next-text nav-mobile">古い記事へ</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:tac@tac42.net" class="iconfont icon-email" title="email"></a>
+      <a href="https://twitter.com/tac0x2a/" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="https://github.com/tac0x2a" class="iconfont icon-github" title="github"></a>
+      <a href="https://osha-shin.tumblr.com/" class="iconfont icon-tumblr" title="tumblr"></a>
+  <a href="https://www.tac42.net/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2015 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">tac0x2a</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
