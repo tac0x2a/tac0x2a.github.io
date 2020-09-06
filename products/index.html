@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="tac0x2a" /><meta name="description" content="作ったものとか． 932mania 932mania github.com/tac0x2a/932mania Vue.js &#43; Firebase で作ったお試しアプリ。Wikipediaをスクレイピングして、「草津」から始まる記事を表示します。 Yasuri Webスクレ" /><meta name="keywords" content="Tech, Photo, Blog" />
+<meta name="author" content="tac0x2a" /><meta name="description" content="作ったものとか． Nayco tac0x2a/nayco 適当にMQTT投げたりCSVファイル置くだけで、いい感じにDWHへ蓄積してダッシュボード作れるなんちゃってオンプレデータ" /><meta name="keywords" content="Tech, Photo, Blog" />
 
 
 
@@ -43,20 +43,20 @@
 
 
 <meta property="og:title" content="作ったものとか" />
-<meta property="og:description" content="作ったものとか． 932mania 932mania github.com/tac0x2a/932mania Vue.js &#43; Firebase で作ったお試しアプリ。Wikipediaをスクレイピングして、「草津」から始まる記事を表示します。 Yasuri Webスクレ" />
+<meta property="og:description" content="作ったものとか． Nayco tac0x2a/nayco 適当にMQTT投げたりCSVファイル置くだけで、いい感じにDWHへ蓄積してダッシュボード作れるなんちゃってオンプレデータ" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.tac42.net/products/" />
 
 <meta itemprop="name" content="作ったものとか">
-<meta itemprop="description" content="作ったものとか． 932mania 932mania github.com/tac0x2a/932mania Vue.js &#43; Firebase で作ったお試しアプリ。Wikipediaをスクレイピングして、「草津」から始まる記事を表示します。 Yasuri Webスクレ">
+<meta itemprop="description" content="作ったものとか． Nayco tac0x2a/nayco 適当にMQTT投げたりCSVファイル置くだけで、いい感じにDWHへ蓄積してダッシュボード作れるなんちゃってオンプレデータ">
 
-<meta itemprop="wordCount" content="444">
+<meta itemprop="wordCount" content="913">
 
 
 
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="作ったものとか"/>
-<meta name="twitter:description" content="作ったものとか． 932mania 932mania github.com/tac0x2a/932mania Vue.js &#43; Firebase で作ったお試しアプリ。Wikipediaをスクレイピングして、「草津」から始まる記事を表示します。 Yasuri Webスクレ"/>
+<meta name="twitter:description" content="作ったものとか． Nayco tac0x2a/nayco 適当にMQTT投げたりCSVファイル置くだけで、いい感じにDWHへ蓄積してダッシュボード作れるなんちゃってオンプレデータ"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -119,6 +119,19 @@
           <article class="post">
   <div class="post-content">
     <p>作ったものとか．</p>
+<hr>
+<h2 id="naycohttpsgithubcomtac0x2anayco"><a href="https://github.com/tac0x2a/nayco">Nayco</a></h2>
+<p><a href="https://github.com/tac0x2a/nayco"><img src="https://raw.githubusercontent.com/tac0x2a/nayco/master/doc/img/nayco.svg" alt="nayco"></a></p>
+<p><a href="https://github.com/tac0x2a/932_mania">tac0x2a/nayco</a></p>
+<p>適当にMQTT投げたりCSVファイル置くだけで、いい感じにDWHへ蓄積してダッシュボード作れるなんちゃってオンプレデータ基盤です。自分のデータエンジニアリングを楽にするために作りました。詳しくは<a href="/post/2020-08-17-nayco-first-release/">こちら</a>。</p>
+<p>Naycoで使っている自作OSSとして以下も作りました。</p>
+<ul>
+<li><a href="https://github.com/tac0x2a/grebe">Grebe</a>: RabbitMQから受け取ったJSON/CSVテキストをいい感じにClickHouseへ蓄積する</li>
+<li><a href="https://github.com/tac0x2a/lake_weed">Lake Weed</a>: JSON/CSV のテキストを受け取って、いい感じにClickHouseの型へマッピングするライブラリ。Grebeの中で使っています。そのうちClickHouse以外のDBMSにも対応したい。</li>
+<li><a href="https://github.com/tac0x2a/grebe">o-namazu</a>: フォルダを監視して、ファイルが置かれたり追記されたら差分をMQTTで送信するデータシッパー。設定ファイルを置くだけで、フォルダごとの監視条件を設定できる。</li>
+<li><a href="">Uminoco</a>: Grebeで貯めたClickHouse上のデータを見たりテーブル操作するためのサービス。テーブルがいつ作られて、どれくらいのサイズになっていて、最新の値や最近のデータ件数をヒートマップで見れるなど、便利そう！と思う機能を適当に入れています。</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/tac0x2a/nayco/master/doc/img/hello_nayco_table.png" alt=""></p>
 <hr>
 <h2 id="932maniahttps932maniatac42net"><a href="https://932mania.tac42.net">932mania</a></h2>
 <p><img src="932mania.png" alt="932mania"></p>

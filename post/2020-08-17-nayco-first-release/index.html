@@ -158,7 +158,7 @@
 
       <h2 id="nayco-とは">Nayco とは？</h2>
 <p>Naycoは主にオンプレミスのデータ収集・蓄積・可視化環境を素早く立ち上げるための、オールインワンの小さなデータ基盤です。</p>
-<p><a href="https://github.com/tac0x2a/nayco"><img src="./img/nayco.svg" alt="nayco"></a></p>
+<p><a href="https://github.com/tac0x2a/nayco"><img src="https://raw.githubusercontent.com/tac0x2a/nayco/master/doc/img/nayco.svg" alt="nayco"></a></p>
 <p><a href="https://github.com/tac0x2a/nayco">tac0x2a/nayco</a></p>
 <p>#アイコンはパワポで頑張って描きました</p>
 <h2 id="主な特徴">主な特徴</h2>
@@ -170,7 +170,7 @@
 </ul>
 <p><code>docker-compose</code> コマンドで立ち上げたあとは、共有フォルダにファイルを置いたりMQTTでデータを送信するだけで、DWHへ自動でデータが蓄積され、<a href="https://www.metabase.com/">Metabase</a>や一般的なツールによってデータを利用することができます。</p>
 <h2 id="nayco-の概要">Nayco の概要</h2>
-<p><img src="./img/overview.drawio.svg" alt="overview"></p>
+<p><img src="https://raw.githubusercontent.com/tac0x2a/nayco/master/doc/img/overview.drawio.svg" alt="overview"></p>
 <p>Naycoは、データの入力、変換、蓄積、可視化のためのソフトウェア群によって構成されています。
 基本の入力はMQTTで、JSON, JSONL, またはヘッダ付きCSV形式のデータを受け付けます。ヘッダなしのCSVフォーマットはサポートされません。
 ファイルによる入力も可能で、所定のフォルダに上記形式のファイルを置くか追記することで、同様にデータを入力できます。</p>
@@ -252,7 +252,7 @@ $ docker-compose up -d
 <ul>
 <li>
 <p>Uminoco: <code>http://&lt;NAYCO_HOST&gt;:5000/table/hello_nayco_001</code></p>
-<p><img src="./img/hello_nayco_table.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/tac0x2a/nayco/master/doc/img/hello_nayco_table.png" alt=""></p>
 </li>
 </ul>
 <p>データとtopic名を元にテーブルが自動作成されていることを確認できます。
@@ -272,11 +272,11 @@ $ docker-compose up -d
 <li>Database user name: <code>default</code></li>
 <li>Database password: &lt;空&gt;</li>
 </ul>
-<p><img src="./img/metabase_clickhouse.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/tac0x2a/nayco/master/doc/img/metabase_clickhouse.png" alt=""></p>
 <p>上記をSaveして、Naycoに蓄積されたデータをMetabseで可視化する準備が整いました。(Metabaseのクロールが実行されるまでの間、実際のテーブルがMetabase上に表示されない場合があります)
 試しに、簡単な可視化をしてみましょう。Metabase上で <code>hello_nayco_001</code> テーブルが見えるようになったので、以下のようなチャート(Question)を作成します。
 Metabaseの使い方については、<a href="https://www.metabase.com/docs/latest/getting-started.html">Metabaseのドキュメント</a>を参照してください。</p>
-<p><img src="./img/metabase_1.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/tac0x2a/nayco/master/doc/img/metabase_1.png" alt=""></p>
 <p>横軸を公開日、縦軸を件数とするバーチャートです。今は1件しかデータが登録されていないので、シンプルな見た目です。</p>
 <p>以下のようなスクリプトを実行し、データを追加してみます。</p>
 <p>Pythonの例</p>
@@ -323,7 +323,7 @@ Metabaseの使い方については、<a href="https://www.metabase.com/docs/lat
 </code></pre></td></tr></table>
 </div>
 </div><p>その後、Metabaseのページをリロードすると追加されたデータが表示されます。</p>
-<p><img src="./img/metabase_10.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/tac0x2a/nayco/master/doc/img/metabase_10.png" alt=""></p>
 <p>このように、MQTTでデータを送信するだけで、簡単に可視化が可能です。その他、任意のSQLクライアントでDWHを直接クエリしたり、ファイルとしてエクスポートすることが可能です。</p>
 <p>その他詳細については <a href="https://github.com/tac0x2a/nayco/blob/master/doc/Usage.ja.md">Usage.ja.md</a> を御覧ください。</p>
 <hr>

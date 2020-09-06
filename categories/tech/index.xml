@@ -125,7 +125,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.tac42.net/products/</guid>
-      <description>作ったものとか． 932mania 932mania github.com/tac0x2a/932mania Vue.js + Firebase で作ったお試しアプリ。Wikipediaをスクレイピングして、「草津」から始まる記事を表示します。 Yasuri Webスクレ</description>
+      <description>作ったものとか． Nayco tac0x2a/nayco 適当にMQTT投げたりCSVファイル置くだけで、いい感じにDWHへ蓄積してダッシュボード作れるなんちゃってオンプレデータ</description>
     </item>
     
   </channel>
