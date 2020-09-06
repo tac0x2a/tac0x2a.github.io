@@ -188,7 +188,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.tac42.net/products/</guid>
-      <description>作ったものとか． Nayco tac0x2a/nayco 適当にMQTT投げたりCSVファイル置くだけで、いい感じにDWHへ蓄積してダッシュボード作れるなんちゃってオンプレデータ</description>
+      <description>作ったものとか． Nayco tac0x2a/nayco 雑にMQTT投げたりCSVファイル置くだけで、いい感じにDWHへ蓄積してダッシュボード作れるなんちゃってオンプレデータ基</description>
     </item>
     
   </channel>
