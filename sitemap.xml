@@ -2,15 +2,36 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.tac42.net/post/2020-12-31-conclusion2020/</loc>
+    <lastmod>2020-12-31T17:00:00+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.tac42.net/categories/</loc>
+    <lastmod>2020-12-31T17:00:00+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.tac42.net/categories/other/</loc>
+    <lastmod>2020-12-31T17:00:00+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://www.tac42.net/post/</loc>
-    <lastmod>2020-08-17T07:37:40+09:00</lastmod>
+    <lastmod>2020-12-31T17:00:00+09:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://www.tac42.net/</loc>
-    <lastmod>2020-08-17T07:37:40+09:00</lastmod>
+    <lastmod>2020-12-31T17:00:00+09:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -45,20 +66,6 @@
   
   <url>
     <loc>https://www.tac42.net/post/2019-12-31-conclusion2019/</loc>
-    <lastmod>2019-12-31T23:59:59+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.tac42.net/categories/</loc>
-    <lastmod>2019-12-31T23:59:59+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.tac42.net/categories/other/</loc>
     <lastmod>2019-12-31T23:59:59+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
