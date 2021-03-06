@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.70.0 with theme even" />
+<meta name="generator" content="Hugo 0.81.0 with theme even" />
 
 
 <link rel="canonical" href="https://www.tac42.net/post/2020-06-08-docker-stack-k8s-memo/" />
@@ -45,17 +45,14 @@
 <meta property="og:title" content="docker stackでk8sを使ってみるメモ" />
 <meta property="og:description" content="既存の docker-compose.yml で k8sにデプロイできると聞いて調べてみたメモ。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://www.tac42.net/post/2020-06-08-docker-stack-k8s-memo/" />
-<meta property="article:published_time" content="2020-06-08T20:28:19+09:00" />
-<meta property="article:modified_time" content="2020-06-08T20:28:19+09:00" />
+<meta property="og:url" content="https://www.tac42.net/post/2020-06-08-docker-stack-k8s-memo/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2020-06-08T20:28:19&#43;09:00" />
+<meta property="article:modified_time" content="2020-06-08T20:28:19&#43;09:00" />
+
 <meta itemprop="name" content="docker stackでk8sを使ってみるメモ">
-<meta itemprop="description" content="既存の docker-compose.yml で k8sにデプロイできると聞いて調べてみたメモ。">
-<meta itemprop="datePublished" content="2020-06-08T20:28:19&#43;09:00" />
+<meta itemprop="description" content="既存の docker-compose.yml で k8sにデプロイできると聞いて調べてみたメモ。"><meta itemprop="datePublished" content="2020-06-08T20:28:19&#43;09:00" />
 <meta itemprop="dateModified" content="2020-06-08T20:28:19&#43;09:00" />
 <meta itemprop="wordCount" content="654">
-
-
-
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="docker stackでk8sを使ってみるメモ"/>
 <meta name="twitter:description" content="既存の docker-compose.yml で k8sにデプロイできると聞いて調べてみたメモ。"/>
@@ -181,14 +178,14 @@
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="k">version</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;3&#34;</span><span class="w">
-</span><span class="w"></span><span class="k">services</span><span class="p">:</span><span class="w">
+<pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;3&#34;</span><span class="w">
+</span><span class="w"></span><span class="nt">services</span><span class="p">:</span><span class="w">
 </span><span class="w">  </span><span class="c"># registry for built images refered from k8s</span><span class="w">
-</span><span class="w">  </span><span class="k">registry</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="k">image</span><span class="p">:</span><span class="w"> </span>registry<span class="p">:</span><span class="m">2</span><span class="w">
-</span><span class="w">    </span><span class="k">hostname</span><span class="p">:</span><span class="w"> </span>registry<span class="w">
-</span><span class="w">    </span><span class="k">restart</span><span class="p">:</span><span class="w"> </span>always<span class="w">
-</span><span class="w">    </span><span class="k">ports</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">registry</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">registry:2</span><span class="w">
+</span><span class="w">    </span><span class="nt">hostname</span><span class="p">:</span><span class="w"> </span><span class="l">registry</span><span class="w">
+</span><span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l">always</span><span class="w">
+</span><span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w">
 </span><span class="w">      </span>- <span class="m">5000</span><span class="p">:</span><span class="m">5000</span><span class="w">
 </span></code></pre></td></tr></table>
 </div>
@@ -205,12 +202,12 @@
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-yml" data-lang="yml"><span class="k">version</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;3&#34;</span><span class="w">
-</span><span class="w"></span><span class="k">services</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="k">name-of-service</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="k">build</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span><span class="k">context</span><span class="p">:</span><span class="w"> </span>directory-name<span class="w">
-</span><span class="w">    </span><span class="k">image</span><span class="p">:</span><span class="w"> </span>image-name<span class="w">
+<pre class="chroma"><code class="language-yml" data-lang="yml"><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;3&#34;</span><span class="w">
+</span><span class="w"></span><span class="nt">services</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">name-of-service</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">build</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="nt">context</span><span class="p">:</span><span class="w"> </span><span class="l">directory-name</span><span class="w">
+</span><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">image-name</span><span class="w">
 </span></code></pre></td></tr></table>
 </div>
 </div><p>必要な分だけビルドする</p>
@@ -255,11 +252,11 @@ docker push localhost:5000/image-name
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-yml" data-lang="yml"><span class="k">version</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;3&#34;</span><span class="w">
-</span><span class="w"></span><span class="k">services</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="k">name-of-service</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="k">image</span><span class="p">:</span><span class="w"> </span>localhost<span class="p">:</span><span class="m">5000</span>/image-name<span class="w">
-</span><span class="w">    </span>...<span class="w">
+<pre class="chroma"><code class="language-yml" data-lang="yml"><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;3&#34;</span><span class="w">
+</span><span class="w"></span><span class="nt">services</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">name-of-service</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">localhost:5000/image-name</span><span class="w">
+</span><span class="w">    </span><span class="l">...</span><span class="w">
 </span></code></pre></td></tr></table>
 </div>
 </div></li>
@@ -318,7 +315,7 @@ docker push localhost:5000/image-name
 <pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-yml" data-lang="yml">WIP<span class="w">
+<pre class="chroma"><code class="language-yml" data-lang="yml"><span class="l">WIP</span><span class="w">
 </span></code></pre></td></tr></table>
 </div>
 </div></li>
@@ -447,7 +444,7 @@ kubectl get ingress
 
 
 
-<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
+<script type="text/javascript" src="/js/main.min.2517c0eb67172a0bae917de4af59b10ca2531411a009d4c0b82f5685259e5771.js"></script>
 
 
 
