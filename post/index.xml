@@ -6,7 +6,16 @@
     <description>Recent content in Posts on tac42.net</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sat, 06 Mar 2021 13:17:48 +0900</lastBuildDate><atom:link href="https://www.tac42.net/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 27 Mar 2021 10:12:17 +0900</lastBuildDate><atom:link href="https://www.tac42.net/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>yasuriコマンドでサクッとスクレイピング</title>
+      <link>https://www.tac42.net/post/2021-03-27-improve-yasuri/</link>
+      <pubDate>Sat, 27 Mar 2021 10:12:17 +0900</pubDate>
+      
+      <guid>https://www.tac42.net/post/2021-03-27-improve-yasuri/</guid>
+      <description>以前リリースしたスクレイピングライブラリをちょっと改修してコマンドラインツールとして使えるようにしました</description>
+    </item>
+    
     <item>
       <title>CDMP Associate 認定を取得した話</title>
       <link>https://www.tac42.net/post/2021-03-06-cdmp-associate/</link>
