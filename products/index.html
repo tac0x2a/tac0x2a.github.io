@@ -52,7 +52,7 @@
 <meta itemprop="name" content="作ったものとか">
 <meta itemprop="description" content="作ったものとか． Nayco tac0x2a/nayco 雑にMQTT投げたりCSVファイル置くだけで、いい感じにDWHへ蓄積してダッシュボード作れるなんちゃってオンプレデータ基">
 
-<meta itemprop="wordCount" content="907">
+<meta itemprop="wordCount" content="1043">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="作ったものとか"/>
 <meta name="twitter:description" content="作ったものとか． Nayco tac0x2a/nayco 雑にMQTT投げたりCSVファイル置くだけで、いい感じにDWHへ蓄積してダッシュボード作れるなんちゃってオンプレデータ基"/>
@@ -137,14 +137,15 @@
 </ul>
 <p><img src="https://raw.githubusercontent.com/tac0x2a/nayco/master/doc/img/hello_nayco_table.png" alt=""></p>
 <hr>
-<h2 id="932maniahttps932maniatac42net"><a href="https://932mania.tac42.net">932mania</a></h2>
-<p><img src="932mania.png" alt="932mania"></p>
-<p><a href="https://932mania.tac42.net">932mania</a></p>
-<p><a href="https://github.com/tac0x2a/932_mania">github.com/tac0x2a/932mania</a></p>
-<p>Vue.js + Firebase で作ったお試しアプリ。Wikipediaをスクレイピングして、「草津」から始まる記事を表示します。</p>
-<hr>
 <h2 id="yasurihttpsgithubcomtac0x2ayasuri"><a href="https://github.com/tac0x2a/yasuri">Yasuri</a></h2>
-<p>Webスクレイピング処理を宣言的に記述するためのRubyライブラリです．</p>
+<p>Yasuri (鑢) はWebスクレイピングを宣言的に行うためのライブラリと、それを用いたスクレイピングのコマンドラインツールです。
+以下のようなよくある処理を、宣言的に記述し、結果を得ることができます．</p>
+<ul>
+<li>ページ内の複数のリンクを開いて、各ページをスクレイピングした結果をHashで取得する</li>
+<li>ページ内の複数のテキストをスクレイピングし、名前をつけてHashにする</li>
+<li>ページ内に繰り返し出現するテーブルをそれぞれスクレイピングして、配列として取得する</li>
+<li>ページネーションで提供される各ページのうち、上位3つだけを順にスクレイピングする</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -163,9 +164,11 @@
 </span><span class="lnt">14
 </span><span class="lnt">15
 </span><span class="lnt">16
+</span><span class="lnt">17
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="nb">require</span> <span class="s1">&#39;yasuri&#39;</span>
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="c1"># ライブラリとして使う場合</span>
+<span class="nb">require</span> <span class="s1">&#39;yasuri&#39;</span>
 <span class="nb">require</span> <span class="s1">&#39;machinize&#39;</span>
 
 <span class="c1"># Node tree constructing by DSL</span>
@@ -183,23 +186,46 @@
 
 </code></pre></td></tr></table>
 </div>
-</div><p>よくある以下のような処理を、宣言的に、簡単に記述することができます．</p>
-<ul>
-<li>ページ内の複数のリンクを開いて、各ページをスクレイピングした結果をHashで取得する</li>
-<li>ページ内の複数のテキストをスクレイピングし、名前をつけてHashにする</li>
-<li>ページ内に繰り返し出現するテーブルをそれぞれスクレイピングして、配列として取得する</li>
-<li>ページネーションで提供される各ページのうち、上位3つだけを順にスクレイピングする</li>
-</ul>
-<p><a href="https://github.com/tac0x2a/yasuri">github.com/tac0x2a/yasuri</a></p>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># コマンドラインから使う場合</span>
+$ docker run tac0x2a/yasuri yasuri scrape <span class="s2">&#34;https://www.ruby-lang.org/en/&#34;</span> -j <span class="s1">&#39;
+</span><span class="s1">{
+</span><span class="s1">  &#34;text_title&#34;: &#34;/html/head/title&#34;,
+</span><span class="s1">  &#34;text_desc&#34;: &#34;//*[@id=\&#34;intro\&#34;]/p&#34;
+</span><span class="s1">}&#39;</span>
+
+<span class="o">{</span><span class="s2">&#34;title&#34;</span>:<span class="s2">&#34;Ruby Programming Language&#34;</span>,<span class="s2">&#34;desc&#34;</span>:<span class="s2">&#34;\n    A dynamic, open source programming language with a focus on\n    simplicity and productivity. It has an elegant syntax that is\n    natural to read and easy to write.\n    &#34;</span><span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><a href="https://github.com/tac0x2a/yasuri">github.com/tac0x2a/yasuri</a></p>
 <hr>
-<h2 id="autosettingshttpsplaygooglecomstoreappsdetailsidnettac42auto_settings"><a href="https://play.google.com/store/apps/details?id=net.tac42.auto_settings">AutoSettings</a></h2>
+<h2 id="932maniahttps932maniatac42net"><a href="https://932mania.tac42.net">932mania</a></h2>
+<p><img src="932mania.png" alt="932mania"></p>
+<p><a href="https://932mania.tac42.net">932mania</a></p>
+<p><a href="https://github.com/tac0x2a/932_mania">github.com/tac0x2a/932mania</a></p>
+<p>Vue.js + Firebase で作ったお試しアプリ。Wikipediaをスクレイピングして、「草津」から始まる記事を表示します。</p>
+<hr>
+<h2 id="autosettings">AutoSettings</h2>
 <p>起動しているアプリやシステムの状態に応じて設定を自動で切り替えるAndroidアプリです．</p>
+<p>(現在は公開を停止しています)</p>
 <p><img src="./autosettings_01.png" alt="">
 <img src="./autosettings_02.png" alt=""></p>
 <hr>
-<h2 id="droid-jammerhttpsplaygooglecomstoreappsdetailsidjpdipwtlmm"><a href="https://play.google.com/store/apps/details?id=jp.dip.wt.lmm">Droid Jammer</a></h2>
-<p>顔認識ライブラリを利用して，画像中の顔を隠すAndroidアプリです．
-<img src="./droidjammer_01.png" alt=""></p>
+<h2 id="droid-jammer">Droid Jammer</h2>
+<p>顔認識ライブラリを利用して，画像中の顔を隠すAndroidアプリです．</p>
+<p>(現在は公開を停止しています)</p>
+<p><img src="./droidjammer_01.png" alt=""></p>
 
   </div>
 </article>
