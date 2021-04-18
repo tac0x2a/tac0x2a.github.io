@@ -3,14 +3,21 @@
   
   <url>
     <loc>https://www.tac42.net/post/</loc>
-    <lastmod>2021-03-27T10:12:17+09:00</lastmod>
+    <lastmod>2021-04-17T01:11:04+09:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://www.tac42.net/</loc>
-    <lastmod>2021-03-27T10:12:17+09:00</lastmod>
+    <lastmod>2021-04-17T01:11:04+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.tac42.net/post/2021-04-17-typescript-memo/</loc>
+    <lastmod>2021-04-17T01:11:04+09:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

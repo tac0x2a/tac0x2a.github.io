@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>TypeScript のメモ - tac42.net</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="tac0x2a" /><meta name="description" content="TypeScriptの色々を雑に思い出すためのメモ" /><meta name="keywords" content="Tech, Photo, Blog" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.81.0 with theme even" />
+
+
+<link rel="canonical" href="https://www.tac42.net/post/2021-04-17-typescript-memo/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c" rel="stylesheet">
+
+
+<link href="/sass/main.min.8c3cbcb0324c2bb4875ceccba4007cbad4b4ac8377f33af9953c3e7684534a50.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="TypeScript のメモ" />
+<meta property="og:description" content="TypeScriptの色々を雑に思い出すためのメモ" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.tac42.net/post/2021-04-17-typescript-memo/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-04-17T01:11:04&#43;09:00" />
+<meta property="article:modified_time" content="2021-04-17T01:11:04&#43;09:00" />
+
+<meta itemprop="name" content="TypeScript のメモ">
+<meta itemprop="description" content="TypeScriptの色々を雑に思い出すためのメモ"><meta itemprop="datePublished" content="2021-04-17T01:11:04&#43;09:00" />
+<meta itemprop="dateModified" content="2021-04-17T01:11:04&#43;09:00" />
+<meta itemprop="wordCount" content="1518">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="TypeScript のメモ"/>
+<meta name="twitter:description" content="TypeScriptの色々を雑に思い出すためのメモ"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+<style type="text/css">
+  <!--
+    #content {transform: rotate(0.03deg);}
+  -->
+</style>
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">tac42.net</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Blog</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/products/">
+        <li class="mobile-menu-item">Products</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">tac42.net</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Blog</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/products/">Products</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">TypeScript のメモ</h1>
+      <div class="post-meta">
+        <span class="post-time"> 2021-04-17 </span>
+        
+        
+      </div>
+      <a href="https://b.hatena.ne.jp/entry/" class="hatena-bookmark-button" data-hatena-bookmark-layout="basic-counter" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/v4/public/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+      <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">コンテンツ</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents"></nav>
+  </div>
+</div>
+    <div class="post-content">
+
+      <h1 id="変数とか">変数とか</h1>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ts" data-lang="ts"><span class="kr">const</span> <span class="nx">personName</span>:<span class="kt">string</span> <span class="o">=</span> <span class="s1">&#39;world&#39;</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Hello </span><span class="si">${</span><span class="mi">1</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="sb"> </span><span class="si">${</span><span class="nx">personName</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+<span class="c1">//=&gt; &#34;Hello 2 world&#34;
+</span><span class="c1"></span>
+<span class="kd">let</span> <span class="nx">n</span> <span class="o">=</span> <span class="s1">&#39;hello&#39;</span><span class="p">;</span>
+<span class="nx">n</span> <span class="o">=</span> <span class="nx">n</span> <span class="o">+</span> <span class="s1">&#39;, world&#39;</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">n</span><span class="p">);</span>
+<span class="c1">//=&gt; &#34;Hello, world&#34;
+</span><span class="c1"></span>
+<span class="kr">type</span> <span class="nx">ProgrammingLanguage</span> <span class="o">=</span> <span class="s2">&#34;Ruby&#34;</span> <span class="o">|</span> <span class="s2">&#34;Python&#34;</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">lang</span>: <span class="kt">ProgrammingLanguage</span> <span class="o">=</span> <span class="s2">&#34;Japanese&#34;</span><span class="p">;</span>
+<span class="c1">// Type &#39;&#34;Japanese&#34;&#39; is not assignable to type &#39;ProgrammingLanguage&#39;.(2322)
+</span><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">lang</span><span class="p">);</span>
+<span class="c1">//=&gt; &#34;Python&#34;
+</span><span class="c1"></span>
+<span class="kd">let</span> <span class="nx">v</span>: <span class="kt">number</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">v</span><span class="p">);</span>
+<span class="c1">//=&gt; undefined
+</span><span class="c1"></span><span class="nx">v</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+<span class="c1">// Type &#39;null&#39; is not assignable to type &#39;number&#39;.(2322)
+</span><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">v</span><span class="p">)</span>
+<span class="c1">// =&gt; null
+</span></code></pre></td></tr></table>
+</div>
+</div><p>数値(<code>number</code>)は全て64bitの浮動小数点型。
+<code>bigint</code> は桁数制限のない整数で、<code>42n</code> のようなリテラル。
+セミコロンは書いたほうが良いらしい。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ts" data-lang="ts"><span class="kd">function</span> <span class="nx">hello() {</span>
+    <span class="k">return</span> <span class="s2">&#34;hello&#34;</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">hello</span><span class="p">())</span>
+<span class="c1">//=&gt; &#34;hello&#34;
+</span><span class="c1"></span>
+<span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="c1">//=&gt; 0 1 2 ...
+</span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ts" data-lang="ts"><span class="c1">//配列
+</span><span class="c1"></span><span class="kr">const</span> <span class="nx">languages</span>: <span class="kt">string</span><span class="p">[]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Ruby&#39;</span><span class="p">,</span> <span class="s1">&#39;Python&#39;</span><span class="p">];</span>
+<span class="nx">languages</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="s1">&#39;JavaScript&#39;</span><span class="p">,</span> <span class="s1">&#39;TypeScript&#39;</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">languages</span><span class="p">,</span> <span class="nx">languages</span><span class="p">[</span><span class="mi">3</span><span class="p">]);</span>
+<span class="c1">//=&gt; [&#34;Ruby&#34;, &#34;Python&#34;, &#34;JavaScript&#34;, &#34;TypeScript&#34;],  &#34;TypeScript&#34;
+</span><span class="c1"></span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">languages</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s1">&#39;JavaScript&#39;</span><span class="p">),</span> <span class="nx">languages</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="s1">&#39;JavaScript&#39;</span><span class="p">))</span>
+<span class="c1">//=&gt; 2, true
+</span><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">languages</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s1">&#39;Java&#39;</span><span class="p">),</span> <span class="nx">languages</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="s1">&#39;Java&#39;</span><span class="p">))</span>
+<span class="c1">//=&gt; -1, false
+</span><span class="c1"></span>
+<span class="kr">const</span> <span class="p">[</span><span class="nx">rb</span><span class="p">,</span> <span class="nx">py</span><span class="p">,</span> <span class="p">...</span><span class="nx">other</span><span class="p">]</span> <span class="o">=</span> <span class="nx">languages</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">rb</span><span class="p">,</span> <span class="nx">py</span><span class="p">,</span> <span class="nx">other</span><span class="p">)</span>
+<span class="c1">//=&gt; &#34;Ruby&#34;,  &#34;Python&#34;,  [&#34;JavaScript&#34;, &#34;TypeScript&#34;]
+</span><span class="c1"></span>
+
+<span class="kr">const</span> <span class="nx">a</span>: <span class="kt">readonly</span> <span class="kt">number</span><span class="p">[]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">];</span> <span class="c1">//イミュータブルな型として
+</span><span class="c1"></span><span class="kr">const</span> <span class="nx">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="kr">as</span> <span class="kr">const</span><span class="p">;</span>           <span class="c1">//イミュータブルな値として
+</span><span class="c1"></span>
+<span class="c1">//タプル
+</span><span class="c1"></span><span class="kr">const</span> <span class="nx">movie</span><span class="o">:</span> <span class="p">[</span><span class="kt">string</span><span class="p">,</span> <span class="kt">number</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Gozilla&#39;</span><span class="p">,</span> <span class="mi">1954</span><span class="p">];</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">movie</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="c1">//=&gt; &#34;Gozilla&#34;
+</span><span class="c1"></span>
+<span class="kr">const</span> <span class="nx">r</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">t</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">pos</span><span class="o">:</span> <span class="p">[</span><span class="kt">number</span><span class="p">,</span> <span class="kt">number</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="nx">r</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">cos</span><span class="p">(</span><span class="nx">r</span><span class="p">),</span> <span class="nx">r</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">sin</span><span class="p">(</span><span class="nx">r</span><span class="p">)];</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">pos</span><span class="p">)</span>
+<span class="c1">//=&gt; [-8.390715290764524, -5.440211108893697]
+</span><span class="c1"></span>
+
+<span class="c1">// スプレッド構文
+</span><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(...</span><span class="nx">movie</span><span class="p">,</span> <span class="nx">movie</span><span class="p">)</span>
+<span class="c1">//=&gt; &#34;Gozilla&#34;,  1954,  [&#34;Gozilla&#34;, 1954]
+</span><span class="c1"></span>
+<span class="kd">function</span> <span class="nx">print</span><span class="p">(</span><span class="nx">s</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">n</span>: <span class="kt">number</span><span class="p">){</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Title:</span><span class="si">${</span><span class="nx">s</span><span class="si">}</span><span class="sb">,Year:</span><span class="si">${</span><span class="nx">n</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="nx">print</span><span class="p">(...</span><span class="nx">movie</span><span class="p">)</span>
+<span class="c1">//=&gt; &#34;Title:Gozilla,Year:1954&#34;
+</span><span class="c1"></span>
+
+<span class="c1">// ループ
+</span><span class="c1"></span><span class="nx">languages</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">v</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">v</span><span class="p">);</span>
+<span class="p">})</span>
+<span class="c1">//=&gt; &#34;Ruby&#34;
+</span><span class="c1">//=&gt; &#34;Python&#34;
+</span><span class="c1">//=&gt; &#34;JavaScript&#34;
+</span><span class="c1">//=&gt; &#34;TypeScript&#34;
+</span><span class="c1"></span>
+<span class="k">for</span><span class="p">(</span><span class="kr">const</span> <span class="p">[</span><span class="nx">i</span><span class="p">,</span> <span class="nx">v</span><span class="p">]</span> <span class="k">of</span> <span class="nx">languages</span><span class="p">.</span><span class="nx">entries</span><span class="p">()){</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span> <span class="nx">v</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="c1">//=&gt; 0,  &#34;Ruby&#34;
+</span><span class="c1">//=&gt; 1,  &#34;Python&#34;
+</span><span class="c1">//=&gt; 2,  &#34;JavaScript&#34;
+</span><span class="c1">//=&gt; 3,  &#34;TypeScript&#34;
+</span></code></pre></td></tr></table>
+</div>
+</div><p><code>...</code> はスプレッド構文というやつで、コレクション(for of で展開できるオブジェクト) を個々の値に展開できる。</p>
+<p>タプルはインデックスでしかアクセスできないので可読性がいまいち。積極的に使う必要はない。
+タプルを固定長の配列として使うこともできる。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ts" data-lang="ts"><span class="kr">const</span> <span class="nx">ruby</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Ruby&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;first release&#39;</span><span class="o">:</span> <span class="mi">1995</span><span class="p">,</span>
+    <span class="p">[</span><span class="s1">&#39;ext&#39;</span><span class="p">]</span><span class="o">:</span> <span class="s1">&#39;rb&#39;</span>
+<span class="p">};</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">ruby</span><span class="p">.</span><span class="nx">title</span><span class="p">);</span> <span class="c1">// &#34;Ruby&#34;
+</span><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">ruby</span><span class="p">[</span><span class="s1">&#39;first release&#39;</span><span class="p">]);</span> <span class="c1">// 1995
+</span><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">ruby</span><span class="p">[</span><span class="s1">&#39;ext&#39;</span><span class="p">]);</span> <span class="c1">//&#34;rb&#34;
+</span><span class="c1"></span>
+<span class="kr">const</span> <span class="nx">rbJson</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">ruby</span><span class="p">,</span> <span class="kc">null</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">rbJson</span><span class="p">)</span>
+<span class="c1">//=&gt; &#34;{&#34;title&#34;:&#34;Ruby&#34;,&#34;first release&#34;:1995,&#34;ext&#34;:&#34;rb&#34;}&#34;
+</span><span class="c1"></span><span class="kr">const</span> <span class="nx">rbOBj</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">rbJson</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">rbOBj</span><span class="p">)</span>
+<span class="c1">//=&gt; {
+</span><span class="c1">//=&gt;   &#34;title&#34;: &#34;Ruby&#34;,
+</span><span class="c1">//=&gt;   &#34;first release&#34;: 1995,
+</span><span class="c1">//=&gt;   &#34;ext&#34;: &#34;rb&#34;
+</span><span class="c1">//=&gt; }
+</span><span class="c1"></span>
+<span class="kr">const</span> <span class="nx">python</span><span class="o">:</span> <span class="p">{</span><span class="nx">title</span>: <span class="kt">string</span><span class="p">}</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">title</span><span class="o">:</span> <span class="s2">&#34;Python&#34;</span>
+<span class="p">}</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">python</span><span class="p">)</span>
+<span class="c1">//=&gt; { &#34;title&#34;: &#34;Python&#34; }
+</span><span class="c1"></span>
+<span class="kr">const</span> <span class="nx">merged</span> <span class="o">=</span> <span class="p">{...</span><span class="nx">ruby</span><span class="p">,</span> <span class="p">...</span><span class="nx">python</span><span class="p">}</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">merged</span><span class="p">);</span>
+<span class="c1">//=&gt; {
+</span><span class="c1">//=&gt;   &#34;title&#34;: &#34;Python&#34;,
+</span><span class="c1">//=&gt;   &#34;first release&#34;: 1995,
+</span><span class="c1">//=&gt;   &#34;ext&#34;: &#34;rb&#34;
+</span><span class="c1">//=&gt; }
+</span></code></pre></td></tr></table>
+</div>
+</div><p>次のようなクラスを定義するまでもない場面で使うらしい。</p>
+<ul>
+<li>Web サービスのリクエストやレスポンス</li>
+<li>関数のオプショナルな引数</li>
+<li>複数の情報を返す関数</li>
+<li>複数の情報を返す非同期処理</li>
+</ul>
+<p>辞書用途は、Mapを使うようにすること。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ts" data-lang="ts"><span class="kr">const</span> <span class="nx">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Map</span><span class="p">&lt;</span><span class="nt">string</span><span class="err">,</span> <span class="na">string</span><span class="p">&gt;</span> <span class="p">([</span>
+    <span class="p">[</span><span class="s2">&#34;Ruby&#34;</span><span class="p">,</span> <span class="s2">&#34;rb&#34;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s2">&#34;Python&#34;</span><span class="p">,</span> <span class="s2">&#34;py&#34;</span><span class="p">]</span>
+<span class="p">]);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">map</span><span class="p">,</span> <span class="nx">map</span><span class="p">.</span><span class="kr">get</span><span class="p">(</span><span class="s1">&#39;Ruby&#39;</span><span class="p">));</span>
+<span class="c1">//=&gt; Map: {}, &#34;rb&#34;
+</span><span class="c1"></span>
+<span class="k">for</span><span class="p">(</span><span class="kr">const</span> <span class="p">[</span><span class="nx">key</span><span class="p">,</span> <span class="nx">value</span><span class="p">]</span> <span class="k">of</span> <span class="nx">map</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="nx">key</span><span class="si">}</span><span class="sb">:</span><span class="si">${</span><span class="nx">value</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="基本的な構文">基本的な構文</h1>
+<ul>
+<li>
+<p><code>if</code>, <code>switch</code>,<code>while</code> は省略。 イテレータブルなオブジェクトは <code>for-of</code> を使う。</p>
+</li>
+<li>
+<p><code>===</code>, <code>!==</code> は厳密な比較、 <code>==</code>, <code>!=</code> は文字列に変換しての比較</p>
+</li>
+</ul>
+<h1 id="型">型</h1>
+<p>TypeScriptは構造的部分型(structual subtyping)という型システムを採用している。
+継承関係ではなく、オブジェクトが持ってるプロパティが互換しているかどうかに関心がある。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ts" data-lang="ts"><span class="kr">type</span> <span class="nx">Language</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">name</span>: <span class="kt">string</span><span class="p">,</span>
+    <span class="nx">year</span>: <span class="kt">number</span><span class="p">,</span>
+    <span class="nx">ext?</span>: <span class="kt">string</span> <span class="c1">// ?がつくと省略可能
+</span><span class="c1"></span><span class="p">};</span>
+
+<span class="kr">const</span> <span class="nx">java</span>: <span class="kt">Partial</span><span class="p">&lt;</span><span class="nt">Language</span><span class="p">&gt;</span> <span class="o">=</span> <span class="p">{</span><span class="nx">name</span><span class="o">:</span> <span class="s2">&#34;java&#34;</span><span class="p">};</span> <span class="c1">// Partial&lt;型&gt;は、型の一部のみを持つ型を意味する
+</span><span class="c1"></span>
+<span class="kr">type</span> <span class="nx">Editor</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">editorName</span>: <span class="kt">string</span><span class="p">,</span>
+    <span class="nx">keybind</span>: <span class="kt">string</span>
+<span class="p">};</span>
+
+<span class="c1">// 型を合成できる
+</span><span class="c1"></span><span class="kr">const</span> <span class="nx">devenv</span>: <span class="kt">Partial</span><span class="p">&lt;</span><span class="nt">Language</span><span class="p">&gt;</span> <span class="o">&amp;</span> <span class="nx">Editor</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">name</span><span class="o">:</span> <span class="s2">&#34;Ruby&#34;</span><span class="p">,</span>
+    <span class="nx">editorName</span><span class="o">:</span> <span class="s2">&#34;VSCode&#34;</span><span class="p">,</span>
+    <span class="nx">keybind</span><span class="o">:</span> <span class="s2">&#34;emacs&#34;</span>
+<span class="p">};</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>合併型(<code>A | B</code>) は、AまたはBの型でなければならない、という意味。
+交差型(<code>A &amp; B</code>) は、AかつBの型でなければならない、両方の属性が含まれていないといけないという意味。</p>
+<p><code>type</code>(Type Alias)とよく似た機能で<code>interface</code>というのがある。</p>
+<h1 id="関数メソッド">関数・メソッド</h1>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ts" data-lang="ts"><span class="kd">function</span> <span class="nx">join</span><span class="p">(</span><span class="nx">s1</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">s2</span>: <span class="kt">string</span> <span class="o">=</span> <span class="s2">&#34;World&#34;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">s1</span> <span class="o">+</span> <span class="nx">s2</span>
+<span class="p">};</span>
+
+<span class="kr">const</span> <span class="nx">f</span><span class="o">:</span> <span class="p">(</span><span class="nx">s</span>:<span class="kt">string</span><span class="p">,</span> <span class="nx">h</span>:<span class="kt">string</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="kt">string</span> <span class="o">=</span> <span class="p">(</span><span class="nx">s1</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">s2</span>: <span class="kt">string</span><span class="p">)</span><span class="o">:</span> <span class="kt">string</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">s1</span> <span class="o">+</span> <span class="nx">s2</span>
+<span class="p">};</span>
+
+<span class="kd">let</span> <span class="nx">joined</span>: <span class="kt">string</span> <span class="o">=</span> <span class="nx">join</span><span class="p">(</span><span class="s2">&#34;Hello&#34;</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">joined</span><span class="p">);</span> <span class="c1">// &#34;HelloWorld&#34;
+</span><span class="c1"></span>
+<span class="nx">joined</span> <span class="o">=</span> <span class="nx">f</span><span class="p">(</span><span class="s2">&#34;hello&#34;</span><span class="p">,</span> <span class="s2">&#34;world&#34;</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">joined</span><span class="p">);</span> <span class="c1">//&#34;helloworld&#34;
+</span><span class="c1"></span>
+<span class="kr">const</span> <span class="nx">ruby</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">getName() {</span>
+        <span class="k">return</span> <span class="s2">&#34;Ruby&#34;</span>
+    <span class="p">},</span>
+
+    <span class="nx">_ext</span><span class="o">:</span> <span class="s2">&#34;rb&#34;</span><span class="p">,</span>
+    <span class="kr">get</span> <span class="nx">ext() {</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">_ext</span><span class="p">;</span>
+    <span class="p">},</span>
+    <span class="kr">set</span> <span class="nx">ext</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">_ext</span> <span class="o">=</span> <span class="nx">e</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">ruby</span><span class="p">.</span><span class="nx">getName</span><span class="p">(),</span> <span class="nx">ruby</span><span class="p">.</span><span class="nx">ext</span><span class="p">)</span> <span class="c1">//=&gt; &#34;Ruby&#34;,  &#34;rb&#34;
+</span><span class="c1"></span><span class="nx">ruby</span><span class="p">.</span><span class="nx">ext</span> <span class="o">=</span> <span class="s2">&#34;RB&#34;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">ruby</span><span class="p">.</span><span class="nx">ext</span><span class="p">)</span> <span class="c1">//=&gt; &#34;RB&#34;
+</span></code></pre></td></tr></table>
+</div>
+</div><h1 id="クラスとインタフェース">クラスとインタフェース</h1>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ts" data-lang="ts"><span class="kr">class</span> <span class="nx">Language</span> <span class="p">{</span>
+    <span class="kr">private</span> <span class="kr">static</span>  <span class="nx">count</span>: <span class="kt">number</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="kr">protected</span> <span class="kr">readonly</span> <span class="nx">name</span>: <span class="kt">string</span><span class="p">;</span>
+
+    <span class="kr">constructor</span><span class="p">(</span><span class="nx">name</span>: <span class="kt">string</span><span class="p">,</span> <span class="kr">private</span> <span class="nx">exampleCode</span>: <span class="kt">string</span> <span class="o">=</span> <span class="s2">&#34;&#34;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
+        <span class="nx">Language</span><span class="p">.</span><span class="nx">count</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nx">hello</span><span class="p">()</span><span class="o">:</span> <span class="kt">string</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="sb">`Hello, </span><span class="si">${</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="si">}</span><span class="sb">`</span>
+    <span class="p">}</span>
+
+    <span class="nx">example() {</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">exampleCode</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kr">static</span> <span class="nx">langCount</span><span class="p">(){</span>
+        <span class="k">return</span> <span class="nx">Language</span><span class="p">.</span><span class="nx">count</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kr">const</span> <span class="nx">ruby</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Language</span><span class="p">(</span><span class="s2">&#34;Ruby&#34;</span><span class="p">,</span> <span class="s2">&#34;puts &#39;Hello,World&#39;&#34;</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">ruby</span><span class="p">.</span><span class="nx">hello</span><span class="p">());</span> <span class="c1">//=&gt; &#34;Hello, Ruby&#34;
+</span><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">ruby</span><span class="p">.</span><span class="nx">example</span><span class="p">());</span> <span class="c1">//=&gt; &#34;puts &#39;Hello,World&#39;&#34;
+</span><span class="c1"></span>
+<span class="kr">const</span> <span class="nx">java</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Language</span><span class="p">(</span><span class="s2">&#34;Java&#34;</span><span class="p">,</span> <span class="s2">&#34;System.out.println(&#39;Hello,World&#39;)&#34;</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">Language</span><span class="p">.</span><span class="nx">langCount</span><span class="p">());</span> <span class="c1">//=&gt; 2
+</span><span class="c1"></span>
+<span class="kr">interface</span> <span class="nx">Celebratable</span> <span class="p">{</span>
+    <span class="nx">happyBirthday</span><span class="p">()</span><span class="o">:</span> <span class="kt">string</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kr">class</span> <span class="nx">LightWeightLanguage</span> <span class="kr">extends</span> <span class="nx">Language</span> <span class="kr">implements</span> <span class="nx">Celebratable</span><span class="p">{</span>
+    <span class="nx">hello</span><span class="p">()</span><span class="o">:</span> <span class="kt">string</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="sb">`</span><span class="si">${</span><span class="kr">super</span><span class="p">.</span><span class="nx">hello</span><span class="p">()</span><span class="si">}</span><span class="sb">. I&#39;m Light Weight!`</span>
+    <span class="p">}</span>
+
+    <span class="nx">happyBirthday() {</span>
+        <span class="k">return</span> <span class="sb">`Happy Birthday, </span><span class="si">${</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="si">}</span><span class="sb">`</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kr">const</span> <span class="nx">python</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">LightWeightLanguage</span><span class="p">(</span><span class="s2">&#34;Python&#34;</span><span class="p">,</span> <span class="s2">&#34;print(&#39;Hello,World&#39;)&#34;</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">python</span><span class="p">.</span><span class="nx">hello</span><span class="p">());</span> <span class="c1">//=&gt; &#34;Hello, Python. I&#39;m Light Weight!&#34;
+</span><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">python</span><span class="p">.</span><span class="nx">happyBirthday</span><span class="p">())</span> <span class="c1">//=&gt; &#34;Happy Birthday, Python&#34;
+</span><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">Language</span><span class="p">.</span><span class="nx">langCount</span><span class="p">());</span> <span class="c1">//=&gt; 3
+</span></code></pre></td></tr></table>
+</div>
+</div><p>パット見た感じ、他の言語にだいぶ近く違和感ない。</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">作成者</span>
+    <span class="item-content">tac0x2a</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">最終更新時刻</span>
+    <span class="item-content">
+        2021-04-17
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/2021-03-27-improve-yasuri/">
+            <span class="next-text nav-default">yasuriコマンドでさくっとスクレイピング</span>
+            <span class="next-text nav-mobile">古い記事へ</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:tac@tac42.net" class="iconfont icon-email" title="email"></a>
+      <a href="https://twitter.com/tac0x2a/" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="https://github.com/tac0x2a" class="iconfont icon-github" title="github"></a>
+      <a href="https://osha-shin.tumblr.com/" class="iconfont icon-tumblr" title="tumblr"></a>
+  <a href="https://www.tac42.net/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2015 - 
+    2021
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">tac0x2a</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.2517c0eb67172a0bae917de4af59b10ca2531411a009d4c0b82f5685259e5771.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
