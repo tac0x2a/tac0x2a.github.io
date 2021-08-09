@@ -3,14 +3,21 @@
   
   <url>
     <loc>https://www.tac42.net/post/</loc>
-    <lastmod>2021-04-17T01:11:04+09:00</lastmod>
+    <lastmod>2021-08-08T09:15:40+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.tac42.net/post/2021-08-08-shell_script_cheat_sheet/</loc>
+    <lastmod>2021-08-08T09:15:40+09:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://www.tac42.net/</loc>
-    <lastmod>2021-04-17T01:11:04+09:00</lastmod>
+    <lastmod>2021-08-08T09:15:40+09:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Shell Script のメモ - tac42.net</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="tac0x2a" /><meta name="description" content="Shell Script のメモ" /><meta name="keywords" content="Tech, Photo, Blog" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.81.0 with theme even" />
+
+
+<link rel="canonical" href="https://www.tac42.net/post/2021-08-08-shell_script_cheat_sheet/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c" rel="stylesheet">
+
+
+<link href="/sass/main.min.8c3cbcb0324c2bb4875ceccba4007cbad4b4ac8377f33af9953c3e7684534a50.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Shell Script のメモ" />
+<meta property="og:description" content="Shell Script のメモ" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.tac42.net/post/2021-08-08-shell_script_cheat_sheet/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-08-08T09:15:40&#43;09:00" />
+<meta property="article:modified_time" content="2021-08-08T09:15:40&#43;09:00" />
+
+<meta itemprop="name" content="Shell Script のメモ">
+<meta itemprop="description" content="Shell Script のメモ"><meta itemprop="datePublished" content="2021-08-08T09:15:40&#43;09:00" />
+<meta itemprop="dateModified" content="2021-08-08T09:15:40&#43;09:00" />
+<meta itemprop="wordCount" content="3586">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Shell Script のメモ"/>
+<meta name="twitter:description" content="Shell Script のメモ"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+<style type="text/css">
+  <!--
+    #content {transform: rotate(0.03deg);}
+  -->
+</style>
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">tac42.net</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Blog</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/products/">
+        <li class="mobile-menu-item">Products</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">tac42.net</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Blog</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/products/">Products</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Shell Script のメモ</h1>
+      <div class="post-meta">
+        <span class="post-time"> 2021-08-08 </span>
+        
+        
+      </div>
+      <a href="https://b.hatena.ne.jp/entry/" class="hatena-bookmark-button" data-hatena-bookmark-layout="basic-counter" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/v4/public/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+      <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">コンテンツ</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#はじめに">はじめに</a></li>
+    <li><a href="#変数とか">変数とか</a>
+      <ul>
+        <li><a href="#環境変数">環境変数</a></li>
+        <li><a href="#位置パラメータ">位置パラメータ</a></li>
+      </ul>
+    </li>
+    <li><a href="#パターン">パターン</a></li>
+    <li><a href="#パラメータ展開">パラメータ展開</a>
+      <ul>
+        <li><a href="#変数定義有無による展開ルール">変数定義有無による展開ルール</a></li>
+        <li><a href="#文字列をごにょごにょする">文字列をごにょごにょする</a></li>
+        <li><a href="#配列連想配列の展開-操作">配列/連想配列の展開, 操作</a></li>
+        <li><a href="#コマンド展開">コマンド展開</a></li>
+        <li><a href="#算術式評価">算術式評価</a></li>
+        <li><a href="#プロセス置換">プロセス置換</a></li>
+        <li><a href="#履歴展開">履歴展開</a></li>
+      </ul>
+    </li>
+    <li><a href="#testコマンド">testコマンド</a>
+      <ul>
+        <li><a href="#文字列">文字列</a></li>
+        <li><a href="#整数">整数</a></li>
+        <li><a href="#ファイル属性よく使いそうなやつだけ">ファイル属性(よく使いそうなやつだけ)</a></li>
+        <li><a href="#-"><code>&amp;&amp;</code>, <code>||</code></a></li>
+      </ul>
+    </li>
+    <li><a href="#if">if</a></li>
+    <li><a href="#for">for</a></li>
+    <li><a href="#case">case</a></li>
+    <li><a href="#while-と-until">while と until</a></li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#noclobber-リダイレクトによる上書きを禁止できる">noclobber: リダイレクトによる上書きを禁止できる</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+
+      <h2 id="はじめに">はじめに</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="cp">#!/bin/bash
+</span></code></pre></td></tr></table>
+</div>
+</div><p>shebang には bash を明記する。
+<code>/bin/sh</code> は Bourne Shell への simlink になっていて、bash じゃないこともあるので。</p>
+<h2 id="変数とか">変数とか</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="nv">hoge</span><span class="o">=</span><span class="s1">&#39;hello,world shell&#39;</span>
+<span class="nb">echo</span> <span class="nv">$hoge</span>         <span class="c1"># hello,world shell</span>
+<span class="nb">echo</span> <span class="si">${</span><span class="nv">hoge</span><span class="si">}</span>script <span class="c1"># hello,world shellscript</span>
+
+<span class="nb">declare</span> -ri <span class="nv">v</span><span class="o">=</span><span class="m">42</span> <span class="c1"># 整数型(i)のread-only(r)変数</span>
+
+<span class="c1"># 配列</span>
+<span class="nb">declare</span> -a <span class="nv">arr</span><span class="o">=(</span>alice bob charlie <span class="o">[</span>4<span class="o">]=</span>eve<span class="o">)</span>
+<span class="nb">echo</span> <span class="si">${</span><span class="nv">arr</span><span class="p">[0]</span><span class="si">}</span> <span class="c1">#=&gt; alice</span>
+<span class="nb">echo</span> <span class="si">${</span><span class="nv">arr</span><span class="p">[3]</span><span class="si">}</span> <span class="c1">#=&gt; 空文字列</span>
+<span class="nb">echo</span> <span class="si">${</span><span class="nv">arr</span><span class="p">[4]</span><span class="si">}</span> <span class="c1">#=&gt; eve</span>
+<span class="nb">echo</span> <span class="si">${</span><span class="p">!arr[@]</span><span class="si">}</span> <span class="c1"># 0 1 2 4 # 値の存在するインデックス</span>
+arr<span class="o">[</span>3<span class="o">]=</span>dave <span class="c1"># 値をセット</span>
+<span class="nb">echo</span> <span class="si">${#</span><span class="nv">arr</span><span class="p">[@]</span><span class="si">}</span> <span class="c1">#=&gt; 5 # 要素の数</span>
+<span class="nb">echo</span> <span class="si">${</span><span class="nv">arr</span><span class="p">[@]</span><span class="si">}</span> <span class="c1">#=&gt; alice bob charlie dave eve #</span>
+
+<span class="nb">declare</span> -a <span class="nv">arr2</span><span class="o">=(</span>zero <span class="s2">&#34;</span><span class="si">${</span><span class="nv">arr</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&#34;</span> frank<span class="o">)</span> <span class="c1"># 配列のコピー&amp;要素の追加。</span>
+                                         <span class="c1"># [@]は &#34;$arr[0]&#34; &#34;$arr[1]&#34; ... として展開される。</span>
+<span class="nb">echo</span> <span class="si">${</span><span class="nv">arr2</span><span class="p">[@]</span><span class="si">}</span> <span class="c1">#=&gt; zero alice bob charlie dave eve frank</span>
+
+<span class="nv">arr</span><span class="o">+=(</span>frank george<span class="o">)</span> <span class="c1"># 末尾ならこういう追加もできる</span>
+<span class="nb">echo</span> <span class="si">${</span><span class="nv">arr</span><span class="p">[@]</span><span class="si">}</span> <span class="c1">#=&gt; alice bob charlie dave eve frank george</span>
+
+
+<span class="c1"># 連想配列</span>
+<span class="nb">declare</span> -A <span class="nv">map</span><span class="o">=([</span>a<span class="o">]=</span>alice <span class="o">[</span>b<span class="o">]=</span>bob <span class="o">[</span>c<span class="o">]=</span>charlie<span class="o">)</span>
+<span class="nb">echo</span> <span class="si">${</span><span class="nv">map</span><span class="p">[b]</span><span class="si">}</span> <span class="c1">#=&gt; bob</span>
+map<span class="o">[</span>e<span class="o">]=</span>eve
+<span class="nb">unset</span> map<span class="o">[</span>b<span class="o">]</span> <span class="c1"># 値の削除</span>
+<span class="nb">echo</span> <span class="si">${#</span><span class="nv">map</span><span class="p">[@]</span><span class="si">}</span> <span class="c1">#=&gt; 3 # 要素の数</span>
+<span class="nb">echo</span> <span class="si">${</span><span class="nv">map</span><span class="p">[@]</span><span class="si">}</span> <span class="c1">#=&gt; eve charlie alice # 値一覧</span>
+<span class="nb">echo</span> <span class="si">${</span><span class="p">!map[@]</span><span class="si">}</span> <span class="c1">#=&gt; e a c # キー一覧</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="環境変数">環境変数</h3>
+<p>シェルからコマンド実行すると別のプロセスとして実行されるが、この別プロセスへ引き継がれる変数を環境変数という。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="nv">TARGET</span><span class="o">=</span>/home/tac        <span class="c1"># これはただたの変数で、子プロセスには引き継がれない</span>
+<span class="nb">export</span> <span class="nv">TARGET</span><span class="o">=</span>/home/tac <span class="c1"># exportすると環境変数になる</span>
+<span class="nv">TARGET</span><span class="o">=</span>/home/tac ls     <span class="c1"># この子プロセス実行時だけ引き渡すこともできる</span>
+
+<span class="c1"># 事前定義済み環境変数の場合はあらためてexportする必要はない</span>
+<span class="nv">LANG</span><span class="o">=</span>ja_JP.UTF-8
+</code></pre></td></tr></table>
+</div>
+</div><p>特殊なシェル変数</p>
+<ul>
+<li><code>HOME</code>: ホームディレクトリ</li>
+<li><code>PWD</code>: カレントディレクトリ</li>
+<li><code>SHELL</code>: ログインシェルのフルパス</li>
+<li><code>BASH</code>: 実行中の bash のフルパス</li>
+<li><code>BASH_VERSION</code>: 実行中の bash のバージョン</li>
+<li><code>LINELO</code>: シェルスクリプトの行番号。デバッグとかに使える</li>
+<li><code>LANG</code>: ロケール。関連する変数がいくつかあり、<code>locale</code> コマンドで値を確認できる</li>
+<li><code>PATH</code>: ぱす</li>
+<li><code>IFS</code>: Internal Field Separator、シェルの区切り文字。IFS を別の値にして、スペースの入った文字列のリストを処理したりできる。</li>
+</ul>
+<h3 id="位置パラメータ">位置パラメータ</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="cp">#!/bin/bash
+</span><span class="cp"></span>
+<span class="c1"># ./tmp.sh aaa bbb ccc</span>
+
+<span class="nb">echo</span> <span class="nv">$0</span>    <span class="c1"># ./tmp.sh # 実行したスクリプトへのパス</span>
+<span class="nb">echo</span> <span class="nv">$1</span>    <span class="c1"># aaa # 第1引数</span>
+<span class="nb">echo</span> <span class="nv">$3</span>    <span class="c1"># ccc # 第3引数</span>
+<span class="nb">echo</span> <span class="nv">$38</span>   <span class="c1"># ccc8 # $9以上は中括弧で囲って参照する必要がある</span>
+<span class="nb">echo</span> <span class="si">${</span><span class="nv">38</span><span class="si">}</span> <span class="c1">#  # 与えられてない引数は空文字列扱い</span>
+<span class="nb">echo</span> <span class="nv">$@</span>    <span class="c1"># aaa bbb ccc # 引数を展開</span>
+<span class="nb">echo</span> <span class="nv">$*</span>    <span class="c1"># aaa bbb ccc # 引数を展開。あんまり使わない</span>
+<span class="nb">echo</span> <span class="s2">&#34;</span><span class="nv">$@</span><span class="s2">&#34;</span>  <span class="c1"># aaa bbb ccc # &#34;$1&#34; &#34;$2&#34; &#34;$3&#34; それぞれ別の文字列として展開。ループとかできる</span>
+<span class="nb">echo</span> <span class="s2">&#34;</span><span class="nv">$*</span><span class="s2">&#34;</span>  <span class="c1"># aaa bbb ccc # &#34;$1 $2 $3&#34;  スペース区切りの1つの文字列として扱われる。あんまり使わない</span>
+
+<span class="nb">echo</span> <span class="nv">$#</span> <span class="c1"># 3 個数</span>
+<span class="nb">echo</span> <span class="nv">$?</span> <span class="c1"># 0 直前に実行したコマンドの終了ステータス。0なら成功、それ以外なら失敗になっていることが多い</span>
+<span class="nb">echo</span> <span class="nv">$$</span> <span class="c1"># 6467 # 現在のPID</span>
+<span class="nb">echo</span> <span class="nv">$!</span> <span class="c1"># 6464 最後に実行したバックグラウンドプロセスのPID。なければ空文字列。</span>
+        <span class="c1"># バックグラウンド実行して監視したり、あとから殺すために変数に入れておいたりする。</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="パターン">パターン</h2>
+<ul>
+<li><code>?</code>: 任意の 1 文字</li>
+<li><code>*</code>: 任意の文字列</li>
+<li><code>[abc]</code>: a,b,または c のいずれか 1 文字。正規表現っぽい。<code>[a-c]</code> という書き方もできる。</li>
+<li><code>[^abc]</code> または <code>[!abc]</code>: a,b,c 以外の任意の 1 文字。正規表現っぽいあれ。</li>
+<li><code>{alpha,beta}</code>: alpha または beta</li>
+<li><code>{8..11}</code>: 8,9,10,11 のいずれか。連番のファイルを対象にするとき便利そう</li>
+<li><code>{c..f}</code>: c,d,e,f のいずれか。</li>
+<li><code>~</code>: ホームディレクトリ</li>
+</ul>
+<h2 id="パラメータ展開">パラメータ展開</h2>
+<p>変数の前に<code>$</code>をつけると、変数の値が展開される。</p>
+<h3 id="変数定義有無による展開ルール">変数定義有無による展開ルール</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="nb">echo</span> <span class="si">${</span><span class="nv">name</span><span class="k">:-</span><span class="nv">piyo</span><span class="si">}</span> <span class="c1"># piyo # 値が空文字ならpiyo</span>
+<span class="nv">hoge</span><span class="o">=</span>fuga
+<span class="nb">echo</span> <span class="si">${</span><span class="nv">name</span><span class="k">:-</span><span class="nv">piyo</span><span class="si">}</span> <span class="c1"># fuga # 値があればそれを使う</span>
+<span class="nb">echo</span> target dir is <span class="si">${</span><span class="nv">1</span><span class="k">:-</span><span class="p">.</span><span class="si">}</span> <span class="c1"># 引数($1など)のデフォルト値を設定するのによく使う</span>
+
+<span class="nb">echo</span> <span class="si">${</span><span class="nv">target</span><span class="p">:?Target dir is required.</span><span class="si">}</span> <span class="c1"># bash: target: Target dir is required.</span>
+                                        <span class="c1"># 値が設定されてないときにエラーメッセージ表示する</span>
+<span class="nb">echo</span> <span class="nv">$?</span> <span class="c1"># 1 # エラーなので</span>
+
+<span class="c1"># ${var:+value} は 値が設定されているときはvalueを返す</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="文字列をごにょごにょする">文字列をごにょごにょする</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="nv">file</span><span class="o">=</span>/home/tac/hello-world.sh
+<span class="nb">echo</span> <span class="si">${</span><span class="nv">file</span><span class="p">:</span><span class="nv">8</span><span class="si">}</span> <span class="c1"># c/hello-world.sh # 8文字目から表示</span>
+<span class="nb">echo</span> <span class="si">${</span><span class="nv">file</span><span class="p">: -2</span><span class="si">}</span> <span class="c1"># sh # 後ろから2文字だけ表示。</span>
+                 <span class="c1"># :と-の間にスペース開けないと未定義時のデフォルト値としてパースされちゃうので注意。</span>
+
+<span class="nb">echo</span> <span class="si">${</span><span class="nv">file</span><span class="p">:</span><span class="nv">8</span><span class="p">:</span><span class="nv">3</span><span class="si">}</span> <span class="c1"># c/h # 8文字目から3文字だけ表示</span>
+<span class="nb">echo</span> <span class="si">${</span><span class="nv">file</span><span class="p">:</span><span class="nv">8</span><span class="k">:-</span><span class="nv">3</span><span class="si">}</span> <span class="c1"># c/hello-world # 8文字目から末尾3文字削ったところまで表示</span>
+<span class="nb">echo</span> <span class="si">${</span><span class="nv">file</span><span class="p">:</span><span class="nv">8</span><span class="p">:</span><span class="nv">65535</span><span class="si">}</span> <span class="c1"># c/hello-world.sh</span>
+
+<span class="nb">echo</span> <span class="si">${#</span><span class="nv">file</span><span class="si">}</span> <span class="c1"># 24 # 文字数</span>
+
+
+<span class="c1"># パターンに一致するところを取り除く</span>
+
+<span class="c1"># 前方一致(文字列の先頭から探す)</span>
+<span class="nb">echo</span> <span class="si">${</span><span class="nv">file</span><span class="p">#*o</span><span class="si">}</span> <span class="c1"># me/tac/hello-world.sh # 最短一致</span>
+<span class="nb">echo</span> <span class="si">${</span><span class="nv">file</span><span class="p">##*o</span><span class="si">}</span> <span class="c1"># rld.sh               # 最長一致</span>
+
+<span class="c1"># 後方一致(文字列の末尾から探す)</span>
+<span class="nb">echo</span> <span class="si">${</span><span class="nv">file</span><span class="p">%o*</span><span class="si">}</span> <span class="c1"># /home/tac/hello-w # 最短一致</span>
+<span class="nb">echo</span> <span class="si">${</span><span class="nv">file</span><span class="p">%%0*</span><span class="si">}</span> <span class="c1"># /h               # 最長一致</span>
+
+<span class="nb">echo</span> <span class="si">${</span><span class="nv">file</span><span class="p">##*/</span><span class="si">}</span>  <span class="c1"># hello-world.sh       # ファイル名だけ取得したり</span>
+<span class="nb">echo</span> <span class="si">${</span><span class="nv">file</span><span class="p">%/.sh</span><span class="si">}</span> <span class="c1"># home/tac/hello-world # 拡張子取り除いたりできる</span>
+
+
+
+<span class="c1"># 置換</span>
+<span class="nb">echo</span> <span class="si">${</span><span class="nv">file</span><span class="p">/o/o~</span><span class="si">}</span> <span class="c1"># /ho~me/tac/hello-world.sh    # 最初に見つかったところだけ置換</span>
+<span class="nb">echo</span> <span class="si">${</span><span class="nv">file</span><span class="p">//o/o~</span><span class="si">}</span> <span class="c1"># /ho~me/tac/hello~-wo~rld.sh # 全部置換</span>
+
+<span class="nb">echo</span> <span class="si">${</span><span class="nv">file</span><span class="p">/#*</span><span class="se">\/</span><span class="p">/any-dir/</span><span class="si">}</span> <span class="c1"># any-dir/hello-world.sh # 先頭から一致したところを置換、エスケープは\/</span>
+<span class="nb">echo</span> <span class="si">${</span><span class="nv">file</span><span class="p">/%sh/shell</span><span class="si">}</span> <span class="c1"># /home/tac/hello-world.shell # 末尾から一致したところを置換</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="配列連想配列の展開-操作">配列/連想配列の展開, 操作</h3>
+<p>インデックスの指定は文字列と同じっぽい。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="nv">arr</span><span class="o">=(</span>aaa.txt bbb.tgz ccc.tgz ddd.7z<span class="o">)</span>
+<span class="nb">echo</span> <span class="si">${</span><span class="nv">arr</span><span class="p">[@]:</span><span class="nv">1</span><span class="si">}</span>   <span class="c1"># bbb.tgz ccc.tgz ddd.7z</span>
+<span class="nb">echo</span> <span class="si">${</span><span class="nv">arr</span><span class="p">[@]:</span><span class="nv">1</span><span class="p">:</span><span class="nv">2</span><span class="si">}</span> <span class="c1"># bbb.tgz ccc.tgz</span>
+
+<span class="nb">echo</span> <span class="si">${</span><span class="nv">arr</span><span class="p">[@]/tgz/tar.gz</span><span class="si">}</span> <span class="c1"># aaa.txt bbb.tar.gz ccc.tar.gz ddd.7z # 各要素に対して置換できる</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="コマンド展開">コマンド展開</h3>
+<p><code>`コマンド`</code> 記法より <code>$(command)</code> の方が可読性が高く良いらしい。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="nb">echo</span> <span class="k">$(</span>date +%Y-%m-%d<span class="k">)</span>.txt <span class="c1"># 2021-08-08.txt</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="算術式評価">算術式評価</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="o">((</span><span class="nv">seconds</span> <span class="o">=</span> <span class="m">3600</span> * <span class="m">24</span> *365<span class="o">))</span> <span class="c1"># 算術式を評価する</span>
+<span class="nb">echo</span> <span class="nv">$seconds</span> <span class="c1"># 31536000</span>
+
+<span class="nb">echo</span> <span class="k">$((</span><span class="m">2</span><span class="o">**</span><span class="m">16</span><span class="k">))</span> <span class="c1"># 65536 # 展開もできる</span>
+
+<span class="c1"># 0(偽)なら1、それ以外は0</span>
+<span class="o">((</span>2**16<span class="o">))</span><span class="p">;</span> <span class="nb">echo</span> <span class="nv">$?</span> <span class="c1"># 0</span>
+<span class="o">((</span><span class="m">1</span> - 1<span class="o">))</span><span class="p">;</span> <span class="nb">echo</span> <span class="nv">$?</span> <span class="c1"># 1</span>
+<span class="o">((</span><span class="m">5</span> &gt; 3<span class="o">))</span><span class="p">;</span> <span class="nb">echo</span> <span class="nv">$?</span> <span class="c1"># 0</span>
+<span class="o">((</span><span class="m">5</span> &lt; 3<span class="o">))</span><span class="p">;</span> <span class="nb">echo</span> <span class="nv">$?</span> <span class="c1"># 1</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="プロセス置換">プロセス置換</h3>
+<p><code>&lt;(コマンド)</code> と書くと、コマンドの実行結果をファイルストリームっぽく扱えて、別のコマンドの引数として書くことができる。
+内部コマンドの標準出力が、別のコマンドのファイル入力として扱われる。</p>
+<p>実際は <code>echo diff /dev/fd/63 /dev/fd/62</code> みたいに、一時的なファイルディスクリプタが作られてて、そこから読み込んでいる。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">ls a b
+<span class="c1"># a:</span>
+<span class="c1"># fuga.txt  hoge.txt  piyo.txt</span>
+<span class="c1"># b:</span>
+<span class="c1"># fuga.txt  hoge.txt</span>
+
+diff &lt;<span class="o">(</span>ls ./a<span class="o">)</span> &lt;<span class="o">(</span>ls ./b<span class="o">)</span> <span class="c1"># &lt;(コマンド)</span>
+<span class="c1"># 3d2</span>
+<span class="c1"># &lt; piyo.txt</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="履歴展開">履歴展開</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">!!      <span class="c1"># 直前のコマンドを参照</span>
+!n      <span class="c1"># n個前のコマンドを参照</span>
+!hoge   <span class="c1"># 最後に実行したhogeから始まるコマンド</span>
+!?hoge? <span class="c1"># 最後に実行したhogeを含むコマンド</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="testコマンド">testコマンド</h2>
+<p><code>[ ]</code> または <code>[[ ]]</code>コマンドは、真なら 0, 偽なら 1 を終了ステータスとして返すコマンド。</p>
+<p><code>[[ ]]</code> は、コマンド中で <code>&amp;&amp;</code> や <code>||</code> が使える。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="o">[</span> <span class="k">$((</span><span class="nv">$1</span> <span class="o">%</span> <span class="m">3</span><span class="k">))</span> -eq <span class="m">0</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="o">[</span> <span class="k">$((</span><span class="nv">$1</span> <span class="o">%</span>  <span class="m">5</span><span class="k">))</span> -eq <span class="m">0</span> <span class="o">]</span>
+<span class="o">[[</span> <span class="k">$((</span><span class="nv">$1</span> <span class="o">%</span> <span class="m">3</span><span class="k">))</span> -eq <span class="m">0</span>  <span class="o">&amp;&amp;</span> <span class="k">$((</span><span class="nv">$1</span> <span class="o">%</span>  <span class="m">5</span><span class="k">))</span> -eq <span class="m">0</span> <span class="o">]]</span> <span class="c1"># [[ ]] なら、中で &amp;&amp; が使える</span>
+
+<span class="o">[</span> <span class="nv">$str1</span> <span class="s1">&#39;&gt;&#39;</span> <span class="nv">$str2</span> <span class="o">]</span>
+<span class="o">[[</span> <span class="nv">$str1</span> &gt; <span class="nv">$str2</span> <span class="o">]]</span> <span class="c1"># [[ ]] なら、クオートが不要</span>
+</code></pre></td></tr></table>
+</div>
+</div><table>
+<thead>
+<tr>
+<th>演算子</th>
+<th>覚え方</th>
+<th>意味</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>[ cond1 -a cond2 ]</code></td>
+<td><code>a</code>nd</td>
+<td>AND</td>
+</tr>
+<tr>
+<td><code>[ cond1 -o cond2 ]</code></td>
+<td><code>o</code>r</td>
+<td>OR</td>
+</tr>
+<tr>
+<td><code>[ ! cond ]</code></td>
+<td>not</td>
+<td>NOT</td>
+</tr>
+</tbody>
+</table>
+<p><code>[</code> はコマンドなので、前後にはスペースが必要！注意して！</p>
+<h3 id="文字列">文字列</h3>
+<table>
+<thead>
+<tr>
+<th>演算子</th>
+<th>覚え方</th>
+<th>真になる条件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>[ str1 = str2 ]</code> or <code>[ str1 == str2 ]</code></td>
+<td>-</td>
+<td>一致する</td>
+</tr>
+<tr>
+<td><code>[ str1 != str2 ]</code></td>
+<td>-</td>
+<td>不一致</td>
+</tr>
+<tr>
+<td><code>[ -n str ]</code></td>
+<td><code>n</code>ot empty</td>
+<td>空文字じゃない</td>
+</tr>
+<tr>
+<td><code>[ -z str ]</code></td>
+<td><code>z</code>ero length</td>
+<td>空文字である</td>
+</tr>
+<tr>
+<td><code>[ str1 '&lt;' str2 ]</code>, <code>[ str1 '&gt;' str2 ]</code></td>
+<td>-</td>
+<td>辞書順で比較して真なら</td>
+</tr>
+</tbody>
+</table>
+<h3 id="整数">整数</h3>
+<table>
+<thead>
+<tr>
+<th>演算子</th>
+<th>覚え方</th>
+<th>真になる条件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>[ int1 -eq int2 ]</code></td>
+<td><code>eq</code>ual</td>
+<td>等しい</td>
+</tr>
+<tr>
+<td><code>[ int1 -ne int2 ]</code></td>
+<td><code>n</code>ot <code>e</code>qual</td>
+<td>不一致</td>
+</tr>
+<tr>
+<td><code>[ int1 -lt int2 ]</code></td>
+<td><code>l</code>ess <code>t</code>han</td>
+<td><code>int1</code> &lt; <code>int2</code></td>
+</tr>
+<tr>
+<td><code>[ int1 -le int2 ]</code></td>
+<td><code>l</code>ess than or <code>e</code>qual</td>
+<td><code>int1</code> &lt;= <code>int2</code></td>
+</tr>
+<tr>
+<td><code>[ int1 -gt int2 ]</code></td>
+<td><code>g</code>reater <code>t</code>han</td>
+<td><code>int1</code> &gt; <code>int2</code></td>
+</tr>
+<tr>
+<td><code>[ int1 -ge int2 ]</code></td>
+<td><code>g</code>reater than or <code>e</code>qual</td>
+<td><code>int1</code> &gt;= <code>int2</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="ファイル属性よく使いそうなやつだけ">ファイル属性(よく使いそうなやつだけ)</h3>
+<table>
+<thead>
+<tr>
+<th>演算子</th>
+<th>覚え方</th>
+<th>真になる条件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>[ -e file ]</code></td>
+<td><code>e</code> xists</td>
+<td><code>file</code> が存在する</td>
+</tr>
+<tr>
+<td><code>[ -f file ]</code></td>
+<td><code>f</code> ile</td>
+<td><code>file</code>が存在 かつ ファイルである</td>
+</tr>
+<tr>
+<td><code>[ -d file ]</code></td>
+<td><code>d</code> ir</td>
+<td><code>file</code>が存在 かつ ディレクトリである</td>
+</tr>
+<tr>
+<td><code>[ -s file ]</code></td>
+<td><code>s</code> ize</td>
+<td><code>file</code>サイズが 0 より大きい</td>
+</tr>
+<tr>
+<td><code>[ -h</code> or <code>[ -L file ]</code></td>
+<td><code>L</code> ink</td>
+<td><code>file</code>がシンボリックリンクである</td>
+</tr>
+<tr>
+<td><code>[ -r file ]</code></td>
+<td><code>r</code> eadable</td>
+<td><code>file</code>への読み取り権限がある</td>
+</tr>
+<tr>
+<td><code>[ -w file ]</code></td>
+<td><code>w</code> ritable</td>
+<td><code>file</code>への書き込み権限がある</td>
+</tr>
+<tr>
+<td><code>[ -x file ]</code></td>
+<td>e<code>x</code>ecutable</td>
+<td><code>file</code>の実行権限がある</td>
+</tr>
+<tr>
+<td><code>[ -O file ]</code></td>
+<td><code>O</code>wner</td>
+<td><code>file</code>のオーナである</td>
+</tr>
+<tr>
+<td><code>[ file1 -nt file2 ]</code></td>
+<td><code>n</code>ewer <code>t</code>han</td>
+<td><code>file1</code>の更新時刻が<code>file2</code>より新しい</td>
+</tr>
+</tbody>
+</table>
+<h3 id="-"><code>&amp;&amp;</code>, <code>||</code></h3>
+<ul>
+<li><code>command1 &amp;&amp; command2</code>: <code>command1</code>のステータスが0なら<code>command2</code>を実行して、そのステータスを返す</li>
+<li><code>command1 || command2</code>: <code>command1</code>のステータスが0以外なら<code>command2</code>を実行して、そのステータスを返す</li>
+</ul>
+<p><code>[ -n &quot;$file&quot; ] &amp;&amp; [ -f &quot;$file&quot; ]</code> みたいな書き方ができる。 <code>-a</code> や <code>-o</code>より可読性が高いとされる。</p>
+<h2 id="if">if</h2>
+<p>条件文のところにコマンドを書いて、コマンドの実行ステータス(<code>$?</code>)が 0 なら真、0 以外なら偽として分岐する。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="k">if</span> <span class="o">[</span> <span class="k">$((</span><span class="nv">$1</span> <span class="o">%</span> <span class="m">3</span><span class="k">))</span> -eq <span class="m">0</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="o">[</span> <span class="k">$((</span><span class="nv">$1</span> <span class="o">%</span>  <span class="m">5</span><span class="k">))</span> -eq <span class="m">0</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+  <span class="nb">echo</span> Fizz Buzz
+<span class="k">elif</span> <span class="o">[</span> <span class="k">$((</span><span class="nv">$1</span> <span class="o">%</span>  <span class="m">3</span><span class="k">))</span> -eq <span class="m">0</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+  <span class="nb">echo</span> Fizz
+<span class="k">elif</span> <span class="o">[</span> <span class="k">$((</span><span class="nv">$1</span> <span class="o">%</span>  <span class="m">5</span><span class="k">))</span> -eq <span class="m">0</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+  <span class="nb">echo</span> Buzz
+<span class="k">else</span>
+  <span class="nb">echo</span> <span class="nv">$1</span>
+<span class="k">fi</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="for">for</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="k">for</span> dir in * <span class="c1"># *.txt にマッチするフィルが無いとき、fileに *.txt がそのまま入っちゃうので注意！</span>
+<span class="k">do</span>
+  <span class="k">if</span> <span class="o">[[</span> -d <span class="nv">$dir</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+    <span class="nb">echo</span> <span class="s2">&#34;</span><span class="nv">$dir</span><span class="s2"> is dir.&#34;</span>
+  <span class="k">fi</span>
+<span class="k">done</span>
+
+<span class="c1"># 1行でも書ける</span>
+<span class="k">for</span> dir in *<span class="p">;</span> <span class="k">do</span> <span class="k">if</span> <span class="o">[[</span> -d <span class="nv">$dir</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span> <span class="nb">echo</span> <span class="s2">&#34;</span><span class="nv">$dir</span><span class="s2"> is dir.&#34;</span><span class="p">;</span> <span class="k">fi</span><span class="p">;</span> <span class="k">done</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><code>break</code> と <code>continue</code> が使える。</p>
+<h2 id="case">case</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="k">case</span> <span class="nv">$1</span> in
+  *.txt<span class="o">)</span>
+    <span class="nb">echo</span> <span class="nv">$1</span> is text
+    <span class="p">;;</span>
+  *.zip <span class="p">|</span> *.tgz<span class="o">)</span> <span class="c1"># | で複数指定できる</span>
+    <span class="nb">echo</span> <span class="nv">$1</span> is archived file
+    <span class="p">;;</span>
+  *<span class="o">)</span>
+    <span class="nb">echo</span> <span class="nv">$1</span> is unknown file
+    <span class="p">;;</span>
+<span class="k">esac</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="while-と-until">while と until</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="nv">i</span><span class="o">=</span><span class="m">0</span>
+<span class="k">while</span> <span class="o">[[</span> <span class="nv">$i</span> -lt <span class="m">10</span> <span class="o">]]</span> <span class="c1"># &lt; だと文字列で比較しちゃうので -le を使う</span>
+<span class="k">do</span>
+  <span class="nb">echo</span> <span class="nv">$i</span>
+  <span class="nv">i</span><span class="o">=</span><span class="k">$((</span>i+1<span class="k">))</span>
+<span class="k">done</span>
+
+<span class="nv">i</span><span class="o">=</span><span class="m">0</span>
+<span class="k">until</span> <span class="o">[[</span> <span class="nv">$i</span> -ge <span class="m">10</span> <span class="o">]]</span> <span class="c1"># until は逆</span>
+<span class="k">do</span>
+  <span class="nb">echo</span> <span class="nv">$i</span>
+  <span class="nv">i</span><span class="o">=</span><span class="k">$((</span>i+1<span class="k">))</span>
+<span class="k">done</span>
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="リダイレクト">リダイレクト</h1>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">ls . &gt; current_dir.txt <span class="c1"># よくやるやつ</span>
+
+cat &gt; hoge.txt
+abcd
+^d <span class="c1"># ctrl-d</span>
+
+tr b B &lt; hoge.txt <span class="c1"># 標準入力</span>
+aBcd
+
+
+<span class="c1"># `n&gt;&amp;m` と書くと、FDのn番をm番のコピーにするという意味。</span>
+ls &gt; log.txt 2&gt;<span class="p">&amp;</span><span class="m">1</span> <span class="c1"># 標準エラー出力を標準出力と同じファイルへリダイレクトする</span>
+ls <span class="p">&amp;</span>&gt; log.txt     <span class="c1"># これでもOK</span>
+
+ls 2&gt;<span class="p">&amp;</span><span class="m">1</span> &gt; log.txt <span class="c1"># これはだめ。</span>
+<span class="c1"># 標準出力先がlog.txtになる前、つまり出力先が端末になった状態で2&gt;&amp;1しているので、端末にエラー出力されちゃう</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="noclobber-リダイレクトによる上書きを禁止できる">noclobber: リダイレクトによる上書きを禁止できる</h3>
+<ul>
+<li><code>set -o noclobber</code>: 上書きを禁止</li>
+<li><code>set +o noclobber</code>: 上書きを許可</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="nb">echo</span> <span class="s2">&#34;Hello&#34;</span> &gt; hello.txt
+<span class="nb">echo</span> <span class="s2">&#34;World&#34;</span> &gt; hello.txt
+cat hello.txt <span class="c1"># World</span>
+
+<span class="nb">set</span> -o noclobber <span class="c1"># 上書きを禁止</span>
+<span class="nb">echo</span> <span class="s2">&#34;Hello&#34;</span> &gt; hello.txt <span class="c1"># bash: hello.txt: cannot overwrite existing file</span>
+<span class="nb">echo</span> <span class="s2">&#34;Hello&#34;</span> &gt;&gt; hello.txt <span class="c1"># 追記はできる</span>
+<span class="nb">echo</span> <span class="s2">&#34;Hoge&#34;</span> &gt;<span class="p">|</span>  hello.txt <span class="c1"># &gt;| で強制上書きできちゃう</span>
+
+<span class="nb">set</span> +o noclobber <span class="c1"># 上書きを許可</span>
+<span class="nb">echo</span> <span class="s2">&#34;Hello&#34;</span> &gt; hello.txt
+cat hello.txt <span class="c1"># Hello</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>続きはそのうち・・・</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">作成者</span>
+    <span class="item-content">tac0x2a</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">最終更新時刻</span>
+    <span class="item-content">
+        2021-08-08
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/2021-04-17-typescript-memo/">
+            <span class="next-text nav-default">TypeScript のメモ</span>
+            <span class="next-text nav-mobile">古い記事へ</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:tac@tac42.net" class="iconfont icon-email" title="email"></a>
+      <a href="https://twitter.com/tac0x2a/" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="https://github.com/tac0x2a" class="iconfont icon-github" title="github"></a>
+      <a href="https://osha-shin.tumblr.com/" class="iconfont icon-tumblr" title="tumblr"></a>
+  <a href="https://www.tac42.net/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2015 - 
+    2021
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">tac0x2a</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.2517c0eb67172a0bae917de4af59b10ca2531411a009d4c0b82f5685259e5771.js"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-8871338-8', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+</body>
+</html>
