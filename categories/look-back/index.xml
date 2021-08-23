@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>look-back on tac42.net</title>
+    <link>https://www.tac42.net/categories/look-back/</link>
+    <description>Recent content in look-back on tac42.net</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Thu, 31 Dec 2020 17:00:00 +0900</lastBuildDate><atom:link href="https://www.tac42.net/categories/look-back/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2020年のまとめ</title>
+      <link>https://www.tac42.net/post/2020-12-31-conclusion2020/</link>
+      <pubDate>Thu, 31 Dec 2020 17:00:00 +0900</pubDate>
+      
+      <guid>https://www.tac42.net/post/2020-12-31-conclusion2020/</guid>
+      <description>今年も一年を振り返っていきたいと思います。</description>
+    </item>
+    
+    <item>
+      <title>2019年のまとめ</title>
+      <link>https://www.tac42.net/post/2019-12-31-conclusion2019/</link>
+      <pubDate>Tue, 31 Dec 2019 23:59:59 +0000</pubDate>
+      
+      <guid>https://www.tac42.net/post/2019-12-31-conclusion2019/</guid>
+      <description>久しぶりに 1 年を振り返る記事を投稿してみようと思います。</description>
+    </item>
+    
+    <item>
+      <title>2015年のまとめ</title>
+      <link>https://www.tac42.net/post/2015-12-31-conclusion2015/</link>
+      <pubDate>Thu, 31 Dec 2015 23:59:25 +0000</pubDate>
+      
+      <guid>https://www.tac42.net/post/2015-12-31-conclusion2015/</guid>
+      <description>GooglePhoto を見ながら 2015 年を振り返り</description>
+    </item>
+    
+  </channel>
+</rss>

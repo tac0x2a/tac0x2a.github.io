@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.tac42.net/categories/</loc>
+    <lastmod>2021-08-08T09:15:40+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.tac42.net/categories/lang/</loc>
+    <lastmod>2021-08-08T09:15:40+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.tac42.net/categories/memo/</loc>
+    <lastmod>2021-08-08T09:15:40+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://www.tac42.net/post/</loc>
     <lastmod>2021-08-08T09:15:40+09:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -23,8 +44,22 @@
   </url>
   
   <url>
+    <loc>https://www.tac42.net/categories/tech/</loc>
+    <lastmod>2021-08-08T09:15:40+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://www.tac42.net/post/2021-04-17-typescript-memo/</loc>
     <lastmod>2021-04-17T01:11:04+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.tac42.net/categories/dev/</loc>
+    <lastmod>2021-03-27T10:12:17+09:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -44,6 +79,13 @@
   </url>
   
   <url>
+    <loc>https://www.tac42.net/categories/other/</loc>
+    <lastmod>2021-03-06T13:17:48+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://www.tac42.net/post/2020-12-31-conclusion2020/</loc>
     <lastmod>2020-12-31T17:00:00+09:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -51,14 +93,7 @@
   </url>
   
   <url>
-    <loc>https://www.tac42.net/categories/</loc>
-    <lastmod>2020-12-31T17:00:00+09:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.tac42.net/categories/other/</loc>
+    <loc>https://www.tac42.net/categories/look-back/</loc>
     <lastmod>2020-12-31T17:00:00+09:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -108,13 +143,6 @@
   
   <url>
     <loc>https://www.tac42.net/categories/make_online_judge/</loc>
-    <lastmod>2016-04-24T14:30:27+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.tac42.net/categories/tech/</loc>
     <lastmod>2016-04-24T14:30:27+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>dev on tac42.net</title>
+    <link>https://www.tac42.net/categories/dev/</link>
+    <description>Recent content in dev on tac42.net</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Sat, 27 Mar 2021 10:12:17 +0900</lastBuildDate><atom:link href="https://www.tac42.net/categories/dev/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>yasuriコマンドでさくっとスクレイピング</title>
+      <link>https://www.tac42.net/post/2021-03-27-improve-yasuri/</link>
+      <pubDate>Sat, 27 Mar 2021 10:12:17 +0900</pubDate>
+      
+      <guid>https://www.tac42.net/post/2021-03-27-improve-yasuri/</guid>
+      <description>以前リリースしたスクレイピングライブラリをちょっと改修してコマンドラインツールとして使えるようにしました</description>
+    </item>
+    
+    <item>
+      <title>小さなデータ基盤 Nayco をリリースしました</title>
+      <link>https://www.tac42.net/post/2020-08-17-nayco-first-release/</link>
+      <pubDate>Mon, 17 Aug 2020 07:37:40 +0900</pubDate>
+      
+      <guid>https://www.tac42.net/post/2020-08-17-nayco-first-release/</guid>
+      <description>オンプレでも頑張って動く小さなデータ基盤 Nayco を作りました</description>
+    </item>
+    
+  </channel>
+</rss>

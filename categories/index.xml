@@ -6,13 +6,58 @@
     <description>Recent content in Categories on tac42.net</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Thu, 31 Dec 2020 17:00:00 +0900</lastBuildDate><atom:link href="https://www.tac42.net/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 08 Aug 2021 09:15:40 +0900</lastBuildDate><atom:link href="https://www.tac42.net/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>lang</title>
+      <link>https://www.tac42.net/categories/lang/</link>
+      <pubDate>Sun, 08 Aug 2021 09:15:40 +0900</pubDate>
+      
+      <guid>https://www.tac42.net/categories/lang/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>memo</title>
+      <link>https://www.tac42.net/categories/memo/</link>
+      <pubDate>Sun, 08 Aug 2021 09:15:40 +0900</pubDate>
+      
+      <guid>https://www.tac42.net/categories/memo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tech</title>
+      <link>https://www.tac42.net/categories/tech/</link>
+      <pubDate>Sun, 08 Aug 2021 09:15:40 +0900</pubDate>
+      
+      <guid>https://www.tac42.net/categories/tech/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>dev</title>
+      <link>https://www.tac42.net/categories/dev/</link>
+      <pubDate>Sat, 27 Mar 2021 10:12:17 +0900</pubDate>
+      
+      <guid>https://www.tac42.net/categories/dev/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>other</title>
       <link>https://www.tac42.net/categories/other/</link>
-      <pubDate>Thu, 31 Dec 2020 17:00:00 +0900</pubDate>
+      <pubDate>Sat, 06 Mar 2021 13:17:48 +0900</pubDate>
       
       <guid>https://www.tac42.net/categories/other/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>look-back</title>
+      <link>https://www.tac42.net/categories/look-back/</link>
+      <pubDate>Thu, 31 Dec 2020 17:00:00 +0900</pubDate>
+      
+      <guid>https://www.tac42.net/categories/look-back/</guid>
       <description></description>
     </item>
     
@@ -22,15 +67,6 @@
       <pubDate>Sun, 24 Apr 2016 14:30:27 +0000</pubDate>
       
       <guid>https://www.tac42.net/categories/make_online_judge/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>tech</title>
-      <link>https://www.tac42.net/categories/tech/</link>
-      <pubDate>Sun, 24 Apr 2016 14:30:27 +0000</pubDate>
-      
-      <guid>https://www.tac42.net/categories/tech/</guid>
       <description></description>
     </item>
     

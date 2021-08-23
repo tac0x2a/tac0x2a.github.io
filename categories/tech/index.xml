@@ -6,7 +6,70 @@
     <description>Recent content in tech on tac42.net</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sun, 24 Apr 2016 14:30:27 +0000</lastBuildDate><atom:link href="https://www.tac42.net/categories/tech/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 08 Aug 2021 09:15:40 +0900</lastBuildDate><atom:link href="https://www.tac42.net/categories/tech/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Shell Script のメモ</title>
+      <link>https://www.tac42.net/post/2021-08-08-shell_script_cheat_sheet/</link>
+      <pubDate>Sun, 08 Aug 2021 09:15:40 +0900</pubDate>
+      
+      <guid>https://www.tac42.net/post/2021-08-08-shell_script_cheat_sheet/</guid>
+      <description>Shell Script のメモ</description>
+    </item>
+    
+    <item>
+      <title>TypeScript のメモ</title>
+      <link>https://www.tac42.net/post/2021-04-17-typescript-memo/</link>
+      <pubDate>Sat, 17 Apr 2021 01:11:04 +0900</pubDate>
+      
+      <guid>https://www.tac42.net/post/2021-04-17-typescript-memo/</guid>
+      <description>TypeScriptの色々を雑に思い出すためのメモ</description>
+    </item>
+    
+    <item>
+      <title>yasuriコマンドでさくっとスクレイピング</title>
+      <link>https://www.tac42.net/post/2021-03-27-improve-yasuri/</link>
+      <pubDate>Sat, 27 Mar 2021 10:12:17 +0900</pubDate>
+      
+      <guid>https://www.tac42.net/post/2021-03-27-improve-yasuri/</guid>
+      <description>以前リリースしたスクレイピングライブラリをちょっと改修してコマンドラインツールとして使えるようにしました</description>
+    </item>
+    
+    <item>
+      <title>小さなデータ基盤 Nayco をリリースしました</title>
+      <link>https://www.tac42.net/post/2020-08-17-nayco-first-release/</link>
+      <pubDate>Mon, 17 Aug 2020 07:37:40 +0900</pubDate>
+      
+      <guid>https://www.tac42.net/post/2020-08-17-nayco-first-release/</guid>
+      <description>オンプレでも頑張って動く小さなデータ基盤 Nayco を作りました</description>
+    </item>
+    
+    <item>
+      <title>docker stackでk8sを使ってみるメモ</title>
+      <link>https://www.tac42.net/post/2020-06-08-docker-stack-k8s-memo/</link>
+      <pubDate>Mon, 08 Jun 2020 20:28:19 +0900</pubDate>
+      
+      <guid>https://www.tac42.net/post/2020-06-08-docker-stack-k8s-memo/</guid>
+      <description>既存の docker-compose.yml で k8sにデプロイできると聞いて調べてみたメモ。</description>
+    </item>
+    
+    <item>
+      <title>Vue.js に関するメモ</title>
+      <link>https://www.tac42.net/post/2020-05-06-vuejs-memo/</link>
+      <pubDate>Sun, 10 May 2020 17:41:19 +0900</pubDate>
+      
+      <guid>https://www.tac42.net/post/2020-05-06-vuejs-memo/</guid>
+      <description>Vue.js について少し勉強したので、思い出したいところだけメモ</description>
+    </item>
+    
+    <item>
+      <title>HugoでGithubPagesへ記事を公開する</title>
+      <link>https://www.tac42.net/post/2020-05-10-hugopost/</link>
+      <pubDate>Sun, 10 May 2020 17:20:03 +0900</pubDate>
+      
+      <guid>https://www.tac42.net/post/2020-05-10-hugopost/</guid>
+      <description>Hugoでこのブログに記事を投稿する手順をメモ。備忘録。</description>
+    </item>
+    
     <item>
       <title>AngularJS導入</title>
       <link>https://www.tac42.net/post/2016-04-24-makeonlinejudgev11/</link>

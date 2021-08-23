@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>lang on tac42.net</title>
+    <link>https://www.tac42.net/categories/lang/</link>
+    <description>Recent content in lang on tac42.net</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Sun, 08 Aug 2021 09:15:40 +0900</lastBuildDate><atom:link href="https://www.tac42.net/categories/lang/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Shell Script のメモ</title>
+      <link>https://www.tac42.net/post/2021-08-08-shell_script_cheat_sheet/</link>
+      <pubDate>Sun, 08 Aug 2021 09:15:40 +0900</pubDate>
+      
+      <guid>https://www.tac42.net/post/2021-08-08-shell_script_cheat_sheet/</guid>
+      <description>Shell Script のメモ</description>
+    </item>
+    
+    <item>
+      <title>TypeScript のメモ</title>
+      <link>https://www.tac42.net/post/2021-04-17-typescript-memo/</link>
+      <pubDate>Sat, 17 Apr 2021 01:11:04 +0900</pubDate>
+      
+      <guid>https://www.tac42.net/post/2021-04-17-typescript-memo/</guid>
+      <description>TypeScriptの色々を雑に思い出すためのメモ</description>
+    </item>
+    
+    <item>
+      <title>Vue.js に関するメモ</title>
+      <link>https://www.tac42.net/post/2020-05-06-vuejs-memo/</link>
+      <pubDate>Sun, 10 May 2020 17:41:19 +0900</pubDate>
+      
+      <guid>https://www.tac42.net/post/2020-05-06-vuejs-memo/</guid>
+      <description>Vue.js について少し勉強したので、思い出したいところだけメモ</description>
+    </item>
+    
+  </channel>
+</rss>
