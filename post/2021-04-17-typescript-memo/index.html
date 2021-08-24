@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="tac0x2a" /><meta name="description" content="TypeScriptの色々を雑に思い出すためのメモ" /><meta name="keywords" content="Tech, Photo, Blog" />
+<meta name="author" content="tac0x2a" /><meta name="description" content="TypeScriptの色々を雑に思い出すためのメモ" /><meta name="keywords" content="hoge" />
 
 
 
@@ -139,13 +139,24 @@
 
     <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">コンテンツ</h2>
-  <div class="post-toc-content">
-    <nav id="TableOfContents"></nav>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#変数とか">変数とか</a></li>
+    <li><a href="#基本的な構文">基本的な構文</a>
+      <ul>
+        <li><a href="#型">型</a></li>
+      </ul>
+    </li>
+    <li><a href="#関数メソッド">関数・メソッド</a></li>
+    <li><a href="#クラスとインタフェース">クラスとインタフェース</a></li>
+  </ul>
+</nav>
   </div>
 </div>
     <div class="post-content">
 
-      <h1 id="変数とか">変数とか</h1>
+      <h2 id="変数とか">変数とか</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -458,7 +469,7 @@
 <span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h1 id="基本的な構文">基本的な構文</h1>
+</div><h2 id="基本的な構文">基本的な構文</h2>
 <ul>
 <li>
 <p><code>if</code>, <code>switch</code>,<code>while</code> は省略。 イテレータブルなオブジェクトは <code>for-of</code> を使う。</p>
@@ -467,7 +478,7 @@
 <p><code>===</code>, <code>!==</code> は厳密な比較、 <code>==</code>, <code>!=</code> は文字列に変換しての比較</p>
 </li>
 </ul>
-<h1 id="型">型</h1>
+<h3 id="型">型</h3>
 <p>TypeScriptは構造的部分型(structual subtyping)という型システムを採用している。
 継承関係ではなく、オブジェクトが持ってるプロパティが互換しているかどうかに関心がある。</p>
 <div class="highlight"><div class="chroma">
@@ -517,7 +528,7 @@
 </div><p>合併型(<code>A | B</code>) は、AまたはBの型でなければならない、という意味。
 交差型(<code>A &amp; B</code>) は、AかつBの型でなければならない、両方の属性が含まれていないといけないという意味。</p>
 <p><code>type</code>(Type Alias)とよく似た機能で<code>interface</code>というのがある。</p>
-<h1 id="関数メソッド">関数・メソッド</h1>
+<h2 id="関数メソッド">関数・メソッド</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -584,7 +595,7 @@
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">ruby</span><span class="p">.</span><span class="nx">ext</span><span class="p">)</span> <span class="c1">//=&gt; &#34;RB&#34;
 </span></code></pre></td></tr></table>
 </div>
-</div><h1 id="クラスとインタフェース">クラスとインタフェース</h1>
+</div><h2 id="クラスとインタフェース">クラスとインタフェース</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
