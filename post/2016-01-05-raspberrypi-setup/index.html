@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.81.0 with theme even" />
+<meta name="generator" content="Hugo 0.87.0 with theme even" />
 
 
 <link rel="canonical" href="https://www.tac42.net/post/2016-01-05-raspberrypi-setup/" />
@@ -38,7 +38,7 @@
 <link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c" rel="stylesheet">
 
 
-<link href="/sass/main.min.8c3cbcb0324c2bb4875ceccba4007cbad4b4ac8377f33af9953c3e7684534a50.css" rel="stylesheet">
+<link href="/sass/main.min.53f051f046eec6d624e224c96cc14f7ead69960716e4d1de248415f7b0c01a41.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -46,12 +46,12 @@
 <meta property="og:description" content="すごい今更感ありますが、Raspberry Pi2 Model B を買ってしまったのでセットアップしたメモ．" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.tac42.net/post/2016-01-05-raspberrypi-setup/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2016-01-05T01:42:19&#43;00:00" />
-<meta property="article:modified_time" content="2016-01-05T01:42:19&#43;00:00" />
+<meta property="article:published_time" content="2016-01-05T01:42:19+00:00" />
+<meta property="article:modified_time" content="2016-01-05T01:42:19+00:00" />
 
 <meta itemprop="name" content="RaspberryPi2をセットアップする">
-<meta itemprop="description" content="すごい今更感ありますが、Raspberry Pi2 Model B を買ってしまったのでセットアップしたメモ．"><meta itemprop="datePublished" content="2016-01-05T01:42:19&#43;00:00" />
-<meta itemprop="dateModified" content="2016-01-05T01:42:19&#43;00:00" />
+<meta itemprop="description" content="すごい今更感ありますが、Raspberry Pi2 Model B を買ってしまったのでセットアップしたメモ．"><meta itemprop="datePublished" content="2016-01-05T01:42:19+00:00" />
+<meta itemprop="dateModified" content="2016-01-05T01:42:19+00:00" />
 <meta itemprop="wordCount" content="1437">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="RaspberryPi2をセットアップする"/>
@@ -163,16 +163,16 @@ ssh するところまで．</p>
 <a href="https://www.raspberrypi.org/downloads/raspbian/">Download Raspbian for RaspberryPi</a></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh">$ unzip 2015-11-21-raspbian-jessie.zip
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">$ unzip 2015-11-21-raspbian-jessie.zip
 </code></pre></td></tr></table>
 </div>
 </div><p>書き込みたいディスクを確認．別なディスクに書き込むと大変なことになるので慎重に．</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -197,7 +197,7 @@ ssh するところまで．</p>
 </span><span class="lnt">23
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh">$ diskutil list
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">$ diskutil list
 /dev/disk0 <span class="o">(</span>internal, physical<span class="o">)</span>:
    <span class="c1">#:                       TYPE NAME                    SIZE       IDENTIFIER</span>
    0:      GUID_partition_scheme                        *121.3 GB   disk0
@@ -225,7 +225,7 @@ ssh するところまで．</p>
 </div><p>/dev/disk5 っぽい．<code>dd</code>で書き込む．めっちゃ時間かかる．</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -235,7 +235,7 @@ ssh するところまで．</p>
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh">$ diskutil unmountDisk /dev/disk5
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">$ diskutil unmountDisk /dev/disk5
 Unmount of all volumes on disk5 was successful
 
 $ sudo dd <span class="nv">bs</span><span class="o">=</span>1m <span class="k">if</span><span class="o">=</span>2015-11-21-raspbian-jessie.img  <span class="nv">of</span><span class="o">=</span>/dev/disk5
@@ -252,10 +252,10 @@ $
 <p><a href="http://www.prolific.com.tw/US/ShowProduct.aspx?p_id=229&amp;pcid=41">ここ</a>からドライバをダウンロード．</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh">$ unzip PL2303_MacOSX_1_6_0_20151022.zip
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">$ unzip PL2303_MacOSX_1_6_0_20151022.zip
 </code></pre></td></tr></table>
 </div>
 </div><p>出てきた pkg ファイルをダブルクリックして実行．PC を再起動する．</p>
@@ -263,7 +263,7 @@ $
 <p>ボーレートは 115200．</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -271,7 +271,7 @@ $
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh">$ sudo cu -s <span class="m">115200</span> -l /dev/tty.usbserial
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">$ sudo cu -s <span class="m">115200</span> -l /dev/tty.usbserial
 Connected.
 
 Raspbian GNU/Linux <span class="m">8</span> raspberrypi ttyAMA0
@@ -282,7 +282,7 @@ raspberrypi login:
 </div><p>ユーザ名は &ldquo;pi&rdquo;, パスワードは &ldquo;raspberry&rdquo; でログイン．</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -294,7 +294,7 @@ raspberrypi login:
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">Last login: Sat Nov 21 21:35:31 UTC 2015 on tty1
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">Last login: Sat Nov 21 21:35:31 UTC 2015 on tty1
 Linux raspberrypi 4.1.13-v7+ #826 SMP PREEMPT Fri Nov 13 20:19:03 GMT 2015 armv7l
 
 The programs included with the Debian GNU/Linux system are free software;
@@ -311,7 +311,7 @@ pi@raspberrypi:~$
 <p>ファイルシステム拡張と SSH を有効にする．</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -331,7 +331,7 @@ pi@raspberrypi:~$
 </span><span class="lnt">18
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-text" data-lang="text">pi@raspberrypi:~$ sudo raspi-config
+<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text">pi@raspberrypi:~$ sudo raspi-config
 ┌─────────┤ Raspberry Pi Software Configuration Tool (raspi-config) ├──────────┐
 │                                                                              │
 │    1 Expand Filesystem              Ensures that all of the SD card s        │
@@ -358,14 +358,14 @@ pi@raspberrypi:~$
 <h2 id="ドングルの設定">ドングルの設定</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">pi@raspberrypi:~$ lsusb
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">pi@raspberrypi:~$ lsusb
 Bus 001 Device 004: ID 0411:01a2 BUFFALO INC. (formerly MelCo., Inc.) WLI-UC-GNM Wireless LAN Adapter [Ralink RT8070]
 Bus 001 Device 003: ID 0424:ec00 Standard Microsystems Corp. SMSC9512/9514 Fast Ethernet Adapter
 Bus 001 Device 002: ID 0424:9514 Standard Microsystems Corp.
@@ -376,24 +376,24 @@ Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
 以下で AP 一覧を確認できる．</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">pi@raspberrypi:~$ sudo iwlist wlan0 scan | less
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">pi@raspberrypi:~$ sudo iwlist wlan0 scan | less
 </code></pre></td></tr></table>
 </div>
 </div><p><code>/etc/wpa_supplicant/wpa_supplicant.conf</code> を修正し、AP の設定を追加する．</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh">pi@raspberrypi:~$ sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">pi@raspberrypi:~$ sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
 </code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -404,7 +404,7 @@ Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-diff" data-lang="diff"><span class="gd">--- wpa_supplicant.conf.org 2015-11-21 22:17:56.359999815 +0000
+<pre tabindex="0" class="chroma"><code class="language-diff" data-lang="diff"><span class="gd">--- wpa_supplicant.conf.org 2015-11-21 22:17:56.359999815 +0000
 </span><span class="gd"></span><span class="gi">+++ /etc/wpa_supplicant/wpa_supplicant.conf     2015-11-21 22:19:14.759999785 +0000
 </span><span class="gi"></span><span class="gu">@@ -1,2 +1,6 @@
 </span><span class="gu"></span> ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
@@ -418,16 +418,16 @@ Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
 </div><p>if の再起動</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh">pi@raspberrypi:~$ sudo ifdown wlan0 <span class="o">&amp;&amp;</span> sudo ifup wlan0
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">pi@raspberrypi:~$ sudo ifdown wlan0 <span class="o">&amp;&amp;</span> sudo ifup wlan0
 </code></pre></td></tr></table>
 </div>
 </div><p>確認</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -438,7 +438,7 @@ Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh">pi@raspberrypi:~$ ifconfig wlan0
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">pi@raspberrypi:~$ ifconfig wlan0
 wlan0     Link encap:Ethernet  HWaddr cc:e1:d5:3e:2a:97
           inet addr:192.168.11.110  Bcast:192.168.11.255  Mask:255.255.255.0
           inet6 addr: fe80::fe15:1190:9afa:732b/64 Scope:Link
@@ -452,14 +452,14 @@ wlan0     Link encap:Ethernet  HWaddr cc:e1:d5:3e:2a:97
 </div><p>つながったっぽい．</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ ping 192.168.11.110
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">$ ping 192.168.11.110
 ING 192.168.11.110 (192.168.11.110): 56 data bytes
 64 bytes from 192.168.11.110: icmp_seq=0 ttl=64 time=1.043 ms
 64 bytes from 192.168.11.110: icmp_seq=1 ttl=64 time=1.289 ms
@@ -469,7 +469,7 @@ ING 192.168.11.110 (192.168.11.110): 56 data bytes
 </div><p>きたきた．</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -478,7 +478,7 @@ ING 192.168.11.110 (192.168.11.110): 56 data bytes
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ ssh 192.168.11.110
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">$ ssh 192.168.11.110
 The authenticity of host &#39;192.168.11.110 (192.168.11.110)&#39; can&#39;t be established.
 ECDSA key fingerprint is SHA256:...
 Are you sure you want to continue connecting (yes/no)? yes
@@ -491,45 +491,45 @@ pi@raspberrypi:~$
 <p>しばらくほっとくと勝手に切れちゃうので、省電力機能を無効化する．</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">pi@raspberrypi:~$ sudo nano /etc/modprobe.d/8192cu.conf
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">pi@raspberrypi:~$ sudo nano /etc/modprobe.d/8192cu.conf
 </code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-diff" data-lang="diff"><span class="gi">+ options 8192cu rtw_power_mgnt=0 rtw_enusbss=1 rtw_ips_mode=1
+<pre tabindex="0" class="chroma"><code class="language-diff" data-lang="diff"><span class="gi">+ options 8192cu rtw_power_mgnt=0 rtw_enusbss=1 rtw_ips_mode=1
 </span></code></pre></td></tr></table>
 </div>
 </div><h2 id="電力アップ">電力アップ</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh">$ sudo nano /boot/config.txt
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">$ sudo nano /boot/config.txt
 </code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-diff" data-lang="diff"><span class="gi">+ safe_mode_apio=4
+<pre tabindex="0" class="chroma"><code class="language-diff" data-lang="diff"><span class="gi">+ safe_mode_apio=4
 </span><span class="gi">+ max_usb_current=1
 </span></code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">pi@raspberrypi:~$ sudo reboot
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">pi@raspberrypi:~$ sudo reboot
 </code></pre></td></tr></table>
 </div>
 </div><h1 id="参考">参考</h1>

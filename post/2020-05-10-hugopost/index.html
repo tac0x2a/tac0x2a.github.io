@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.81.0 with theme even" />
+<meta name="generator" content="Hugo 0.87.0 with theme even" />
 
 
 <link rel="canonical" href="https://www.tac42.net/post/2020-05-10-hugopost/" />
@@ -38,7 +38,7 @@
 <link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c" rel="stylesheet">
 
 
-<link href="/sass/main.min.8c3cbcb0324c2bb4875ceccba4007cbad4b4ac8377f33af9953c3e7684534a50.css" rel="stylesheet">
+<link href="/sass/main.min.53f051f046eec6d624e224c96cc14f7ead69960716e4d1de248415f7b0c01a41.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -46,12 +46,12 @@
 <meta property="og:description" content="Hugoでこのブログに記事を投稿する手順をメモ。備忘録。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.tac42.net/post/2020-05-10-hugopost/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2020-05-10T17:20:03&#43;09:00" />
-<meta property="article:modified_time" content="2020-05-10T17:20:03&#43;09:00" />
+<meta property="article:published_time" content="2020-05-10T17:20:03+09:00" />
+<meta property="article:modified_time" content="2020-05-10T17:20:03+09:00" />
 
 <meta itemprop="name" content="HugoでGithubPagesへ記事を公開する">
-<meta itemprop="description" content="Hugoでこのブログに記事を投稿する手順をメモ。備忘録。"><meta itemprop="datePublished" content="2020-05-10T17:20:03&#43;09:00" />
-<meta itemprop="dateModified" content="2020-05-10T17:20:03&#43;09:00" />
+<meta itemprop="description" content="Hugoでこのブログに記事を投稿する手順をメモ。備忘録。"><meta itemprop="datePublished" content="2020-05-10T17:20:03+09:00" />
+<meta itemprop="dateModified" content="2020-05-10T17:20:03+09:00" />
 <meta itemprop="wordCount" content="437">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="HugoでGithubPagesへ記事を公開する"/>
@@ -168,13 +168,13 @@
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">git clone git@github.com:tac0x2a/tac0x2a.github.io.src.git
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">git clone git@github.com:tac0x2a/tac0x2a.github.io.src.git
 cd tac0x2a.github.io.src
 git submodule init
 git submodule update
@@ -189,11 +189,11 @@ git submodule update
 <p>WSL環境で。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh">wget https://github.com/gohugoio/hugo/releases/download/<span class="o">[</span>version<span class="o">]</span>/hugo_<span class="o">[</span>version<span class="o">]</span>_Linux-64bit.deb
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">wget https://github.com/gohugoio/hugo/releases/download/<span class="o">[</span>version<span class="o">]</span>/hugo_<span class="o">[</span>version<span class="o">]</span>_Linux-64bit.deb
 sudo dpkg -i hugo_0.70.0_Linux-64bit.deb
 </code></pre></td></tr></table>
 </div>
@@ -201,13 +201,13 @@ sudo dpkg -i hugo_0.70.0_Linux-64bit.deb
 <h2 id="記事を書く">記事を書く</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">hugo new post/yyyy-mm-dd-&lt;title&gt;.md
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">hugo new post/yyyy-mm-dd-&lt;title&gt;.md
 
 <span class="c1"># 画像を記事に含める場合はこう。</span>
 hugo new post/yyyy-mm-dd-&lt;title&gt;/index.md
@@ -216,12 +216,12 @@ hugo new post/yyyy-mm-dd-&lt;title&gt;/index.md
 </div><p>確認するにはこう</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh">hugo serve -D
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">hugo serve -D
 <span class="c1"># open localhost:1313</span>
 
 </code></pre></td></tr></table>
@@ -229,11 +229,11 @@ hugo new post/yyyy-mm-dd-&lt;title&gt;/index.md
 </div><p>themeを変更した場合はこんな感じ。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">cd theme/even
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">cd theme/even
 sass --watch --sourcemap=none assets/sass/main.scss:resources/_gen/assets/scss/sass/main.scss_48b060fe05b0a273d182ef83c0605941.content
 </code></pre></td></tr></table>
 </div>
@@ -241,11 +241,11 @@ sass --watch --sourcemap=none assets/sass/main.scss:resources/_gen/assets/scss/s
 <h2 id="記事を公開する">記事を公開する</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">chmod +x ./deploy.sh
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">chmod +x ./deploy.sh
 ./deploy.sh
 </code></pre></td></tr></table>
 </div>

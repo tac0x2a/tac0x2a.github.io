@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.81.0 with theme even" />
+<meta name="generator" content="Hugo 0.87.0 with theme even" />
 
 
 <link rel="canonical" href="https://www.tac42.net/post/2021-08-08-shell_script_cheat_sheet/" />
@@ -38,7 +38,7 @@
 <link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c" rel="stylesheet">
 
 
-<link href="/sass/main.min.8c3cbcb0324c2bb4875ceccba4007cbad4b4ac8377f33af9953c3e7684534a50.css" rel="stylesheet">
+<link href="/sass/main.min.53f051f046eec6d624e224c96cc14f7ead69960716e4d1de248415f7b0c01a41.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -46,12 +46,12 @@
 <meta property="og:description" content="Shell Script のメモ" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.tac42.net/post/2021-08-08-shell_script_cheat_sheet/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2021-08-08T09:15:40&#43;09:00" />
-<meta property="article:modified_time" content="2021-08-08T09:15:40&#43;09:00" />
+<meta property="article:published_time" content="2021-08-08T09:15:40+09:00" />
+<meta property="article:modified_time" content="2021-08-08T09:15:40+09:00" />
 
 <meta itemprop="name" content="Shell Script のメモ">
-<meta itemprop="description" content="Shell Script のメモ"><meta itemprop="datePublished" content="2021-08-08T09:15:40&#43;09:00" />
-<meta itemprop="dateModified" content="2021-08-08T09:15:40&#43;09:00" />
+<meta itemprop="description" content="Shell Script のメモ"><meta itemprop="datePublished" content="2021-08-08T09:15:40+09:00" />
+<meta itemprop="dateModified" content="2021-08-08T09:15:40+09:00" />
 <meta itemprop="wordCount" content="3586">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Shell Script のメモ"/>
@@ -187,10 +187,10 @@
       <h2 id="はじめに">はじめに</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="cp">#!/bin/bash
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="cp">#!/bin/bash
 </span></code></pre></td></tr></table>
 </div>
 </div><p>shebang には bash を明記する。
@@ -198,7 +198,7 @@
 <h2 id="変数とか">変数とか</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -232,7 +232,7 @@
 </span><span class="lnt">32
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="nv">hoge</span><span class="o">=</span><span class="s1">&#39;hello,world shell&#39;</span>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="nv">hoge</span><span class="o">=</span><span class="s1">&#39;hello,world shell&#39;</span>
 <span class="nb">echo</span> <span class="nv">$hoge</span>         <span class="c1"># hello,world shell</span>
 <span class="nb">echo</span> <span class="si">${</span><span class="nv">hoge</span><span class="si">}</span>script <span class="c1"># hello,world shellscript</span>
 
@@ -270,7 +270,7 @@ map<span class="o">[</span>e<span class="o">]=</span>eve
 <p>シェルからコマンド実行すると別のプロセスとして実行されるが、この別プロセスへ引き継がれる変数を環境変数という。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -278,7 +278,7 @@ map<span class="o">[</span>e<span class="o">]=</span>eve
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="nv">TARGET</span><span class="o">=</span>/home/tac        <span class="c1"># これはただたの変数で、子プロセスには引き継がれない</span>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="nv">TARGET</span><span class="o">=</span>/home/tac        <span class="c1"># これはただたの変数で、子プロセスには引き継がれない</span>
 <span class="nb">export</span> <span class="nv">TARGET</span><span class="o">=</span>/home/tac <span class="c1"># exportすると環境変数になる</span>
 <span class="nv">TARGET</span><span class="o">=</span>/home/tac ls     <span class="c1"># この子プロセス実行時だけ引き渡すこともできる</span>
 
@@ -301,7 +301,7 @@ map<span class="o">[</span>e<span class="o">]=</span>eve
 <h3 id="位置パラメータ">位置パラメータ</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -322,7 +322,7 @@ map<span class="o">[</span>e<span class="o">]=</span>eve
 </span><span class="lnt">19
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="cp">#!/bin/bash
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="cp">#!/bin/bash
 </span><span class="cp"></span>
 <span class="c1"># ./tmp.sh aaa bbb ccc</span>
 
@@ -359,7 +359,7 @@ map<span class="o">[</span>e<span class="o">]=</span>eve
 <h3 id="変数定義有無による展開ルール">変数定義有無による展開ルール</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -371,7 +371,7 @@ map<span class="o">[</span>e<span class="o">]=</span>eve
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="nb">echo</span> <span class="si">${</span><span class="nv">name</span><span class="k">:-</span><span class="nv">piyo</span><span class="si">}</span> <span class="c1"># piyo # 値が空文字ならpiyo</span>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="nb">echo</span> <span class="si">${</span><span class="nv">name</span><span class="k">:-</span><span class="nv">piyo</span><span class="si">}</span> <span class="c1"># piyo # 値が空文字ならpiyo</span>
 <span class="nv">hoge</span><span class="o">=</span>fuga
 <span class="nb">echo</span> <span class="si">${</span><span class="nv">name</span><span class="k">:-</span><span class="nv">piyo</span><span class="si">}</span> <span class="c1"># fuga # 値があればそれを使う</span>
 <span class="nb">echo</span> target dir is <span class="si">${</span><span class="nv">1</span><span class="k">:-</span><span class="p">.</span><span class="si">}</span> <span class="c1"># 引数($1など)のデフォルト値を設定するのによく使う</span>
@@ -386,7 +386,7 @@ map<span class="o">[</span>e<span class="o">]=</span>eve
 </div><h3 id="文字列をごにょごにょする">文字列をごにょごにょする</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -421,7 +421,7 @@ map<span class="o">[</span>e<span class="o">]=</span>eve
 </span><span class="lnt">33
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="nv">file</span><span class="o">=</span>/home/tac/hello-world.sh
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="nv">file</span><span class="o">=</span>/home/tac/hello-world.sh
 <span class="nb">echo</span> <span class="si">${</span><span class="nv">file</span><span class="p">:</span><span class="nv">8</span><span class="si">}</span> <span class="c1"># c/hello-world.sh # 8文字目から表示</span>
 <span class="nb">echo</span> <span class="si">${</span><span class="nv">file</span><span class="p">: -2</span><span class="si">}</span> <span class="c1"># sh # 後ろから2文字だけ表示。</span>
                  <span class="c1"># :と-の間にスペース開けないと未定義時のデフォルト値としてパースされちゃうので注意。</span>
@@ -460,14 +460,14 @@ map<span class="o">[</span>e<span class="o">]=</span>eve
 <p>インデックスの指定は文字列と同じっぽい。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="nv">arr</span><span class="o">=(</span>aaa.txt bbb.tgz ccc.tgz ddd.7z<span class="o">)</span>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="nv">arr</span><span class="o">=(</span>aaa.txt bbb.tgz ccc.tgz ddd.7z<span class="o">)</span>
 <span class="nb">echo</span> <span class="si">${</span><span class="nv">arr</span><span class="p">[@]:</span><span class="nv">1</span><span class="si">}</span>   <span class="c1"># bbb.tgz ccc.tgz ddd.7z</span>
 <span class="nb">echo</span> <span class="si">${</span><span class="nv">arr</span><span class="p">[@]:</span><span class="nv">1</span><span class="p">:</span><span class="nv">2</span><span class="si">}</span> <span class="c1"># bbb.tgz ccc.tgz</span>
 
@@ -478,16 +478,16 @@ map<span class="o">[</span>e<span class="o">]=</span>eve
 <p><code>`コマンド`</code> 記法より <code>$(command)</code> の方が可読性が高く良いらしい。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="nb">echo</span> <span class="k">$(</span>date +%Y-%m-%d<span class="k">)</span>.txt <span class="c1"># 2021-08-08.txt</span>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="nb">echo</span> <span class="k">$(</span>date +%Y-%m-%d<span class="k">)</span>.txt <span class="c1"># 2021-08-08.txt</span>
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="算術式評価">算術式評価</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -499,7 +499,7 @@ map<span class="o">[</span>e<span class="o">]=</span>eve
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="o">((</span><span class="nv">seconds</span> <span class="o">=</span> <span class="m">3600</span> * <span class="m">24</span> *365<span class="o">))</span> <span class="c1"># 算術式を評価する</span>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="o">((</span><span class="nv">seconds</span> <span class="o">=</span> <span class="m">3600</span> * <span class="m">24</span> *365<span class="o">))</span> <span class="c1"># 算術式を評価する</span>
 <span class="nb">echo</span> <span class="nv">$seconds</span> <span class="c1"># 31536000</span>
 
 <span class="nb">echo</span> <span class="k">$((</span><span class="m">2</span><span class="o">**</span><span class="m">16</span><span class="k">))</span> <span class="c1"># 65536 # 展開もできる</span>
@@ -517,7 +517,7 @@ map<span class="o">[</span>e<span class="o">]=</span>eve
 <p>実際は <code>echo diff /dev/fd/63 /dev/fd/62</code> みたいに、一時的なファイルディスクリプタが作られてて、そこから読み込んでいる。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -528,7 +528,7 @@ map<span class="o">[</span>e<span class="o">]=</span>eve
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh">ls a b
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">ls a b
 <span class="c1"># a:</span>
 <span class="c1"># fuga.txt  hoge.txt  piyo.txt</span>
 <span class="c1"># b:</span>
@@ -542,13 +542,13 @@ diff &lt;<span class="o">(</span>ls ./a<span class="o">)</span> &lt;<span class=
 </div><h3 id="履歴展開">履歴展開</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh">!!      <span class="c1"># 直前のコマンドを参照</span>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">!!      <span class="c1"># 直前のコマンドを参照</span>
 !n      <span class="c1"># n個前のコマンドを参照</span>
 !hoge   <span class="c1"># 最後に実行したhogeから始まるコマンド</span>
 !?hoge? <span class="c1"># 最後に実行したhogeを含むコマンド</span>
@@ -559,14 +559,14 @@ diff &lt;<span class="o">(</span>ls ./a<span class="o">)</span> &lt;<span class=
 <p><code>[[ ]]</code> は、コマンド中で <code>&amp;&amp;</code> や <code>||</code> が使える。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="o">[</span> <span class="k">$((</span><span class="nv">$1</span> <span class="o">%</span> <span class="m">3</span><span class="k">))</span> -eq <span class="m">0</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="o">[</span> <span class="k">$((</span><span class="nv">$1</span> <span class="o">%</span>  <span class="m">5</span><span class="k">))</span> -eq <span class="m">0</span> <span class="o">]</span>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="o">[</span> <span class="k">$((</span><span class="nv">$1</span> <span class="o">%</span> <span class="m">3</span><span class="k">))</span> -eq <span class="m">0</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="o">[</span> <span class="k">$((</span><span class="nv">$1</span> <span class="o">%</span>  <span class="m">5</span><span class="k">))</span> -eq <span class="m">0</span> <span class="o">]</span>
 <span class="o">[[</span> <span class="k">$((</span><span class="nv">$1</span> <span class="o">%</span> <span class="m">3</span><span class="k">))</span> -eq <span class="m">0</span>  <span class="o">&amp;&amp;</span> <span class="k">$((</span><span class="nv">$1</span> <span class="o">%</span>  <span class="m">5</span><span class="k">))</span> -eq <span class="m">0</span> <span class="o">]]</span> <span class="c1"># [[ ]] なら、中で &amp;&amp; が使える</span>
 
 <span class="o">[</span> <span class="nv">$str1</span> <span class="s1">&#39;&gt;&#39;</span> <span class="nv">$str2</span> <span class="o">]</span>
@@ -751,7 +751,7 @@ diff &lt;<span class="o">(</span>ls ./a<span class="o">)</span> &lt;<span class=
 <p>条件文のところにコマンドを書いて、コマンドの実行ステータス(<code>$?</code>)が 0 なら真、0 以外なら偽として分岐する。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -762,7 +762,7 @@ diff &lt;<span class="o">(</span>ls ./a<span class="o">)</span> &lt;<span class=
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="k">if</span> <span class="o">[</span> <span class="k">$((</span><span class="nv">$1</span> <span class="o">%</span> <span class="m">3</span><span class="k">))</span> -eq <span class="m">0</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="o">[</span> <span class="k">$((</span><span class="nv">$1</span> <span class="o">%</span>  <span class="m">5</span><span class="k">))</span> -eq <span class="m">0</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="k">if</span> <span class="o">[</span> <span class="k">$((</span><span class="nv">$1</span> <span class="o">%</span> <span class="m">3</span><span class="k">))</span> -eq <span class="m">0</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="o">[</span> <span class="k">$((</span><span class="nv">$1</span> <span class="o">%</span>  <span class="m">5</span><span class="k">))</span> -eq <span class="m">0</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
   <span class="nb">echo</span> Fizz Buzz
 <span class="k">elif</span> <span class="o">[</span> <span class="k">$((</span><span class="nv">$1</span> <span class="o">%</span>  <span class="m">3</span><span class="k">))</span> -eq <span class="m">0</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
   <span class="nb">echo</span> Fizz
@@ -776,7 +776,7 @@ diff &lt;<span class="o">(</span>ls ./a<span class="o">)</span> &lt;<span class=
 </div><h2 id="for">for</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -787,7 +787,7 @@ diff &lt;<span class="o">(</span>ls ./a<span class="o">)</span> &lt;<span class=
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="k">for</span> dir in * <span class="c1"># *.txt にマッチするフィルが無いとき、fileに *.txt がそのまま入っちゃうので注意！</span>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="k">for</span> dir in * <span class="c1"># *.txt にマッチするフィルが無いとき、fileに *.txt がそのまま入っちゃうので注意！</span>
 <span class="k">do</span>
   <span class="k">if</span> <span class="o">[[</span> -d <span class="nv">$dir</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
     <span class="nb">echo</span> <span class="s2">&#34;</span><span class="nv">$dir</span><span class="s2"> is dir.&#34;</span>
@@ -802,7 +802,7 @@ diff &lt;<span class="o">(</span>ls ./a<span class="o">)</span> &lt;<span class=
 <h2 id="case">case</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -815,7 +815,7 @@ diff &lt;<span class="o">(</span>ls ./a<span class="o">)</span> &lt;<span class=
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="k">case</span> <span class="nv">$1</span> in
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="k">case</span> <span class="nv">$1</span> in
   *.txt<span class="o">)</span>
     <span class="nb">echo</span> <span class="nv">$1</span> is text
     <span class="p">;;</span>
@@ -831,7 +831,7 @@ diff &lt;<span class="o">(</span>ls ./a<span class="o">)</span> &lt;<span class=
 </div><h2 id="while-と-until">while と until</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -846,7 +846,7 @@ diff &lt;<span class="o">(</span>ls ./a<span class="o">)</span> &lt;<span class=
 </span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="nv">i</span><span class="o">=</span><span class="m">0</span>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="nv">i</span><span class="o">=</span><span class="m">0</span>
 <span class="k">while</span> <span class="o">[[</span> <span class="nv">$i</span> -lt <span class="m">10</span> <span class="o">]]</span> <span class="c1"># &lt; だと文字列で比較しちゃうので -le を使う</span>
 <span class="k">do</span>
   <span class="nb">echo</span> <span class="nv">$i</span>
@@ -864,7 +864,7 @@ diff &lt;<span class="o">(</span>ls ./a<span class="o">)</span> &lt;<span class=
 </div><h2 id="リダイレクト">リダイレクト</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -883,7 +883,7 @@ diff &lt;<span class="o">(</span>ls ./a<span class="o">)</span> &lt;<span class=
 </span><span class="lnt">17
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh">ls . &gt; current_dir.txt <span class="c1"># よくやるやつ</span>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">ls . &gt; current_dir.txt <span class="c1"># よくやるやつ</span>
 
 cat &gt; hoge.txt
 abcd
@@ -909,7 +909,7 @@ ls 2&gt;<span class="p">&amp;</span><span class="m">1</span> &gt; log.txt <span 
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -923,7 +923,7 @@ ls 2&gt;<span class="p">&amp;</span><span class="m">1</span> &gt; log.txt <span 
 </span><span class="lnt">12
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="nb">echo</span> <span class="s2">&#34;Hello&#34;</span> &gt; hello.txt
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="nb">echo</span> <span class="s2">&#34;Hello&#34;</span> &gt; hello.txt
 <span class="nb">echo</span> <span class="s2">&#34;World&#34;</span> &gt; hello.txt
 cat hello.txt <span class="c1"># World</span>
 
@@ -959,7 +959,11 @@ cat hello.txt <span class="c1"># Hello</span>
 <footer class="post-footer">
       
       <nav class="post-nav">
-        
+        <a class="prev" href="/post/2021-10-23-redshift_vs_bigquery_datatype/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Redshift と BigQuery を雑に比較(データ型)</span>
+            <span class="prev-text nav-mobile">新しい記事へ</span>
+          </a>
         <a class="next" href="/post/2021-04-17-typescript-memo/">
             <span class="next-text nav-default">TypeScript のメモ</span>
             <span class="next-text nav-mobile">古い記事へ</span>

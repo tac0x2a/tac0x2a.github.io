@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.81.0 with theme even" />
+<meta name="generator" content="Hugo 0.87.0 with theme even" />
 
 
 <link rel="canonical" href="https://www.tac42.net/post/2016-01-02-how-to-write-octopress/" />
@@ -38,7 +38,7 @@
 <link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c" rel="stylesheet">
 
 
-<link href="/sass/main.min.8c3cbcb0324c2bb4875ceccba4007cbad4b4ac8377f33af9953c3e7684534a50.css" rel="stylesheet">
+<link href="/sass/main.min.53f051f046eec6d624e224c96cc14f7ead69960716e4d1de248415f7b0c01a41.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -46,12 +46,12 @@
 <meta property="og:description" content="備忘録です．Octopress に乗り換えたものの，環境構築忘れるとあれなので．" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.tac42.net/post/2016-01-02-how-to-write-octopress/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2016-01-02T02:27:30&#43;00:00" />
-<meta property="article:modified_time" content="2016-01-02T02:27:30&#43;00:00" />
+<meta property="article:published_time" content="2016-01-02T02:27:30+00:00" />
+<meta property="article:modified_time" content="2016-01-02T02:27:30+00:00" />
 
 <meta itemprop="name" content="Octopressで記事を書くには">
-<meta itemprop="description" content="備忘録です．Octopress に乗り換えたものの，環境構築忘れるとあれなので．"><meta itemprop="datePublished" content="2016-01-02T02:27:30&#43;00:00" />
-<meta itemprop="dateModified" content="2016-01-02T02:27:30&#43;00:00" />
+<meta itemprop="description" content="備忘録です．Octopress に乗り換えたものの，環境構築忘れるとあれなので．"><meta itemprop="datePublished" content="2016-01-02T02:27:30+00:00" />
+<meta itemprop="dateModified" content="2016-01-02T02:27:30+00:00" />
 <meta itemprop="wordCount" content="199">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Octopressで記事を書くには"/>
@@ -155,14 +155,14 @@
 <h2 id="セットアップ">セットアップ</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ git clone git@github.com:tac0x2a/tac0x2a.github.io.git
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">$ git clone git@github.com:tac0x2a/tac0x2a.github.io.git
 $ cd tac0x2a.github.io
 $ git checkout source
 $ rbenv exec bundle install
@@ -172,34 +172,34 @@ $ git clone git@github.com:tac0x2a/tac0x2a.github.io.git _deploy
 </div><h2 id="記事を書く">記事を書く</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ rbenv exec bundle exec rake new_post\[&#39;Entry Title&#39;\] # source/_posts 以下にファイルが出来る
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">$ rbenv exec bundle exec rake new_post\[&#39;Entry Title&#39;\] # source/_posts 以下にファイルが出来る
 $ emacs source/_posts/&lt;yyyy-mm-dd-&gt;&#39;EntryTitle&#39;.markdown
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="記事を確認する">記事を確認する</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ rbenv exec bundle exec rake preview
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">$ rbenv exec bundle exec rake preview
 $ open http://localhost:4000
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="source-にコミット">Source にコミット</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ git add source/_posts/&lt;yyyy-mm-dd-&gt;&#39;EntryTitle&#39;.markdown
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">$ git add source/_posts/&lt;yyyy-mm-dd-&gt;&#39;EntryTitle&#39;.markdown
 $ git commit -m &#34;Add new post.&#34;
 $ git push origin source:source
 </code></pre></td></tr></table>
@@ -207,10 +207,10 @@ $ git push origin source:source
 </div><h2 id="記事を公開する">記事を公開する</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ rbenv exec bundle exec rake gen_deploy #masterブランチに_deploy以下がpushされる
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">$ rbenv exec bundle exec rake gen_deploy #masterブランチに_deploy以下がpushされる
 </code></pre></td></tr></table>
 </div>
 </div><p>たぶんあってる．</p>

@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.81.0 with theme even" />
+<meta name="generator" content="Hugo 0.87.0 with theme even" />
 
 
 <link rel="canonical" href="https://www.tac42.net/post/2021-03-27-improve-yasuri/" />
@@ -38,7 +38,7 @@
 <link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c" rel="stylesheet">
 
 
-<link href="/sass/main.min.8c3cbcb0324c2bb4875ceccba4007cbad4b4ac8377f33af9953c3e7684534a50.css" rel="stylesheet">
+<link href="/sass/main.min.53f051f046eec6d624e224c96cc14f7ead69960716e4d1de248415f7b0c01a41.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -46,12 +46,12 @@
 <meta property="og:description" content="以前リリースしたスクレイピングライブラリをちょっと改修してコマンドラインツールとして使えるようにしました" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.tac42.net/post/2021-03-27-improve-yasuri/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2021-03-27T10:12:17&#43;09:00" />
-<meta property="article:modified_time" content="2021-03-27T10:12:17&#43;09:00" />
+<meta property="article:published_time" content="2021-03-27T10:12:17+09:00" />
+<meta property="article:modified_time" content="2021-03-27T10:12:17+09:00" />
 
 <meta itemprop="name" content="yasuriコマンドでさくっとスクレイピング">
-<meta itemprop="description" content="以前リリースしたスクレイピングライブラリをちょっと改修してコマンドラインツールとして使えるようにしました"><meta itemprop="datePublished" content="2021-03-27T10:12:17&#43;09:00" />
-<meta itemprop="dateModified" content="2021-03-27T10:12:17&#43;09:00" />
+<meta itemprop="description" content="以前リリースしたスクレイピングライブラリをちょっと改修してコマンドラインツールとして使えるようにしました"><meta itemprop="datePublished" content="2021-03-27T10:12:17+09:00" />
+<meta itemprop="dateModified" content="2021-03-27T10:12:17+09:00" />
 <meta itemprop="wordCount" content="814">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="yasuriコマンドでさくっとスクレイピング"/>
@@ -154,7 +154,7 @@
       <h2 id="tldr">TL;DR</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -207,7 +207,7 @@
 </span><span class="lnt">51
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh">$ ruby -v
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">$ ruby -v
 ruby 3.0.0p0 <span class="o">(</span>2020-12-25 revision 95aff21468<span class="o">)</span> <span class="o">[</span>x86_64-linux<span class="o">]</span>
 
 $ gem install yasuri
@@ -272,7 +272,7 @@ $ yasuri scrape <span class="s2">&#34;https://www.tac42.net/&#34;</span> -f exam
 <p>スクレイピングを宣言的な書式で行うコマンドです。書式をファイルまたはコマンドで与えて実行します。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -283,7 +283,7 @@ $ yasuri scrape <span class="s2">&#34;https://www.tac42.net/&#34;</span> -f exam
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># ファイル指定して実行</span>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># ファイル指定して実行</span>
 $ yasuri scrape <span class="s2">&#34;https://www.tac42.net/&#34;</span> -f examples/sample.yml
 
 <span class="c1"># 直接指定して実行</span>

@@ -6,22 +6,40 @@
     <description>Recent content in Categories on tac42.net</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sun, 08 Aug 2021 09:15:40 +0900</lastBuildDate><atom:link href="https://www.tac42.net/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 23 Oct 2021 18:34:14 +0900</lastBuildDate><atom:link href="https://www.tac42.net/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>lang</title>
-      <link>https://www.tac42.net/categories/lang/</link>
-      <pubDate>Sun, 08 Aug 2021 09:15:40 +0900</pubDate>
+      <title>bigquery</title>
+      <link>https://www.tac42.net/categories/bigquery/</link>
+      <pubDate>Sat, 23 Oct 2021 18:34:14 +0900</pubDate>
       
-      <guid>https://www.tac42.net/categories/lang/</guid>
+      <guid>https://www.tac42.net/categories/bigquery/</guid>
       <description></description>
     </item>
     
     <item>
       <title>memo</title>
       <link>https://www.tac42.net/categories/memo/</link>
-      <pubDate>Sun, 08 Aug 2021 09:15:40 +0900</pubDate>
+      <pubDate>Sat, 23 Oct 2021 18:34:14 +0900</pubDate>
       
       <guid>https://www.tac42.net/categories/memo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>redshift</title>
+      <link>https://www.tac42.net/categories/redshift/</link>
+      <pubDate>Sat, 23 Oct 2021 18:34:14 +0900</pubDate>
+      
+      <guid>https://www.tac42.net/categories/redshift/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>lang</title>
+      <link>https://www.tac42.net/categories/lang/</link>
+      <pubDate>Sun, 08 Aug 2021 09:15:40 +0900</pubDate>
+      
+      <guid>https://www.tac42.net/categories/lang/</guid>
       <description></description>
     </item>
     

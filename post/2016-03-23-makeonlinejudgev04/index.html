@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.81.0 with theme even" />
+<meta name="generator" content="Hugo 0.87.0 with theme even" />
 
 
 <link rel="canonical" href="https://www.tac42.net/post/2016-03-23-makeonlinejudgev04/" />
@@ -38,7 +38,7 @@
 <link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c" rel="stylesheet">
 
 
-<link href="/sass/main.min.8c3cbcb0324c2bb4875ceccba4007cbad4b4ac8377f33af9953c3e7684534a50.css" rel="stylesheet">
+<link href="/sass/main.min.53f051f046eec6d624e224c96cc14f7ead69960716e4d1de248415f7b0c01a41.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -46,12 +46,12 @@
 <meta property="og:description" content="とりあえず Angular2 を触ってみよう。合わなければやめる方向で。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.tac42.net/post/2016-03-23-makeonlinejudgev04/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2016-03-23T23:57:43&#43;00:00" />
-<meta property="article:modified_time" content="2016-03-23T23:57:43&#43;00:00" />
+<meta property="article:published_time" content="2016-03-23T23:57:43+00:00" />
+<meta property="article:modified_time" content="2016-03-23T23:57:43+00:00" />
 
 <meta itemprop="name" content="Angular2入門">
-<meta itemprop="description" content="とりあえず Angular2 を触ってみよう。合わなければやめる方向で。"><meta itemprop="datePublished" content="2016-03-23T23:57:43&#43;00:00" />
-<meta itemprop="dateModified" content="2016-03-23T23:57:43&#43;00:00" />
+<meta itemprop="description" content="とりあえず Angular2 を触ってみよう。合わなければやめる方向で。"><meta itemprop="datePublished" content="2016-03-23T23:57:43+00:00" />
+<meta itemprop="dateModified" content="2016-03-23T23:57:43+00:00" />
 <meta itemprop="wordCount" content="369">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Angular2入門"/>
@@ -156,15 +156,15 @@
 nvm(NodeVersionManager)</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">% brew install nvm
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">% brew install nvm
 </code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -181,7 +181,7 @@ nvm(NodeVersionManager)</p>
 </span><span class="lnt">15
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">Add NVM&#39;s working directory to your $HOME path (if it doesn&#39;t exist):
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">Add NVM&#39;s working directory to your $HOME path (if it doesn&#39;t exist):
 
   mkdir ~/.nvm
 
@@ -201,14 +201,14 @@ Type `nvm help` for further information.
 </div><p>と言われたので、</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">% mkdir ~/.nvm
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">% mkdir ~/.nvm
 % cp $(brew --prefix nvm)/nvm-exec ~/.nvm/
 % echo &#39;export NVM_DIR=~/.nvm&#39; &gt;&gt; .zshrc.mine
 % echo &#39;source $(brew --prefix nvm)/nvm.sh&#39;  &gt;&gt; .zshrc.mine
@@ -218,26 +218,26 @@ Type `nvm help` for further information.
 </div><p>これで nvm が使えるようになった。node をインストールする。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">% nvm --version
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">% nvm --version
 % nvm ls-remote #利用可能なnodeのバージョン
 % nvm install v5.9.0  #一番新しそうなver
 </code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">% node -v
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">% node -v
 v5.9.0
 
 % npm -v
@@ -250,19 +250,19 @@ v5.9.0
 <p>まずは環境構築。<code>tsconfig.json</code>, <code>typings.json</code>, <code>package.json</code> を用意して・・・</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">% npm install
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">% npm install
 </code></pre></td></tr></table>
 </div>
 </div><p><code>app/app.component.ts</code>, <code>app/main.ts</code>, <code>index.html</code>, <code>style.css</code>, を追加して</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">% npm start
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">% npm start
 </code></pre></td></tr></table>
 </div>
 </div><p>上記で、&ldquo;My First Angular 2 App&rdquo; が表示されることを確認。動いてるっぽい。</p>

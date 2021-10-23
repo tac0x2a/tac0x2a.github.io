@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.81.0 with theme even" />
+<meta name="generator" content="Hugo 0.87.0 with theme even" />
 
 
 <link rel="canonical" href="https://www.tac42.net/post/2016-03-28-makeonlinejudgev08/" />
@@ -38,7 +38,7 @@
 <link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c" rel="stylesheet">
 
 
-<link href="/sass/main.min.8c3cbcb0324c2bb4875ceccba4007cbad4b4ac8377f33af9953c3e7684534a50.css" rel="stylesheet">
+<link href="/sass/main.min.53f051f046eec6d624e224c96cc14f7ead69960716e4d1de248415f7b0c01a41.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -46,12 +46,12 @@
 <meta property="og:description" content="" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.tac42.net/post/2016-03-28-makeonlinejudgev08/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2016-03-28T22:22:25&#43;00:00" />
-<meta property="article:modified_time" content="2016-03-28T22:22:25&#43;00:00" />
+<meta property="article:published_time" content="2016-03-28T22:22:25+00:00" />
+<meta property="article:modified_time" content="2016-03-28T22:22:25+00:00" />
 
 <meta itemprop="name" content="プロトタイプを作ろう">
-<meta itemprop="description" content=""><meta itemprop="datePublished" content="2016-03-28T22:22:25&#43;00:00" />
-<meta itemprop="dateModified" content="2016-03-28T22:22:25&#43;00:00" />
+<meta itemprop="description" content=""><meta itemprop="datePublished" content="2016-03-28T22:22:25+00:00" />
+<meta itemprop="dateModified" content="2016-03-28T22:22:25+00:00" />
 <meta itemprop="wordCount" content="505">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="プロトタイプを作ろう"/>
@@ -157,12 +157,12 @@
 <h2 id="express-の環境構築">Express の環境構築</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ nvm use v5.9.0
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">$ nvm use v5.9.0
 $ npm init
 $ npm install --save-dev express
 </code></pre></td></tr></table>
@@ -172,7 +172,7 @@ $ npm install --save-dev express
 <p><code>app.js</code> という名前で以下のファイルを作った。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -188,7 +188,7 @@ $ npm install --save-dev express
 </span><span class="lnt">14
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;express&#39;</span><span class="p">);</span>
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;express&#39;</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">express</span><span class="p">();</span>
 
 <span class="c1">// receive http request
@@ -211,12 +211,12 @@ $ npm install --save-dev express
 <h2 id="実行してみる">実行してみる</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ node app.js
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">$ node app.js
 $ curl http://:::3000
 Hello, World
 </code></pre></td></tr></table>
@@ -229,7 +229,7 @@ Hello, World
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -237,7 +237,7 @@ Hello, World
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ git clone git@github.com:tac0x2a/judgesv_devenv.git
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">$ git clone git@github.com:tac0x2a/judgesv_devenv.git
 $ cd judgesv_devenv/
 $ git clone git@github.com:tac0x2a/judgesv_app_prototype.git data/work
 $ docker-compose build

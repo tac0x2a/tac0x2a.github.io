@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.81.0 with theme even" />
+<meta name="generator" content="Hugo 0.87.0 with theme even" />
 
 
 <link rel="canonical" href="https://www.tac42.net/post/2016-04-13-makeonlinejudgev10/" />
@@ -38,7 +38,7 @@
 <link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c" rel="stylesheet">
 
 
-<link href="/sass/main.min.8c3cbcb0324c2bb4875ceccba4007cbad4b4ac8377f33af9953c3e7684534a50.css" rel="stylesheet">
+<link href="/sass/main.min.53f051f046eec6d624e224c96cc14f7ead69960716e4d1de248415f7b0c01a41.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -46,12 +46,12 @@
 <meta property="og:description" content="" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.tac42.net/post/2016-04-13-makeonlinejudgev10/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2016-04-13T08:04:24&#43;00:00" />
-<meta property="article:modified_time" content="2016-04-13T08:04:24&#43;00:00" />
+<meta property="article:published_time" content="2016-04-13T08:04:24+00:00" />
+<meta property="article:modified_time" content="2016-04-13T08:04:24+00:00" />
 
 <meta itemprop="name" content="テストフレームワークを導入する(mocha)">
-<meta itemprop="description" content=""><meta itemprop="datePublished" content="2016-04-13T08:04:24&#43;00:00" />
-<meta itemprop="dateModified" content="2016-04-13T08:04:24&#43;00:00" />
+<meta itemprop="description" content=""><meta itemprop="datePublished" content="2016-04-13T08:04:24+00:00" />
+<meta itemprop="dateModified" content="2016-04-13T08:04:24+00:00" />
 <meta itemprop="wordCount" content="540">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="テストフレームワークを導入する(mocha)"/>
@@ -154,26 +154,26 @@
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ npm install -g mocha --save-dev
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">$ npm install -g mocha --save-dev
 </code></pre></td></tr></table>
 </div>
 </div><p>さっそく動かしてみる.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ mkdir test
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">$ mkdir test
 $ touch test/test.js
 </code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -184,7 +184,7 @@ $ touch test/test.js
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">assert</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;chai&#39;</span><span class="p">).</span><span class="nx">assert</span><span class="p">;</span>
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">assert</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;chai&#39;</span><span class="p">).</span><span class="nx">assert</span><span class="p">;</span>
 <span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;Array&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
   <span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;#indexOf()&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
     <span class="nx">it</span><span class="p">(</span><span class="s1">&#39;should return -1 when the value is not present&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
@@ -197,15 +197,15 @@ $ touch test/test.js
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ mocha
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">$ mocha
 </code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -217,7 +217,7 @@ $ touch test/test.js
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">Array
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">Array
   #indexOf()
     1) should return -1 when the value is not present
 
@@ -236,10 +236,10 @@ $ touch test/test.js
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">assert</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;chai&#39;</span><span class="p">).</span><span class="nx">assert</span><span class="p">;</span>
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">assert</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;chai&#39;</span><span class="p">).</span><span class="nx">assert</span><span class="p">;</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>Chai は他にも <code>expect</code> や <code>should</code> を使った書き方もサポートしています。
@@ -253,12 +253,12 @@ $ touch test/test.js
 <p>以下の内容で <code>.travis.yml</code> をリポジトリのルートに作る。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-yml" data-lang="yml"><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="l">node_js</span><span class="w">
+<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="l">node_js</span><span class="w">
 </span><span class="w"></span><span class="nt">node_js</span><span class="p">:</span><span class="w">
 </span><span class="w">  </span>- <span class="s1">&#39;5.9.0&#39;</span><span class="w">
 </span></code></pre></td></tr></table>
@@ -266,7 +266,7 @@ $ touch test/test.js
 </div><p>TravisCI は <code>npm test</code> を叩いてテストするので、<code>package.js</code> に以下を加える。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -275,7 +275,7 @@ $ touch test/test.js
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="p">{</span>
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="p">{</span>
 <span class="p">...</span>
   <span class="s2">&#34;scripts&#34;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&#34;test&#34;</span><span class="o">:</span> <span class="s2">&#34;mocha&#34;</span>
@@ -287,7 +287,7 @@ $ touch test/test.js
 </div><p>TravisCI でリポジトリを有効にしてビルド。<code>README.md</code>にバッジを追記する。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -302,7 +302,7 @@ $ touch test/test.js
 </span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">......
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">......
 $ npm test
 &gt; WitchCoder@0.0.0 test /home/travis/build/tac0x2a/WitchCoder
 &gt; mocha

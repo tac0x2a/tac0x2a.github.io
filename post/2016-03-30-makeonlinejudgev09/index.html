@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.81.0 with theme even" />
+<meta name="generator" content="Hugo 0.87.0 with theme even" />
 
 
 <link rel="canonical" href="https://www.tac42.net/post/2016-03-30-makeonlinejudgev09/" />
@@ -38,7 +38,7 @@
 <link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c" rel="stylesheet">
 
 
-<link href="/sass/main.min.8c3cbcb0324c2bb4875ceccba4007cbad4b4ac8377f33af9953c3e7684534a50.css" rel="stylesheet">
+<link href="/sass/main.min.53f051f046eec6d624e224c96cc14f7ead69960716e4d1de248415f7b0c01a41.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -46,12 +46,12 @@
 <meta property="og:description" content="" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.tac42.net/post/2016-03-30-makeonlinejudgev09/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2016-03-30T00:39:31&#43;00:00" />
-<meta property="article:modified_time" content="2016-03-30T00:39:31&#43;00:00" />
+<meta property="article:published_time" content="2016-03-30T00:39:31+00:00" />
+<meta property="article:modified_time" content="2016-03-30T00:39:31+00:00" />
 
 <meta itemprop="name" content="Expressでバックエンドを作る(ユーザ認証まで)">
-<meta itemprop="description" content=""><meta itemprop="datePublished" content="2016-03-30T00:39:31&#43;00:00" />
-<meta itemprop="dateModified" content="2016-03-30T00:39:31&#43;00:00" />
+<meta itemprop="description" content=""><meta itemprop="datePublished" content="2016-03-30T00:39:31+00:00" />
+<meta itemprop="dateModified" content="2016-03-30T00:39:31+00:00" />
 <meta itemprop="wordCount" content="1856">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Expressでバックエンドを作る(ユーザ認証まで)"/>
@@ -180,12 +180,12 @@
 前回の <code>app.json</code> の代わりに、上記で置き換えることにした。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ npm install exress-generator
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">$ npm install exress-generator
 $ express judgesv_app_prototype
 $ cd judgesv_app_prototype &amp;&amp; npm install
 </code></pre></td></tr></table>
@@ -193,10 +193,10 @@ $ cd judgesv_app_prototype &amp;&amp; npm install
 </div><p>実行する場合は、</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ npm start
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">$ npm start
 </code></pre></td></tr></table>
 </div>
 </div><p>これで、<code>package.json</code> に書かれている通り、<code>node ./bin/www</code> が実行されて起動するようになった。</p>
@@ -207,35 +207,35 @@ $ cd judgesv_app_prototype &amp;&amp; npm install
 <p>ビルドするのに gulp が必要なのでインストールする。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ npm install -g gulp
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">$ npm install -g gulp
 </code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ npm install semantic-ui --save
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">$ npm install semantic-ui --save
 </code></pre></td></tr></table>
 </div>
 </div><p>途中いろいろ聞かれたが、<code>Express</code> を選択し、package は全て選択した。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ cd semantic/
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">$ cd semantic/
 $ gulp build
 </code></pre></td></tr></table>
 </div>
 </div><p>これで必要なファイルが生成された。読み込むよう head を修正する。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -246,7 +246,7 @@ $ gulp build
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">doctype html
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">doctype html
 html
   head
     title= title
@@ -266,14 +266,14 @@ html
 まずはユーザ名とメールアドレスを DB に登録できるところまで確認。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">// app.js
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="c1">// app.js
 </span><span class="c1"></span>
 <span class="c1">// Connect to DB
 </span><span class="c1"></span><span class="kd">var</span> <span class="nx">mongoose</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;mongoose&#39;</span><span class="p">);</span>
@@ -282,7 +282,7 @@ html
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -299,7 +299,7 @@ html
 </span><span class="lnt">15
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">// routes/signup.js
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="c1">// routes/signup.js
 </span><span class="c1"></span>
 <span class="nx">router</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">&#39;/return&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
@@ -318,12 +318,12 @@ html
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ mongo
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">$ mongo
 &gt; use judge_sv
 &gt; db.users.find()
 </code></pre></td></tr></table>
@@ -343,15 +343,15 @@ html
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ npm install mongoose-unique-validator --save
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">$ npm install mongoose-unique-validator --save
 </code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -360,7 +360,7 @@ html
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">// user.model.js
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="c1">// user.model.js
 </span><span class="c1"></span><span class="kd">var</span> <span class="nx">UserSchema</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Schema</span><span class="p">({</span>
   <span class="nx">name</span><span class="o">:</span> <span class="p">{</span> <span class="nx">type</span><span class="o">:</span> <span class="nb">String</span><span class="p">,</span> <span class="nx">required</span><span class="o">:</span> <span class="s1">&#39;Name is needed.&#39;</span> <span class="p">},</span>
   <span class="nx">email</span><span class="o">:</span> <span class="p">{</span> <span class="nx">type</span><span class="o">:</span> <span class="nb">String</span><span class="p">,</span> <span class="nx">required</span><span class="o">:</span> <span class="s1">&#39;Email is needed.&#39;</span><span class="p">,</span> <span class="nx">lowercase</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nx">unique</span><span class="o">:</span> <span class="kc">true</span> <span class="p">},</span>
@@ -371,7 +371,7 @@ html
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -422,7 +422,7 @@ html
 </span><span class="lnt">49
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">// routes/signup.js
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="c1">// routes/signup.js
 </span><span class="c1"></span>
 <span class="nx">router</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">&#39;/return&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
   <span class="kd">var</span> <span class="nx">name</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">name</span><span class="p">;</span>
@@ -480,20 +480,20 @@ html
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ npm install express-session --save
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">$ npm install express-session --save
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="ユーザ認証を実装する">ユーザ認証を実装する</h2>
 <p>以前調べた<a href="http://knimon-software.github.io/www.passportjs.org/">Passport</a>を使ってみる。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ npm install passport --save
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">$ npm install passport --save
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="local-認証">Local 認証</h3>
@@ -508,10 +508,10 @@ html
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ npm install passport-local --save
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">$ npm install passport-local --save
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="google-oauth2">Google OAuth2</h3>
@@ -522,10 +522,10 @@ html
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ npm install passport-google-oauth --save
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">$ npm install passport-google-oauth --save
 </code></pre></td></tr></table>
 </div>
 </div><h4 id="googleapis">GoogleAPIs</h4>
@@ -544,18 +544,18 @@ html
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ brew install mongodb
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">$ brew install mongodb
 </code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ mongod --config /usr/local/etc/mongod.conf
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">$ mongod --config /usr/local/etc/mongod.conf
 </code></pre></td></tr></table>
 </div>
 </div><h4 id="ubuntu1404-にインストール出来ない">Ubuntu14.04 にインストール出来ない</h4>
@@ -570,7 +570,7 @@ html
 <h3 id="docker-のコンテナから名前が引けない">Docker のコンテナから名前が引けない</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -587,7 +587,7 @@ html
 </span><span class="lnt">15
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">Step 4 : RUN apt-get update -y
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">Step 4 : RUN apt-get update -y
  ---&gt; Running in 78957f038aed
 Err http://archive.ubuntu.com trusty InRelease
 

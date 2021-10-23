@@ -6,7 +6,16 @@
     <description>Recent content in Posts on tac42.net</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sun, 08 Aug 2021 09:15:40 +0900</lastBuildDate><atom:link href="https://www.tac42.net/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 23 Oct 2021 18:34:14 +0900</lastBuildDate><atom:link href="https://www.tac42.net/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Redshift と BigQuery を雑に比較(データ型)</title>
+      <link>https://www.tac42.net/post/2021-10-23-redshift_vs_bigquery_datatype/</link>
+      <pubDate>Sat, 23 Oct 2021 18:34:14 +0900</pubDate>
+      
+      <guid>https://www.tac42.net/post/2021-10-23-redshift_vs_bigquery_datatype/</guid>
+      <description>Redshift と BigQuery のデータ型を雑に比較した</description>
+    </item>
+    
     <item>
       <title>Shell Script のメモ</title>
       <link>https://www.tac42.net/post/2021-08-08-shell_script_cheat_sheet/</link>

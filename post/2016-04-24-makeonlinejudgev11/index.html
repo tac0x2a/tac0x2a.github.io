@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.81.0 with theme even" />
+<meta name="generator" content="Hugo 0.87.0 with theme even" />
 
 
 <link rel="canonical" href="https://www.tac42.net/post/2016-04-24-makeonlinejudgev11/" />
@@ -38,7 +38,7 @@
 <link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c" rel="stylesheet">
 
 
-<link href="/sass/main.min.8c3cbcb0324c2bb4875ceccba4007cbad4b4ac8377f33af9953c3e7684534a50.css" rel="stylesheet">
+<link href="/sass/main.min.53f051f046eec6d624e224c96cc14f7ead69960716e4d1de248415f7b0c01a41.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -46,12 +46,12 @@
 <meta property="og:description" content="随分間が空きましたがこつこつ進めてますよ！" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.tac42.net/post/2016-04-24-makeonlinejudgev11/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2016-04-24T14:30:27&#43;00:00" />
-<meta property="article:modified_time" content="2016-04-24T14:30:27&#43;00:00" />
+<meta property="article:published_time" content="2016-04-24T14:30:27+00:00" />
+<meta property="article:modified_time" content="2016-04-24T14:30:27+00:00" />
 
 <meta itemprop="name" content="AngularJS導入">
-<meta itemprop="description" content="随分間が空きましたがこつこつ進めてますよ！"><meta itemprop="datePublished" content="2016-04-24T14:30:27&#43;00:00" />
-<meta itemprop="dateModified" content="2016-04-24T14:30:27&#43;00:00" />
+<meta itemprop="description" content="随分間が空きましたがこつこつ進めてますよ！"><meta itemprop="datePublished" content="2016-04-24T14:30:27+00:00" />
+<meta itemprop="dateModified" content="2016-04-24T14:30:27+00:00" />
 <meta itemprop="wordCount" content="547">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="AngularJS導入"/>
@@ -173,22 +173,22 @@
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh">$ npm install -g bower
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">$ npm install -g bower
 </code></pre></td></tr></table>
 </div>
 </div><p>以下の内容で<code>.bowerrc</code>を作る。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
   <span class="nt">&#34;directory&#34;</span><span class="p">:</span> <span class="s2">&#34;public/components&#34;</span><span class="p">,</span>
   <span class="nt">&#34;json&#34;</span><span class="p">:</span> <span class="s2">&#34;bower.json&#34;</span>
 <span class="p">}</span>
@@ -196,17 +196,17 @@
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh">$ bower init
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">$ bower init
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="余計な静的ファイルを見えないようにする">余計な静的ファイルを見えないようにする</h2>
 <p>bower のパッケージを public の下にしたので、<code>app.js</code>の静的ファイルのルーティングを修正して、余計なファイル(Bowerde 入れたパッケージの README.md とか)を見えないように、必要な物だけ見せるように設定する。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -214,7 +214,7 @@
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-diff" data-lang="diff"><span class="gd">-app.use(express.static(path.join(__dirname, &#39;public&#39;)));
+<pre tabindex="0" class="chroma"><code class="language-diff" data-lang="diff"><span class="gd">-app.use(express.static(path.join(__dirname, &#39;public&#39;)));
 </span><span class="gd"></span><span class="gi">+app.use(&#39;/images&#39;, express.static(path.join(__dirname, &#39;public&#39;,&#39;images&#39;)));
 </span><span class="gi">+app.use(&#39;/javascripts&#39;,express.static(path.join(__dirname, &#39;public&#39;,&#39;javascripts&#39;)));
 </span><span class="gi">+app.use(&#39;/stylesheets&#39;,express.static(path.join(__dirname, &#39;public&#39;,&#39;stylesheets&#39;)));
@@ -225,10 +225,10 @@
 </div><h2 id="angularjs-を入れる">AngularJS を入れる</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh">$ bower install --save angular
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">$ bower install --save angular
 </code></pre></td></tr></table>
 </div>
 </div><p>あとは以下を参考に。</p>
@@ -239,19 +239,19 @@
 <h2 id="ファイル変更で自動サーバ再起動">ファイル変更で自動サーバ再起動</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ npm install -g nodemon
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">$ npm install -g nodemon
 </code></pre></td></tr></table>
 </div>
 </div><p>以下のコマンドで起動する。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ nodemon ./bin/www
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">$ nodemon ./bin/www
 </code></pre></td></tr></table>
 </div>
 </div>
