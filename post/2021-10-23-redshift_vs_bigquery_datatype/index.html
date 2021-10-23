@@ -52,7 +52,7 @@
 <meta itemprop="name" content="Redshift と BigQuery を雑に比較(データ型)">
 <meta itemprop="description" content="Redshift と BigQuery のデータ型を雑に比較した"><meta itemprop="datePublished" content="2021-10-23T18:34:14+09:00" />
 <meta itemprop="dateModified" content="2021-10-23T18:34:14+09:00" />
-<meta itemprop="wordCount" content="1626">
+<meta itemprop="wordCount" content="1662">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Redshift と BigQuery を雑に比較(データ型)"/>
 <meta name="twitter:description" content="Redshift と BigQuery のデータ型を雑に比較した"/>
@@ -189,19 +189,19 @@
 <td>BIGINT (INT8)</td>
 <td>符号付き 8 バイト整数</td>
 <td>INT64 (INT, SMALLINT, INTEGER, BIGINT, TINYINT, BYTEINT)</td>
-<td>整数型は全部これ。<!-- raw HTML omitted -->-9,223,372,036,854,775,808 ～ 9,223,372,036,854,775,807</td>
+<td>整数型は全部これ。 -9,223,372,036,854,775,808 ～ 9,223,372,036,854,775,807</td>
 </tr>
 <tr>
 <td></td>
 <td></td>
 <td>NUMERIC (DECIMAL)</td>
-<td>少数型<!-- raw HTML omitted -->デフォルトで最大精度で、NUMERIC(P[,S]) で指定することもできるが、ストレージ サイズには影響しない<!-- raw HTML omitted -->精度: 38, スケール: 9</td>
+<td>少数型。 デフォルトで最大精度、NUMERIC(P[,S]) で指定することもできるが、ストレージ サイズには影響しない。精度: 38, スケール: 9</td>
 </tr>
 <tr>
 <td>DECIMAL (NUMERIC)</td>
-<td><!-- raw HTML omitted -->decimal(precision, scale) と精度とスケールを指定。<!-- raw HTML omitted -->最大精度(precision)は 38, 最大スケール(scale)は 37<!-- raw HTML omitted --></td>
+<td>decimal(precision, scale) と精度とスケールを指定。最大精度(precision)は 38, 最大スケール(scale)は 37</td>
 <td>BIGNUMERIC (BIGDECIMAL)</td>
-<td>少数型<!-- raw HTML omitted -->デフォルトで最大精度で、BIGNUMERIC(P[,S]) で指定することもできるが、ストレージ サイズには影響しない<!-- raw HTML omitted -->精度: 76.76（77 桁目は一部）, スケール: 38</td>
+<td>少数型。デフォルトで最大精度、BIGNUMERIC(P[,S]) で指定することもできるが、ストレージ サイズには影響しない。精度: 76.76（77 桁目は一部）, スケール: 38</td>
 </tr>
 <tr>
 <td>REAL (FLOAT4)</td>
@@ -230,39 +230,39 @@
 <tbody>
 <tr>
 <td>DATE</td>
-<td>カレンダー日付 (年、月、日)<!-- raw HTML omitted -->4713 BC ～ 294276 AD<!-- raw HTML omitted -->タイムゾーンなし(どのタイムゾーンの日付か分からない)</td>
+<td>カレンダー日付 (年、月、日)。4713 BC ～ 294276 AD。タイムゾーンなし(どのタイムゾーンの日付か分からない)</td>
 <td>DATE</td>
-<td>日付型<!-- raw HTML omitted -->0001-01-01 ～ 9999-12-31<!-- raw HTML omitted -->タイムゾーンなし</td>
+<td>日付型。0001-01-01 ～ 9999-12-31。タイムゾーンなし</td>
 </tr>
 <tr>
 <td>TIME (TIME WITHOUT TIME ZONE)</td>
-<td>時刻 <!-- raw HTML omitted -->00:00:00 ～ 24:00:00<!-- raw HTML omitted -->マイクロ秒の精度<!-- raw HTML omitted -->タイムゾーンなし(どのタイムゾーンの時刻か分からない)</td>
+<td>時刻 。00:00:00 ～ 24:00:00。マイクロ秒の精度。タイムゾーンなし(どのタイムゾーンの時刻か分からない)</td>
 <td>TIME</td>
-<td>時刻型<!-- raw HTML omitted -->00:00:00 ～ 23:59:59.99999<!-- raw HTML omitted -->マイクロ秒の精度<!-- raw HTML omitted -->タイムゾーンなし</td>
+<td>時刻型。00:00:00 ～ 23:59:59.99999。マイクロ秒の精度。タイムゾーンなし</td>
 </tr>
 <tr>
 <td>TIMESTAMP (TIMESTAMP WITHOUT TIME ZONE)</td>
-<td>日付と時刻<!-- raw HTML omitted -->4713 BC ～ 294276 AD<!-- raw HTML omitted -->マイクロ秒の精度<!-- raw HTML omitted -->タイムゾーンなし(どのタイムゾーンの日時か分からない)</td>
+<td>日付と時刻。4713 BC ～ 294276 AD。マイクロ秒の精度。タイムゾーンなし(どのタイムゾーンの日時か分からない)</td>
 <td>DATETIME</td>
-<td>日時型<!-- raw HTML omitted -->0001-01-01 00:00:00 ～ 9999-12-31 23:59:59.999999<!-- raw HTML omitted -->マイクロ秒の精度<!-- raw HTML omitted -->タイムゾーンなし</td>
+<td>日時型。0001-01-01 00:00:00 ～ 9999-12-31 23:59:59.999999。マイクロ秒の精度。タイムゾーンなし</td>
 </tr>
 <tr>
 <td>TIMETZ (TIME WITH TIME ZONE)</td>
-<td>時刻 (タイムゾーンあり)<!-- raw HTML omitted -->00:00:00 + 1459 ～ 00:00:00 + 1459<!-- raw HTML omitted -->マイクロ秒精度<!-- raw HTML omitted -->タイムゾーンはデフォルト UTC</td>
+<td>時刻 (タイムゾーンあり)。00:00:00 + 1459 ～ 00:00:00 + 1459。マイクロ秒精度。タイムゾーンはデフォルト UTC</td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>TIMESTAMPTZ (TIMESTAMP WITH TIME ZONE)</td>
-<td>日付と時刻 (タイムゾーンあり)<!-- raw HTML omitted -->4713 BC ～ 294276 AD<!-- raw HTML omitted -->マイクロ秒精度<!-- raw HTML omitted -->入力値にタイムゾーンが含まれる場合、タイムゾーンを使用して値を UTC に変換し、UTC 値を保存する。</td>
+<td>日付と時刻 (タイムゾーンあり)。4713 BC ～ 294276 AD。マイクロ秒精度。入力値にタイムゾーンが含まれる場合、タイムゾーンを使用して値を UTC に変換し、UTC 値を保存する。</td>
 <td>TIMESTAMP</td>
-<td>タイムスタンプ型 (タイムゾーンあり)<!-- raw HTML omitted -->0001-01-01 00:00:00 ～ 9999-12-31 23:59:59.999999 UTC<!-- raw HTML omitted -->タイムゾーンや夏時間などの慣習に関係なく、マイクロ秒精度の絶対的な時刻を表します。<!-- raw HTML omitted -->入力値にタイムゾーンが含まれる場合、タイムゾーンを使用して値を UTC に変換し、UTC 値を保存する。</td>
+<td>タイムスタンプ型 (タイムゾーンあり)。0001-01-01 00:00:00 ～ 9999-12-31 23:59:59.999999 UTC。タイムゾーンや夏時間などの慣習に関係なく、マイクロ秒精度の絶対的な時刻を表します。入力値にタイムゾーンが含まれる場合、タイムゾーンを使用して値を UTC に変換し、UTC 値を保存する。</td>
 </tr>
 <tr>
 <td></td>
 <td></td>
 <td>INTERVAL</td>
-<td>間隔型<!-- raw HTML omitted -->-10000-0 -3660000 -87840000:0:0 ～ 10000-0 3660000 87840000:0:0<!-- raw HTML omitted --> 3 つの独立した部分から構成される期間。<!-- raw HTML omitted -->[sign]Y-M: 年と月<!-- raw HTML omitted -->[sign]D: 日<!-- raw HTML omitted -->[sign]H:M:S.F: 時間、分、秒、サブ秒</td>
+<td>間隔型。-10000-0 -3660000 -87840000:0:0 ～ 10000-0 3660000 87840000:0:0。 3 つの独立した部分から構成される期間。[sign]Y-M: 年と月。[sign]D: 日。[sign]H:M:S.F: 時間、分、秒、サブ秒</td>
 </tr>
 </tbody>
 </table>
@@ -287,19 +287,19 @@
 <td></td>
 <td></td>
 <td>BYTES</td>
-<td>可変長文字バイナリデータ。<!-- raw HTML omitted -->STRING とは別の型で、キャストすると UTF8 として解釈される。<!-- raw HTML omitted -->STRING 操作する関数使えるけど、こっちは生 BYTE 操作(LENGTH ならバイト数)になる。</td>
+<td>可変長文字バイナリデータ。STRING とは別の型で、キャストすると UTF8 として解釈される。STRING 操作する関数使えるけど、こっちは生 BYTE 操作(LENGTH ならバイト数)になる。</td>
 </tr>
 <tr>
 <td>CHAR</td>
-<td>固定長のキャラクタ文字列 <!-- raw HTML omitted -->(CHARACTER、NCHAR、BPCHAR)</td>
+<td>固定長のキャラクタ文字列 。(CHARACTER、NCHAR、BPCHAR)</td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>VARCHAR</td>
-<td>ユーザーによって定義された制限を持つ可変長キャラクタ文字列 <!-- raw HTML omitted -->(CHARACTER VARYING、NVARCHAR、TEXT)<!-- raw HTML omitted -->文字数ではなくバイト数！</td>
+<td>ユーザーによって定義された制限を持つ可変長キャラクタ文字列 。(CHARACTER VARYING、NVARCHAR、TEXT)。文字数ではなくバイト数！</td>
 <td>STRING</td>
-<td>可変長文字（UTF8）データ。入力 STRING 値は UTF-8 エンコードに変換する必要がある。<!-- raw HTML omitted -->L は最大文字数。SUBSTR や LENGTH のような関数は、バイトではなく文字数。</td>
+<td>可変長文字（UTF8）データ。入力 STRING 値は UTF-8 エンコードに変換する必要がある。L は最大文字数。SUBSTR や LENGTH のような関数は、バイトではなく文字数。</td>
 </tr>
 <tr>
 <td>SUPER</td>
