@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>GCP Data Catalog のメモ - tac42.net</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="tac0x2a" /><meta name="description" content="Data Catalog をよく知らなかったのでメモ" /><meta name="keywords" content="Tech, Photo, Blog" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.87.0 with theme even" />
+
+
+<link rel="canonical" href="https://www.tac42.net/post/2021-10-24-datacatalog-memo/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c" rel="stylesheet">
+
+
+<link href="/sass/main.min.53f051f046eec6d624e224c96cc14f7ead69960716e4d1de248415f7b0c01a41.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="GCP Data Catalog のメモ" />
+<meta property="og:description" content="Data Catalog をよく知らなかったのでメモ" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.tac42.net/post/2021-10-24-datacatalog-memo/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-10-24T11:32:27+09:00" />
+<meta property="article:modified_time" content="2021-10-24T11:32:27+09:00" />
+
+<meta itemprop="name" content="GCP Data Catalog のメモ">
+<meta itemprop="description" content="Data Catalog をよく知らなかったのでメモ"><meta itemprop="datePublished" content="2021-10-24T11:32:27+09:00" />
+<meta itemprop="dateModified" content="2021-10-24T11:32:27+09:00" />
+<meta itemprop="wordCount" content="1428">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="GCP Data Catalog のメモ"/>
+<meta name="twitter:description" content="Data Catalog をよく知らなかったのでメモ"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+<style type="text/css">
+  <!--
+    #content {transform: rotate(0.03deg);}
+  -->
+</style>
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">tac42.net</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Blog</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/products/">
+        <li class="mobile-menu-item">Products</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">tac42.net</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Blog</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/products/">Products</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">GCP Data Catalog のメモ</h1>
+      <div class="post-meta">
+        <span class="post-time"> 2021-10-24 </span>
+        <div class="post-category">
+            <a href="/categories/bigquery/"> bigquery </a>
+            <a href="/categories/memo/"> memo </a>
+            </div>
+        
+      </div>
+      <a href="https://b.hatena.ne.jp/entry/" class="hatena-bookmark-button" data-hatena-bookmark-layout="basic-counter" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/v4/public/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+      <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">コンテンツ</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#超雑感">超雑感</a></li>
+    <li><a href="#data-catalog-とは">Data Catalog とは</a></li>
+    <li><a href="#data-catalog-が何を解決するか">Data Catalog が何を解決するか</a></li>
+    <li><a href="#タグ-と-タグテンプレート">タグ と タグテンプレート</a>
+      <ul>
+        <li><a href="#タグ">タグ</a></li>
+        <li><a href="#タグテンプレート">タグテンプレート</a></li>
+        <li><a href="#ポリシータグ">ポリシータグ</a></li>
+      </ul>
+    </li>
+    <li><a href="#エントリ-と-エントリグループ">エントリ と エントリグループ</a>
+      <ul>
+        <li><a href="#エントリ">エントリ</a></li>
+        <li><a href="#エントリグループ">エントリグループ</a></li>
+        <li><a href="#エントリの検索">エントリの検索</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+
+      <h2 id="超雑感">超雑感</h2>
+<ul>
+<li>BQのテーブルやカラム, GCSのファイルセット, Pub/Subトピックなどに型付きKey-Valueで値を設定できる</li>
+<li>そのデータオーナは誰か、センシティブかなどを設定するのに使える
+<ul>
+<li>従来ごちゃっと Description に書いてたものを、項目ごとに整理する感じかな</li>
+<li>一方でタグセットにうまく適合しない情報を書きたくなってくる気もする。データアセット(テーブル)ごとのdescriptionはあるけど、カラムごとになると、結局その他descriptionみたいなタグが欲しくなってきそう</li>
+</ul>
+</li>
+<li>検索は Data Catalog のコンソール画面や API経由で、専用の検索構文で行える</li>
+<li>特定のタグセットが付与されたエントリを探したり、特定のタグの値を含むエントリを探せるみたい</li>
+</ul>
+<h2 id="data-catalog-とは">Data Catalog とは</h2>
+<p>これ。 <a href="https://cloud.google.com/data-catalog/">https://cloud.google.com/data-catalog/</a></p>
+<h2 id="data-catalog-が何を解決するか">Data Catalog が何を解決するか</h2>
+<p><a href="https://cloud.google.com/data-catalog/docs/concepts/overview?hl=ja">https://cloud.google.com/data-catalog/docs/concepts/overview?hl=ja</a></p>
+<h2 id="タグ-と-タグテンプレート">タグ と タグテンプレート</h2>
+<p><a href="https://cloud.google.com/data-catalog/docs/tags-and-tag-templates?hl=ja">https://cloud.google.com/data-catalog/docs/tags-and-tag-templates?hl=ja</a></p>
+<h3 id="タグ">タグ</h3>
+<blockquote>
+<p>タグは「ビジネス メタデータ」と呼ばれることもあります。データアセットにタグを追加すると、アセットを使用する必要があるすべてのユーザーにわかりやすいコンテキストを提供できます。たとえば、タグは、特定のデータアセットの責任者、個人を特定できる情報（PII）が含まれているかどうか、アセットのデータ保持ポリシー、データ品質のスコアなどを示すことができます。</p>
+</blockquote>
+<ul>
+<li>タグは型付きフィールドと値のペア</li>
+<li>フィールドは後述のタグテンプレートで定義し、エントリ(テーブルとかカラムとか)に付与する時点で値を設定する</li>
+</ul>
+<h3 id="タグテンプレート">タグテンプレート</h3>
+<blockquote>
+<p>タグ テンプレートを使用すると、データアセットに関する共通のメタデータを 1 か所で作成して管理できます。タグはデータアセットに添付できるため、Data Catalog システムで検出できます。</p>
+</blockquote>
+<ul>
+<li>タグを付与する場合は事前にタグセットを定義し、タグテンプレート単位で付与する</li>
+<li>タグテンプレートは1つ以上のフィールドからなる</li>
+<li>特定のテンプレート使用している/使用していないエントリーを検索できる</li>
+</ul>
+<p>テンプレート ギャラリーとして、いくつかタグセットが事前に用意されている。</p>
+<h3 id="ポリシータグ">ポリシータグ</h3>
+<p>BQのテーブル内の列へのアクセス制御に使うタグ。コンソールでBGのテーブル表示したときに見えるあれ。</p>
+<h2 id="エントリ-と-エントリグループ">エントリ と エントリグループ</h2>
+<p><a href="https://cloud.google.com/data-catalog/docs/entries-and-entry-groups">https://cloud.google.com/data-catalog/docs/entries-and-entry-groups</a>
+<img src="https://cloud.google.com/data-catalog/images/dc-model.png" alt=""></p>
+<h3 id="エントリ">エントリ</h3>
+<p>エントリはタグを付与する対象っぽい。</p>
+<ul>
+<li>BQ: データセットとテーブル が自動検出される</li>
+<li>Pub/Sub: トピック が自動検出される</li>
+<li>GCS ファイルセット(バケット/ファイルパターンにマッチするファイル群)の集合をエントリグループとして作成する必要がある
+タグはファイルセット単位で付与する</li>
+</ul>
+<h3 id="エントリグループ">エントリグループ</h3>
+<blockquote>
+<p>エントリ グループを使用すると、Cloud Storage ファイルセットまたはカスタムデータ リソースタイプのエントリを作成および管理できます。ファイルセットとカスタム エントリはエントリ グループに配置する必要があります。ファイルセットを作成するには、エントリ グループを選択または作成し、そのエントリ グループ内にファイルセットを作成します。</p>
+</blockquote>
+<ul>
+<li>複数の GCS ファイルセットをまとめて1つのエントリとして扱う機能</li>
+<li>各ファイルセットはバケット名、ファイルパターン、スキーマで定義される</li>
+<li>タグはファイルセットに対して付与するので、階層としてはBQのデータセットに近いかも</li>
+<li>BQやPub/Subは エントリグループが自動的に作成されるっぽいので、(現時点では)実質ユーザがGCS用のエントリを作る機能っぽい</li>
+</ul>
+<p>なお、GCP 外のデータソースに対するメタデータも管理できるらしい。テクニカルメタデータなのかな。</p>
+<ul>
+<li>
+<p>データソースを Data Catalog と統合する
+<a href="https://cloud.google.com/data-catalog/docs/integrate-data-sources">https://cloud.google.com/data-catalog/docs/integrate-data-sources</a></p>
+</li>
+<li>
+<p>GoogleCloudPlatform/datacatalog-connectors-rdbms
+<a href="https://github.com/GoogleCloudPlatform/datacatalog-connectors-rdbms/tree/master/google-datacatalog-redshift-connector">https://github.com/GoogleCloudPlatform/datacatalog-connectors-rdbms/tree/master/google-datacatalog-redshift-connector</a></p>
+</li>
+</ul>
+<h3 id="エントリの検索">エントリの検索</h3>
+<p>Data Catalog の検索構文
+<a href="https://cloud.google.com/data-catalog/docs/how-to/search-reference">https://cloud.google.com/data-catalog/docs/how-to/search-reference</a></p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">作成者</span>
+    <span class="item-content">tac0x2a</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">最終更新時刻</span>
+    <span class="item-content">
+        2021-10-24
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/2021-10-23-redshift_vs_bigquery_datatype/">
+            <span class="next-text nav-default">Redshift と BigQuery を雑に比較(データ型)</span>
+            <span class="next-text nav-mobile">古い記事へ</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:tac@tac42.net" class="iconfont icon-email" title="email"></a>
+      <a href="https://twitter.com/tac0x2a/" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="https://github.com/tac0x2a" class="iconfont icon-github" title="github"></a>
+      <a href="https://osha-shin.tumblr.com/" class="iconfont icon-tumblr" title="tumblr"></a>
+  <a href="https://www.tac42.net/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2015 - 
+    2021
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">tac0x2a</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.2517c0eb67172a0bae917de4af59b10ca2531411a009d4c0b82f5685259e5771.js"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-8871338-8', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+</body>
+</html>

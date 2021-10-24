@@ -6,7 +6,16 @@
     <description>Recent content in memo on tac42.net</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sat, 23 Oct 2021 18:34:14 +0900</lastBuildDate><atom:link href="https://www.tac42.net/categories/memo/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 24 Oct 2021 11:32:27 +0900</lastBuildDate><atom:link href="https://www.tac42.net/categories/memo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GCP Data Catalog のメモ</title>
+      <link>https://www.tac42.net/post/2021-10-24-datacatalog-memo/</link>
+      <pubDate>Sun, 24 Oct 2021 11:32:27 +0900</pubDate>
+      
+      <guid>https://www.tac42.net/post/2021-10-24-datacatalog-memo/</guid>
+      <description>Data Catalog をよく知らなかったのでメモ</description>
+    </item>
+    
     <item>
       <title>Redshift と BigQuery を雑に比較(データ型)</title>
       <link>https://www.tac42.net/post/2021-10-23-redshift_vs_bigquery_datatype/</link>
