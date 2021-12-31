@@ -6,7 +6,16 @@
     <description>Recent content in Categories on tac42.net</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sun, 24 Oct 2021 11:32:27 +0900</lastBuildDate><atom:link href="https://www.tac42.net/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 31 Dec 2021 09:00:00 +0900</lastBuildDate><atom:link href="https://www.tac42.net/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>look-back</title>
+      <link>https://www.tac42.net/categories/look-back/</link>
+      <pubDate>Fri, 31 Dec 2021 09:00:00 +0900</pubDate>
+      
+      <guid>https://www.tac42.net/categories/look-back/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>bigquery</title>
       <link>https://www.tac42.net/categories/bigquery/</link>
@@ -67,15 +76,6 @@
       <pubDate>Sat, 06 Mar 2021 13:17:48 +0900</pubDate>
       
       <guid>https://www.tac42.net/categories/other/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>look-back</title>
-      <link>https://www.tac42.net/categories/look-back/</link>
-      <pubDate>Thu, 31 Dec 2020 17:00:00 +0900</pubDate>
-      
-      <guid>https://www.tac42.net/categories/look-back/</guid>
       <description></description>
     </item>
     
